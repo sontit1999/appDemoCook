@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical" android:background="@color/colorActionbar"
+               android:paddingVertical="10dp"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content">
+             <ImageView
+                     android:id="@+id/iv_navigation"
+                     android:layout_marginLeft="32dp"
+                     android:layout_centerVertical="true"
+                     android:layout_width="32dp"
+                     android:layout_height="22dp"
+                     android:src="@drawable/ic_menu_black_24dp"
+             />
+            <ImageView
+                    android:id="@+id/iv_logo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:src="@drawable/logo"
+            />
+            <ImageView
+                    android:id="@+id/iv_earth"
+                    android:layout_marginRight="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/iv_search"
+                    android:layout_width="32dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/iconearth"
+            />
+            <ImageView
+                    android:id="@+id/iv_search"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_width="32dp"
+                    android:layout_height="23dp"
+                    android:src="@drawable/iconsearch"
+            />
+</RelativeLayout>
