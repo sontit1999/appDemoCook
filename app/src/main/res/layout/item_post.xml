@@ -2,8 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
-              android:padding="20dp"
               android:background="#f1f1f1"
+              android:paddingVertical="20dp"
+              android:paddingHorizontal="15dp"
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -52,6 +53,7 @@
                 <TextView
                         android:id="@+id/tvLocation"
                         android:text="at his house"
+                        android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         app:layout_constraintLeft_toRightOf="@id/tvnameFood"
@@ -114,8 +116,8 @@
                 />
         <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/ivAvatarjoin"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="25dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
@@ -123,19 +125,18 @@
                 />
         <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/ivAvatarjoin1"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="22dp"
-
                 app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin"
                 app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
                 android:src="@drawable/gaixinh"
         />
         <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/ivAvatarjoin2"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginLeft="22dp"
                 app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin1"
@@ -145,14 +146,14 @@
         <TextView
                   android:id="@+id/tvNumbermore"
                   android:text="32+"
+                  android:gravity="center"
                   android:layout_marginLeft="22dp"
                   android:background="@drawable/custom_bg_circle"
-                  android:padding="10dp"
                   android:layout_marginTop="35dp"
                   android:textColor="@color/colorRed"
                   app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
                   app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin2"
-                  android:layout_width="wrap_content"
-                  android:layout_height="wrap_content"/>
+                  android:layout_width="40dp"
+                  android:layout_height="40dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>
