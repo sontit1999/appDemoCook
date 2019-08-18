@@ -7,18 +7,18 @@ import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentNewfeedsBinding
 
 class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel>() {
-    var adapter = PostAdapter()
+//    var adapter = PostAdapter()
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list ->
-            adapter.setList(list)
+            viewModel.adapter.setList(list)
         })
 
     }
 
     override fun setBindingViewModel() {
-        viewModel = NewFeedsViewModel()
+//        viewModel = NewFeedsViewModel()
         binding.viewModel = viewModel
-        binding.recyclerviewBangTin.adapter = adapter
+//        binding.recyclerviewBangTin.adapter = adapter
     }
 
     override fun getClassViewMode() = NewFeedsViewModel::class.java

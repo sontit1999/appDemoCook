@@ -1,10 +1,12 @@
 package com.duongtung.cookingman.fragment
 
 import androidx.lifecycle.MutableLiveData
+import com.duongtung.cookingman.adapter.PostAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import com.duongtung.cookingman.model.Post
 
 class NewFeedsViewModel : BaseViewModel() {
+    var adapter = PostAdapter()
     private var arrPost = MutableLiveData<MutableList<Post>>()
 
     fun getArrPost(): MutableLiveData<MutableList<Post>> {

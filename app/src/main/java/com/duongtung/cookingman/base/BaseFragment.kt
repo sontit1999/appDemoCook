@@ -31,8 +31,14 @@ abstract class BaseFragment<VB : ViewDataBinding,VM : BaseViewModel> : Fragment(
         viewCreated()
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(getClassViewMode())
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = activity?.run {
+            ViewModelProviders.of(this).get(getClassViewMode())
+        }?: throw Exception("Invalid Activity")
     }
+//    override fun onActivityCreated(savedInstanceState: Bundle?) {
+//        super.onActivityCreated(savedInstanceState)
+//        viewModel = ViewModelProviders.of(this).get(getClassViewMode())
+//    }
 }
