@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#008577</color>
+    <color name="colorStatusBar">#f7f7f7</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorActionbar">#ed3851</color>
@@ -8,4 +9,5 @@
     <color name="colorGrey">#515151</color>e90c2b
     <color name="colorRed">#e90c2b</color>
     <color name="colorwhite">#ffff</color>
+    <color name="tvGetStarted">#ed3851</color>
 </resources>
