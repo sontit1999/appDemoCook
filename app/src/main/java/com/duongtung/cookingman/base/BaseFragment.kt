@@ -15,13 +15,20 @@ abstract class BaseFragment<VB : ViewDataBinding,VM : BaseViewModel> : Fragment(
     protected lateinit var binding: VB
     protected lateinit var viewModel: VM
 
-
     abstract fun getClassViewMode() : Class<VM>
+    abstract fun setBindingViewModel()
+    abstract fun viewCreated()
     @LayoutRes
     abstract fun getLayoutId() : Int
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = DataBindingUtil.inflate(inflater,getLayoutId(),container,false)
+        setBindingViewModel()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewCreated()
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

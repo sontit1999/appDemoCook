@@ -28,6 +28,10 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -53,5 +57,4 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.mikhaellopez:circularimageview:4.0.1'
-    implementation 'com.android.support:recyclerview-v7:26.1.0'
 }
