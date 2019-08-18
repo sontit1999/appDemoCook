@@ -28,6 +28,10 @@ android {
     dataBinding {
         enabled = true
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -52,4 +56,5 @@ dependencies {
     kapt "androidx.databinding:databinding-compiler:3.4.2"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.mikhaellopez:circularimageview:4.0.1'
 }
