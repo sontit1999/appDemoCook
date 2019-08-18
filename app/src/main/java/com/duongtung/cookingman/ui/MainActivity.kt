@@ -14,7 +14,6 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
     override fun getLayout() = R.layout.activity_main
 
     override fun setBindingViewModel() {
-        viewModel = MainViewModel()
         binding.viewModel = viewModel
         loadFragment(NewFeedsFragment())
     }
