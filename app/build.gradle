@@ -18,7 +18,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file("../keystore.jks")
+            storeFile file('../keystore.jks')
             storePassword "duongtung"
             keyAlias "cookingman"
             keyPassword "duongtung"
@@ -34,9 +34,8 @@ android {
         release {
             signingConfig signingConfigs.release
         }
-        debug{
+       debug{
             signingConfig signingConfigs.debug
-
         }
     }
     androidExtensions {
@@ -74,9 +73,11 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-simplexml:2.4.0'
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
     implementation 'com.github.bumptech.glide:glide:4.8.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
     kapt 'com.github.bumptech.glide:compiler:4.8.0'
     kapt "androidx.databinding:databinding-compiler:3.4.2"
     implementation 'androidx.lifecycle:lifecycle-extensions:2.0.0'
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.mikhaellopez:circularimageview:4.0.1'
+    implementation 'androidx.cardview:cardview:1.0.0'
 }
