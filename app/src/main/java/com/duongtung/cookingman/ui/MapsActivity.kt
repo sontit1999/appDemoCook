@@ -2,7 +2,6 @@ package com.duongtung.cookingman.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.WindowManager
 import com.duongtung.cookingman.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
