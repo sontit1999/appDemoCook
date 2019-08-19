@@ -9,4 +9,5 @@
     <color name="colorRed">#e90c2b</color>
     <color name="colorwhite">#ffff</color>
     <color name="tvGetStarted">#ed3851</color>
+    <color name="colorBgLike">#f1f1f1</color>
 </resources>
