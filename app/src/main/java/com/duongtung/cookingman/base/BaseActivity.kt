@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.base
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -26,4 +27,9 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         setBindingViewModel()
     }
 
+    protected fun goToActivity(activity:Class<*>,key : String?,bundle: Bundle?){
+        val intent = Intent(this, activity)
+        if (bundle != null) intent.putExtra(key,bundle)
+        startActivity(intent)
+    }
 }
