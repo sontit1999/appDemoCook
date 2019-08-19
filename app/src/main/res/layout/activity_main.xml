@@ -7,15 +7,15 @@
     <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
             tools:context=".ui.MainActivity">
         <LinearLayout
                 android:id="@+id/containerActionbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-        >
-            <include layout="@layout/custom_actionbar"></include>
+                app:layout_constraintLeft_toLeftOf="parent">
+            <include layout="@layout/custom_actionbar"/>
         </LinearLayout>
 
         <FrameLayout
