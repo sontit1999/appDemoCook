@@ -1,4 +1,4 @@
-package com.duongtung.cookingman.ui
+package com.duongtung.cookingman.ui.login
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -7,22 +7,22 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
 import androidx.viewpager.widget.ViewPager
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.base.BaseActivity
+import com.duongtung.cookingman.databinding.ActivityLoginBinding
 import com.duongtung.cookingman.fragment.PhoneFragment
 import com.duongtung.cookingman.fragment.PreferanceFragment
 import com.duongtung.cookingman.fragment.VerifyFragment
-import devmike.jade.com.PageStepIndicator
+//import devmike.jade.com.PageStepIndicator
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : BaseActivity<ActivityLoginBinding,LoginViewModel>() {
+    override fun getViewMode() = LoginViewModel::class.java
 
-    lateinit var pageStepp : PageStepIndicator
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+    override fun getLayout() = R.layout.activity_login
 
-        pageStepp = findViewById(R.id.page_stepper)
-        val viewPage = findViewById<ViewPager>(R.id.viewPage)
-        viewPage.adapter = ViewPageAdapter(supportFragmentManager)
-        pageStepp.setupWithViewPager(viewPage)
+    override fun setBindingViewModel() {
+        binding.viewModel = viewModel
+        binding.viewPage.adapter = ViewPageAdapter(supportFragmentManager)
+        binding.pageStepper.setupWithViewPager(binding.viewPage)
     }
 
     class ViewPageAdapter(fm : FragmentManager) : FragmentStatePagerAdapter(fm) {

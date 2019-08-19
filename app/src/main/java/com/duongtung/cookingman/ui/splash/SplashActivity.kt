@@ -1,10 +1,9 @@
 package com.duongtung.cookingman.ui.splash
 
-import android.view.View
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivitySplashBinding
-import com.duongtung.cookingman.ui.LoginActivity
+import com.duongtung.cookingman.ui.login.LoginActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
     override fun getViewMode()= SplashViewModel::class.java
