@@ -15,23 +15,4 @@ class PostAdapter : BaseAdapter<Post,ItemPostBinding>(){
     override fun getLayoutId() = R.layout.item_post
 
     override fun getIdVariable()= BR.post
-//    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
-//        val v = LayoutInflater.from(parent?.context).inflate(R.layout.item_post,parent,false)
-//        return Viewholder(v)
-//    }
-//
-//    override fun getItemCount(): Int {
-//        return arrPost.size
-//    }
-//
-//    override fun onBindViewHolder(holder: Viewholder, position: Int) {
-//        var Post = arrPost.get(position)
-//        holder?.tvname?.text = Post.getName()
-//        holder?.tvfood?.text = Post.getFood()
-//    }
-//
-//    class Viewholder(itemview : View) : RecyclerView.ViewHolder(itemview) {
-//        var tvname = itemview.findViewById(R.id.tv_name) as TextView
-//        var tvfood = itemview.findViewById(R.id.tvnameFood) as TextView
-//    }
 }

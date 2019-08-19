@@ -67,7 +67,7 @@
             <TextView
                     android:id="@+id/tvTimeAgo"
                     android:layout_marginTop="18px"
-                    android:text="10 mninute ago"
+                    android:text="@={post.time}"
                     android:layout_marginLeft="25px"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     android:id="@+id/tvOtherpeople"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="Demi , karri afan"
+                    android:text="Demi , karri afan, ozawa"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic"
                     android:textFontWeight="500"
@@ -148,6 +148,16 @@
                     app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
                     android:src="@drawable/gaixinh"
             />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivAvatarjoin3"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginLeft="22dp"
+                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin2"
+                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
+                    android:src="@drawable/gaixinh"
+            />
             <TextView
                     android:id="@+id/tvNumbermore"
                     android:text="32+"
@@ -157,7 +167,7 @@
                     android:layout_marginTop="35dp"
                     android:textColor="@color/colorRed"
                     app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin2"
+                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>

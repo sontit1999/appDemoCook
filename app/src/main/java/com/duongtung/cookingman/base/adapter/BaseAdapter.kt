@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 
  abstract class BaseAdapter<T,VB : ViewDataBinding> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<T, VB>>() {
     private var list : MutableList<T> = arrayListOf()
-    private lateinit var binding : VB
+    protected lateinit var binding : VB
 
     fun setList(list : MutableList<T>){
         this.list = list
@@ -36,9 +36,10 @@ import androidx.recyclerview.widget.RecyclerView
 
     override fun onBindViewHolder(viewHolder : BaseViewHolder<T, VB>, i : Int) {
         viewHolder.setVariable(getIdVariable(), list[i])
+
     }
 
-    class BaseViewHolder<T,VB : ViewDataBinding>(private var binding : VB) : RecyclerView.ViewHolder(binding.root) {
+    class BaseViewHolder<T,VB : ViewDataBinding>(var binding : VB) : RecyclerView.ViewHolder(binding.root) {
             fun setVariable(id : Int, t: T){
                 binding.setVariable(id,t)
             }
