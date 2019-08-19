@@ -7,7 +7,6 @@ import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
-    private lateinit var adapter : RecipeAdapter
     override fun getClassViewMode() = RecipeViewModel::class.java
 
     override fun setBindingViewModel() {
@@ -15,10 +14,8 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     }
 
     override fun viewCreated() {
-        adapter = RecipeAdapter()
-        binding.recyclerviewRecipe.adapter = adapter
         viewModel.getArrRecipe().observe(this, Observer { list ->
-            adapter.setList(list)
+            viewModel.adapter.setList(list)
         })
     }
 

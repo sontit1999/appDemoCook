@@ -7,6 +7,7 @@ import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import com.duongtung.cookingman.model.Post
 
 class RecipeViewModel : BaseViewModel(){
+    var adapter = RecipeAdapter()
     private  var arrRecipe = MutableLiveData<MutableList<Post>>()
     fun getArrRecipe(): MutableLiveData<MutableList<Post>> {
         val list = listOf(
