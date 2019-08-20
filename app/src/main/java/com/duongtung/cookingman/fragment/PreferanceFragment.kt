@@ -12,27 +12,33 @@ import androidx.recyclerview.widget.RecyclerView
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.ItemTypeFoodAdapter
 import com.duongtung.cookingman.adapter.TypeFood
+import com.duongtung.cookingman.base.BaseFragment
+import com.duongtung.cookingman.databinding.FragLoginPreferanceBinding
 
-class PreferanceFragment : Fragment() {
+class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding,PreferanceViewModel>(){
+    override fun getClassViewMode() = PreferanceViewModel::class.java
 
-   lateinit var listTypeFood : ArrayList<TypeFood>
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var view = inflater.inflate(R.layout.frag_login_preferance, container, false)
-        val recyTypeFood : RecyclerView = view.findViewById(R.id.recyPrefer)
+    override fun setBindingViewModel() {
+        binding.viewmodel = viewModel
+    }
+
+    override fun viewCreated() {
+        lateinit var listTypeFood : ArrayList<TypeFood>
         listTypeFood = ArrayList()
-        listTypeFood.add(TypeFood(R.drawable.protein, "Protein", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"))
-        listTypeFood.add(TypeFood(R.drawable.protein, "Protein", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"))
-        listTypeFood.add(TypeFood(R.drawable.protein, "Protein", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"))
-        listTypeFood.add(TypeFood(R.drawable.protein, "Protein", "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor"))
+        listTypeFood.add(TypeFood(R.drawable.protein, "Vitamins", "Vitamins are organic molecules essential for an organism that are not classified as amino acids."))
+        listTypeFood.add(TypeFood(R.drawable.protein, "Minerals", "Minerals are the exogenous chemical elements indispensable for life."))
+        listTypeFood.add(TypeFood(R.drawable.protein, "Fatty acids", "Essential fatty acids (EFAs) are fatty acids that humans and other animals must ingest"))
+        listTypeFood.add(TypeFood(R.drawable.protein, "Protein", "Vitamins are organic molecules essential for an organism that are not classified as amino acids or fatty acids."))
+
         val adapter = this.activity?.let { ItemTypeFoodAdapter(listTypeFood, it) }
         val layoutmanager = LinearLayoutManager(activity)
         layoutmanager.orientation = LinearLayoutManager.HORIZONTAL
-        recyTypeFood.layoutManager = layoutmanager
-        recyTypeFood.setHasFixedSize(true)
-        recyTypeFood.itemAnimator = DefaultItemAnimator()
-        recyTypeFood.setHasFixedSize(true)
-        recyTypeFood.addItemDecoration(DividerItemDecoration(recyTypeFood.context, DividerItemDecoration.VERTICAL))
-        recyTypeFood.adapter = adapter
-        return view
+        binding.recyPrefer.layoutManager = layoutmanager
+        binding.recyPrefer.setHasFixedSize(true)
+        binding.recyPrefer.setHasFixedSize(true)
+        binding.recyPrefer.adapter = adapter
     }
+
+    override fun getLayoutId() = R.layout.frag_login_preferance
+
 }
