@@ -22,7 +22,7 @@ class PhoneFragment : BaseFragment<FragLoginPhoneBinding,PhoneViewModel>() {
     override fun getLayoutId() = R.layout.frag_login_phone
 
     override fun viewCreated() {
-        var listitem = arrayOf("Viet Nam", "In Do Ne Xi A", "Thai Lan", "Trung Quoc", "Nhật Bản")
+        var listitem: ArrayList<String> = arrayListOf("Viet Nam", "In Do Ne Xi A", "Thai Lan", "Trung Quoc", "Nhật Bản")
         val adapter = ArrayAdapter(activity!!, android.R.layout.simple_spinner_item, listitem)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spincountry.adapter = adapter

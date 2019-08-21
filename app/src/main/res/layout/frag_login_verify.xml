@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-            <variable name="viewmodel" type="com.duongtung.cookingman.fragment.VeriftViewModel"/>
+            <variable name="viewmodel" type="com.duongtung.cookingman.fragment.VerifyViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -43,6 +43,7 @@
                     android:textSize="22sp"/>
 
             <ImageButton
+                    android:id="@+id/imgBtselect"
                     android:src="@drawable/doneicon"
                     android:layout_width="45dp"
                     android:layout_height="match_parent"
