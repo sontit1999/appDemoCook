@@ -22,7 +22,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        loadFragment(RecipeFragment())
+        loadFragment(NewFeedsFragment())
     }
 
     private fun loadFragment(fragment: Fragment){

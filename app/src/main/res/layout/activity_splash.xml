@@ -51,42 +51,41 @@
                 android:id="@+id/imgCookingMan"/>
 
         <LinearLayout
-                android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@id/tvCreate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                tools:layout_editor_absoluteX="30dp">
+                       android:gravity="center"
+                       app:layout_constraintTop_toBottomOf="@id/tvCreate"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                       android:layout_marginVertical="10dp"
+                      android:orientation="horizontal"
+                       tools:layout_editor_absoluteX="30dp">
 
             <TextView android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tvGetStarted"
-                      android:text="@string/tvGetStarted"
-                      android:gravity="center"
-                      android:padding="@dimen/splash_padding"
-                      android:textSize="@dimen/splash_btn_text_size"
-                      android:background="@drawable/tvgetcreate"
-                      android:textColor="#ffffff"
-                      android:layout_marginBottom="10dp"
-                      android:layout_marginTop="10dp"/>
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/tvGetStarted"
+                                  android:text="@string/tvGetStarted"
+                                  android:gravity="center"
+                                  android:padding="@dimen/splash_padding"
+                                  android:textSize="@dimen/splash_btn_text_size"
+                                  android:background="@drawable/tvgetcreate"
+                                  android:textColor="#ffffff"
+                                  android:layout_marginBottom="10dp"
+                                  android:layout_marginTop="10dp"/>
 
-            <TextView android:layout_width="160dp"
-                      android:layout_height="wrap_content"
-                      android:id="@+id/tvSignIn"
-                      android:text="@string/tvSignIn"
-                      android:gravity="center"
-                      android:padding="@dimen/splash_padding"
-                      android:textSize="@dimen/splash_btn_text_size"
-                      android:layout_marginBottom="10dp"
-                      android:layout_marginLeft="20dp"
-                      android:layout_marginTop="10dp"
-                      android:textColor="#ec1c39"
-                      android:background="@drawable/tvsignin"
-                      android:layout_marginStart="20dp"/>
+                        <TextView android:layout_width="160dp"
+                                  android:layout_height="wrap_content"
+                                  android:id="@+id/tvSignIn"
+                                  android:text="@string/tvSignIn"
+                                  android:gravity="center"
+                                  android:padding="@dimen/splash_padding"
+                                  android:textSize="@dimen/splash_btn_text_size"
+                                  android:layout_marginBottom="10dp"
+                                  android:layout_marginLeft="20dp"
+                                  android:layout_marginTop="10dp"
+                                  android:textColor="#ec1c39"
+                                  android:background="@drawable/tvsignin"
+                                  android:layout_marginStart="20dp"/>
 
-        </LinearLayout>
-
+              </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
