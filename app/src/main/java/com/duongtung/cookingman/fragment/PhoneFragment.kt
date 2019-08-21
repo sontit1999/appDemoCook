@@ -9,18 +9,25 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.base.BaseFragment
+import com.duongtung.cookingman.databinding.FragLoginPhoneBinding
 
-class PhoneFragment : Fragment() {
+class PhoneFragment : BaseFragment<FragLoginPhoneBinding,PhoneViewModel>() {
+    override fun getClassViewMode() = PhoneViewModel::class.java
 
-    var listitem = arrayOf("Viet Nam", "In Do Ne Xi A", "Thai Lan", "Trung Quoc", "Nhật Bản")
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view : View = inflater.inflate(R.layout.frag_login_phone, container, false)
-        val spinner = view.findViewById<Spinner>(R.id.spincountry)
-        val txtCode = view.findViewById<TextView>(R.id.txtCode)
+    override fun setBindingViewModel() {
+        binding.viewmodel = viewModel
+    }
+    override fun getLayoutId() = R.layout.frag_login_phone
+
+    override fun viewCreated() {
+        var listitem: ArrayList<String> = arrayListOf("Viet Nam", "In Do Ne Xi A", "Thai Lan", "Trung Quoc", "Nhật Bản")
         val adapter = ArrayAdapter(activity!!, android.R.layout.simple_spinner_item, listitem)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinner.adapter = adapter
-        return view
+        binding.spincountry.adapter = adapter
     }
+
+
+
 }

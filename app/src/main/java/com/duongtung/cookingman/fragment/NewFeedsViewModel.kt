@@ -11,7 +11,6 @@ class NewFeedsViewModel : BaseViewModel() {
     fun getArrPost(): MutableLiveData<MutableList<Post>> {
         val list = listOf(
             (Post("Sontitdz", "linkimg", "Hamburger", "HN", "1 h trước", ArrayList())),
-            (Post("Sontitdz", "linkimg", "", "HN", "10 ago", ArrayList())),
             (Post("Sontitzd", "linkimg", "Hamburger", "HN", "10 ago", ArrayList())),
             (Post("Sontitdz", "linkimg", "Hamburger", "HN", "10 ago", ArrayList())),
             (Post("Sontit", "linkimg", "Hamburger", "HN", "10 ago", ArrayList())),

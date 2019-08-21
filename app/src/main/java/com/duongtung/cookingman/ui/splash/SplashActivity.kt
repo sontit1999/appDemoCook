@@ -18,5 +18,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
         binding.tvSignIn.setOnClickListener {
             goToActivity(LoginActivity::class.java,null,null)
         }
+        binding.tvGetStarted.setOnClickListener {
+            Log.d("test","ok nhận rồi")
+        }
     }
 }

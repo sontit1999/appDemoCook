@@ -1,21 +1,26 @@
 package com.duongtung.cookingman.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.base.BaseFragment
+import com.duongtung.cookingman.databinding.FragLoginVerifyBinding
 
-class VerifyFragment : Fragment() {
+class VerifyFragment : BaseFragment<FragLoginVerifyBinding,VerifyViewModel>(){
+    override fun getClassViewMode() = VerifyViewModel::class.java
 
-    companion object {
-        fun newInstance() : Fragment {
-            return VerifyFragment()
-        }
+    override fun setBindingViewModel() {
+        binding.viewmodel = viewModel
     }
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view : View = inflater.inflate(R.layout.frag_login_verify, container, false)
-        return view
+
+    override fun viewCreated() {
+
     }
+
+    override fun getLayoutId() = R.layout.frag_login_verify
 }
