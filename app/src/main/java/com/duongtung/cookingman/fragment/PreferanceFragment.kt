@@ -7,6 +7,7 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragLoginPreferanceBinding
 import com.duongtung.cookingman.ui.MainActivity
+import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
 
 
 class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding,PreferanceViewModel>(){
@@ -15,7 +16,7 @@ class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding,PreferanceVie
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
         binding.ivBtdone.setOnClickListener {
-            var intent = Intent(context,MainActivity::class.java)
+            var intent = Intent(context,ChatlistActivity::class.java)
             startActivity(intent)
         }
     }
