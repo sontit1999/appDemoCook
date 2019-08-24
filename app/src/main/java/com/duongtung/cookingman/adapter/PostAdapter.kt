@@ -15,4 +15,5 @@ class PostAdapter : BaseAdapter<Post,ItemPostBinding>(){
     override fun getLayoutId() = R.layout.item_post
 
     override fun getIdVariable()= BR.post
+
 }

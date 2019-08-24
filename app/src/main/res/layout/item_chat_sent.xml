@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@drawable/custom_ic_add"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
         android:padding="8dp"
-        android:layout_height="wrap_content"
-        xmlns:android="http://schemas.android.com/apk/res/android">
+        android:layout_height="wrap_content">
     <ImageView
-            android:id="@+id/image_message_profile"
+            android:id="@+id/iv_avatar"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/gaixinh"
-            app:layout_constraintTop_toBottomOf="@id/text_message_time"
+            app:layout_constraintTop_toBottomOf="@id/tv_time"
             android:background="@drawable/custom_ic_add"
             android:layout_marginLeft="8dp"
             app:layout_constraintRight_toRightOf="parent" />
-    <TextView
-            android:id="@+id/text_message_body"
-            android:text="hi man, how are you?"
-            android:background="@color/colorBgsentChat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:maxWidth="240dp"
-            android:padding="8dp"
-            android:textColor="#A02525"
-            app:layout_constraintTop_toBottomOf="@id/text_message_time"
-            app:layout_constraintRight_toLeftOf="@+id/image_message_profile"
-            android:layout_marginLeft="8dp" />
 
     <TextView
-            android:id="@+id/text_message_time"
-            android:text="11:40"
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_edittext_chat_send"
+            android:maxWidth="240dp"
+            android:padding="15dp"
+            android:text="I'm fine.Thanks"
+            android:textColor="#A02525"
+            app:layout_constraintRight_toLeftOf="@id/iv_avatar"
+            app:layout_constraintTop_toBottomOf="@id/tv_time" />
+
+    <TextView
+            android:id="@+id/tv_time"
+            android:text="10:05"
             android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

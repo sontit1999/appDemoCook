@@ -16,7 +16,7 @@ class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding,PreferanceVie
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
         binding.ivBtdone.setOnClickListener {
-            var intent = Intent(context,ChatlistActivity::class.java)
+            var intent = Intent(context,MainActivity::class.java)
             startActivity(intent)
         }
     }
