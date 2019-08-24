@@ -4,10 +4,11 @@
     <color name="colorPrimaryDark">#D81B60</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorActionbar">#ed3851</color>
-    <color name="colorBlack">#0e0e0e</color>515151
-    <color name="colorGrey">#515151</color>e90c2b
+    <color name="colorBlack">#0e0e0e</color>
+    <color name="colorGrey">#515151</color>
     <color name="colorRed">#e90c2b</color>
     <color name="colorwhite">#ffff</color>
     <color name="tvGetStarted">#ed3851</color>
     <color name="colorBgLike">#f1f1f1</color>
+    <color name="colorBgsentChat">#ee5d71</color>
 </resources>

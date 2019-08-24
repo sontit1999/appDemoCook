@@ -6,6 +6,7 @@ import android.view.View
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivitySplashBinding
+import com.duongtung.cookingman.ui.chatdetail.DetailChatActivity
 import com.duongtung.cookingman.ui.login.LoginActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
@@ -19,7 +20,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
             goToActivity(LoginActivity::class.java,null,null)
         }
         binding.tvGetStarted.setOnClickListener {
-            Log.d("test","ok nhận rồi")
+            var intent = Intent(baseContext, DetailChatActivity::class.java)
+            startActivity(intent)
         }
     }
 }
