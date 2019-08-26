@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.duongtung.cookingman.R;
 import com.duongtung.cookingman.model.Message;
 
@@ -31,7 +32,7 @@ public class MessageListaAdapter extends RecyclerView.Adapter<MessageListaAdapte
 
     @Override
     public int getItemViewType(int position) {
-        switch (listMessage.get(position).getId()){
+        switch (listMessage.get(position).getSender().getId()){
             case 1: return SEND ;
             case 2: return RECIVE;
         }
@@ -83,6 +84,9 @@ public class MessageListaAdapter extends RecyclerView.Adapter<MessageListaAdapte
         public void bind(Message message){
             tvMessage.setText(message.getMessage());
             tvTime.setText(message.getSendAt());
+            Glide.with(tvMessage.getContext())
+                    .load(message.getSender().getProfileUrl())
+                    .into(iv_avatar);
         }
     }
     public void addMessage(Message message){

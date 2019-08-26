@@ -6,14 +6,16 @@
         android:layout_width="match_parent"
         android:padding="8dp"
         android:layout_height="wrap_content">
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
             android:src="@drawable/gaixinh"
             android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            />
     <TextView
             android:id="@+id/tv_message"
             android:text="Hi how are you?"
@@ -22,7 +24,7 @@
             android:layout_height="wrap_content"
             android:maxWidth="240dp"
             android:padding="15dp"
-            android:textColor="#A02525"
+            android:textColor="#848484"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
             android:layout_marginLeft="8dp" />
