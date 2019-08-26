@@ -6,15 +6,18 @@
         android:layout_width="match_parent"
         android:padding="8dp"
         android:layout_height="wrap_content">
-    <ImageView
+    <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/iv_avatar"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/gaixinh"
+            android:layout_marginTop="5dp"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
             android:background="@drawable/custom_ic_add"
             android:layout_marginLeft="8dp"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            />
+
 
     <TextView
             android:id="@+id/tv_message"
@@ -24,7 +27,7 @@
             android:maxWidth="240dp"
             android:padding="15dp"
             android:text="I'm fine.Thanks"
-            android:textColor="#A02525"
+            android:textColor="#ffffff"
             app:layout_constraintRight_toLeftOf="@id/iv_avatar"
             app:layout_constraintTop_toBottomOf="@id/tv_time" />
 
