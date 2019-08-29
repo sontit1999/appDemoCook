@@ -17,6 +17,7 @@
         <activity android:name=".ui.chatlist.ChatlistActivity">
         </activity>
         <activity android:name=".ui.chatdetail.DetailChatActivity"></activity>
+        <activity android:name=".ui.recipefood.RecipeActivity"></activity>
         <activity android:name=".ui.MapsActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity

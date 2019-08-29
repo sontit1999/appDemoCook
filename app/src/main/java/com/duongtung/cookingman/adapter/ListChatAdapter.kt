@@ -1,5 +1,6 @@
 package com.duongtung.cookingman.adapter
 
+import android.util.Log
 import com.duongtung.cookingman.BR
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.adapter.BaseAdapter
