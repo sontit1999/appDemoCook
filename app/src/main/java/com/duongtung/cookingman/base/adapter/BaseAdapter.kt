@@ -3,16 +3,13 @@
 
  import android.view.LayoutInflater
  import android.view.ViewGroup
- import androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior.setTag
  import androidx.databinding.DataBindingUtil
  import androidx.databinding.ViewDataBinding
  import androidx.recyclerview.widget.RecyclerView
- import com.duongtung.cookingman.R
 
  abstract class BaseAdapter<T,VB : ViewDataBinding> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<T, VB>>() {
      private var list : MutableList<T> = arrayListOf()
      protected lateinit var binding : VB
-
      fun setList(list : MutableList<T>){
          this.list = list
          notifyDataSetChanged()
@@ -27,7 +24,12 @@
          list.add(i,t)
          notifyDataSetChanged()
      }
-
+     fun getElementPossition(i:Int) : T{
+         return list.get(i)
+     }
+     fun size(): Int{
+         return list.size
+     }
      abstract fun getLayoutId() : Int
      abstract fun getIdVariable() : Int
 
@@ -39,7 +41,6 @@
 
      override fun onBindViewHolder(viewHolder : BaseViewHolder<T, VB>, i : Int) {
          viewHolder.setVariable(getIdVariable(), list[i])
-
      }
 
      class BaseViewHolder<T,VB : ViewDataBinding>(var binding : VB) : RecyclerView.ViewHolder(binding.root) {

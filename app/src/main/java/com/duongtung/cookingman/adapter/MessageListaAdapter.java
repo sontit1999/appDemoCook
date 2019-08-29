@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -79,8 +80,8 @@ public class MessageListaAdapter extends RecyclerView.Adapter<MessageListaAdapte
             tvTime = (TextView) itemView.findViewById(R.id.tv_time);
             iv_avatar = (ImageView) itemView.findViewById(R.id.iv_avatar);
 
-
         }
+
         public void bind(Message message){
             tvMessage.setText(message.getMessage());
             tvTime.setText(message.getSendAt());
