@@ -20,7 +20,7 @@
         />
         <TextView
                 android:id="@+id/tvName"
-                android:text="@{post.name}"
+                android:text="@{post.user.nickName}"
                 android:textStyle="italic"
                 android:layout_marginTop="30dp"
                 android:layout_marginLeft="15dp"

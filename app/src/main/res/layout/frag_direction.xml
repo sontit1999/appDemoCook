@@ -18,7 +18,8 @@
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintTop_toTopOf="parent"
                    android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"></TextView>
+                   android:layout_height="wrap_content">
+           </TextView>
         <RatingBar
                 android:id="@+id/ratingBar"
                 app:layout_constraintTop_toBottomOf="@id/tvNameFood"
@@ -26,12 +27,13 @@
                 android:numStars="5"
                 android:stepSize="1"
                 android:scaleX="0.8"
-                android:scaleY="0.8"
+                android:scaleY="0.7"
                 android:rating="3"
-                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginTop="7dp"
                 android:progressTint="@color/yellow"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"></RatingBar>
+                android:layout_height="wrap_content">
+        </RatingBar>
         <ScrollView
                 app:layout_constraintTop_toBottomOf="@id/ratingBar"
                 app:layout_constraintBottom_toBottomOf="parent"

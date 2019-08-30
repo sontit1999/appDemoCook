@@ -8,7 +8,7 @@
         <ImageView
                 android:id="@+id/iv_navigation"
                 android:layout_alignParentLeft="true"
-                android:layout_marginLeft="23dp"
+                android:layout_marginLeft="20dp"
                 android:layout_centerVertical="true"
                 android:layout_width="33dp"
                 android:layout_height="33dp"
@@ -17,7 +17,7 @@
         <TextView
                 android:id="@+id/tvReturn"
                 android:layout_toRightOf="@+id/iv_navigation"
-                android:text="Return"
+                android:text="return"
                 android:layout_centerVertical="true"
                 android:textSize="20sp"
                 android:layout_marginLeft="5dp"

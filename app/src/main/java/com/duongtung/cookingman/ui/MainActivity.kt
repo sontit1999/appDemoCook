@@ -7,6 +7,7 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityMainBinding
 import com.duongtung.cookingman.fragment.NewFeedsFragment
+import com.duongtung.cookingman.fragment.RecipeFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
     override fun getViewMode() = MainViewModel::class.java
@@ -15,7 +16,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        loadFragment(NewFeedsFragment())
+        loadFragment(RecipeFragment())
     }
 
     private fun loadFragment(fragment: Fragment){

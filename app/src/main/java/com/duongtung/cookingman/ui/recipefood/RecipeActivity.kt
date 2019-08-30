@@ -1,13 +1,13 @@
 package com.duongtung.cookingman.ui.recipefood
 
+import android.util.Log
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityRecipeBinding
-import com.duongtung.cookingman.fragment.DirectionFragment
-import com.duongtung.cookingman.fragment.IngredientFoodFragment
-import com.duongtung.cookingman.fragment.PopularAuthorFragment
-import com.duongtung.cookingman.fragment.ReviewerFragment
+import com.duongtung.cookingman.fragment.*
+import com.duongtung.cookingman.ui.MapsActivity
+import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
     override fun getViewMode()  = RecipeViewModel::class.java
@@ -17,11 +17,22 @@ class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
 
+        binding.actionbar.iv_navigation.setOnClickListener {
+            Log.d("Test","Thoát")
+            finish()
+        }
+        binding.actionbar.tvReturn.setOnClickListener {
+            Log.d("Test","Thoát")
+            finish()
+        }
+        binding.actionbar.iv_earth.setOnClickListener {
+            goToActivity(MapsActivity::class.java,null,null)
+        }
         val myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
         myViewPageStateAdapter.addFragment(DirectionFragment(),"DIRECTION")
         myViewPageStateAdapter.addFragment(IngredientFoodFragment(),"INGREDIENT")
         myViewPageStateAdapter.addFragment(ReviewerFragment(),"REVIEWS")
-        myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"ABOUT AUTHOR")
+        myViewPageStateAdapter.addFragment(RecipeFragment(),"ABOUT AUTHOR")
         binding.viewPager.adapter = myViewPageStateAdapter
         binding.tabs.setupWithViewPager(binding.viewPager,true)
     }

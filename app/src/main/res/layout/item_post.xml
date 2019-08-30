@@ -21,13 +21,14 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:id="@+id/ivAvatar"
+                    imageUrl="@{post.user.profileUrl}"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:src="@drawable/gaixinh"
             />
             <TextView
                     android:id="@+id/tvName"
-                    android:text="@={post.name}"
+                    android:text="@={post.user.nickName}"
                     android:layout_marginLeft="25px"
                     android:textColor="@color/colorBlack"
                     android:textStyle="italic"
@@ -49,19 +50,29 @@
             <TextView
                     android:id="@+id/tvnameFood"
                     android:textColor="@color/colorRed"
-                    android:text="@={post.food}"
+                    android:text="@={post.recipe.nameFood}"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintLeft_toRightOf="@id/tvconnect"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="20dp"/>
             <TextView
+                    android:id="@+id/tv_At"
+                    android:text="At"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="5dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/tvnameFood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </TextView>
+            <TextView
                     android:id="@+id/tvLocation"
-                    android:text="at his house"
+                    android:text="@{post.location}"
                     android:layout_marginLeft="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvnameFood"
+                    app:layout_constraintLeft_toRightOf="@id/tv_At"
                     app:layout_constraintTop_toTopOf="parent"
                     android:layout_marginTop="20dp"/>
             <TextView
@@ -77,8 +88,9 @@
             <ImageView
                     android:id="@+id/iv_gallery"
                     android:src="@drawable/food"
+                    imageUrl="@{post.recipe.imageRecipe}"
                     android:layout_marginTop="24dp"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     app:layout_constraintTop_toBottomOf="@id/ivAvatar"
                     android:layout_height="235dp"/>

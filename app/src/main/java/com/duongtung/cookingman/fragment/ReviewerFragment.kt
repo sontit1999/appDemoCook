@@ -1,9 +1,11 @@
 package com.duongtung.cookingman.fragment
+import android.content.Intent
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragReviewerBinding
+import com.duongtung.cookingman.ui.profile.ProfileActivity
 
 class ReviewerFragment : BaseFragment<FragReviewerBinding,ReviewerViewModel>(){
     override fun getClassViewMode() = ReviewerViewModel::class.java
@@ -11,6 +13,10 @@ class ReviewerFragment : BaseFragment<FragReviewerBinding,ReviewerViewModel>(){
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
         binding.recyclerComment.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+        binding.ivAvatar.setOnClickListener{
+            startActivity(Intent(activity,ProfileActivity::class.java))
+        }
     }
 
     override fun viewCreated() {

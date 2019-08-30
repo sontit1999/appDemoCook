@@ -7,7 +7,7 @@
             android:background="@drawable/custom_item_recyclerfood"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_width="270dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content">
 
         <ImageView
@@ -16,7 +16,7 @@
                 android:layout_width="300dp"
                 android:src="@drawable/protein"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_height="300dp"
+                android:layout_height="200dp"
                 app:layout_constraintLeft_toLeftOf="parent"
 
         />

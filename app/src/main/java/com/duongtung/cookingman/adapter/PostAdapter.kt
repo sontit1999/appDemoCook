@@ -21,5 +21,11 @@ class PostAdapter : BaseAdapter<Post,ItemPostBinding>(){
     override fun getLayoutId() = R.layout.item_post
 
     override fun getIdVariable()= BR.post
+    override fun onBindViewHolder(viewHolder: BaseViewHolder<Post, ItemPostBinding>, i: Int) {
+        super.onBindViewHolder(viewHolder, i)
+        binding.ivAvatar.setOnClickListener{
+            Log.d("test","Chuyển sang activity profile")
+        }
+    }
 
 }
