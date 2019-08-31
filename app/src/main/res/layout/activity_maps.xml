@@ -50,210 +50,218 @@
                         app:layout_constraintTop_toTopOf="@+id/map"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"/>
-                       <HorizontalScrollView
-                               app:layout_constraintRight_toRightOf="parent"
-                               app:layout_constraintBottom_toBottomOf="parent"
-                               android:layout_marginBottom="15dp"
-                               android:layout_width="match_parent"
-                               android:layout_height="wrap_content">
-                               <LinearLayout
-                                       android:orientation="horizontal"
-                                       android:layout_width="match_parent"
-                                       android:layout_height="match_parent">
-                                   <androidx.constraintlayout.widget.ConstraintLayout
-                                           android:paddingBottom="30dp"
-                                           android:layout_marginTop="15dp"
-                                           android:layout_marginLeft="15dp"
-                                           android:background="@color/colorwhite"
-                                           android:layout_width="match_parent"
-                                           android:layout_height="wrap_content">
-                                       <ImageView
-                                               android:id="@+id/iv_imagefood"
-                                               android:src="@drawable/food"
-                                               android:layout_width="300dp"
-                                               android:layout_height="180dp"
-                                               android:scaleType="center"
-                                               app:layout_constraintTop_toTopOf="parent"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_namefood"
-                                               android:textColor="@color/colorBlack"
-                                               android:layout_marginTop="25dp"
-                                               android:layout_marginLeft="25dp"
-                                               android:textStyle="italic"
-                                               android:textSize="20sp"
-                                               android:text="Avocado Icream"
-                                               android:layout_width="match_parent"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               app:layout_constraintTop_toBottomOf="@+id/iv_imagefood"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_author"
-                                               android:textColor="@color/colorRed"
-                                               android:textStyle="bold"
-                                               android:text="Beyer"
-                                               android:layout_marginTop="10dp"
-                                               android:layout_marginLeft="25dp"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               app:layout_constraintTop_toBottomOf="@+id/tv_namefood"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_creat"
-                                               android:text=" creat this recipe"
-                                               android:layout_marginTop="10dp"
-                                               android:layout_marginLeft="5dp"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintTop_toBottomOf="@id/tv_namefood"
-                                               app:layout_constraintLeft_toRightOf="@+id/tv_author"
-                                               />
-                                       <ImageView
-                                               android:id="@+id/ivLike"
-                                               android:src="@drawable/iconlike"
-                                               android:background="@drawable/custom_bg_like"
-                                               android:layout_marginTop="20dp"
-                                               android:translationX="-20dp"
-                                               android:padding="10dp"
-                                               android:translationY="20dp"
-                                               app:layout_constraintBottom_toBottomOf="@id/iv_imagefood"
-                                               app:layout_constraintRight_toRightOf="parent"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"/>
-                                   </androidx.constraintlayout.widget.ConstraintLayout>
-                                   <androidx.constraintlayout.widget.ConstraintLayout
-                                           android:paddingBottom="30dp"
-                                           android:layout_marginTop="15dp"
-                                           android:layout_marginLeft="15dp"
-                                           android:background="@color/colorwhite"
-                                           android:layout_width="match_parent"
-                                           android:layout_height="wrap_content">
-                                       <ImageView
-                                               android:id="@+id/iv_imagefood2"
-                                               android:src="@drawable/food"
-                                               android:layout_width="300dp"
-                                               android:layout_height="180dp"
-                                               android:scaleType="center"
-                                               app:layout_constraintTop_toTopOf="parent"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_namefood2"
-                                               android:textColor="@color/colorBlack"
-                                               android:layout_marginTop="25dp"
-                                               android:layout_marginLeft="25dp"
-                                               android:textStyle="italic"
-                                               android:textSize="20sp"
-                                               android:text="Avocado Icream"
-                                               android:layout_width="match_parent"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               app:layout_constraintTop_toBottomOf="@+id/iv_imagefood2"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_author2"
-                                               android:textColor="@color/colorRed"
-                                               android:textStyle="bold"
-                                               android:text="Beyer"
-                                               android:layout_marginTop="10dp"
-                                               android:layout_marginLeft="25dp"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               app:layout_constraintTop_toBottomOf="@+id/tv_namefood2"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_creat2"
-                                               android:text=" creat this recipe"
-                                               android:layout_marginTop="10dp"
-                                               android:layout_marginLeft="5dp"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintTop_toBottomOf="@id/tv_namefood2"
-                                               app:layout_constraintLeft_toRightOf="@+id/tv_author2"
-                                               />
-                                       <ImageView
-                                               android:id="@+id/ivLike2"
-                                               android:src="@drawable/iconlike"
-                                               android:background="@drawable/custom_bg_like"
-                                               android:layout_marginTop="20dp"
-                                               android:translationX="-20dp"
-                                               android:padding="10dp"
-                                               android:translationY="20dp"
-                                               app:layout_constraintBottom_toBottomOf="@id/iv_imagefood2"
-                                               app:layout_constraintRight_toRightOf="parent"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"/>
-                                   </androidx.constraintlayout.widget.ConstraintLayout>
-                                   <androidx.constraintlayout.widget.ConstraintLayout
-                                           android:paddingBottom="30dp"
-                                           android:layout_marginTop="15dp"
-                                           android:layout_marginLeft="15dp"
-                                           android:background="@color/colorwhite"
-                                           android:layout_width="match_parent"
-                                           android:layout_height="wrap_content">
-                                       <ImageView
-                                               android:id="@+id/iv_imagefood3"
-                                               android:src="@drawable/food"
-                                               android:layout_width="300dp"
-                                               android:layout_height="180dp"
-                                               android:scaleType="center"
-                                               app:layout_constraintTop_toTopOf="parent"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_namefood3"
-                                               android:textColor="@color/colorBlack"
-                                               android:layout_marginTop="25dp"
-                                               android:layout_marginLeft="25dp"
-                                               android:textStyle="italic"
-                                               android:textSize="20sp"
-                                               android:text="Avocado Icream"
-                                               android:layout_width="match_parent"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               app:layout_constraintTop_toBottomOf="@+id/iv_imagefood3"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_author3"
-                                               android:textColor="@color/colorRed"
-                                               android:textStyle="bold"
-                                               android:text="Beyer"
-                                               android:layout_marginTop="10dp"
-                                               android:layout_marginLeft="25dp"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintLeft_toLeftOf="parent"
-                                               app:layout_constraintTop_toBottomOf="@+id/tv_namefood3"
-                                               />
-                                       <TextView
-                                               android:id="@+id/tv_creat3"
-                                               android:text=" creat this recipe"
-                                               android:layout_marginTop="10dp"
-                                               android:layout_marginLeft="5dp"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"
-                                               app:layout_constraintTop_toBottomOf="@id/tv_namefood3"
-                                               app:layout_constraintLeft_toRightOf="@+id/tv_author3"
-                                               />
-                                       <ImageView
-                                               android:id="@+id/ivLike3"
-                                               android:src="@drawable/iconlike"
-                                               android:background="@drawable/custom_bg_like"
-                                               android:layout_marginTop="20dp"
-                                               android:translationX="-20dp"
-                                               android:padding="10dp"
-                                               android:translationY="20dp"
-                                               app:layout_constraintBottom_toBottomOf="@id/iv_imagefood3"
-                                               app:layout_constraintRight_toRightOf="parent"
-                                               android:layout_width="wrap_content"
-                                               android:layout_height="wrap_content"/>
-                                   </androidx.constraintlayout.widget.ConstraintLayout>
-                               </LinearLayout>
-                       </HorizontalScrollView>
+
+                <HorizontalScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="24dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/colorwhite"
+                                android:paddingBottom="30dp">
+
+                            <ImageView
+                                    android:id="@+id/iv_imagefood"
+                                    android:layout_width="250dp"
+                                    android:layout_height="150dp"
+                                    android:scaleType="center"
+                                    android:src="@drawable/food"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                    android:id="@+id/tv_namefood"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Avocado Icream"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="20sp"
+                                    android:textStyle="italic"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/iv_imagefood" />
+
+                            <TextView
+                                    android:id="@+id/tv_author"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Beyer"
+                                    android:textColor="@color/colorRed"
+                                    android:textStyle="bold"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_namefood" />
+
+                            <TextView
+                                    android:id="@+id/tv_creat"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text=" creat this recipe"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_author"
+                                    app:layout_constraintTop_toBottomOf="@id/tv_namefood" />
+
+                            <ImageView
+                                    android:id="@+id/ivLike"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/custom_bg_like"
+                                    android:padding="10dp"
+                                    android:src="@drawable/iconlike"
+                                    android:translationX="-20dp"
+                                    android:translationY="20dp"
+                                    app:layout_constraintBottom_toBottomOf="@id/iv_imagefood"
+                                    app:layout_constraintRight_toRightOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/colorwhite"
+                                android:paddingBottom="30dp">
+
+                            <ImageView
+                                    android:id="@+id/iv_imagefood2"
+                                    android:layout_width="250dp"
+                                    android:layout_height="150dp"
+                                    android:scaleType="center"
+                                    android:src="@drawable/food"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                    android:id="@+id/tv_namefood2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Avocado Icream"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="20sp"
+                                    android:textStyle="italic"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/iv_imagefood2" />
+
+                            <TextView
+                                    android:id="@+id/tv_author2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Beyer"
+                                    android:textColor="@color/colorRed"
+                                    android:textStyle="bold"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_namefood2" />
+
+                            <TextView
+                                    android:id="@+id/tv_creat2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text=" creat this recipe"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_author2"
+                                    app:layout_constraintTop_toBottomOf="@id/tv_namefood2" />
+
+                            <ImageView
+                                    android:id="@+id/ivLike2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/custom_bg_like"
+                                    android:padding="10dp"
+                                    android:src="@drawable/iconlike"
+                                    android:translationX="-20dp"
+                                    android:translationY="20dp"
+                                    app:layout_constraintBottom_toBottomOf="@id/iv_imagefood2"
+                                    app:layout_constraintRight_toRightOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="15dp"
+                                android:layout_marginTop="15dp"
+                                android:background="@color/colorwhite"
+                                android:paddingBottom="30dp">
+
+                            <ImageView
+                                    android:id="@+id/iv_imagefood3"
+                                    android:layout_width="250dp"
+                                    android:layout_height="150dp"
+                                    android:scaleType="center"
+                                    android:src="@drawable/food"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                    android:id="@+id/tv_namefood3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="20dp"
+                                    android:text="Avocado Icream"
+                                    android:textColor="@color/colorBlack"
+                                    android:textSize="20sp"
+                                    android:textStyle="italic"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/iv_imagefood3" />
+
+                            <TextView
+                                    android:id="@+id/tv_author3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text="Beyer"
+                                    android:textColor="@color/colorRed"
+                                    android:textStyle="bold"
+                                    app:layout_constraintLeft_toLeftOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/tv_namefood3" />
+
+                            <TextView
+                                    android:id="@+id/tv_creat3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:text=" creat this recipe"
+                                    app:layout_constraintLeft_toRightOf="@+id/tv_author3"
+                                    app:layout_constraintTop_toBottomOf="@id/tv_namefood3" />
+
+                            <ImageView
+                                    android:id="@+id/ivLike3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="20dp"
+                                    android:background="@drawable/custom_bg_like"
+                                    android:padding="10dp"
+                                    android:src="@drawable/iconlike"
+                                    android:translationX="-20dp"
+                                    android:translationY="20dp"
+                                    app:layout_constraintBottom_toBottomOf="@id/iv_imagefood3"
+                                    app:layout_constraintRight_toRightOf="parent" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </LinearLayout>
+                </HorizontalScrollView>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 

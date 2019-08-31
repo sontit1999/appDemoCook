@@ -13,6 +13,7 @@
         <ImageView
                 android:id="@+id/iv_imagefood"
                 android:src="@drawable/food"
+                imageUrl="@{post.recipe.imageRecipe}"
                 android:layout_width="match_parent"
                 android:layout_height="207dp"
                 android:scaleType="center"

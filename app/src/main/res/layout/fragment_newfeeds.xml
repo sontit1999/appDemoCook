@@ -5,6 +5,7 @@
         <variable name="viewModel" type="com.duongtung.cookingman.fragment.NewFeedsViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/containerRecyclerviewNewfeed"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

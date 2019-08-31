@@ -15,7 +15,9 @@ class ReviewerFragment : BaseFragment<FragReviewerBinding,ReviewerViewModel>(){
         binding.recyclerComment.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         binding.ivAvatar.setOnClickListener{
-            startActivity(Intent(activity,ProfileActivity::class.java))
+            var intent = Intent(activity,ProfileActivity::class.java)
+            intent.putExtra("iduser","1")
+            startActivity(intent)
         }
     }
 

@@ -1,11 +1,15 @@
 package com.duongtung.cookingman.ui.splash
 
 import android.content.Intent
+import android.graphics.Color
+import android.text.style.ForegroundColorSpan
+import android.widget.TextView
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivitySplashBinding
 import com.duongtung.cookingman.ui.login.LoginActivity
 import com.duongtung.cookingman.ui.recipefood.RecipeActivity
+import com.duongtung.cookingman.ui.setting.SettingActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
     override fun getViewMode()= SplashViewModel::class.java
@@ -14,6 +18,9 @@ class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
+        // set multi color for text
+        viewModel.text.setSpan(ForegroundColorSpan(Color.RED),15,26,0)
+        binding.content.setText(viewModel.text, TextView.BufferType.SPANNABLE)
 
         binding.tvSignIn.setOnClickListener {
             goToActivity(LoginActivity::class.java,null,null)
@@ -23,5 +30,8 @@ class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
             startActivity(intent)
         }
 
+        binding.tvCreate.setOnClickListener {
+            goToActivity(SettingActivity::class.java,null,null)
+        }
     }
 }

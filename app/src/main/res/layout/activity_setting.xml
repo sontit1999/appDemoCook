@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<layout>
+    <data>
+        <variable
+                name="viewModel"
+                type="com.duongtung.cookingman.ui.setting.SettingViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -7,10 +12,39 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#E7E7E7" >
+        <RelativeLayout
+                android:id="@+id/actionbar"
+                android:gravity="center_vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@color/colorActionbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize">
+            <ImageView
+                    android:id="@+id/iv_navigation"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="33dp"
+                    android:layout_height="33dp"
+                    android:src="@drawable/ic_chevron_left_black_24dp"
+                    />
+            <TextView
+                    android:id="@+id/tvReturn"
+                    android:layout_toRightOf="@+id/iv_navigation"
+                    android:text="return"
+                    android:layout_centerVertical="true"
+                    android:textSize="20sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/colorwhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
 
+        </RelativeLayout>
         <TextView
                 android:id="@+id/generalSettings"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actionbar"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:text="GENERAL SETTINGS"
                 android:textSize="18sp"
@@ -196,3 +230,4 @@
                     android:layout_height="match_parent"/>
         </TableRow>
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
