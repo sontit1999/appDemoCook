@@ -28,12 +28,13 @@
 
         <TextView
                 android:id="@+id/content"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/splash_tv_margin_30"
                 android:maxWidth="300dp"
-                android:text="@string/content"
-                android:textSize="@dimen/tv_18sp"
+                android:text="@{viewModel.text}"
+                android:textSize="@dimen/tv_splash_size"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgLogo"
@@ -43,9 +44,10 @@
                 android:id="@+id/tvCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:maxWidth="300dp"
                 android:layout_marginTop="@dimen/splash_tv_margin_30"
                 android:text="@string/tvCreate"
-                android:textSize="@dimen/tv_18sp"
+                android:textSize="@dimen/textview_main__content_size"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgCookingMan" />
@@ -64,7 +66,7 @@
         <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="10dp"
+                android:paddingVertical="@dimen/margin_10dp"
                 android:gravity="center"
                 android:orientation="horizontal"
                 app:layout_constraintTop_toBottomOf="@id/tvCreate"
@@ -72,22 +74,18 @@
 
             <TextView
                     android:id="@+id/tvGetStarted"
-                    android:layout_width="160dp"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginLeft="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
                     android:background="@drawable/tvgetcreate"
                     android:gravity="center"
                     android:padding="@dimen/splash_padding"
                     android:text="@string/tvGetStarted"
                     android:textColor="@color/colorwhite"
-                    android:textSize="@dimen/splash_btn_text_size" />
+                    android:textSize="@dimen/tv_splash_size" />
 
             <TextView
                     android:id="@+id/tvSignIn"
-                    android:layout_width="160dp"
+                    android:layout_width="140dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="10dp"
@@ -97,7 +95,7 @@
                     android:padding="@dimen/splash_padding"
                     android:text="@string/tvSignIn"
                     android:textColor="#ec1c39"
-                    android:textSize="@dimen/splash_btn_text_size" />
+                    android:textSize="@dimen/tv_splash_size" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@
     <string name="tvSignIn">Sign In</string>
     <string name="tvCreate">Create a new account or sign in</string>
     <string name="tvAllrecipe">All the lastest Recipe</string>
+    <string name="tvNameRecipe">Thịt xốp cà chua</string>
     <string name="tvFindall">Find all the recent and trending food recipe below </string>
     <string-array name="titles">
         <item>Phone</item>

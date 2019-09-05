@@ -5,6 +5,7 @@ import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityChatlistBinding
 import com.duongtung.cookingman.fragment.PopularAuthorFragment
+import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class ChatlistActivity : BaseActivity<ActivityChatlistBinding,ChatlistViewModel>(){
 
@@ -14,6 +15,12 @@ class ChatlistActivity : BaseActivity<ActivityChatlistBinding,ChatlistViewModel>
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
+        binding.actionbar.iv_navigation.setOnClickListener {
+            finish()
+        }
+        binding.actionbar.tvReturn.setOnClickListener {
+            finish()
+        }
         val myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
         myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"Popular Author")
         myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"Recent People")

@@ -15,7 +15,7 @@
                 android:layout_marginTop="30dp"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
-                android:textSize="18sp"
+                android:textSize="@dimen/textview_main_size"
                 android:text="Enter the verification code \n You've received"
                 android:textAlignment="center"/>
 

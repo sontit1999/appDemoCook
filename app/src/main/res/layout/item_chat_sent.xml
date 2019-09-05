@@ -11,23 +11,27 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:src="@drawable/gaixinh"
-            android:layout_marginTop="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
             android:background="@drawable/custom_ic_add"
-            android:layout_marginLeft="8dp"
+            android:layout_marginLeft="@dimen/itemChat_tv_margin"
             app:layout_constraintRight_toRightOf="parent"
             />
 
 
     <TextView
             android:id="@+id/tv_message"
+            android:textSize="@dimen/text_size_chat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_chat_send"
             android:maxWidth="240dp"
-            android:padding="15dp"
+            android:padding="@dimen/itemChat_tv_padding"
             android:text="I'm fine.Thanks"
             android:textColor="#ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginRight="@dimen/itemChat_tv_margin"
             app:layout_constraintRight_toLeftOf="@id/iv_avatar"
             app:layout_constraintTop_toBottomOf="@id/tv_time" />
 
@@ -38,10 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"
-            android:layout_marginRight="2dp"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginLeft="4dp"
             app:layout_constraintLeft_toLeftOf="parent"
              />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,6 +5,29 @@
     <dimen name="splash_btn_text_size">25sp</dimen>
     <dimen name="splash_tv_margin_30">20dp</dimen>
     <dimen name="splash_tv_padding_130">130dp</dimen>
-    <dimen name="tv_18sp">18sp</dimen>
+    <dimen name="tv_splash_size">18sp</dimen>
+    <dimen name="textsize_tvActionbar">18sp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
+
+    <dimen name="textview_main_size">20sp</dimen>
+    <dimen name="textview_describe_item_typeFood_size">17sp</dimen>
+    <dimen name="width_image_itemtypefood">250dp</dimen>
+    <dimen name="height_image_itemtypefood">150dp</dimen>
+    <dimen name="text_size_chat">16sp</dimen>
+    <dimen name="text_size_titleRecipe">18sp</dimen>
+    <dimen name="text_size_recipeActivty">17sp</dimen>
+    <dimen name="actionbar_padding">15dp</dimen>
+    <dimen name="actionbar_width_icon">36dp</dimen>
+    <dimen name="actionbar_heigh_icon">25dp</dimen>
+    <dimen name="size_iconchat">60dp</dimen>
+    <dimen name="itemchat_margin_top">15dp</dimen>
+    <dimen name="detailchat_icon_width">64dp</dimen>
+    <dimen name="detailchat_icon_heigh">48dp</dimen>
+    <dimen name="itemChat_tv_padding">15dp</dimen>
+    <dimen name="itemChat_tv_margin">10dp</dimen>
+    <dimen name="textview_main__tittle_size">20sp</dimen>
+    <dimen name="textview_main__content_size">16sp</dimen>
+    <dimen name="frag_direction_step_padding">20sp</dimen>
+    <dimen name="acyivityMap_image_width">200dp</dimen>
+    <dimen name="acyivityMap_image_height">100dp</dimen>
 </resources>

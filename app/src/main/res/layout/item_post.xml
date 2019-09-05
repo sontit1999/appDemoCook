@@ -17,74 +17,47 @@
                 android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:id="@+id/ivAvatar"
-                    imageUrl="@{post.user.profileUrl}"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/containerInforAuthor"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_width="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/gaixinh"
-            />
-            <TextView
-                    android:id="@+id/tvName"
-                    android:text="@={post.user.nickName}"
-                    android:layout_marginLeft="25px"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="italic"
-                    android:textFontWeight="500"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatar"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvconnect"
-                    android:textColor="@color/colorGrey"
-                    android:text=" is making "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvName"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvnameFood"
-                    android:textColor="@color/colorRed"
-                    android:text="@={post.recipe.nameFood}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvconnect"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tv_At"
-                    android:text="At"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginHorizontal="5dp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/tvnameFood"
-                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-            </TextView>
-            <TextView
-                    android:id="@+id/tvLocation"
-                    android:text="@{post.location}"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tv_At"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvTimeAgo"
-                    android:layout_marginTop="18px"
-                    android:text="@={post.time}"
-                    android:layout_marginLeft="25px"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatar"
-                    app:layout_constraintTop_toBottomOf="@id/tvName"
-            />
+                <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:id="@+id/ivAvatar"
+                        imageUrl="@{post.user.profileUrl}"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@drawable/gaixinh"
+                        />
+                <TextView
+                        android:id="@+id/tvTitle"
+                        android:layout_marginLeft="15dp"
+                        android:text="@{post.infor()}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textview_main_size"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/ivAvatar"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="20dp"/>
+                <TextView
+                        android:id="@+id/tvTime"
+                        android:textStyle="italic"
+                        android:textSize="15dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/ivAvatar"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                        android:layout_marginTop="10dp"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
             <ImageView
                     android:id="@+id/iv_gallery"
                     android:src="@drawable/food"
@@ -92,96 +65,76 @@
                     android:layout_marginTop="24dp"
                     android:scaleType="fitCenter"
                     android:layout_width="match_parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/containerInforAuthor"
                     android:layout_height="235dp"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="24dp"
-                android:layout_marginTop="24dp"
+                android:padding="15dp"
+                android:layout_marginTop="10dp"
                 android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
-                    android:id="@+id/tvOtherpeople"
+                    android:id="@+id/tv_otherPeople"
+                    android:text="@{post.otherpeople()}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="Demi , karri afan, ozawa"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="italic"
-                    android:textFontWeight="500"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-            />
-            <TextView
-                    android:id="@+id/tvNumberpeople"
-                    android:textColor="@color/colorGrey"
-                    android:text=" and 34 joined "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/tvOtherpeople"
-            />
-            <TextView
-                    android:id="@+id/tvDelicious"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold"
-                    android:text=" DALICIOUS "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvNumberpeople"
-                    app:layout_constraintTop_toTopOf="parent"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin1"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="22dp"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin2"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="22dp"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin1"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin3"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="22dp"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin2"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></TextView>
             <TextView
                     android:id="@+id/tvNumbermore"
-                    android:text="32+"
+                    android:text="@{post.more()}"
                     android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintRight_toRightOf="parent"
                     android:layout_marginLeft="22dp"
                     android:background="@drawable/custom_bg_circle"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="15dp"
                     android:textColor="@color/colorRed"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"/>
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivFirstPeople"
+                    android:layout_width="40dp"
+                    imageUrl="@{post.peoplOne()}"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="40dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:src="@drawable/gaixinh"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivSecondPeople"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    imageUrl="@{post.peoplTwo()}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toRightOf="@id/ivFirstPeople"
+                    android:src="@drawable/gaixinh"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivThirdPeople"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    imageUrl="@{post.peopleThree()}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toRightOf="@id/ivSecondPeople"
+                    android:src="@drawable/gaixinh"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivFourthPeople"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="15dp"
+                    imageUrl="@{post.peopleFour()}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toRightOf="@id/ivThirdPeople"
+                    android:src="@drawable/gaixinh"
+                    />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </layout>

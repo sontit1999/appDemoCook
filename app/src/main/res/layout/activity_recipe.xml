@@ -22,6 +22,7 @@
             <include
                     android:id="@+id/actionbar"
                     layout="@layout/actionbar_chatlist"></include>
+
             <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabs"
                     app:tabMode="fixed"
@@ -62,10 +63,10 @@
                     android:id="@+id/fab"
                     android:src="@drawable/ic_share_black_24dp"
                     app:fabSize="normal"
+                    android:layout_below="@id/iv_banner"
                     android:tint="@color/colorwhite"
-                    android:onClick="@{()-> viewmodel.onClickFAB()}"
+                    android:layout_marginTop="20dp"
                     android:backgroundTint="@color/colorBgsentChat"
-                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">

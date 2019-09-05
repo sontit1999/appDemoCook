@@ -26,6 +26,9 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
         binding.containerBangtin.setOnClickListener{
             goToActivity(RecipeActivity::class.java,null,null)
         }
+        binding.containerActionbar.iv_logo.setOnClickListener {
+            loadFragment(RecipeFragment())
+        }
     }
 
     private fun loadFragment(fragment: Fragment){

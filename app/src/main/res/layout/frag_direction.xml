@@ -5,23 +5,26 @@
         <variable name="viewmodel" type="com.duongtung.cookingman.fragment.DirectionViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:padding="@dimen/fragment_direction_padding"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
            <TextView
                    android:id="@+id/tvNameFood"
-                   android:layout_marginTop="15dp"
-                   android:textSize="30sp"
+                   android:textSize="@dimen/textview_main__tittle_size"
                    android:textColor="@color/colorBlack"
-                   android:layout_marginLeft="30dp"
                    android:text="Lemman Drink"
+                   android:gravity="center"
                    app:layout_constraintLeft_toLeftOf="parent"
                    app:layout_constraintTop_toTopOf="parent"
-                   android:layout_width="wrap_content"
+                   app:layout_constraintRight_toRightOf="parent"
+                   android:layout_width="0dp"
                    android:layout_height="wrap_content">
            </TextView>
         <RatingBar
                 android:id="@+id/ratingBar"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvNameFood"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:numStars="5"
@@ -42,9 +45,9 @@
             <TextView
                     android:id="@+id/tv_direction"
                     android:text="@{viewmodel.direction}"
+                    android:padding="@dimen/fragment_direction_padding"
                     android:layout_marginTop="15dp"
-                    android:padding="30dp"
-                    android:textSize="16sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
             </TextView>
