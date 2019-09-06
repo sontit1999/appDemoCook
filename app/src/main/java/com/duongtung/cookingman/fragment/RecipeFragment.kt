@@ -3,6 +3,7 @@ package com.duongtung.cookingman.fragment
 import android.content.Intent
 import android.view.View
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.RecipeAdapter
 import com.duongtung.cookingman.base.BaseFragment
@@ -14,6 +15,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
 
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
+        binding.recyclerviewRecipe.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
         binding.fabADD.setOnClickListener {
             startActivity(Intent(context,ChatlistActivity::class.java))
         }

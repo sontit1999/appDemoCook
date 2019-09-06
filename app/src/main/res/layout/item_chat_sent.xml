@@ -4,7 +4,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:padding="8dp"
+        android:padding="@dimen/itemchat_padding"
         android:layout_height="wrap_content">
     <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/iv_avatar"
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/custom_edittext_chat_send"
-            android:maxWidth="240dp"
+            android:maxWidth="@dimen/itemchat_maxwwidth_content"
             android:padding="@dimen/itemChat_tv_padding"
             android:text="I'm fine.Thanks"
             android:textColor="#ffffff"

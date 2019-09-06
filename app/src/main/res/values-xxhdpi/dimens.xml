@@ -34,5 +34,36 @@
     <dimen name="setting_padding_tablerow">10dp</dimen>
     <dimen name="fragment_direction_padding">20dp</dimen>
     <dimen name="actibity_search_edittext_padding">15dp</dimen>
-
+    <dimen name="itemchat_maxwwidth_content">240dp</dimen>
+    <dimen name="itemchat_padding">8dp</dimen>
+    <dimen name="itemchatlist_padding">15dp</dimen>
+    <dimen name="itemchat_marginleft">10dp</dimen>
+    <dimen name="itemchat_margintop">10dp</dimen>
+    <dimen name="itemcomment_marginleft">5dp</dimen>
+    <dimen name="itemcomment_padding">20dp</dimen>
+    <dimen name="itemcomment_margintop">20dp</dimen>
+    <dimen name="fragReview_padding">15dp</dimen>
+    <dimen name="fragReview_paddingStar">15dp</dimen>
+    <dimen name="fragReview_imageAvatar_size">60dp</dimen>
+    <dimen name="itemGredient_image_size">80dp</dimen>
+    <dimen name="itemGredient_marginleft">22dp</dimen>
+    <dimen name="itemGredient_margintop">12dp</dimen>
+    <dimen name="itemGredient_padding">25dp</dimen>
+    <dimen name="itemPost_padding">25dp</dimen>
+    <dimen name="itemPost_image_smallsize">40dp</dimen>
+    <dimen name="itemPost_image_size">90dp</dimen>
+    <dimen name="itemPost_marginTop">20dp</dimen>
+    <dimen name="itemPost_marginLeft">15dp</dimen>
+    <dimen name="itemPost_marginToptvTime">10dp</dimen>
+    <dimen name="itemPost_imageRecipe_heigh">235dp</dimen>
+    <dimen name="itemRecipe_image_heigh">200dp</dimen>
+    <dimen name="itemRecipe_paddingBottom">25dp</dimen>
+    <dimen name="itemRecipe_padding_iconlike">20dp</dimen>
+    <dimen name="itemRecipe_marginTop">20dp</dimen>
+    <dimen name="itemRecipe_marginLeft">20dp</dimen>
+    <dimen name="itemTypeFood_image_size">40dp</dimen>
+    <dimen name="itemTypeFood_margin_top">10dp</dimen>
+    <dimen name="itemTypeFood_marginHoniratal">10dp</dimen>
+    <dimen name="itemTypeFood_margin_Checkbox">5dp</dimen>
+    <dimen name="itemsearch_padding">20dp</dimen>
 </resources>

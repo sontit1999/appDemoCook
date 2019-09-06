@@ -8,12 +8,11 @@
     <LinearLayout
             android:orientation="vertical"
             android:background="#f1f1f1"
-            android:paddingVertical="20dp"
-            android:paddingHorizontal="15dp"
+            android:padding="@dimen/itemPost_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="20px"
+                android:padding="@dimen/itemPost_padding"
                 android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -24,8 +23,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_height="wrap_content">
                 <com.mikhaellopez.circularimageview.CircularImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="@dimen/itemPost_image_size"
+                        android:layout_height="@dimen/itemPost_image_size"
                         android:id="@+id/ivAvatar"
                         imageUrl="@{post.user.profileUrl}"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -34,16 +33,16 @@
                         />
                 <TextView
                         android:id="@+id/tvTitle"
-                        android:layout_marginLeft="15dp"
+                        android:layout_marginLeft="@dimen/itemPost_marginLeft"
                         android:text="@{post.infor()}"
                         android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/textview_main_size"
+                        android:textSize="@dimen/textview_main__content_size"
                         app:layout_constraintRight_toRightOf="parent"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                         app:layout_constraintTop_toTopOf="parent"
-                        android:layout_marginTop="20dp"/>
+                        android:layout_marginTop="@dimen/itemPost_marginTop"/>
                 <TextView
                         android:id="@+id/tvTime"
                         android:textStyle="italic"
@@ -53,7 +52,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                         app:layout_constraintTop_toBottomOf="@id/tvTitle"
-                        android:layout_marginTop="10dp"/>
+                        android:layout_marginTop="@dimen/itemPost_marginToptvTime"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -62,21 +61,22 @@
                     android:id="@+id/iv_gallery"
                     android:src="@drawable/food"
                     imageUrl="@{post.recipe.imageRecipe}"
-                    android:layout_marginTop="24dp"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     android:scaleType="fitCenter"
                     android:layout_width="match_parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/containerInforAuthor"
-                    android:layout_height="235dp"/>
+                    android:layout_height="@dimen/itemPost_imageRecipe_heigh"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/itemPost_marginTop"
                 android:background="@color/colorwhite"
+                android:padding="@dimen/itemPost_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
             <TextView
                     android:id="@+id/tv_otherPeople"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:text="@{post.otherpeople()}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -91,25 +91,25 @@
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_marginLeft="22dp"
                     android:background="@drawable/custom_bg_circle"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     android:textColor="@color/colorRed"
                     android:layout_width="40dp"
                     android:layout_height="40dp"/>
             <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/ivFirstPeople"
-                    android:layout_width="40dp"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
                     imageUrl="@{post.peoplOne()}"
-                    android:layout_marginTop="15dp"
-                    android:layout_height="40dp"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:src="@drawable/gaixinh"
                     />
             <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/ivSecondPeople"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     imageUrl="@{post.peoplTwo()}"
                     app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
                     app:layout_constraintLeft_toRightOf="@id/ivFirstPeople"
@@ -117,9 +117,9 @@
                     />
             <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/ivThirdPeople"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     imageUrl="@{post.peopleThree()}"
                     app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
                     app:layout_constraintLeft_toRightOf="@id/ivSecondPeople"
@@ -127,9 +127,9 @@
                     />
             <com.mikhaellopez.circularimageview.CircularImageView
                     android:id="@+id/ivFourthPeople"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="15dp"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     imageUrl="@{post.peopleFour()}"
                     app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
                     app:layout_constraintLeft_toRightOf="@id/ivThirdPeople"

@@ -8,7 +8,7 @@
                 type="com.duongtung.cookingman.model.Comment" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="30dp"
+            android:padding="@dimen/itemcomment_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <com.mikhaellopez.circularimageview.CircularImageView
@@ -23,47 +23,52 @@
         <TextView
                 android:id="@+id/tv_name"
                 android:text="@{comment.user.nickName}"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="5dp"
                 android:textSize="@dimen/textview_main_size"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="@dimen/itemcomment_marginleft"
                 android:textColor="@color/colorBlack"
                 app:layout_constraintLeft_toRightOf="@id/iv_Avatar"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
         </TextView>
-        <ImageView
-                android:id="@+id/iv_star"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/ic_star_yellow"
-                android:layout_marginTop="18dp"
-                android:layout_marginLeft="15dp"
-                app:layout_constraintLeft_toRightOf="@id/tv_name"
-                android:layout_width="20dp"
-                android:layout_height="20dp">
-        </ImageView>
-        <TextView
-                android:id="@+id/tv_numberStar"
-                android:textColor="#d2d2d2"
-                android:layout_marginLeft="3dp"
-                android:text="@{comment.numberStar}"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="20dp"
-                app:layout_constraintLeft_toRightOf="@id/iv_star"
-                android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                app:layout_constraintLeft_toRightOf="@id/iv_Avatar"
+                android:layout_width="0dp"
+                app:layout_constraintRight_toRightOf="parent"
                 android:layout_height="wrap_content">
+            <ImageView
+                    android:id="@+id/iv_star"
+                    android:layout_marginLeft="@dimen/itemcomment_marginleft"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/ic_star_yellow"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp">
+            </ImageView>
+            <TextView
+                    android:id="@+id/tv_numberStar"
+                    android:textColor="#d2d2d2"
+                    android:layout_marginLeft="3dp"
+                    android:text="@{comment.numberStar}"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/iv_star"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
 
-        </TextView>
+            </TextView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
         <TextView
                 android:id="@+id/tv_contentComment"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="@dimen/itemcomment_margintop"
                 android:textSize="@dimen/text_size_recipeActivty"
-                android:layout_marginHorizontal="10dp"
                 android:text="@{comment.content}"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_Avatar"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content">
         </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>

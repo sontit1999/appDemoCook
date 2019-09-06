@@ -40,7 +40,7 @@ class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
         }
 
         binding.fab.setOnClickListener {
-
+            goToActivity(ChatlistActivity::class.java,null,null)
         }
 
         val myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
