@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools" xmlns:app="http://schemas.android.com/apk/res-auto"
+>
+    <data>
+        <variable name="viewModel" type="com.duongtung.cookingman.ui.chatlist.ChatlistViewModel"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ui.chatlist.ChatlistActivity">
+        <LinearLayout
+                      android:orientation="vertical"
+                      android:layout_width="match_parent"
+                      android:layout_height="match_parent">
+            <include layout="@layout/actionbar_chatlist" />
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/tvGetStarted"
+                    app:tabIndicatorColor="@color/tvGetStarted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+            </com.google.android.material.tabs.TabLayout>
+            <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+            </androidx.viewpager.widget.ViewPager>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

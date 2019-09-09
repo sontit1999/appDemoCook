@@ -22,7 +22,12 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
+<<<<<<< Updated upstream
         loadFragment(RecipeFragment())
+=======
+        loadFragment(NewFeedsFragment())
+        loadFragment(NewFeedsFragment())
+>>>>>>> Stashed changes
     }
 
     private fun loadFragment(fragment: Fragment){
