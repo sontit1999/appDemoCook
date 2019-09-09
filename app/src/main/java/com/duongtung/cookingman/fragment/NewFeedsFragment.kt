@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment
 
 import android.content.Intent
 import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.PostAdapter
 import com.duongtung.cookingman.base.BaseFragment
