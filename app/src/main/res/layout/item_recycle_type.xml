@@ -13,25 +13,24 @@
         <ImageView
                 android:id="@+id/imgTypeFood"
                 android:scaleType="fitXY"
-                android:layout_width="338dp"
+                android:layout_width="300dp"
                 android:src="@drawable/protein"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_height="338dp"
+                android:layout_height="300dp"
                 app:layout_constraintLeft_toLeftOf="parent"
 
         />
-
-        <ImageView
-                android:id="@+id/imgBtnadd"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:scaleType="fitCenter"
+        <CheckBox
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:button="@drawable/customcheckbox"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
                 app:layout_constraintRight_toRightOf="parent"
-                android:background="@drawable/custom_ic_add"
-                android:src="@drawable/ic_add"/>
+                android:background="@drawable/custom_ic_add">
+
+        </CheckBox>
 
         <TextView
                 android:id="@+id/txtType"

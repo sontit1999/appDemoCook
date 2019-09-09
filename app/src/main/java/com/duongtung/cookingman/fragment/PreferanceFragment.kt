@@ -7,6 +7,7 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragLoginPreferanceBinding
 import com.duongtung.cookingman.ui.MainActivity
+import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
 
 
 class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding,PreferanceViewModel>(){
