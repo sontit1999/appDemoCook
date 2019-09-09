@@ -3,6 +3,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
            <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+            <variable
+                    name="callback"
+                    type="com.duongtung.cookingman.adapter.RecipeCallback" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:paddingBottom="@dimen/itemRecipe_paddingBottom"
@@ -17,6 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/itemRecipe_image_heigh"
                 android:scaleType="center"
+                android:onClick="@{()->callback.viewOnclick()}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
         />
