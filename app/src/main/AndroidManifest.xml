@@ -12,16 +12,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ui.search.SearchActivity"></activity>
-        <activity android:name=".ui.setting.SettingActivity" />
-        <activity android:name=".ui.profile.ProfileActivity" />
-        <activity android:name=".ui.recipefood.RecipeActivity" />
-        <activity android:name=".ui.chatdetail.DetailChatActivity" />
-        <activity android:name=".ui.chatlist.ChatlistActivity" />
-        <activity android:name=".ui.login.LoginActivity" />
-
+        <activity android:name=".ui.login.LoginActivity"/>
         <activity android:name=".SettingActivity"/>
-
+        <activity android:name=".ui.chatlist.ChatlistActivity">
+        </activity>
+        <activity android:name=".ui.chatdetail.DetailChatActivity"></activity>
+        <activity android:name=".ui.recipefood.RecipeActivity"></activity>
         <activity android:name=".ui.MapsActivity" />
         <activity android:name=".ui.MainActivity" />
         <activity
