@@ -7,6 +7,10 @@ import com.duongtung.cookingman.databinding.ItemRecipeBinding
 import com.duongtung.cookingman.model.Post
 
 class RecipeAdapter : BaseAdapter<Post,ItemRecipeBinding>(){
+    override fun getIdVariableOnClick(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun getLayoutId() = R.layout.item_recipe
 
     override fun getIdVariable() = BR.post

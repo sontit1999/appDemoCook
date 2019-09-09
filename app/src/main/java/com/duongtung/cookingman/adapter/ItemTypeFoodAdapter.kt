@@ -14,6 +14,10 @@ import com.duongtung.cookingman.model.TypeFood
 
 
 class ItemTypeFoodAdapter : BaseAdapter<TypeFood,ItemRecycleTypeBinding>() {
+    override fun getIdVariableOnClick(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun getLayoutId() = R.layout.item_recycle_type
 
     override fun getIdVariable() = BR.typefood

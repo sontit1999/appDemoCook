@@ -4,7 +4,6 @@ import android.content.Context
 import android.graphics.Typeface
 import java.util.*
 
-
 object FontCache {
     val FA_FONT_REGULAR = "fa-regular-400.ttf"
     val FA_FONT_SOLID = "fa-solid-900.ttf"
