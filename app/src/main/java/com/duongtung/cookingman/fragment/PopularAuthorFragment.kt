@@ -1,10 +1,12 @@
 package com.duongtung.cookingman.fragment
 
+import android.content.Intent
 import com.duongtung.cookingman.R
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentPopularAuthorBinding
+import com.duongtung.cookingman.ui.chatdetail.DetailChatActivity
 
 public class PopularAuthorFragment : BaseFragment<FragmentPopularAuthorBinding,PopularAuthorViewModel>(){
     override fun getClassViewMode() = PopularAuthorViewModel::class.java
@@ -12,6 +14,7 @@ public class PopularAuthorFragment : BaseFragment<FragmentPopularAuthorBinding,P
     override fun setBindingViewModel() {
          binding.viewModel = viewModel
          binding.recyclerviewPopularAuthor.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
     }
 
     override fun viewCreated() {

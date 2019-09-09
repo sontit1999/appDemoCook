@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:orientation="vertical"
+        android:paddingHorizontal="@dimen/actionbar_padding"
         android:gravity="center_vertical"
         android:background="@color/colorActionbar"
         android:layout_width="match_parent"
@@ -8,10 +9,9 @@
     <ImageView
             android:id="@+id/iv_navigation"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="23dp"
             android:layout_centerVertical="true"
-            android:layout_width="33dp"
-            android:layout_height="33dp"
+            android:layout_width="@dimen/actionbar_width_icon"
+            android:layout_height="@dimen/actionbar_heigh_icon"
             android:src="@drawable/ic_chevron_left_black_24dp"
             />
     <TextView
@@ -19,7 +19,7 @@
             android:layout_toRightOf="@+id/iv_navigation"
             android:text="Larry Ramsey"
             android:layout_centerVertical="true"
-            android:textSize="25sp"
+            android:textSize="@dimen/textsize_tvActionbar"
             android:layout_marginLeft="5dp"
             android:textColor="@color/colorwhite"
             android:layout_width="wrap_content"

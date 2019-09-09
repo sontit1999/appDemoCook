@@ -1,5 +1,6 @@
 package com.duongtung.cookingman.ui
 
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -7,8 +8,12 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityMainBinding
 import com.duongtung.cookingman.fragment.NewFeedsFragment
+import com.duongtung.cookingman.fragment.RecipeFragment
+import com.duongtung.cookingman.ui.recipefood.RecipeActivity
+import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
+    private lateinit var  txt: TextView
     override fun getViewMode() = MainViewModel::class.java
 
     override fun getLayout() = R.layout.activity_main
@@ -16,6 +21,16 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
         loadFragment(NewFeedsFragment())
+
+        binding.containerActionbar.iv_earth.setOnClickListener {
+            goToActivity(MapsActivity::class.java,null,null)
+        }
+        binding.containerBangtin.setOnClickListener{
+            goToActivity(RecipeActivity::class.java,null,null)
+        }
+        binding.containerActionbar.iv_logo.setOnClickListener {
+            loadFragment(RecipeFragment())
+        }
     }
 
     private fun loadFragment(fragment: Fragment){

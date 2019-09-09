@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 android:orientation="vertical"
+        android:paddingHorizontal="@dimen/actionbar_padding"
                 android:background="@color/colorActionbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize">
     <ImageView
             android:id="@+id/iv_navigation"
-            android:layout_marginLeft="32dp"
             android:layout_centerVertical="true"
-            android:layout_width="32dp"
-            android:layout_height="22dp"
+            android:layout_width="@dimen/actionbar_width_icon"
+            android:layout_height="@dimen/actionbar_heigh_icon"
             android:src="@drawable/ic_menu_black_24dp"
     />
     <ImageView
@@ -24,16 +24,15 @@
             android:layout_marginRight="17dp"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/iv_search"
-            android:layout_width="32dp"
-            android:layout_height="23dp"
+            android:layout_width="@dimen/actionbar_width_icon"
+            android:layout_height="@dimen/actionbar_heigh_icon"
             android:src="@drawable/iconearth"
     />
     <ImageView
             android:id="@+id/iv_search"
-            android:layout_marginRight="9dp"
             android:layout_alignParentRight="true"
-            android:layout_width="36dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/actionbar_width_icon"
+            android:layout_height="@dimen/actionbar_heigh_icon"
             android:src="@drawable/iconsearch"
             android:layout_centerInParent="true"/>
 </RelativeLayout>

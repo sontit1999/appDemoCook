@@ -52,7 +52,7 @@
          if (onClick!=null) viewHolder.setClickAdapter(getIdVariableOnClick(),onClick!!)
      }
 
-     class BaseViewHolder<T,VB : ViewDataBinding>(var binding : VB) : RecyclerView.ViewHolder(binding.root) {
+      class BaseViewHolder<T,VB : ViewDataBinding>(var binding : VB) : RecyclerView.ViewHolder(binding.root) {
          fun setVariable(id : Int, t: T){
              binding.setVariable(id,t)
          }

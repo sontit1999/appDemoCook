@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<layout>
+    <data>
+        <variable
+                name="viewModel"
+                type="com.duongtung.cookingman.ui.setting.SettingViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
@@ -7,22 +12,52 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#E7E7E7" >
-
-        <TextView
-                android:id="@+id/generalSettings"
+        <RelativeLayout
+                android:id="@+id/actionbar"
+                android:gravity="center_vertical"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:background="@color/colorActionbar"
+                android:layout_width="match_parent"
+                android:layout_height="?android:attr/actionBarSize">
+            <ImageView
+                    android:id="@+id/iv_navigation"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_centerVertical="true"
+                    android:layout_width="@dimen/actionbar_width_icon"
+                    android:layout_height="@dimen/actionbar_heigh_icon"
+                    android:src="@drawable/ic_chevron_left_black_24dp"
+                    />
+            <TextView
+                    android:id="@+id/tvReturn"
+                    android:layout_toRightOf="@+id/iv_navigation"
+                    android:text="return"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/textsize_tvActionbar"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/colorwhite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+        <TextView
+                android:id="@+id/generalSettings"
+                app:layout_constraintTop_toBottomOf="@id/actionbar"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:text="GENERAL SETTINGS"
-                android:textSize="18sp"
+                android:textSize="@dimen/textview_main__content_size"
                 android:textColor="#1D1D1A"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         <TableRow
                 android:id="@+id/tbRowChatPre"
-                android:layout_height="50dp"
+                android:paddingHorizontal="@dimen/setting_padding_tablerow"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:background="#FFFFFF"
@@ -33,19 +68,18 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:textColor="#F11755"
-                    android:layout_marginLeft="10dp"
                     android:text="Chat Preferance"/>
 
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:textColor="#575757"
                     android:textAlignment="textEnd"
                     android:gravity="center"
-                    android:text="01745874566"
+                    android:text="0335275330"
                     android:drawableRight="@drawable/arrowicon"
                     tools:ignore="RtlCompat"/>
 
@@ -53,7 +87,8 @@
 
         <TableRow
                 android:id="@+id/tbRowEmail"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/setting_padding_tablerow"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:background="#FFFFFF"
@@ -65,19 +100,19 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:textColor="#F11755"
-                    android:layout_marginLeft="10dp"
                     android:text="Email"/>
 
             <TextView
                     android:layout_width="match_parent"
+                    android:paddingLeft="@dimen/setting_padding_tablerow"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:gravity="center"
                     android:textColor="#575757"
                     android:textAlignment="textEnd"
-                    android:text="Mumtahina4@gmail.com"
+                    android:text="Sonkoii1995@gmail.com"
                     android:drawableRight="@drawable/arrowicon"
                     tools:ignore="RtlCompat"/>
 
@@ -85,11 +120,11 @@
 
         <TextView
                 android:id="@+id/txtPre"
+                android:paddingHorizontal="@dimen/setting_padding_tablerow"
                 android:layout_marginTop="3dp"
                 android:background="#FFFFFF"
-                android:textSize="18dp"
+                android:textSize="@dimen/textview_main__content_size"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
                 android:textColor="#F11755"
                 app:layout_constraintTop_toBottomOf="@id/tbRowEmail"
                 android:text="Preferance"
@@ -99,9 +134,9 @@
         <TextView
                 android:id="@+id/txtAppSettings"
                 android:textColor="#1D1D1A"
-                android:layout_marginTop="30dp"
-                android:textSize="18dp"
-                android:paddingLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:textSize="@dimen/textview_main__content_size"
+                android:layout_marginLeft="20dp"
                 android:text="APP SETTINGS"
                 app:layout_constraintTop_toBottomOf="@id/txtPre"
                 android:layout_width="match_parent"
@@ -109,8 +144,9 @@
 
         <TableRow
                 android:id="@+id/tbRowAppChatPre"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
+                android:paddingHorizontal="@dimen/setting_padding_tablerow"
                 android:orientation="horizontal"
                 android:background="#FFFFFF"
                 android:gravity="center"
@@ -121,15 +157,14 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:textColor="#F11755"
-                    android:layout_marginLeft="10dp"
                     android:text="Chat Preferance"/>
 
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:gravity="center"
                     android:textColor="#575757"
                     android:textAlignment="textEnd"
@@ -141,7 +176,8 @@
 
         <TableRow
                 android:id="@+id/tbRowTxtTone"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/setting_padding_tablerow"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:background="#FFFFFF"
@@ -153,19 +189,17 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:textColor="#F11755"
-                    android:layout_marginLeft="10dp"
                     android:text="Text Tone"/>
 
             <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:gravity="center"
                     android:textColor="#575757"
                     android:textAlignment="textEnd"
-                    android:layout_marginLeft="50dp"
                     android:text="Bamboo"
                     android:drawableRight="@drawable/arrowicon"
                     tools:ignore="RtlCompat"/>
@@ -174,10 +208,11 @@
 
         <TableRow
                 android:id="@+id/tbRowAudioChat"
-                android:layout_height="50dp"
+                android:layout_height="wrap_content"
                 android:layout_width="match_parent"
                 android:orientation="horizontal"
                 android:background="#FFFFFF"
+                android:padding="@dimen/setting_padding_tablerow"
                 app:layout_constraintTop_toBottomOf="@+id/tbRowTxtTone"
                 android:layout_marginTop="3dp"
                 app:layout_constraintLeft_toLeftOf="parent">
@@ -185,14 +220,13 @@
             <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18sp"
+                    android:textSize="@dimen/textview_main__content_size"
                     android:textColor="#F11755"
-                    android:layout_marginLeft="10dp"
                     android:text="Audio Chat"/>
             <Switch
                     android:id="@+id/switchAudio"
-                    android:layout_marginRight="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="wrap_content"/>
         </TableRow>
     </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

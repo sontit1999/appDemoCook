@@ -7,7 +7,7 @@
         <variable name="foodingredient" type="com.duongtung.cookingman.model.FoodIngredient"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="25dp"
+            android:padding="@dimen/itemGredient_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <ImageView
@@ -16,43 +16,34 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:imageUrl="@{foodingredient.imageFood}"
-                android:layout_width="80dp"
-                android:layout_height="80dp">
+                app:imageUrl="@{foodingredient.imageIngredient}"
+                android:layout_width="@dimen/itemGredient_image_size"
+                android:layout_height="@dimen/itemGredient_image_size">
         </ImageView>
         <TextView
                 android:id="@+id/tv_nameIngredient"
-                android:text="@{foodingredient.nameFood}"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="23dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="@dimen/itemGredient_marginleft"
+                android:text="@{foodingredient.nameIngredient}"
+                app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toRightOf="@id/iv_nameIngredient"
                 android:textColor="@color/colorBlack"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content">
         </TextView>
         <TextView
                 android:id="@+id/tv_number"
-                android:text="@{foodingredient.number}"
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="23dp"
+                android:text="@{foodingredient.number()}"
+                android:layout_marginTop="@dimen/itemGredient_margintop"
+                android:layout_marginLeft="@dimen/itemGredient_marginleft"
                 android:textColor="@color/colorRed"
-                android:layout_width="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
                 app:layout_constraintLeft_toRightOf="@id/iv_nameIngredient"
                 app:layout_constraintTop_toBottomOf="@id/tv_nameIngredient"
                 android:layout_height="wrap_content">
 
-        </TextView>
-        <TextView
-                android:id="@+id/tv_measure"
-                android:text="@{foodingredient.measure}"
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="5dp"
-                android:textColor="@color/colorGrey"
-                android:layout_width="wrap_content"
-                app:layout_constraintLeft_toRightOf="@id/tv_number"
-                app:layout_constraintTop_toBottomOf="@id/tv_nameIngredient"
-                android:layout_height="wrap_content">
         </TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

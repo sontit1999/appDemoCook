@@ -13,7 +13,7 @@
                   android:layout_height="wrap_content"
                   android:id="@+id/txtAnnounce"
                   android:text="Enter your phone number"
-                  android:textSize="18sp"
+                  android:textSize="@dimen/textview_main_size"
                   android:textColor="#2C2B2B"
                   app:layout_constraintTop_toTopOf="parent"
                   android:layout_marginTop="50dp"

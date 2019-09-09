@@ -13,8 +13,8 @@
                       android:orientation="vertical"
                       android:layout_width="match_parent"
                       android:layout_height="match_parent">
-            <include layout="@layout/actionbar_chatlist" />
-
+            <include android:id="@+id/actionbar"
+                    layout="@layout/actionbar_chatlist" />
             <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tabs"
                     app:tabMode="fixed"

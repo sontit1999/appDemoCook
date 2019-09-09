@@ -8,12 +8,11 @@
     <LinearLayout
             android:orientation="vertical"
             android:background="#f1f1f1"
-            android:paddingVertical="20dp"
-            android:paddingHorizontal="15dp"
+            android:padding="@dimen/itemPost_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="20px"
+                android:padding="@dimen/itemPost_padding"
                 android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -21,155 +20,112 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:id="@+id/ivAvatar"
+                    imageUrl="@{post.user.profileUrl}"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:src="@drawable/gaixinh"
             />
-            <TextView
-                    android:id="@+id/tvName"
-                    android:text="@={post.name}"
-                    android:layout_marginLeft="25px"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="italic"
-                    android:textFontWeight="500"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatar"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvconnect"
-                    android:textColor="@color/colorGrey"
-                    android:text=" is making "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvName"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvnameFood"
-                    android:textColor="@color/colorRed"
-                    android:text="@={post.food}"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvconnect"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvLocation"
-                    android:text="at his house"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvnameFood"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginTop="20dp"/>
-            <TextView
-                    android:id="@+id/tvTimeAgo"
-                    android:layout_marginTop="18px"
-                    android:text="@={post.time}"
-                    android:layout_marginLeft="25px"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatar"
-                    app:layout_constraintTop_toBottomOf="@id/tvName"
-            />
-            <ImageView
-                    android:id="@+id/iv_gallery"
-                    android:src="@drawable/food"
-                    android:layout_marginTop="24dp"
-                    android:scaleType="centerCrop"
-                    android:layout_width="match_parent"
-                    app:layout_constraintTop_toBottomOf="@id/ivAvatar"
-                    android:layout_height="235dp"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.duongtung.cookingman.model.MyTextView
+                        android:id="@+id/tvTitle"
+                        android:layout_marginLeft="@dimen/itemPost_marginLeft"
+                        android:text="@{post.infor()}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textview_main__content_size"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/ivAvatar"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:layout_marginTop="@dimen/itemPost_marginTop"/>
+                <com.duongtung.cookingman.model.MyTextView
+                        android:id="@+id/tvTime"
+                        android:textStyle="italic"
+                        android:textSize="15dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintLeft_toRightOf="@id/ivAvatar"
+                        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+                        android:layout_marginTop="@dimen/itemPost_marginToptvTime"/>
+                <ImageView
+                        android:id="@+id/ivImage"
+                        app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="@dimen/itemPost_marginTop"
+                        imageUrl="@{post.recipe.imageRecipe}"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/itemPost_imageRecipe_heigh">
+                </ImageView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
         <androidx.constraintlayout.widget.ConstraintLayout
-                android:padding="24dp"
-                android:layout_marginTop="24dp"
+                android:layout_marginTop="@dimen/itemPost_marginTop"
                 android:background="@color/colorwhite"
+                android:padding="@dimen/itemPost_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <TextView
-                    android:id="@+id/tvOtherpeople"
+            <com.duongtung.cookingman.model.MyTextView
+                    android:id="@+id/tv_otherPeople"
+                    android:textSize="@dimen/textview_main__content_size"
+                    android:text="@{post.otherpeople()}"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:text="Demi , karri afan, ozawa"
-                    android:textColor="@color/colorBlack"
-                    android:textStyle="italic"
-                    android:textFontWeight="500"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-            />
-            <TextView
-                    android:id="@+id/tvNumberpeople"
-                    android:textColor="@color/colorGrey"
-                    android:text=" and 34 joined "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/tvOtherpeople"
-            />
-            <TextView
-                    android:id="@+id/tvDelicious"
-                    android:textColor="@color/colorRed"
-                    android:textStyle="bold"
-                    android:text=" DALICIOUS "
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintLeft_toRightOf="@id/tvNumberpeople"
-                    app:layout_constraintTop_toTopOf="parent"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin1"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="22dp"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin2"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="22dp"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin1"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatarjoin3"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginLeft="22dp"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin2"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    android:src="@drawable/gaixinh"
-            />
-            <TextView
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"></com.duongtung.cookingman.model.MyTextView>
+            <com.duongtung.cookingman.model.MyTextView
                     android:id="@+id/tvNumbermore"
-                    android:text="32+"
+                    android:text="@{post.more()}"
                     android:gravity="center"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintRight_toRightOf="parent"
                     android:layout_marginLeft="22dp"
                     android:background="@drawable/custom_bg_circle"
-                    android:layout_marginTop="35dp"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
                     android:textColor="@color/colorRed"
-                    app:layout_constraintTop_toBottomOf="@id/tvOtherpeople"
-                    app:layout_constraintLeft_toRightOf="@id/ivAvatarjoin3"
                     android:layout_width="40dp"
                     android:layout_height="40dp"/>
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivFirstPeople"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    imageUrl="@{post.peoplOne()}"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:src="@drawable/gaixinh"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivSecondPeople"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
+                    imageUrl="@{post.peoplTwo()}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toRightOf="@id/ivFirstPeople"
+                    android:src="@drawable/gaixinh"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivThirdPeople"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
+                    imageUrl="@{post.peopleThree()}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toRightOf="@id/ivSecondPeople"
+                    android:src="@drawable/gaixinh"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivFourthPeople"
+                    android:layout_width="@dimen/itemPost_image_smallsize"
+                    android:layout_height="@dimen/itemPost_image_smallsize"
+                    android:layout_marginTop="@dimen/itemPost_marginTop"
+                    imageUrl="@{post.peopleFour()}"
+                    app:layout_constraintTop_toBottomOf="@id/tv_otherPeople"
+                    app:layout_constraintLeft_toRightOf="@id/ivThirdPeople"
+                    android:src="@drawable/gaixinh"
+                    />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </layout>

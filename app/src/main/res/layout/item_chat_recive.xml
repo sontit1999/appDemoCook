@@ -4,13 +4,15 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:padding="8dp"
+        android:padding="@dimen/itemchat_padding"
         android:layout_height="wrap_content">
     <com.mikhaellopez.circularimageview.CircularImageView
             android:id="@+id/iv_avatar"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_marginTop="5dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
             android:src="@drawable/gaixinh"
             android:layout_marginLeft="8dp"
@@ -18,21 +20,23 @@
             />
     <TextView
             android:id="@+id/tv_message"
+            android:textSize="@dimen/text_size_chat"
             android:text="Hi how are you?"
+            app:layout_constraintBottom_toBottomOf="parent"
             android:background="@drawable/custom_edt_chat_recive"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:maxWidth="240dp"
-            android:padding="15dp"
+            android:maxWidth="@dimen/itemchat_maxwwidth_content"
+            android:padding="@dimen/itemChat_tv_padding"
             android:textColor="#848484"
             app:layout_constraintTop_toBottomOf="@id/tv_time"
             app:layout_constraintLeft_toRightOf="@+id/iv_avatar"
-            android:layout_marginLeft="8dp" />
+            android:layout_marginLeft="@dimen/itemChat_tv_margin" />
 
     <TextView
             android:id="@+id/tv_time"
-            android:text="@{Mesage.sendAt}"
             android:visibility="invisible"
+            android:text="@{Mesage.sendAt}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="10sp"

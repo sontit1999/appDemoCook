@@ -14,10 +14,10 @@ class PreferanceViewModel : BaseViewModel(){
     private var arrItemTypeFood = MutableLiveData<MutableList<TypeFood>>()
     fun getArrItemTypeFood(): MutableLiveData<MutableList<TypeFood>> {
         val list = listOf(
-            (TypeFood(R.drawable.protein, "Vitamins", "Vitamins are organic molecules essential for an organism that are not classified as amino acids.",false)),
+            (TypeFood(R.drawable.protein, "Vitamins", "Vitamins are organic molecules essential for an organism.",false)),
             (TypeFood(R.drawable.protein, "Minerals", "Minerals are the exogenous chemical elements indispensable for life.",true)),
-            (TypeFood(R.drawable.protein, "Fatty acids", "Essential fatty acids (EFAs) are fatty acids that humans and other animals must ingest.",false)),
-            (TypeFood(R.drawable.protein, "Protein", "Vitamins are organic molecules essential for an organism that are not classified.",true))
+            (TypeFood(R.drawable.protein, "Fatty acids", "Essential fatty acids (EFAs) are fatty acids.",false)),
+            (TypeFood(R.drawable.protein, "Protein", "Vitamins are organic molecules essential for an organism .",true))
         ).toMutableList()
         arrItemTypeFood.postValue(list)
 
