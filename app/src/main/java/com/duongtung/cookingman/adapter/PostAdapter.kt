@@ -11,10 +11,13 @@ import com.duongtung.cookingman.BR
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.base.adapter.BaseAdapter
+import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemPostBinding
 import com.duongtung.cookingman.model.Post
 
 class PostAdapter : BaseAdapter<Post,ItemPostBinding>(){
+    override fun getOnClick()=null
+
     override fun getIdVariableOnClick(): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

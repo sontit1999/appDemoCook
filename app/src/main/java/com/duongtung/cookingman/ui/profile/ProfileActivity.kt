@@ -35,7 +35,6 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>()
                 goToActivity(DetailChatActivity::class.java, null, null)
             }
             viewModel.getArrRecipe().observe(this, Observer { list ->
-                viewModel.adapter.setOnClick(RecipeCallback())
                 viewModel.adapter.setList(list)
             })
 

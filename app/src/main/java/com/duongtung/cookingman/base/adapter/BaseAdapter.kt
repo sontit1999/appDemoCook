@@ -11,11 +11,6 @@
  abstract class BaseAdapter<T,VB : ViewDataBinding> : RecyclerView.Adapter<BaseAdapter.BaseViewHolder<T, VB>>() {
      private var list : MutableList<T> = arrayListOf()
      protected lateinit var binding : VB
-     private var onClick : CBAdapter?=null
-
-     fun setOnClick(onClick: CBAdapter){
-         this.onClick = onClick
-     }
 
 
      fun setList(list : MutableList<T>){
@@ -41,7 +36,7 @@
      abstract fun getLayoutId() : Int
      abstract fun getIdVariable() : Int
      abstract fun getIdVariableOnClick() : Int
-
+     abstract fun getOnClick() : CBAdapter?
      override fun onCreateViewHolder(viewHolder: ViewGroup, i: Int): BaseViewHolder<T, VB> {
          binding = DataBindingUtil.inflate(LayoutInflater.from(viewHolder.context),getLayoutId(),viewHolder,false)
          return BaseViewHolder(binding)
@@ -49,7 +44,7 @@
 
      override fun onBindViewHolder(viewHolder : BaseViewHolder<T, VB>, i : Int) {
          viewHolder.setVariable(getIdVariable(), list[i])
-         if (onClick!=null) viewHolder.setClickAdapter(getIdVariableOnClick(),onClick!!)
+         if (getOnClick()!=null) viewHolder.setClickAdapter(getIdVariableOnClick(),getOnClick()!!)
      }
 
       class BaseViewHolder<T,VB : ViewDataBinding>(var binding : VB) : RecyclerView.ViewHolder(binding.root) {
