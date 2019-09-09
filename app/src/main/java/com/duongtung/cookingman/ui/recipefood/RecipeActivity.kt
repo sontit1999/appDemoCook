@@ -5,7 +5,9 @@ import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityRecipeBinding
 import com.duongtung.cookingman.fragment.DirectionFragment
+import com.duongtung.cookingman.fragment.IngredientFoodFragment
 import com.duongtung.cookingman.fragment.PopularAuthorFragment
+import com.duongtung.cookingman.fragment.ReviewerFragment
 
 class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
     override fun getViewMode()  = RecipeViewModel::class.java
@@ -17,8 +19,8 @@ class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
 
         val myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
         myViewPageStateAdapter.addFragment(DirectionFragment(),"DIRECTION")
-        myViewPageStateAdapter.addFragment(DirectionFragment(),"INGREDIENT")
-        myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"REVIEWS")
+        myViewPageStateAdapter.addFragment(IngredientFoodFragment(),"INGREDIENT")
+        myViewPageStateAdapter.addFragment(ReviewerFragment(),"REVIEWS")
         myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"ABOUT AUTHOR")
         binding.viewPager.adapter = myViewPageStateAdapter
         binding.tabs.setupWithViewPager(binding.viewPager,true)

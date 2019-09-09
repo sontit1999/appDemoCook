@@ -12,6 +12,8 @@ import com.duongtung.cookingman.ui.MapsActivity
 
 class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel>() {
     override fun viewCreated() {
+        // observe lắng nghe sự thay đổi set lại lít từ dưới lên cái này của livedata rất rõ trong document android
+        // vâng :D
         viewModel.getArrPost().observe(this, Observer { list ->
             viewModel.adapter.setList(list)
         })
