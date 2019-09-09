@@ -56,8 +56,7 @@
                       android:layout_width="match_parent"
                       android:layout_height="wrap_content"
                        android:layout_marginVertical="10dp"
-                      android:orientation="horizontal"
-                       tools:layout_editor_absoluteX="30dp">
+                      android:orientation="horizontal" tools:layout_editor_absoluteX="30dp">
 
             <TextView android:layout_width="wrap_content"
                                   android:layout_height="wrap_content"
