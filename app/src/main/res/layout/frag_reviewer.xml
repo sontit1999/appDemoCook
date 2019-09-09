@@ -10,7 +10,6 @@
                 type="com.duongtung.cookingman.fragment.ReviewerViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-
             android:orientation="vertical"
             android:padding="@dimen/fragReview_padding"
             android:layout_width="match_parent"
@@ -29,7 +28,9 @@
                 card_view:cardElevation="10dp"
                 card_view:cardPreventCornerOverlap="false">
             <RelativeLayout
+
                     android:paddingVertical="@dimen/fragReview_padding"
+                    android:paddingHorizontal="25dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">

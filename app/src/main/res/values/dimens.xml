@@ -67,4 +67,6 @@
     <dimen name="itemsearch_padding">20dp</dimen>
     <dimen name="acyivityRecipe_banner_heigh">200dp</dimen>
     <dimen name="acyivityRecipe_margin_honizatal">25dp</dimen>
+    <dimen name="fragReview_heeight_viewVertical">50dp</dimen>
+    <dimen name="activity_search_padding_recyclerview">25dp</dimen>
 </resources>

@@ -26,7 +26,6 @@ class PostAdapter : BaseAdapter<Post,ItemPostBinding>(){
         super.onBindViewHolder(viewHolder, i)
         binding.ivAvatar.setOnClickListener{
             Log.d("test","Chuyển sang activity profile")
-
         }
     }
 

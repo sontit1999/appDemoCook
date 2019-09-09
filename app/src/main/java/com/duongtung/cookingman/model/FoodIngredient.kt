@@ -1,5 +1,4 @@
 package com.duongtung.cookingman.model
-
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableStringBuilder
@@ -18,3 +17,4 @@ data class FoodIngredient(var nameIngredient : String,var imageIngredient : Stri
        return span
     }
 }
+

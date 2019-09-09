@@ -42,8 +42,9 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/recyPrefer"
                 android:src="@drawable/doneicon"
-                android:layout_height="50dp"
                 android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/splash_tv_margin_30"
                 />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

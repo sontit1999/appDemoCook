@@ -16,21 +16,15 @@
                 android:background="@color/colorwhite"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <androidx.constraintlayout.widget.ConstraintLayout
-                    android:id="@+id/containerInforAuthor"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_width="match_parent"
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:id="@+id/ivAvatar"
+                    imageUrl="@{post.user.profileUrl}"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:layout_height="wrap_content">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                        android:layout_width="@dimen/itemPost_image_size"
-                        android:layout_height="@dimen/itemPost_image_size"
-                        android:id="@+id/ivAvatar"
-                        imageUrl="@{post.user.profileUrl}"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        android:src="@drawable/gaixinh"
-                        />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:src="@drawable/gaixinh"
+            />
                 <com.duongtung.cookingman.model.MyTextView
                         android:id="@+id/tvTitle"
                         android:layout_marginLeft="@dimen/itemPost_marginLeft"
@@ -53,21 +47,18 @@
                         app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                         app:layout_constraintTop_toBottomOf="@id/tvTitle"
                         android:layout_marginTop="@dimen/itemPost_marginToptvTime"/>
+                <ImageView
+                        android:id="@+id/ivImage"
+                        app:layout_constraintTop_toBottomOf="@id/ivAvatar"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginTop="@dimen/itemPost_marginTop"
+                        imageUrl="@{post.recipe.imageRecipe}"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/itemPost_imageRecipe_heigh">
+                </ImageView>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-
-            <ImageView
-                    android:id="@+id/iv_gallery"
-                    android:src="@drawable/food"
-                    imageUrl="@{post.recipe.imageRecipe}"
-                    android:layout_marginTop="@dimen/itemPost_marginTop"
-                    android:scaleType="fitCenter"
-                    android:layout_width="match_parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/containerInforAuthor"
-                    android:layout_height="@dimen/itemPost_imageRecipe_heigh"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_marginTop="@dimen/itemPost_marginTop"
                 android:background="@color/colorwhite"

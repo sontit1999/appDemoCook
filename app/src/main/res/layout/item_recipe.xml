@@ -41,6 +41,7 @@
                 android:text="@{post.creatRecipe()}"
                 android:layout_marginTop="@dimen/itemRecipe_marginTop"
                 android:layout_marginLeft="@dimen/itemRecipe_marginLeft"
+                android:textStyle="bold"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toLeftOf="parent"
