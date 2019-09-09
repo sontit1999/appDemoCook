@@ -72,7 +72,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvCreate"
                 tools:layout_editor_absoluteX="30dp">
 
-            <TextView
+            <com.duongtung.cookingman.model.MyTextView
                     android:id="@+id/tvGetStarted"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"

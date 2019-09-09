@@ -27,7 +27,7 @@ class SearchViewModel() : BaseViewModel() {
                 "Food Republic’s column Ask Your Butcher seeks to answer FAQs in the world of butchery. Ethically minded butcher Bryan Mayer has opened butcher shops and restaurants and has trained butchers in the U.S. and abroad. He helped develop the renowned butcher-training program at Fleishers, where he is currently director of butchery education. In each column, Mayer tackles a pressing issue facing both meat buyers and home cooks. With the Fourth of July weekend approaching, he delves into the world of homemade hot dogs. Now that’s some serious BBQ bragging rights on the line."
             ),
             RecipeFood(
-                "Chocolate",
+                "Hamburger",
                 "https://assets3.thrillist.com/v1/image/1782498/size/tmg-article_default_mobile.jpg",
                 listOf(
                     FoodIngredient("Cà chua", "xxxx", "200", "quả")
@@ -35,7 +35,7 @@ class SearchViewModel() : BaseViewModel() {
                 "Food Republic’s column Ask Your Butcher seeks to answer FAQs in the world of butchery. Ethically minded butcher Bryan Mayer has opened butcher shops and restaurants and has trained butchers in the U.S. and abroad. He helped develop the renowned butcher-training program at Fleishers, where he is currently director of butchery education. In each column, Mayer tackles a pressing issue facing both meat buyers and home cooks. With the Fourth of July weekend approaching, he delves into the world of homemade hot dogs. Now that’s some serious BBQ bragging rights on the line."
             ),
             RecipeFood(
-                "Chocolate",
+                "Kit kat",
                 "https://assets3.thrillist.com/v1/image/1782498/size/tmg-article_default_mobile.jpg",
                 listOf(
                     FoodIngredient("Cà chua", "xxxx", "200", "quả")

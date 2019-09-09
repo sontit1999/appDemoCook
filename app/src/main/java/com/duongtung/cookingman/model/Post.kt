@@ -115,4 +115,12 @@ data class Post(var user:User, var recipe: RecipeFood, var location: String, var
          if(arrComment.size>4) return "${arrComment.size - 4}+"
          return "69+"
     }
+    fun creatRecipe():SpannableStringBuilder{
+        var span = SpannableStringBuilder()
+        var start = 0
+        span.append(user.nickName)
+        span.setSpan(ForegroundColorSpan(Color.RED), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        span.append(" creat this recipe ")
+        return span
+    }
 }

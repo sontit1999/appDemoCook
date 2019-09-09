@@ -74,7 +74,7 @@
                         android:layout_toLeftOf="@id/ivAvatar"
                         android:layout_marginRight="5dp"
                         android:background="#c6c6c6"
-                        android:layout_height="70dp">
+                        android:layout_height="@dimen/fragReview_heeight_viewVertical">
                 </View>
                 <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/ivAvatar"

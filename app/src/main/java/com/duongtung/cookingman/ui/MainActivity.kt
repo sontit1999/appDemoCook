@@ -1,5 +1,6 @@
 package com.duongtung.cookingman.ui
 
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -12,6 +13,7 @@ import com.duongtung.cookingman.ui.recipefood.RecipeActivity
 import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
+    private lateinit var  txt: TextView
     override fun getViewMode() = MainViewModel::class.java
 
     override fun getLayout() = R.layout.activity_main

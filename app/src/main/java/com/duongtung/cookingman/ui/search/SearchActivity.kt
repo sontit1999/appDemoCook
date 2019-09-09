@@ -6,6 +6,7 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivitySearchBinding
@@ -20,6 +21,7 @@ class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>() {
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
 
+        binding.recyclerSearch.addItemDecoration(DividerItemDecoration(baseContext, DividerItemDecoration.VERTICAL))
 
         viewModel.getArrRecipe().observe(this, Observer { list ->
             viewModel.adapter.setList(list)

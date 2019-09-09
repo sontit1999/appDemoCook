@@ -33,7 +33,7 @@
     <dimen name="acyivityMap_image_height">150dp</dimen>
     <dimen name="setting_padding_tablerow">10dp</dimen>
     <dimen name="fragment_direction_padding">20dp</dimen>
-    <dimen name="actibity_search_edittext_padding">15dp</dimen>
+    <dimen name="actibity_search_edittext_padding">12dp</dimen>
     <dimen name="itemchat_maxwwidth_content">240dp</dimen>
     <dimen name="itemchat_padding">8dp</dimen>
     <dimen name="itemchatlist_padding">15dp</dimen>
@@ -58,7 +58,8 @@
     <dimen name="itemPost_imageRecipe_heigh">235dp</dimen>
     <dimen name="itemRecipe_image_heigh">200dp</dimen>
     <dimen name="itemRecipe_paddingBottom">25dp</dimen>
-    <dimen name="itemRecipe_padding_iconlike">20dp</dimen>
+    <dimen name="itemRecipe_padding_iconlike">10dp</dimen>
+    <dimen name="itemRecipe_translationY">20dp</dimen>
     <dimen name="itemRecipe_marginTop">20dp</dimen>
     <dimen name="itemRecipe_marginLeft">20dp</dimen>
     <dimen name="itemTypeFood_image_size">40dp</dimen>
@@ -66,4 +67,8 @@
     <dimen name="itemTypeFood_marginHoniratal">10dp</dimen>
     <dimen name="itemTypeFood_margin_Checkbox">5dp</dimen>
     <dimen name="itemsearch_padding">20dp</dimen>
+    <dimen name="acyivityRecipe_banner_heigh">200dp</dimen>
+    <dimen name="acyivityRecipe_margin_honizatal">25dp</dimen>
+    <dimen name="fragReview_heeight_viewVertical">50dp</dimen>
+    <dimen name="activity_search_padding_recyclerview">25dp</dimen>
 </resources>

@@ -1,5 +1,6 @@
 package com.duongtung.cookingman.ui.profile
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,8 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityProfileBinding
 import com.duongtung.cookingman.ui.chatdetail.DetailChatActivity
+import com.duongtung.cookingman.ui.login.LoginActivity
+import com.duongtung.cookingman.ui.setting.SettingActivity
 
 class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>() {
     override fun getViewMode() = ProfileViewModel::class.java
@@ -22,6 +25,9 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>()
         }
         else Log.d("test", "ko co data")
         binding.viewmodel = viewModel
+        binding.tvNameAuthor.setOnClickListener {
+            goToActivity(SettingActivity::class.java,null,null)
+        }
         binding.tvReturn.setOnClickListener {
             finish()
         }

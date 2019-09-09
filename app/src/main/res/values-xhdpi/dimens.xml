@@ -32,7 +32,7 @@
     <dimen name="acyivityMap_image_height">100dp</dimen>
     <dimen name="setting_padding_tablerow">10dp</dimen>
     <dimen name="fragment_direction_padding">20dp</dimen>
-    <dimen name="actibity_search_edittext_padding">15dp</dimen>
+    <dimen name="actibity_search_edittext_padding">12dp</dimen>
     <dimen name="itemchat_maxwwidth_content">240dp</dimen>
     <dimen name="itemchat_padding">8dp</dimen>
     <dimen name="itemchatlist_padding">15dp</dimen>
@@ -64,4 +64,7 @@
     <dimen name="itemTypeFood_margin_top">10dp</dimen>
     <dimen name="itemTypeFood_marginHoniratal">10dp</dimen>
     <dimen name="itemTypeFood_margin_Checkbox">5dp</dimen>
+    <dimen name="itemsearch_padding">20dp</dimen>
+    <dimen name="acyivityRecipe_banner_heigh">200dp</dimen>
+    <dimen name="acyivityRecipe_margin_honizatal">25dp</dimen>
 </resources>

@@ -38,39 +38,42 @@
                     android:scaleType="fitCenter"
                     android:src="@drawable/bg_recipe"
                     android:layout_width="wrap_content"
-                    android:layout_height="200dp">
+                    android:layout_height="@dimen/acyivityRecipe_banner_heigh">
             </ImageView>
             <View
+                    android:id="@+id/view"
                     android:background="#CCE6E3DF"
-                    android:layout_above="@id/viewPager"
-                    android:translationY="-15dp"
-                    android:layout_marginHorizontal="35dp"
+                    android:translationY="-20dp"
+                    android:layout_below="@id/iv_banner"
+                    android:layout_marginHorizontal="@dimen/acyivityRecipe_margin_honizatal"
                     android:layout_width="match_parent"
                     android:layout_height="20dp"></View>
-
-            <androidx.viewpager.widget.ViewPager
-                    android:id="@+id/viewPager"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_below="@+id/iv_banner"
-                    android:layout_alignParentBottom="true"
-                    android:layout_marginHorizontal="25dp"
-                    android:background="#FFFFFF"
-                    android:translationY="-20dp">
-
-            </androidx.viewpager.widget.ViewPager>
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:src="@drawable/ic_share_black_24dp"
-                    app:fabSize="normal"
+            <FrameLayout
                     android:layout_below="@id/iv_banner"
-                    android:tint="@color/colorwhite"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="@color/colorBgsentChat"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-            </com.google.android.material.floatingactionbutton.FloatingActionButton>
+                    android:translationY="-5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                <androidx.viewpager.widget.ViewPager
+                        android:id="@+id/viewPager"
+                        android:layout_marginHorizontal="@dimen/acyivityRecipe_margin_honizatal"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@+id/iv_banner"
+                        android:layout_alignParentBottom="true"
+                        android:background="#FFFFFF">
+
+                </androidx.viewpager.widget.ViewPager>
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fab"
+                        android:src="@drawable/ic_share_black_24dp"
+                        app:fabSize="normal"
+                        android:layout_gravity="center|right"
+                        android:tint="@color/colorwhite"
+                        android:backgroundTint="@color/colorBgsentChat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </com.google.android.material.floatingactionbutton.FloatingActionButton>
+            </FrameLayout>
         </RelativeLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
