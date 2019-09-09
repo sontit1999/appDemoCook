@@ -2,6 +2,7 @@ package com.duongtung.cookingman.ui.profile
 import android.util.Log
 import androidx.lifecycle.Observer
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.adapter.RecipeCallback
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityProfileBinding
 import com.duongtung.cookingman.ui.chatdetail.DetailChatActivity
@@ -34,6 +35,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>()
                 goToActivity(DetailChatActivity::class.java, null, null)
             }
             viewModel.getArrRecipe().observe(this, Observer { list ->
+                viewModel.adapter.setOnClick(RecipeCallback())
                 viewModel.adapter.setList(list)
             })
 

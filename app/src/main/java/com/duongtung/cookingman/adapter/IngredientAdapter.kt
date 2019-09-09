@@ -10,6 +10,10 @@ import com.duongtung.cookingman.databinding.ItemIngredientBindingImpl
 import com.duongtung.cookingman.model.FoodIngredient
 
 class IngredientAdapter : BaseAdapter<FoodIngredient,ItemIngredientBinding>(){
+    override fun getIdVariableOnClick(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun getLayoutId()  = R.layout.item_ingredient
 
     override fun getIdVariable() = BR.foodingredient
