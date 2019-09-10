@@ -38,23 +38,24 @@ class TextViewWithFontAwesome: AppCompatTextView {
             2->typeText = FontCache.get(context,FontCache.FONT_GENBKBASL)
         }
         this.typeface = typeText!!
-
+        val iconSize = typed.getDimension(R.styleable.TextViewWithFontAwesome_iconSize,15f)
         val iconLeft = typed.getString(R.styleable.TextViewWithFontAwesome_iconLeft)
         val iconTop = typed.getString(R.styleable.TextViewWithFontAwesome_iconTop)
         val iconRight = typed.getString(R.styleable.TextViewWithFontAwesome_iconRight)
         val iconBottom = typed.getString(R.styleable.TextViewWithFontAwesome_iconBottom)
         val iconColor = typed.getColor(R.styleable.TextViewWithFontAwesome_iconColor, Color.WHITE)
 
-        val iconDrawableLeft = getIconDrawable(context,iconLeft,typedFace,iconColor)
-        val iconDrawableRight = getIconDrawable(context,iconRight,typedFace,iconColor)
-        val iconDrawableTop = getIconDrawable(context,iconTop,typedFace,iconColor)
-        val iconDrawableBottom = getIconDrawable(context,iconBottom,typedFace,iconColor)
+        val iconDrawableLeft = getIconDrawable(context,iconLeft,typedFace,iconColor,iconSize)
+        val iconDrawableRight = getIconDrawable(context,iconRight,typedFace,iconColor,iconSize)
+        val iconDrawableTop = getIconDrawable(context,iconTop,typedFace,iconColor,iconSize)
+        val iconDrawableBottom = getIconDrawable(context,iconBottom,typedFace,iconColor,iconSize)
 
         this.setCompoundDrawablesWithIntrinsicBounds(iconDrawableLeft,iconDrawableTop,iconDrawableRight,iconDrawableBottom)
     }
-    fun getIconDrawable(context: Context?, icon: String?, typeface: Typeface?, color: Int?): FontDrawable?{
+    fun getIconDrawable(context: Context?, icon: String?, typeface: Typeface?, color: Int?,iconSize : Float?): FontDrawable?{
         if (TextUtils.isEmpty(icon)) return null
         val drawable = FontDrawable(context!!,icon!!,typeface!!)
+        drawable.setTextSize(iconSize!!)
         drawable.setTextColor(color!!)
         return drawable
     }
