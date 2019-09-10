@@ -33,11 +33,11 @@ class FontDrawable : Drawable{
     private val themeAttributes = intArrayOf(android.R.attr.textAppearance)
     private val appearanceAttributes =
         intArrayOf(android.R.attr.textSize, android.R.attr.typeface, android.R.attr.textStyle, android.R.attr.textColor)
-    constructor(context : Context, faIconRes : Int,  isSolid : Boolean,  isBrand: Boolean,light: Boolean) {
-        init(context, faIconRes, isSolid, isBrand, light)
+    constructor(context : Context, faIconRes : String,  typeface: Typeface) {
+        init(context, faIconRes, typeface)
     }
 
-    private fun init(context: Context, faIconRes: Int, isSolid: Boolean, isBrand: Boolean,light: Boolean) {
+    private fun init(context: Context, faIconRes: String,  typeface: Typeface) {
         //Used to load and scale resource items
         mResources = context.resources
         //Definition of this drawables size
@@ -83,20 +83,8 @@ class FontDrawable : Drawable{
 
         setTextColor(textColor ?: ColorStateList.valueOf(-0x1000000))
         setRawTextSize(textSize.toFloat())
-
-        var tf: Typeface? = null
-        if (isSolid) {
-            tf = FontCache.get(context, FontCache.FA_FONT_SOLID)
-        } else if (isBrand) {
-            tf = FontCache.get(context, FontCache.FA_FONT_BRANDS)
-        } else if (light){
-            tf = FontCache.get(context, FontCache.FA_FONT_LIGHT)
-        }
-        else{
-            tf = FontCache.get(context, FontCache.FA_FONT_REGULAR)
-        }
-        setTypeface(tf, styleIndex)
-        setText(context.getString(faIconRes))
+        setTypeface(typeface, styleIndex)
+        setText(faIconRes)
     }
 
 

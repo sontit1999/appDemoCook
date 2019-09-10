@@ -72,6 +72,17 @@
                 app:layout_constraintTop_toBottomOf="@id/tvCreate"
                 tools:layout_editor_absoluteX="30dp">
 
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFace="font-cathsgbr"
+                    app:iconLeft="&#xf2b9;"
+                    app:iconColor="@color/colorAccent"
+                    app:fontawesome="font-awesome-solid"
+                    android:text="test font"
+                    android:drawablePadding="10px"
+                    app:iconRight="&#xf2b9;"/>
+
             <com.duongtung.cookingman.model.MyTextView
                     android:id="@+id/tvGetStarted"
                     android:layout_width="140dp"
@@ -101,6 +112,7 @@
                     android:layout_height="wrap_content"
                     app:fontFace="font-awesome-solid"
                     android:text="&#xf2b9;" />
+
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

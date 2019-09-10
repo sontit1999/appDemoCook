@@ -10,4 +10,22 @@
             <enum name="font-genbkbasl" value="5"/>
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="TextViewWithFontAwesome">
+        <attr name="fontawesome" format="enum">
+            <enum name="font-awesome-light" value= "0"/>
+            <enum name="font-awesome-brands" value="1"/>
+            <enum name="font-awesome-solid" value="2"/>
+            <enum name="font-awesome-regular" value="3"/>
+        </attr>
+        <attr name="fontFaceText" format="enum">
+            <enum name="font-cathsgbr" value="1"/>
+            <enum name="font-genbkbasl" value="2"/>
+        </attr>
+        <attr name="iconLeft" format="string|reference"/>
+        <attr name="iconRight" format="string|reference"/>
+        <attr name="iconBottom" format="string|reference"/>
+        <attr name="iconTop" format="string|reference"/>
+        <attr name="iconColor" format="color|reference"/>
+    </declare-styleable>
 </resources>
