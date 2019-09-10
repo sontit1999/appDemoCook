@@ -1,7 +1,8 @@
-package com.duongtung.cookingman
+package com.duongtung.cookingman.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.duongtung.cookingman.R
 
 class SettingActivity : AppCompatActivity() {
 

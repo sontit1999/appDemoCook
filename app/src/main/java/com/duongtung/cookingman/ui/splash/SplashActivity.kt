@@ -11,25 +11,40 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
+import com.duongtung.cookingman.customview.CustomSpanTypeFace
+import com.duongtung.cookingman.customview.FontCache
 import com.duongtung.cookingman.databinding.ActivitySplashBinding
 import com.duongtung.cookingman.ui.login.LoginActivity
 import com.duongtung.cookingman.ui.recipefood.RecipeActivity
 import com.duongtung.cookingman.ui.setting.SettingActivity
 
-class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
-    override fun getViewMode()= SplashViewModel::class.java
+class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
+    override fun getViewMode() = SplashViewModel::class.java
 
-    override fun getLayout()= R.layout.activity_splash
+    override fun getLayout() = R.layout.activity_splash
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        // set multi color for text
-        viewModel.text.setSpan(ForegroundColorSpan(Color.RED),15,26,0)
+
+        viewModel.text.setSpan(
+            CustomSpanTypeFace("", FontCache.get(this, FontCache.FONT_ROBOTO_THIN)!!),
+            0,
+            viewModel.text.length,
+            0
+        )
+        viewModel.text.setSpan(
+            ForegroundColorSpan(CookingApplication.getResource().getColor(R.color.tvGetStarted)!!),
+            15,
+            26,
+            0
+        )
+        viewModel.text.setSpan(CustomSpanTypeFace("", FontCache.get(this, FontCache.FONT_ROBOTO_REGULAR)!!), 15, 26, 0)
 
         binding.tvSignIn.setOnClickListener {
-            goToActivity(LoginActivity::class.java,null,null)
+            goToActivity(LoginActivity::class.java, null, null)
 
         }
         binding.tvGetStarted.setOnClickListener {
@@ -38,7 +53,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding,SplashViewModel>() {
         }
 
         binding.tvCreate.setOnClickListener {
-            goToActivity(SettingActivity::class.java,null,null)
+            goToActivity(SettingActivity::class.java, null, null)
         }
     }
 }

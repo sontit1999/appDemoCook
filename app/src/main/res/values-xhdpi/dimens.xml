@@ -5,7 +5,7 @@
     <dimen name="splash_btn_text_size">25sp</dimen>
     <dimen name="splash_tv_margin_30">20dp</dimen>
     <dimen name="splash_tv_padding_130">130dp</dimen>
-    <dimen name="tv_splash_size">18sp</dimen>
+    <dimen name="tv_splash_size">10sp</dimen>
     <dimen name="textsize_tvActionbar">18sp</dimen>
     <dimen name="margin_10dp">10dp</dimen>
 

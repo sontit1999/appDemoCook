@@ -21,6 +21,12 @@
         <attr name="fontFaceText" format="enum">
             <enum name="font-cathsgbr" value="1"/>
             <enum name="font-genbkbasl" value="2"/>
+            <enum name="font-roboto-bold" value="3"/>
+            <enum name="font-roboto-italic" value="4"/>
+            <enum name="font-roboto-light" value="0"/>
+            <enum name="font-roboto-medium" value="5"/>
+            <enum name="font-roboto-regular" value="6"/>
+            <enum name="font-roboto-thin" value="7"/>
         </attr>
         <attr name="iconLeft" format="string|reference"/>
         <attr name="iconRight" format="string|reference"/>

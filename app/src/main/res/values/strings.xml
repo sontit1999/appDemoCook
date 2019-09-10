@@ -3,8 +3,8 @@
     <string name="app_name">Cooking Man</string>
     <string name="title_activity_maps">Map</string>
     <string name="content">Best place for food lovers like you</string>
-    <string name="tvGetStarted">Get Started</string>
-    <string name="tvSignIn">Sign In</string>
+    <string name="tvGetStarted">GET STARTED</string>
+    <string name="tvSignIn">SIGN IN</string>
     <string name="tvCreate">Create a new account or sign in</string>
     <string name="tvAllrecipe">All the lastest Recipe</string>
     <string name="tvNameRecipe">Thịt xốp cà chua</string>

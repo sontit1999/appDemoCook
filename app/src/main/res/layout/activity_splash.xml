@@ -26,7 +26,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/content"
                 android:layout_width="0dp"
                 android:gravity="center"
@@ -38,13 +38,14 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imgLogo"
-                tools:ignore="MissingConstraints" />
+                />
 
-        <TextView
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tvCreate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxWidth="300dp"
+                app:fontFaceText="font-roboto-thin"
                 android:layout_marginTop="@dimen/splash_tv_margin_30"
                 android:text="@string/tvCreate"
                 android:textSize="@dimen/textview_main__content_size"
@@ -72,22 +73,12 @@
                 app:layout_constraintTop_toBottomOf="@id/tvCreate"
                 tools:layout_editor_absoluteX="30dp">
 
-            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fontFace="font-cathsgbr"
-                    app:iconLeft="&#xf2b9;"
-                    app:iconColor="@color/colorAccent"
-                    app:fontawesome="font-awesome-solid"
-                    android:text="test font"
-                    app:iconTextSize="@dimen/splash_tv_margin_30"
-                    android:drawablePadding="10px"
-                    app:iconRight="&#xf2b9;"/>
 
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tvGetStarted"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
+                    app:fontFaceText="font-roboto-regular"
                     android:background="@drawable/tvgetcreate"
                     android:gravity="center"
                     android:padding="@dimen/splash_padding"
@@ -95,24 +86,25 @@
                     android:textColor="@color/colorwhite"
                     android:textSize="@dimen/tv_splash_size" />
 
-            <TextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tvSignIn"
                     android:layout_width="140dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/tvsignin"
+                    app:iconLeft="&#xf2f6;"
+                    app:fontawesome="font-awesome-solid"
+                    app:fontFaceText="font-roboto-regular"
                     android:gravity="center"
+                    app:iconColor="@color/tvGetStarted"
+                    app:iconTextSize="@dimen/tv_splash_size"
                     android:padding="@dimen/splash_padding"
                     android:text="@string/tvSignIn"
+                    android:drawablePadding="@dimen/margin_10dp"
                     android:textColor="#ec1c39"
                     android:textSize="@dimen/tv_splash_size" />
-            <com.duongtung.cookingman.model.CustomTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:fontFace="font-awesome-solid"
-                    android:text="&#xf2b9;" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
