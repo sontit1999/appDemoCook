@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomTextView">
+        <attr name="fontFace" format="enum">
+            <enum name="font-awesome-light" value= "0"/>
+            <enum name="font-awesome-brands" value="1"/>
+            <enum name="font-awesome-solid" value="2"/>
+            <enum name="font-awesome-regular" value="3"/>
+            <enum name="font-cathsgbr" value="4"/>
+            <enum name="font-genbkbasl" value="5"/>
+        </attr>
+    </declare-styleable>
+</resources>

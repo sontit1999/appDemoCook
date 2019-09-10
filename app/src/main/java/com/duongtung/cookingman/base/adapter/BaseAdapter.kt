@@ -3,6 +3,7 @@
 
  import android.view.LayoutInflater
  import android.view.ViewGroup
+ import androidx.annotation.Nullable
  import androidx.databinding.DataBindingUtil
  import androidx.databinding.ViewDataBinding
  import androidx.recyclerview.widget.RecyclerView
@@ -36,6 +37,7 @@
      abstract fun getLayoutId() : Int
      abstract fun getIdVariable() : Int
      abstract fun getIdVariableOnClick() : Int
+     @Nullable
      abstract fun getOnClick() : CBAdapter?
      override fun onCreateViewHolder(viewHolder: ViewGroup, i: Int): BaseViewHolder<T, VB> {
          binding = DataBindingUtil.inflate(LayoutInflater.from(viewHolder.context),getLayoutId(),viewHolder,false)

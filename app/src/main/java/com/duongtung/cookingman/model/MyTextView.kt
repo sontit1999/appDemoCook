@@ -17,7 +17,7 @@ class MyTextView: TextView {
     }
     private fun init() {
         //Font name should not contain "/".
-        var font = Typeface.createFromAsset(context.assets, "fonts/"+"GenBkBasI.ttf" )
+        var font = Typeface.createFromAsset(context.assets, "GenBkBasI.ttf" )
         setTypeface(font)
     }
 }

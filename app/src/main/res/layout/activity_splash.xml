@@ -96,7 +96,11 @@
                     android:text="@string/tvSignIn"
                     android:textColor="#ec1c39"
                     android:textSize="@dimen/tv_splash_size" />
-
+            <com.duongtung.cookingman.model.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:fontFace="font-awesome-solid"
+                    android:text="&#xf2b9;" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

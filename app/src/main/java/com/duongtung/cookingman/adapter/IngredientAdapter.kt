@@ -7,7 +7,6 @@ import com.duongtung.cookingman.BR
 import com.duongtung.cookingman.base.adapter.BaseAdapter
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemIngredientBinding
-import com.duongtung.cookingman.databinding.ItemIngredientBindingImpl
 import com.duongtung.cookingman.model.FoodIngredient
 
 class IngredientAdapter : BaseAdapter<FoodIngredient,ItemIngredientBinding>(){
