@@ -27,6 +27,6 @@
         <attr name="iconBottom" format="string|reference"/>
         <attr name="iconTop" format="string|reference"/>
         <attr name="iconColor" format="color|reference"/>
-        <attr name="iconSize" format="dimension|float"/>
+        <attr name="iconTextSize" format="float|dimension"/>
     </declare-styleable>
 </resources>

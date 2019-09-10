@@ -80,6 +80,7 @@
                     app:iconColor="@color/colorAccent"
                     app:fontawesome="font-awesome-solid"
                     android:text="test font"
+                    app:iconTextSize="@dimen/splash_tv_margin_30"
                     android:drawablePadding="10px"
                     app:iconRight="&#xf2b9;"/>
 

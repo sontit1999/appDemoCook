@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.AttributeSet
+import android.util.TypedValue
 import androidx.appcompat.widget.AppCompatTextView
 import com.duongtung.cookingman.R
 
@@ -38,7 +39,7 @@ class TextViewWithFontAwesome: AppCompatTextView {
             2->typeText = FontCache.get(context,FontCache.FONT_GENBKBASL)
         }
         this.typeface = typeText!!
-        val iconSize = typed.getDimension(R.styleable.TextViewWithFontAwesome_iconSize,15f)
+        val iconSize = typed.getDimension(R.styleable.TextViewWithFontAwesome_iconTextSize,15f)
         val iconLeft = typed.getString(R.styleable.TextViewWithFontAwesome_iconLeft)
         val iconTop = typed.getString(R.styleable.TextViewWithFontAwesome_iconTop)
         val iconRight = typed.getString(R.styleable.TextViewWithFontAwesome_iconRight)
