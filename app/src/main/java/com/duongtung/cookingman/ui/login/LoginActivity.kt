@@ -35,6 +35,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
         private val pageLists = arrayListOf(PhoneFragment(), VerifyFragment(), PreferanceFragment())
         override fun getItem(position: Int): Fragment {
             return pageLists[position]
+
         }
 
         override fun getCount(): Int {
