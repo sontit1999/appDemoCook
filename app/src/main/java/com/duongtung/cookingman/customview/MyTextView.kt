@@ -1,4 +1,4 @@
-package com.duongtung.cookingman.model
+package com.duongtung.cookingman.customview
 
 import android.content.Context
 import android.graphics.Typeface

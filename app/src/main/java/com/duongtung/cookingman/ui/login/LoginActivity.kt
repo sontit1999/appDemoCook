@@ -1,35 +1,40 @@
 package com.duongtung.cookingman.ui.login
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
-import androidx.viewpager.widget.ViewPager
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityLoginBinding
-import com.duongtung.cookingman.fragment.PhoneFragment
+import com.duongtung.cookingman.fragment.phone.PhoneFragment
 import com.duongtung.cookingman.fragment.PreferanceFragment
 import com.duongtung.cookingman.fragment.VerifyFragment
-//import devmike.jade.com.PageStepIndicator
+import com.duongtung.cookingman.fragment.phone.OnButtonClickListener
 
-class LoginActivity : BaseActivity<ActivityLoginBinding,LoginViewModel>() {
+class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
+    OnButtonClickListener {
+    override fun onButtonClicked(view: View) {
+        binding.viewPage.currentItem = 1
+    }
+
     override fun getViewMode() = LoginViewModel::class.java
 
     override fun getLayout() = R.layout.activity_login
+
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
         binding.viewPage.adapter = ViewPageAdapter(supportFragmentManager)
         binding.pageStepper.setupWithViewPager(binding.viewPage)
+        binding.pageStepper.isClickable=false
     }
 
-    class ViewPageAdapter(fm : FragmentManager) : FragmentStatePagerAdapter(fm) {
-        val pageLists = arrayListOf(PhoneFragment(), VerifyFragment(), PreferanceFragment())
-
+    class ViewPageAdapter(fm: FragmentManager) :
+        FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
+        private val pageLists = arrayListOf(PhoneFragment(), VerifyFragment(), PreferanceFragment())
         override fun getItem(position: Int): Fragment {
-           return pageLists.get(position)
+            return pageLists[position]
         }
 
         override fun getCount(): Int {

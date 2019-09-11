@@ -8,6 +8,12 @@
             <enum name="font-awesome-regular" value="3"/>
             <enum name="font-cathsgbr" value="4"/>
             <enum name="font-genbkbasl" value="5"/>
+            <enum name="font-roboto-bold" value="11"/>
+            <enum name="font-roboto-italic" value="10"/>
+            <enum name="font-roboto-light" value="9"/>
+            <enum name="font-roboto-medium" value="8"/>
+            <enum name="font-roboto-regular" value="6"/>
+            <enum name="font-roboto-thin" value="7"/>
         </attr>
     </declare-styleable>
 
@@ -34,5 +40,71 @@
         <attr name="iconTop" format="string|reference"/>
         <attr name="iconColor" format="color|reference"/>
         <attr name="iconTextSize" format="float|dimension"/>
+    </declare-styleable>
+    <declare-styleable name="PageStepIndicator">
+        <attr name="pgStepCount" format="integer" />
+        <attr name="pgRadius" format="dimension" />
+        <attr name="pgStrokeWidth" format="dimension" />
+        <attr name="pgStepColor" format="color" />
+        <attr name="pgCurrentStepColor" format="color" />
+        <attr name="pgBackgroundColor" format="color" />
+        <attr name="pgTextColor" format="color" />
+        <attr name="pgSecondaryTextColor" format="color" />
+        <attr name="pgLineHeight" format="dimension" />
+
+        <attr name="pgStrokeAlpha" format="integer"/>
+        <attr name="pgTitles" format="reference"/>
+        <attr name="pgClickableTitle" format="boolean"/>
+        <attr name="pgActiveTitleColor" format="color"/>
+        <attr name="pgInActiveTitleColor" format="color"/>
+        <attr name="pgTitleTextSize" format="dimension"/>
+        <attr name="pgFontFace" format="enum">
+            <enum name="font-awesome-light" value= "0"/>
+            <enum name="font-awesome-brands" value="1"/>
+            <enum name="font-awesome-solid" value="2"/>
+            <enum name="font-awesome-regular" value="3"/>
+            <enum name="font-cathsgbr" value="4"/>
+            <enum name="font-genbkbasl" value="5"/>
+            <enum name="font-roboto-bold" value="11"/>
+            <enum name="font-roboto-italic" value="10"/>
+            <enum name="font-roboto-light" value="9"/>
+            <enum name="font-roboto-medium" value="8"/>
+            <enum name="font-roboto-regular" value="6"/>
+            <enum name="font-roboto-thin" value="7"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="ButtonFont">
+        <attr name="fontFaceButton" format="enum">
+            <enum name="font-awesome-light" value= "0"/>
+            <enum name="font-awesome-brands" value="1"/>
+            <enum name="font-awesome-solid" value="2"/>
+            <enum name="font-awesome-regular" value="3"/>
+            <enum name="font-cathsgbr" value="4"/>
+            <enum name="font-genbkbasl" value="5"/>
+            <enum name="font-roboto-bold" value="11"/>
+            <enum name="font-roboto-italic" value="10"/>
+            <enum name="font-roboto-light" value="9"/>
+            <enum name="font-roboto-medium" value="8"/>
+            <enum name="font-roboto-regular" value="6"/>
+            <enum name="font-roboto-thin" value="7"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="CustomEditText">
+        <attr name="fontFaceEdit" format="enum">
+            <enum name="font-awesome-light" value= "0"/>
+            <enum name="font-awesome-brands" value="1"/>
+            <enum name="font-awesome-solid" value="2"/>
+            <enum name="font-awesome-regular" value="3"/>
+            <enum name="font-cathsgbr" value="4"/>
+            <enum name="font-genbkbasl" value="5"/>
+            <enum name="font-roboto-bold" value="11"/>
+            <enum name="font-roboto-italic" value="10"/>
+            <enum name="font-roboto-light" value="9"/>
+            <enum name="font-roboto-medium" value="8"/>
+            <enum name="font-roboto-regular" value="6"/>
+            <enum name="font-roboto-thin" value="7"/>
+        </attr>
     </declare-styleable>
 </resources>

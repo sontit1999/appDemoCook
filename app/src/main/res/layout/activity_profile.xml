@@ -37,7 +37,7 @@
                     android:layout_centerVertical="true"
                     android:textSize="@dimen/textsize_tvActionbar"
                     android:layout_marginLeft="5dp"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
             <TextView
@@ -48,7 +48,7 @@
                     android:layout_toRightOf="@id/tvReturn"
                     android:layout_toLeftOf="@id/tv_follow"
                     android:textSize="@dimen/textsize_tvActionbar"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
             </TextView>
@@ -58,7 +58,7 @@
                     android:paddingVertical="7dp"
                     android:paddingHorizontal="20dp"
                     android:background="@drawable/bg_follow"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     android:layout_alignParentRight="true"
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
@@ -85,26 +85,26 @@
                     android:src="@drawable/gaixinh"
                     />
 
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tvName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="36dp"
                     android:text="@string/banana"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     android:textSize="@dimen/textview_main_size"
                     app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                     app:layout_constraintRight_toLeftOf="@id/iconChat"
                     app:layout_constraintTop_toTopOf="parent" />
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tvNumberReciper"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="2000 Recipe"
-                    android:textColor="@color/colorwhite"
+                    android:textColor="@color/white"
                     app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                     app:layout_constraintRight_toLeftOf="@id/iconChat"
                     app:layout_constraintTop_toBottomOf="@id/tvName" />
