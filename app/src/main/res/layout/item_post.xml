@@ -25,7 +25,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:src="@drawable/gaixinh"
             />
-                <com.duongtung.cookingman.model.MyTextView
+                <com.duongtung.cookingman.customview.MyTextView
                         android:id="@+id/tvTitle"
                         android:layout_marginLeft="@dimen/itemPost_marginLeft"
                         android:text="@{post.infor()}"
@@ -37,7 +37,7 @@
                         app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                         app:layout_constraintTop_toTopOf="parent"
                         android:layout_marginTop="@dimen/itemPost_marginTop"/>
-                <com.duongtung.cookingman.model.MyTextView
+                <com.duongtung.cookingman.customview.MyTextView
                         android:id="@+id/tvTime"
                         android:textStyle="italic"
                         android:textSize="15dp"
@@ -65,7 +65,7 @@
                 android:padding="@dimen/itemPost_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tv_otherPeople"
                     android:textSize="@dimen/textview_main__content_size"
                     android:text="@{post.otherpeople()}"
@@ -73,8 +73,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></com.duongtung.cookingman.model.MyTextView>
-            <com.duongtung.cookingman.model.MyTextView
+                    android:layout_height="wrap_content"></com.duongtung.cookingman.customview.MyTextView>
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tvNumbermore"
                     android:text="@{post.more()}"
                     android:gravity="center"

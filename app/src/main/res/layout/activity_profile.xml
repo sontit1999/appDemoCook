@@ -85,7 +85,7 @@
                     android:src="@drawable/gaixinh"
                     />
 
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tvName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -97,7 +97,7 @@
                     app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                     app:layout_constraintRight_toLeftOf="@id/iconChat"
                     app:layout_constraintTop_toTopOf="parent" />
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tvNumberReciper"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

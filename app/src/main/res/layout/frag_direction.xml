@@ -43,7 +43,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp">
-            <com.duongtung.cookingman.model.MyTextView
+            <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tv_direction"
                     android:text="@{viewmodel.direction}"
                     android:padding="@dimen/fragment_direction_padding"
@@ -51,7 +51,7 @@
                     android:textSize="@dimen/textview_main__content_size"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-            </com.duongtung.cookingman.model.MyTextView>
+            </com.duongtung.cookingman.customview.MyTextView>
         </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

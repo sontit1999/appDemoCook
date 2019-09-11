@@ -8,7 +8,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@drawable/background">
-        <devmike.jade.com.PageStepIndicator
+        <com.duongtung.cookingman.customview.PageStepIndicator
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -18,26 +18,30 @@
                 app:pgTitleTextSize="15sp"
                 app:pgStrokeAlpha="255"
                 app:pgRadius="18dp"
-                app:pgActiveTitleColor="#F71414"
-                app:pgLineHeight="10dp"
-                app:pgStrokeWidth="6dp"
-                app:pgSecondaryTextColor="#272727"
-                app:pgInActiveTitleColor="#1F1D1D"
+                app:pgActiveTitleColor="@color/colorAccent"
+                app:pgLineHeight="3dp"
+                app:pgStrokeWidth="3dp"
+                app:pgSecondaryTextColor="#fff"
+                app:pgInActiveTitleColor="#AAA"
                 app:pgBackgroundColor="#FFADAD"
-                app:pgCurrentStepColor="#A00B0B"
-                app:pgTextColor="@android:color/white"
-                app:pgStepColor="#F71414"
+                app:pgCurrentStepColor="@color/colorwhite"
+                app:pgTextColor="#000"
+                app:pgStepColor="@color/colorAccent"
                 android:id="@+id/page_stepper"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
 
-        <androidx.viewpager.widget.ViewPager
-                app:layout_constraintTop_toBottomOf="@id/page_stepper"
+        <com.duongtung.cookingman.customview.SwipeLockableViewPager
+                app:layout_constraintTop_toBottomOf="@+id/page_stepper"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 android:id="@+id/viewPage"
-                android:layout_marginTop="30dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:navGraph="@navigation/login_navigation"
+                />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
