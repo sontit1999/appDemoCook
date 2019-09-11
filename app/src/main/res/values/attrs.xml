@@ -92,6 +92,10 @@
     </declare-styleable>
 
     <declare-styleable name="CustomEditText">
+        <attr name="validate" format="enum">
+            <enum name="phone" value="0"/>
+            <enum name="email" value="1"/>
+        </attr>
         <attr name="fontFaceEdit" format="enum">
             <enum name="font-awesome-light" value= "0"/>
             <enum name="font-awesome-brands" value="1"/>
@@ -107,4 +111,5 @@
             <enum name="font-roboto-thin" value="7"/>
         </attr>
     </declare-styleable>
+
 </resources>

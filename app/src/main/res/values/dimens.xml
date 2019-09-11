@@ -70,4 +70,5 @@
     <dimen name="fragReview_heeight_viewVertical">50dp</dimen>
     <dimen name="activity_search_padding_recyclerview">25dp</dimen>
     <dimen name="itemRecipe_translationY">10px</dimen>
+    <dimen name="small_margin">3dp</dimen>
 </resources>

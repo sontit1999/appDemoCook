@@ -36,5 +36,6 @@ class ButtonFont : AppCompatButton{
             11 -> typedFace = FontCache.get(context,FontCache.FONT_ROBOTO_BOLD)
         }
         this.typeface = typedFace!!
+        typed.recycle()
     }
 }

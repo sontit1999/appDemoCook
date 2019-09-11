@@ -57,7 +57,7 @@ class TextViewWithFontAwesome: AppCompatTextView {
 
         this.setCompoundDrawablesWithIntrinsicBounds(iconDrawableLeft,iconDrawableTop,iconDrawableRight,iconDrawableBottom)
         this.typeface = typeText!!
-
+        typed.recycle()
     }
     fun getIconDrawable(context: Context?, icon: String?, typeface: Typeface?, color: Int?,iconSize : Float?): FontDrawable?{
         if (TextUtils.isEmpty(icon)) return null

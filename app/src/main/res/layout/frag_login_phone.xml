@@ -58,11 +58,12 @@
                         android:id="@+id/edtPhone"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
-                        android:layout_marginLeft="3dp"
+                        android:layout_marginLeft="@dimen/small_margin"
                         android:layout_weight="1"
                         android:background="#FFFFFF"
-                        android:hint="Phone Number"
+                        android:hint="@string/phone_number"
                         android:inputType="phone"
+                        app:validate="phone"
                         android:textAlignment="center"
                         app:layout_constraintTop_toBottomOf="@id/spincountry" />
 
