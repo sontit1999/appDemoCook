@@ -74,8 +74,10 @@
     <dimen name="text_size_icon_custom">20sp</dimen>
     <dimen name="frag_getstart_margin_top">20dp</dimen>
     <dimen name="frag_getstart_maxwidth">200dp</dimen>
-    <dimen name="frag_getstart_heigh_image">250dp</dimen>
+    <dimen name="frag_getstart_heigh_image">350dp</dimen>
     <dimen name="heigh_logo_login">250dp</dimen>
     <dimen name="heigh_container_incaditor">100dp</dimen>
     <dimen name="small_margin">3dp</dimen>
+    <dimen name="size_incaditor">10dp</dimen>
+    <dimen name="size_iconmesage">30sp</dimen>
 </resources>

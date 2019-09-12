@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="viewModel" type="com.duongtung.cookingman.ui.login.LoginViewModel"/>
+        <variable name="viewModel" type="com.duongtung.cookingman.ui.login.LoginEmailViewModel"/>
     </data>
 <androidx.constraintlayout.widget.ConstraintLayout
         android:orientation="vertical"
@@ -35,7 +35,7 @@
     </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
     <com.duongtung.cookingman.customview.TextViewWithFontAwesome
             android:id="@+id/tv_describe"
-            android:text="@string/introduc"
+            android:text="@string/introduce_login"
             android:textSize="@dimen/textview_main_size"
             android:maxWidth="@dimen/frag_getstart_maxwidth"
             android:gravity="center"
@@ -55,7 +55,7 @@
             android:layout_marginTop="@dimen/splash_tv_margin_30"
             android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
             android:textSize="@dimen/textview_main__content_size"
-            android:text="Email or phone number"
+            android:text="Email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"></TextView>
     <EditText
@@ -71,7 +71,7 @@
             android:textColor="@color/color_tittleGetStart"
             app:layout_constraintTop_toBottomOf="@id/et_gmail"
             app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginTop="@dimen/splash_tv_margin_30"
+
             android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
             android:textSize="@dimen/textview_main__content_size"
             android:text="Password"

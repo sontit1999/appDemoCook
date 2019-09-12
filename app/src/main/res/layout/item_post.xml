@@ -4,6 +4,9 @@
         android:fitsSystemWindows="true">
     <data>
         <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+        <variable
+                name="callback"
+                type="com.duongtung.cookingman.adapter.PostCallback" />
     </data>
     <LinearLayout
             android:orientation="vertical"
@@ -49,6 +52,7 @@
                         android:layout_marginTop="@dimen/itemPost_marginToptvTime"/>
                 <ImageView
                         android:id="@+id/ivImage"
+                        android:onClick="@{(view)->callback.onImagefoodclick(view,post)}"
                         app:layout_constraintTop_toBottomOf="@id/ivAvatar"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"

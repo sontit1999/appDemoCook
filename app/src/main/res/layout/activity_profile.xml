@@ -22,25 +22,21 @@
                 android:background="@color/colorActionbar"
                 android:layout_width="match_parent"
                 android:layout_height="?android:attr/actionBarSize">
-            <ImageView
-                    android:id="@+id/iv_navigation"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:layout_width="@dimen/actionbar_width_icon"
-                    android:layout_height="@dimen/actionbar_heigh_icon"
-                    android:src="@drawable/ic_chevron_left_black_24dp"
-                    />
-            <TextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tvReturn"
+                    app:iconLeft="&#xf053;"
+                    android:layout_alignParentLeft="true"
+                    android:drawablePadding="@dimen/margin_10dp"
+                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/iv_navigation"
                     android:text="return"
-                    android:layout_centerVertical="true"
+                    app:iconTextSize="@dimen/textsize_tvActionbar"
                     android:textSize="@dimen/textsize_tvActionbar"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
-            <TextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tv_nameAuthor"
                     android:layout_centerInParent="true"
                     android:text="Sơn tít"
@@ -51,7 +47,7 @@
                     android:textColor="@color/white"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
-            </TextView>
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
             <TextView
                     android:id="@+id/tv_follow"
                     android:text="follow"
@@ -95,7 +91,7 @@
                     android:textColor="@color/white"
                     android:textSize="@dimen/textview_main_size"
                     app:layout_constraintLeft_toRightOf="@id/ivAvatar"
-                    app:layout_constraintRight_toLeftOf="@id/iconChat"
+                    app:layout_constraintRight_toLeftOf="@id/tv_mesage"
                     app:layout_constraintTop_toTopOf="parent" />
             <com.duongtung.cookingman.customview.MyTextView
                     android:id="@+id/tvNumberReciper"
@@ -106,17 +102,21 @@
                     android:text="2000 Recipe"
                     android:textColor="@color/white"
                     app:layout_constraintLeft_toRightOf="@id/ivAvatar"
-                    app:layout_constraintRight_toLeftOf="@id/iconChat"
+                    app:layout_constraintRight_toLeftOf="@id/tv_mesage"
                     app:layout_constraintTop_toBottomOf="@id/tvName" />
-            <ImageView
-                    android:id="@+id/iconChat"
-                    android:src="@drawable/iconchat"
-                    android:layout_width="@dimen/size_iconchat"
-                    android:layout_marginTop="36dp"
-                    app:layout_constraintLeft_toRightOf="@id/tvName"
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_mesage"
+                    app:iconLeft="@string/icon_message"
+                    android:layout_alignParentLeft="true"
+                   app:layout_constraintBottom_toBottomOf="@id/containerInfor"
+                    android:drawablePadding="@dimen/margin_10dp"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
-                    android:layout_height="@dimen/size_iconchat"/>
+                    app:iconTextSize="@dimen/size_iconmesage"
+                    android:textSize="@dimen/textsize_tvActionbar"
+                    android:textColor="@color/white"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerviewProfile"
