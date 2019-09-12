@@ -29,4 +29,6 @@
     <color name="ed_border">#d4606060</color>
 
     <color name="topbar_button_color">#494949</color>
+    <color name="color_tittleGetStart">#404f5d</color>
+    <color name="color_describe">#949ea7</color>
 </resources>
