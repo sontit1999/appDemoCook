@@ -14,12 +14,8 @@ class SettingActivity : BaseActivity<ActivitySettingBinding,SettingViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        binding.actionbar.iv_navigation.setOnClickListener {
-            finish()
-        }
-        binding.actionbar.tvReturn.setOnClickListener {
-            finish()
-        }
+        binding.actionbar.tvReturn.setOnClickListener { finish() }
+
     }
 
 }

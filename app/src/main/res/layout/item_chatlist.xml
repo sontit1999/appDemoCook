@@ -18,7 +18,7 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:src="@drawable/gaixinh"
         />
-        <TextView
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tvName"
                 android:text="@{post.user.nickName}"
                 android:textStyle="italic"
@@ -29,7 +29,7 @@
                 app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
-        <TextView
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tvNumberRecipe"
                 android:text="200000 Recipe"
                 android:textStyle="italic"

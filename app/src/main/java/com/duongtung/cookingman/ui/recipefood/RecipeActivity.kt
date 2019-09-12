@@ -20,10 +20,7 @@ class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
-        binding.actionbar.iv_navigation.setOnClickListener {
-            Log.d("Test","Thoát")
-            finish()
-        }
+        binding.actionbar.tvReturn.setOnClickListener { finish() }
         binding.actionbar.tvReturn.setOnClickListener {
             Log.d("Test","Thoát")
             finish()
@@ -39,10 +36,6 @@ class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
             goToActivity(ChatlistActivity::class.java,null,null)
         }
 
-        binding.actionbar.iv_navigation.setOnClickListener {
-            Log.d("Test","Thoát")
-            finish()
-        }
         binding.actionbar.tvReturn.setOnClickListener {
             Log.d("Test","Thoát")
             finish()

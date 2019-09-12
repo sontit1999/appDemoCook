@@ -15,9 +15,7 @@ class ChatlistActivity : BaseActivity<ActivityChatlistBinding,ChatlistViewModel>
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        binding.actionbar.iv_navigation.setOnClickListener {
-            finish()
-        }
+        binding.actionbar.tvReturn.setOnClickListener { finish() }
         binding.actionbar.tvReturn.setOnClickListener {
             finish()
         }
