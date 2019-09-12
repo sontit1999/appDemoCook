@@ -22,6 +22,7 @@
     <string name="validate_phone_empty">Missing number of phone</string>
     <string name="validate_phone_wrong_number">This number is not phone number</string>
     <string name="validate_phone_missing_number">This number is missing</string>
+    <string name="validate_email">please insert email is abc@abc.abc</string>
     <string name="phone_number">Phone Number</string>
 
 </resources>

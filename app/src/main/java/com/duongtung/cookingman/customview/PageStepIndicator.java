@@ -198,48 +198,7 @@ public class PageStepIndicator extends View {
         this.onTabSelectedListener = onTabSelectedListener;
     }
 
-    private void checkTypeFace(Context context) {
-        switch (typeFace) {
-            case 0:
-                mTypeFace = FontCache.get(context, FontCache.FA_FONT_LIGHT);
-                break;
-            case 1:
-                mTypeFace = FontCache.get(context, FontCache.FA_FONT_BRANDS);
-                break;
-            case 2:
-                mTypeFace = FontCache.get(context, FontCache.FA_FONT_SOLID);
-                break;
-            case 3:
-                mTypeFace = FontCache.get(context, FontCache.FA_FONT_REGULAR);
-                break;
-            case 4:
-                mTypeFace = FontCache.get(context, FontCache.FONT_CATHSGBR);
-                break;
-            case 5:
-                mTypeFace = FontCache.get(context, FontCache.FONT_GENBKBASL);
-                break;
-            case 6:
-                mTypeFace = FontCache.get(context, FontCache.FONT_ROBOTO_REGULAR);
-                break;
-            case 7:
-                mTypeFace = FontCache.get(context, FontCache.FONT_ROBOTO_THIN);
-                break;
-            case 8:
-                mTypeFace = FontCache.get(context, FontCache.FONT_ROBOTO_MEDIUM);
-                break;
-            case 9:
-                mTypeFace = FontCache.get(context, FontCache.FONT_ROBOTO_LIGHT);
-                break;
-            case 10:
-                mTypeFace = FontCache.get(context, FontCache.FONT_ROBOTO_ITALIC);
-                break;
-            case 11:
-                mTypeFace = FontCache.get(context, FontCache.FONT_ROBOTO_BOLD);
-                break;
 
-        }
-
-    }
 
     @SuppressLint("NewApi")
     protected float dp2px(float dp) {
@@ -342,7 +301,7 @@ public class PageStepIndicator extends View {
         super.onDraw(canvas);
         int pointX = startX;
         int pointOffset;
-        checkTypeFace(getContext());
+        mTypeFace = FontCache.getTyface(getContext(),typeFace);
         tText.setTypeface(mTypeFace);
         pText.setTypeface(mTypeFace);
         /** draw Line */

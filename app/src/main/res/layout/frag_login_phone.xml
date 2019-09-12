@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools">
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -61,6 +60,7 @@
                         android:layout_marginLeft="@dimen/small_margin"
                         android:layout_weight="1"
                         android:background="#FFFFFF"
+                        android:paddingRight="@dimen/itemcomment_marginleft"
                         android:hint="@string/phone_number"
                         android:inputType="phone"
                         app:validate="phone"

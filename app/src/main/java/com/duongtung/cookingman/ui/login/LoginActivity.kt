@@ -14,8 +14,8 @@ import com.duongtung.cookingman.fragment.phone.OnButtonClickListener
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
     OnButtonClickListener {
-    override fun onButtonClicked(view: View) {
-        binding.viewPage.currentItem = 1
+    override fun onButtonClicked(view: View,error : Boolean) {
+        if(!error)binding.viewPage.currentItem = 1
     }
 
     override fun getViewMode() = LoginViewModel::class.java

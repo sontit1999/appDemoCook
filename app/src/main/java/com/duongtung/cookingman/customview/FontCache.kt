@@ -2,6 +2,7 @@ package com.duongtung.cookingman.customview
 
 import android.content.Context
 import android.graphics.Typeface
+import android.webkit.JavascriptInterface
 import java.util.*
 
 object FontCache {
@@ -44,5 +45,23 @@ object FontCache {
             fontCache[name] = typeface
         }
         return typeface
+    }
+    @JvmStatic
+    fun getTyface(context: Context,typeFace : Int) : Typeface?{
+        when (typeFace) {
+            0 -> return get(context, FA_FONT_LIGHT)
+            1 -> return get(context, FA_FONT_BRANDS)
+            2 -> return get(context, FA_FONT_SOLID)
+            3 -> return get(context, FA_FONT_REGULAR)
+            4 -> return get(context, FONT_CATHSGBR)
+            5 -> return get(context, FONT_GENBKBASL)
+            6 -> return get(context, FONT_ROBOTO_REGULAR)
+            7 -> return get(context, FONT_ROBOTO_THIN)
+            8 -> return get(context, FONT_ROBOTO_MEDIUM)
+            9 -> return get(context, FONT_ROBOTO_LIGHT)
+            10 -> return get(context, FONT_ROBOTO_ITALIC)
+            11 -> return get(context, FONT_ROBOTO_BOLD)
+        }
+        return get(context, FA_FONT_LIGHT)
     }
 }

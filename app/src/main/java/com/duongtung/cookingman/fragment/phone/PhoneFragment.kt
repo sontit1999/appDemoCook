@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
+import com.duongtung.cookingman.customview.CustomEditText
 import com.duongtung.cookingman.databinding.FragLoginPhoneBinding
 
 
@@ -35,21 +36,9 @@ class PhoneFragment : BaseFragment<FragLoginPhoneBinding, PhoneViewModel>() {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spincountry.adapter = adapter
         binding.viewmodel!!.onButtonClickListener = mOnButtonClickListener
-        binding.edtPhone.addTextChangedListener(object : TextWatcher{
-            override fun afterTextChanged(editable: Editable?) {
-                if(editable!!.length in 10..10){
-                    if(editable.matches(regex = Regex.fromLiteral("^+?(?:[0-9]??).{5,14}[0-9]\$"))){
-                        binding.edtPhone.error = context!!.resources.getString(R.string.validate_phone_wrong_number)
-                    }
-                }else if (editable.length<10 || editable.length>10){
-                    binding.edtPhone.error = context!!.resources.getString(R.string.validate_phone_missing_number)
-                }
-            }
-
-            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
-            }
-
-            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+        binding.edtPhone.onError(object: CustomEditText.OnErrorListener{
+            override fun onErrorListener(boolean: Boolean) {
+                binding.viewmodel!!.isError = boolean
             }
         })
     }

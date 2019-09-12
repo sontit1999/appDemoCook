@@ -6,7 +6,8 @@ import com.duongtung.cookingman.base.ui.base.BaseViewModel
 
 class PhoneViewModel : BaseViewModel(){
     var onButtonClickListener: OnButtonClickListener ? = null
+    var isError : Boolean?= true
     fun handleNext(view : View){
-        onButtonClickListener!!.onButtonClicked(view)
+        onButtonClickListener!!.onButtonClicked(view,isError!!)
     }
 }
