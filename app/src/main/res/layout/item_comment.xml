@@ -13,9 +13,9 @@
             android:layout_height="wrap_content">
         <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/iv_Avatar"
-                android:layout_width="60dp"
+                android:layout_width="50dp"
                 app:imageUrl="@{comment.user.profileUrl}"
-                android:layout_height="60dp"
+                android:layout_height="50dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:src="@drawable/gaixinh"

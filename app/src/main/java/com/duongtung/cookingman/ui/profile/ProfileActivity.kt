@@ -22,13 +22,14 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>()
                 Log.d("test", intent.getStringExtra("iduser"))
             } else Log.d("test", "ko co data")
             binding.viewmodel = viewModel
-            binding.tvNameAuthor.setOnClickListener {
-                goToActivity(SettingActivity::class.java, null, null)
-            }
+
             binding.tvReturn.setOnClickListener {
                 finish()
             }
-            binding.tvFollow.setOnClickListener { Toast.makeText(baseContext, "Đã follow!", Toast.LENGTH_SHORT).show() }
+            binding.tvNameAuthor.setOnClickListener {  }
+            binding.tvFollow.setOnClickListener {
+                goToActivity(SettingActivity::class.java,null,null)
+                Toast.makeText(baseContext, "Đã follow!", Toast.LENGTH_SHORT).show() }
             binding.tvMesage.setOnClickListener {
                 goToActivity(DetailChatActivity::class.java, null, null)
             }

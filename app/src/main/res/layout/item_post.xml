@@ -28,7 +28,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     android:src="@drawable/gaixinh"
             />
-                <com.duongtung.cookingman.customview.MyTextView
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tvTitle"
                         android:layout_marginLeft="@dimen/itemPost_marginLeft"
                         android:text="@{post.infor()}"
@@ -69,7 +69,7 @@
                 android:padding="@dimen/itemPost_padding"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-            <com.duongtung.cookingman.customview.MyTextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tv_otherPeople"
                     android:textSize="@dimen/textview_main__content_size"
                     android:text="@{post.otherpeople()}"
@@ -77,8 +77,8 @@
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></com.duongtung.cookingman.customview.MyTextView>
-            <com.duongtung.cookingman.customview.MyTextView
+                    android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tvNumbermore"
                     android:text="@{post.more()}"
                     android:gravity="center"

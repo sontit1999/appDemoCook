@@ -27,7 +27,7 @@
     <string name="email">Email or phone number</string>
     <string name="pass">Password</string>
     <string name="login">login</string>
-    <string name="donthaveacoount">Dont have account</string>
+    <string name="donthaveacoount">Dont have account ?</string>
     <string name="signin">Sign up</string>
     <string name="forget_pass">Forgot password ?</string>
     <string name="profeshional">Professional decorating tips</string>
@@ -46,5 +46,9 @@
     <string name="icon_image">&#xf302;</string>
     <string name="icon_camera">&#xf030;</string>
     <string name="icon_send_message">&#xf1d8;</string>
-
+    <string name="icon_mesage">&#xf27a;</string>
+    <string name="icon_hate">&#xf057;</string>
+    <string name="icon_like">&#xf058;</string>
+    <string name="icon_cmt">&#xf27a;</string>
+    <string name="add_your_cmt">Add your comment</string>
 </resources>

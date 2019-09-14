@@ -48,7 +48,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
             </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-            <TextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tv_follow"
                     android:text="follow"
                     android:paddingVertical="7dp"
@@ -59,7 +59,7 @@
                     android:layout_centerInParent="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-            </TextView>
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
         </RelativeLayout>
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerInfor"
@@ -81,7 +81,7 @@
                     android:src="@drawable/gaixinh"
                     />
 
-            <com.duongtung.cookingman.customview.MyTextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tvName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -93,7 +93,7 @@
                     app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                     app:layout_constraintRight_toLeftOf="@id/tv_mesage"
                     app:layout_constraintTop_toTopOf="parent" />
-            <com.duongtung.cookingman.customview.MyTextView
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tvNumberReciper"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"

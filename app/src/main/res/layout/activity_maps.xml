@@ -35,20 +35,39 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintVertical_bias="0.0" />
-
-                <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:inputType="textPersonName"
-                        android:ems="10"
-                        android:padding="@dimen/actibity_search_edittext_padding"
-                        android:background="@drawable/round_rect_shape"
-                        android:drawableLeft="@drawable/mapsss"
-                        android:hint="Search location..."
-                        android:id="@+id/editText"
+                <RelativeLayout
+                        android:id="@+id/containerEdittext"
                         app:layout_constraintTop_toTopOf="@+id/map"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"/>
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                            android:id="@+id/tvSearch"
+                            app:iconLeft="@string/icon_search"
+                            android:layout_alignParentLeft="true"
+                            android:drawablePadding="@dimen/margin_10dp"
+                            android:layout_centerVertical="true"
+                            app:iconTextSize="@dimen/textsize_tvActionbar"
+                            android:textSize="@dimen/textsize_tvActionbar"
+                            android:layout_marginLeft="5dp"
+                            app:iconColor="@color/colorRed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    <com.duongtung.cookingman.customview.CustomEditText
+                            android:id="@+id/editText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/round_rect_shape"
+                            android:ems="10"
+                            android:hint="Search location ..."
+                            android:inputType="text"
+                            android:paddingHorizontal="@dimen/padding_honiratal_edittext"
+                            android:paddingVertical="@dimen/padding_vertiacal_edittext"
+                            />
+                </RelativeLayout>
+
+
                 <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

@@ -42,6 +42,7 @@
                android:text="@string/introduc"
                android:textSize="@dimen/textview_main_size"
                android:maxWidth="@dimen/frag_getstart_maxwidth"
+               android:gravity="center"
                android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
                android:layout_marginTop="@dimen/frag_getstart_margin_top"
                app:layout_constraintTop_toBottomOf="@id/tv_title"
