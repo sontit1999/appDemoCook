@@ -10,7 +10,7 @@
         android:layout_height="?android:attr/actionBarSize">
     <com.duongtung.cookingman.customview.TextViewWithFontAwesome
             android:id="@+id/tvReturn"
-            app:iconLeft="&#xf053;"
+            app:iconLeft="@string/icon_arrowleft"
             android:layout_alignParentLeft="true"
             android:drawablePadding="@dimen/margin_10dp"
             android:layout_centerVertical="true"

@@ -22,11 +22,16 @@
     </string-array>
     <string name="fa_icon_comment">&#xf086;</string>
     <string name="welcom">Welcome to Cooking Man</string>
+    <string name="sendEmail">We have send you an email</string>
+    <string name="sendEmailwithlink">We have send you an email with a link to change your account password</string>
     <string name="avalible">Availible Ingredients</string>
     <string name="master">Master chefs recipes</string>
     <string name="email">Email or phone number</string>
     <string name="pass">Password</string>
     <string name="login">login</string>
+    <string name="changepass">Change password</string>
+    <string name="backto">Back to login page</string>
+    <string name="resend_email">Resend email</string>
     <string name="donthaveacoount">Dont have account ?</string>
     <string name="signin">Sign up</string>
     <string name="forget_pass">Forgot password ?</string>
@@ -44,6 +49,7 @@
     <string name="icon_message">&#xf0e0;</string>
     <string name="icon_heart">&#xf004;</string>
     <string name="icon_image">&#xf302;</string>
+    <string name="icon_arrowleft">&#xf053;</string>
     <string name="icon_camera">&#xf030;</string>
     <string name="icon_send_message">&#xf1d8;</string>
     <string name="icon_mesage">&#xf27a;</string>
