@@ -11,6 +11,7 @@ import com.duongtung.cookingman.fragment.GetStartOneFragment
 import com.duongtung.cookingman.fragment.GetStartThreeFragment
 import com.duongtung.cookingman.fragment.GetStartTwoFragment
 import com.duongtung.cookingman.ui.MainActivity
+import com.duongtung.cookingman.ui.home.HomeActivity
 
 class GetstartActivity : BaseActivity<ActivityGetstartBinding,GetstartViewModel>(){
     override fun getViewMode() =GetstartViewModel::class.java
@@ -21,7 +22,7 @@ class GetstartActivity : BaseActivity<ActivityGetstartBinding,GetstartViewModel>
         binding.viewmodel = viewModel
 
         binding.tvSkip.setOnClickListener {
-            var intent = Intent(baseContext, MainActivity::class.java)
+            var intent = Intent(baseContext, HomeActivity::class.java)
             startActivity(intent)
         }
         binding.tvNext.setOnClickListener {

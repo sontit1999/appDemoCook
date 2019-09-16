@@ -31,4 +31,6 @@
     <color name="topbar_button_color">#494949</color>
     <color name="color_tittleGetStart">#404f5d</color>
     <color name="color_describe">#949ea7</color>
+    <color name="color_home">#fafafa</color>
+    <color name="orange">#fe6d13</color>
 </resources>

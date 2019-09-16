@@ -83,4 +83,12 @@
     <dimen name="heigh_container_incaditor">100dp</dimen>
     <dimen name="itemRecipe_translationY">10px</dimen>
     <dimen name="small_margin">3dp</dimen>
+    <dimen name="size_incaditor">10dp</dimen>
+    <dimen name="size_iconmesage">30sp</dimen>
+    <dimen name="padding_honiratal_edittext">25dp</dimen>
+    <dimen name="padding_vertiacal_edittext">15dp</dimen>
+    <dimen name="heigh_banner_home">200dp</dimen>
+    <dimen name="textsize_title_home">30sp</dimen>
+    <dimen name="margin_honizator_search">10dp</dimen>
+    <dimen name="heigh_search_home">60dp</dimen>
 </resources>

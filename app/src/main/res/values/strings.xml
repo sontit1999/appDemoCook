@@ -44,6 +44,9 @@
     <string name="validate_email">please insert email is abc@abc.abc</string>
     <string name="phone_number">Phone Number</string>
     <string name="icon_search">&#xf002;</string>
+    <string name="icon_micro">&#xf130;</string>
+    <string name="icon_clock">&#xf017;</string>
+    <string name="icon_fire">&#xf06d;</string>
     <string name="icon_earth">&#xf0ac;</string>
     <string name="icon_menu">&#xf0c9;</string>
     <string name="icon_message">&#xf0e0;</string>
@@ -57,4 +60,6 @@
     <string name="icon_like">&#xf058;</string>
     <string name="icon_cmt">&#xf27a;</string>
     <string name="add_your_cmt">Add your comment</string>
+    <string name="say_hi"> Good afternoon Sơn tít</string>
+    <string name="lesttart">Let start with some healthy fresh cooking</string>
 </resources>
