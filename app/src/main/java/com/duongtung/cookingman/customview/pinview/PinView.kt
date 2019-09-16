@@ -1,15 +1,9 @@
 package com.duongtung.cookingman.customview.pinview
 
-import android.view.MenuItem
-import android.view.Menu
 import android.view.View
 import androidx.annotation.ColorInt
 import android.content.Context
 import androidx.annotation.Px
-import android.graphics.drawable.Drawable
-import android.graphics.drawable.ColorDrawable
-import androidx.core.content.res.ResourcesCompat
-import androidx.annotation.DrawableRes
 import android.content.res.ColorStateList
 import android.view.inputmethod.EditorInfo
 import androidx.core.view.ViewCompat
@@ -21,19 +15,29 @@ import android.text.InputFilter
 import android.util.AttributeSet
 import android.text.TextPaint
 import android.text.method.MovementMethod
-import androidx.annotation.Nullable
+import android.util.Log
 import androidx.appcompat.widget.AppCompatEditText
 import com.duongtung.cookingman.R
-import android.view.ActionMode
 import com.duongtung.cookingman.customview.FontCache
+import kotlin.math.abs
+
+import androidx.annotation.NonNull
+import java.lang.reflect.Method
+
+import androidx.annotation.Nullable
+import java.lang.reflect.InvocationTargetException
 
 
-class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = R.attr.pinViewStyle) : AppCompatEditText(context, attrs, defStyleAttr) {
+class PinView @JvmOverloads constructor(
+    context: Context,
+    attrs: AttributeSet? = null,
+    defStyleAttr: Int = R.attr.pinViewStyle
+) : AppCompatEditText(context, attrs, defStyleAttr) {
 
     private val mViewType: Int
 
     private var mOtpItemCount: Int = 0
-
+    private var onCompleteFunc: String? = null
     private var mOtpItemWidth: Int = 0
     private var mOtpItemHeight: Int = 0
     private var mOtpItemRadius: Int = 0
@@ -62,7 +66,7 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     var currentLineColor = Color.BLACK
         private set
     private var mLineWidth: Int = 0
-    private var mTypeface : Int = 9
+    private var mTypeface: Int = 9
     private val mTextRect = Rect()
     private val mItemBorderRect = RectF()
     private val mItemLineRect = RectF()
@@ -79,6 +83,15 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private var mCursorWidth: Int = 0
     private var mCursorColor: Int = 0
 
+    interface OnComplete {
+        fun onComplete(view: PinView)
+    }
+
+    private var onComplete: OnComplete? = null
+    fun setOnComplete(onComplete: OnComplete) {
+        Log.d("duongtung461991",""+onCompleteFunc)
+        this.onComplete = onComplete
+    }
     /**
      * @return Returns the width of the item's line.
      * @see .setLineWidth
@@ -252,22 +265,33 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
 
         mViewType = a.getInt(R.styleable.PinView_viewType, VIEW_TYPE_RECTANGLE)
         mOtpItemCount = a.getInt(R.styleable.PinView_itemCount, DEFAULT_COUNT)
-        mOtpItemHeight = a.getDimension(R.styleable.PinView_itemHeight,
-            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_size).toFloat()).toInt()
-        mOtpItemWidth = a.getDimension(R.styleable.PinView_itemWidth,
-            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_size).toFloat()).toInt()
-        mOtpItemSpacing = a.getDimensionPixelSize(R.styleable.PinView_itemSpacing,
-            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_spacing))
+        mOtpItemHeight = a.getDimension(
+            R.styleable.PinView_itemHeight,
+            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_size).toFloat()
+        ).toInt()
+        mOtpItemWidth = a.getDimension(
+            R.styleable.PinView_itemWidth,
+            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_size).toFloat()
+        ).toInt()
+        mOtpItemSpacing = a.getDimensionPixelSize(
+            R.styleable.PinView_itemSpacing,
+            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_spacing)
+        )
         mOtpItemRadius = a.getDimension(R.styleable.PinView_itemRadius, 0f).toInt()
-        mLineWidth = a.getDimension(R.styleable.PinView_lineWidth,
-            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_line_width).toFloat()).toInt()
+        mLineWidth = a.getDimension(
+            R.styleable.PinView_lineWidth,
+            res.getDimensionPixelSize(R.dimen.pv_pin_view_item_line_width).toFloat()
+        ).toInt()
         lineColors = a.getColorStateList(R.styleable.PinView_lineColor)
         isCursorVisible = a.getBoolean(R.styleable.PinView_android_cursorVisible, true)
         mCursorColor = a.getColor(R.styleable.PinView_cursorColor, currentTextColor)
-        mCursorWidth = a.getDimensionPixelSize(R.styleable.PinView_cursorWidth,
-            res.getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width))
-        mTypeface = a.getInt(R.styleable.PinView_pvFontFace,9)
-        this.typeface = FontCache.getTyface(context,mTypeface)
+        mCursorWidth = a.getDimensionPixelSize(
+            R.styleable.PinView_cursorWidth,
+            res.getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width)
+        )
+        mTypeface = a.getInt(R.styleable.PinView_pvFontFace, 9)
+        this.typeface = FontCache.getTyface(context, mTypeface)
+        onCompleteFunc = a.getString(R.styleable.PinView_onComplete)
         a.recycle()
 
         if (lineColors != null) {
@@ -309,14 +333,10 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private fun checkItemRadius() {
         if (mViewType == VIEW_TYPE_LINE) {
             val halfOfLineWidth = mLineWidth.toFloat() / 2
-            if (mOtpItemRadius > halfOfLineWidth) {
-                throw IllegalArgumentException("The itemRadius can not be greater than lineWidth when viewType is line")
-            }
+            require(mOtpItemRadius <= halfOfLineWidth) { "The itemRadius can not be greater than lineWidth when viewType is line" }
         }
         val halfOfItemWidth = mOtpItemWidth.toFloat() / 2
-        if (mOtpItemRadius > halfOfItemWidth) {
-            throw IllegalArgumentException("The itemRadius can not be greater than itemWidth")
-        }
+        require(mOtpItemRadius <= halfOfItemWidth) { "The itemRadius can not be greater than itemWidth" }
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -341,17 +361,22 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
             }
         }
 
-        if (heightMode == View.MeasureSpec.EXACTLY) {
+        height = if (heightMode == View.MeasureSpec.EXACTLY) {
             // Parent has told us how big to be. So be it.
-            height = heightSize
+            heightSize
         } else {
-            height = boxHeight + paddingTop + paddingBottom
+            boxHeight + paddingTop + paddingBottom
         }
 
         setMeasuredDimension(width, height)
     }
 
-    override fun onTextChanged(text: CharSequence, start: Int, lengthBefore: Int, lengthAfter: Int) {
+    override fun onTextChanged(
+        text: CharSequence,
+        start: Int,
+        lengthBefore: Int,
+        lengthAfter: Int
+    ) {
         if (start != text.length) {
             moveSelectionToEnd()
         }
@@ -366,6 +391,11 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
                     mDefaultAddAnimator!!.start()
                 }
             }
+        }
+        if (onCompleteFunc != null && start == itemCount-1) {
+            Log.d("duongtung461991",""+onCompleteFunc)
+            check(!context.isRestricted) { "The app:onComplete attribute cannot " + "be used within a restricted context" }
+            setOnComplete(DeclaredOnCompleteListener(this ,onCompleteFunc!!))
         }
     }
 
@@ -459,7 +489,10 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     }
 
     private fun getLineColorForState(vararg states: Int): Int {
-        return if (lineColors != null) lineColors!!.getColorForState(states, currentLineColor) else currentLineColor
+        return if (lineColors != null) lineColors!!.getColorForState(
+            states,
+            currentLineColor
+        ) else currentLineColor
     }
 
     private fun drawPinBox(canvas: Canvas, i: Int) {
@@ -476,7 +509,13 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
                 drawRightCorner = true
             }
         }
-        updateRoundRectPath(mItemBorderRect, mOtpItemRadius.toFloat(), mOtpItemRadius.toFloat(), drawLeftCorner, drawRightCorner)
+        updateRoundRectPath(
+            mItemBorderRect,
+            mOtpItemRadius.toFloat(),
+            mOtpItemRadius.toFloat(),
+            drawLeftCorner,
+            drawRightCorner
+        )
         canvas.drawPath(mPath, mPaint)
     }
 
@@ -501,7 +540,12 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         mPaint.style = Paint.Style.FILL
         mPaint.strokeWidth = mLineWidth.toFloat() / 10
         val halfLineWidth = mLineWidth.toFloat() / 2
-        mItemLineRect.set(mItemBorderRect.left, mItemBorderRect.bottom - halfLineWidth, mItemBorderRect.right, mItemBorderRect.bottom + halfLineWidth)
+        mItemLineRect.set(
+            mItemBorderRect.left,
+            mItemBorderRect.bottom - halfLineWidth,
+            mItemBorderRect.right,
+            mItemBorderRect.bottom + halfLineWidth
+        )
 
         updateRoundRectPath(mItemLineRect, mOtpItemRadius.toFloat(), mOtpItemRadius.toFloat(), l, r)
         canvas.drawPath(mPath, mPaint)
@@ -529,8 +573,10 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         updateRoundRectPath(rectF, rx, ry, l, r, r, l)
     }
 
-    private fun updateRoundRectPath(rectF: RectF, rx: Float, ry: Float,
-                                    tl: Boolean, tr: Boolean, br: Boolean, bl: Boolean) {
+    private fun updateRoundRectPath(
+        rectF: RectF, rx: Float, ry: Float,
+        tl: Boolean, tr: Boolean, br: Boolean, bl: Boolean
+    ) {
         mPath.reset()
 
         val l = rectF.left
@@ -587,7 +633,8 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
 
     private fun updateItemRectF(i: Int) {
         val halfLineWidth = mLineWidth.toFloat() / 2
-        var left = scrollX.toFloat() + ViewCompat.getPaddingStart(this).toFloat() + (i * (mOtpItemSpacing + mOtpItemWidth)).toFloat() + halfLineWidth
+        var left =
+            scrollX.toFloat() + ViewCompat.getPaddingStart(this).toFloat() + (i * (mOtpItemSpacing + mOtpItemWidth)).toFloat() + halfLineWidth
         if (mOtpItemSpacing == 0 && i > 0) {
             left = left - mLineWidth * i
         }
@@ -619,8 +666,9 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         paint.getTextBounds(text.toString(), charAt, charAt + 1, mTextRect)
         val cx = mItemCenterPoint.x
         val cy = mItemCenterPoint.y
-        val x = cx - Math.abs(mTextRect.width().toFloat()) / 2 - mTextRect.left.toFloat()
-        val y = cy + Math.abs(mTextRect.height().toFloat()) / 2 - mTextRect.bottom// always center vertical
+        val x = cx - abs(mTextRect.width().toFloat()) / 2 - mTextRect.left.toFloat()
+        val y =
+            cy + abs(mTextRect.height().toFloat()) / 2 - mTextRect.bottom// always center vertical
         canvas.drawText(text, charAt, charAt + 1, x, y, paint)
     }
 
@@ -632,11 +680,11 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     }
 
     private fun getPaintByIndex(i: Int): Paint {
-        if (isAnimationEnable && i == text!!.length - 1) {
+        return if (isAnimationEnable && i == text!!.length - 1) {
             mAnimatorTextPaint.color = mTextPaint.color
-            return mAnimatorTextPaint
+            mAnimatorTextPaint
         } else {
-            return mTextPaint
+            mTextPaint
         }
     }
 
@@ -668,11 +716,10 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
     private fun updateColors() {
         var inval = false
 
-        val color: Int
-        if (lineColors != null) {
-            color = lineColors!!.getColorForState(drawableState, 0)
+        val color: Int = if (lineColors != null) {
+            lineColors!!.getColorForState(drawableState, 0)
         } else {
-            color = currentTextColor
+            currentTextColor
         }
 
         if (color != currentLineColor) {
@@ -805,7 +852,7 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
 
     private fun resumeBlink() {
         if (mBlink != null) {
-            mBlink!!.uncancel()
+            mBlink!!.unCancel()
             makeBlink()
         }
     }
@@ -845,7 +892,7 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
             }
         }
 
-        internal fun uncancel() {
+        internal fun unCancel() {
             mCancelled = false
         }
     }
@@ -871,10 +918,61 @@ class PinView  @JvmOverloads constructor(context: Context, attrs: AttributeSet? 
         private val VIEW_TYPE_LINE = 1
 
         private fun isPasswordInputType(inputType: Int): Boolean {
-            val variation = inputType and (EditorInfo.TYPE_MASK_CLASS or EditorInfo.TYPE_MASK_VARIATION)
+            val variation =
+                inputType and (EditorInfo.TYPE_MASK_CLASS or EditorInfo.TYPE_MASK_VARIATION)
             return (variation == EditorInfo.TYPE_CLASS_TEXT or EditorInfo.TYPE_TEXT_VARIATION_PASSWORD
                     || variation == EditorInfo.TYPE_CLASS_TEXT or EditorInfo.TYPE_TEXT_VARIATION_WEB_PASSWORD
                     || variation == EditorInfo.TYPE_CLASS_NUMBER or EditorInfo.TYPE_NUMBER_VARIATION_PASSWORD)
+        }
+    }
+
+    private class DeclaredOnCompleteListener(@NonNull hostView: View, @NonNull methodName: String) : OnComplete {
+        private var mHostView: View = hostView
+        private var mMethodName: String = methodName
+        private var mResolvedMethod: Method? = null
+        private var mResolvedContext: Context? = null
+
+        override fun onComplete(view: PinView) {
+            Log.d("",view.text.toString())
+            if (mResolvedMethod == null) {
+                resolveMethod(mHostView.context, mMethodName)
+            }
+            try {
+                mResolvedMethod!!.invoke(mResolvedContext, view)
+            } catch (e: IllegalAccessException) {
+                throw IllegalStateException(
+                    "Could not execute non-public method for android:onClick", e
+                )
+            } catch (e: InvocationTargetException) {
+                throw IllegalStateException(
+                    "Could not execute method for android:onClick", e
+                )
+            }
+
+
+        }
+
+        @NonNull
+        private fun resolveMethod(@Nullable  context: Context , @NonNull name: String ) {
+            while (context != null) {
+                try {
+                    if (!context.isRestricted()) {
+                        var method = context.javaClass.getMethod(name, View::class.java)
+                        if (method != null) {
+                            mResolvedMethod = method
+                            mResolvedContext = context
+                            return
+                        }
+                    }
+                } catch (e: NoSuchMethodException) {
+                    // Failed to find method, keep searching up the hierarchy.
+                }
+            }
+            val id = mHostView.id
+            val idText = if( id == View.NO_ID ) "" else " with id '" + mHostView.context.resources.getResourceEntryName(id) + "'"
+            throw IllegalStateException("Could not find method " + mMethodName
+                    + "(View) in a parent or ancestor Context for android:onClick "
+                    + "attribute defined on view " + mHostView.javaClass + idText)
         }
     }
 }
