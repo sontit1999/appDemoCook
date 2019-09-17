@@ -28,9 +28,7 @@
                 card_view:cardElevation="10dp"
                 card_view:cardPreventCornerOverlap="false">
             <RelativeLayout
-
-                    android:paddingVertical="@dimen/fragReview_padding"
-                    android:paddingHorizontal="25dp"
+                    android:padding="@dimen/fragReview_padding"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
@@ -58,7 +56,7 @@
                             android:layout_height="20dp">
                     </ImageView>
                 </LinearLayout>
-                <TextView
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tv_numberReview"
                         android:layout_toRightOf="@id/containerMainStar"
                         android:layout_toLeftOf="@id/view"
@@ -67,14 +65,14 @@
                         android:text="From 99 review"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content">
-                </TextView>
+                </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
                 <View
                         android:id="@+id/view"
                         android:layout_width="1dp"
+                        android:background="@color/color_describe"
                         android:layout_centerVertical="true"
                         android:layout_toLeftOf="@id/ivAvatar"
                         android:layout_marginRight="5dp"
-                        android:background="#c6c6c6"
                         android:layout_height="@dimen/fragReview_heeight_viewVertical">
                 </View>
                 <com.mikhaellopez.circularimageview.CircularImageView
@@ -91,10 +89,43 @@
                 android:id="@+id/recyclerComment"
                 android:layout_width="match_parent"
                 app:layout_constraintTop_toBottomOf="@id/containerSumary"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/layout_container_edtcmt"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:adapter="@{viewmodel.adapter}"
                 android:layout_height="0dp">
         </androidx.recyclerview.widget.RecyclerView>
+        <LinearLayout
+                android:id="@+id/layout_container_edtcmt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_comment"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+            <com.duongtung.cookingman.customview.CustomEditText
+                    android:id="@+id/edt_commnet"
+                    android:hint="@string/add_your_cmt"
+                    android:inputType="text"
+                    android:padding="15dp"
+                    android:maxLines="6"
+                    android:layout_marginRight="16dp"
+                    android:layout_width="0dp"
+                    android:layout_weight="5"
+                    android:layout_height="wrap_content"
+                    />
+
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_send"
+                    app:iconRight="@string/icon_send_message"
+                    app:iconColor="@color/colorRed"
+                    android:layout_marginRight="@dimen/splash_padding"
+                    android:layout_gravity="center_vertical"
+                    app:iconTextSize="@dimen/size_iconmesage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

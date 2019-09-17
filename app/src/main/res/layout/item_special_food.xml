@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        >
+    <data>
+        <variable
+                name="post"
+                type="com.duongtung.cookingman.model.Post" />
+        <variable
+                name="callback"
+                type="com.duongtung.cookingman.adapter.PostCallback" />
+    </data>
+    <androidx.cardview.widget.CardView
+           app:cardCornerRadius="@dimen/margin_10dp"
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="@dimen/itemPost_marginLeft"
+            android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:orientation="vertical"
+                android:paddingBottom="@dimen/home_padding_honizatal_micro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            <ImageView
+                    android:id="@+id/iv_food"
+                    android:src="@drawable/hinh1"
+                    android:onClick="@{(view)->callback.onImagefoodclick(view,post)}"
+                    imageUrl="@{post.recipe.imageRecipe}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:scaleType="fitXY"
+                    android:layout_width="@dimen/item_specialfood_width_image"
+                    android:layout_height="@dimen/item_specialfood_heigh_image">
+            </ImageView>
+            <TextView
+                    android:id="@+id/tv_namefood"
+                    app:layout_constraintTop_toBottomOf="@id/iv_food"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:text="@{post.recipe.nameFood}"
+                    android:layout_marginHorizontal="@dimen/margin_10dp"
+                    android:layout_marginTop="@dimen/margin_10dp"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textview_main__content_size"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+            </TextView>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                            android:id="@+id/tv_time"
+                            app:iconLeft="@string/icon_clock"
+                            app:iconTextSize="15dp"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/tv_namefood"
+                            app:iconColor="@color/orange"
+                            android:drawablePadding="@dimen/margin_10dp"
+                            android:text="2h 30p"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                    </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                        app:iconLeft="@string/icon_fire"
+                        app:iconTextSize="15dp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_namefood"
+                        app:layout_constraintLeft_toRightOf="@id/tv_time"
+                        app:iconColor="@color/orange"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:drawablePadding="@dimen/margin_10dp"
+                        android:text="330 cals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+
+</layout>

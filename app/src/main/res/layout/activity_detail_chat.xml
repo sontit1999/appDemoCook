@@ -61,39 +61,36 @@
                     android:layout_weight="5"
                     android:layout_height="wrap_content"
                     />
-            <ImageButton
-                    android:id="@+id/button_image"
-                    android:src="@drawable/icon_image"
-                    android:textSize="14dp"
-                    android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:layout_width="@dimen/detailchat_icon_width"
-                    android:layout_height="@dimen/detailchat_icon_heigh"
-                    android:gravity="center"
-                    android:layout_gravity="bottom" />
-            <ImageButton
-                    android:id="@+id/button_camera"
-                    android:src="@drawable/icon_camera"
-                    android:textSize="14dp"
-                    android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:layout_width="@dimen/detailchat_icon_width"
-                    android:layout_height="@dimen/detailchat_icon_heigh"
-                    android:gravity="center"
-                    android:layout_gravity="bottom" />
-            <ImageButton
-                    android:id="@+id/button_send"
-                    android:src="@drawable/icon_send"
-                    android:textSize="14dp"
-                    android:scaleType="fitCenter"
-                    android:background="?attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:layout_width="@dimen/detailchat_icon_width"
-                    android:layout_height="@dimen/detailchat_icon_heigh"
-                    android:gravity="center"
-                    android:layout_gravity="bottom" />
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_image"
+                    app:iconRight="@string/icon_image"
+                    app:iconColor="@color/colorRed"
+                    android:layout_gravity="center_vertical"
+                    app:iconTextSize="@dimen/size_iconmesage"
+                    android:layout_marginRight="@dimen/splash_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_camera"
+                    app:iconRight="@string/icon_camera"
+                    app:iconColor="@color/colorRed"
+                    android:layout_gravity="center_vertical"
+                    app:iconTextSize="@dimen/size_iconmesage"
+                    android:layout_marginRight="@dimen/splash_padding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_send"
+                    app:iconRight="@string/icon_send_message"
+                    app:iconColor="@color/colorRed"
+                    android:layout_marginRight="@dimen/splash_padding"
+                    android:layout_gravity="center_vertical"
+                    app:iconTextSize="@dimen/size_iconmesage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

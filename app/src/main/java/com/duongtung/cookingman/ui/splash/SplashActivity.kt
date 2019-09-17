@@ -17,7 +17,10 @@ import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.customview.CustomSpanTypeFace
 import com.duongtung.cookingman.customview.FontCache
 import com.duongtung.cookingman.databinding.ActivitySplashBinding
+import com.duongtung.cookingman.ui.getstart.GetstartActivity
+import com.duongtung.cookingman.ui.home.HomeActivity
 import com.duongtung.cookingman.ui.login.LoginActivity
+import com.duongtung.cookingman.ui.login.LoginEmailActivity
 import com.duongtung.cookingman.ui.recipefood.RecipeActivity
 import com.duongtung.cookingman.ui.setting.SettingActivity
 
@@ -48,12 +51,15 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
         }
         binding.tvGetStarted.setOnClickListener {
-            var intent = Intent(baseContext, RecipeActivity::class.java)
+            var intent = Intent(baseContext, GetstartActivity::class.java)
             startActivity(intent)
         }
 
         binding.tvCreate.setOnClickListener {
-            goToActivity(SettingActivity::class.java, null, null)
+            goToActivity(LoginEmailActivity::class.java, null, null)
+        }
+        binding.imgLogo.setOnClickListener {
+            goToActivity(HomeActivity::class.java,null,null)
         }
     }
 }

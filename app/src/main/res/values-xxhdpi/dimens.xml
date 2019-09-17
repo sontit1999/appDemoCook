@@ -44,7 +44,7 @@
     <dimen name="itemcomment_margintop">20dp</dimen>
     <dimen name="fragReview_padding">15dp</dimen>
     <dimen name="fragReview_paddingStar">15dp</dimen>
-    <dimen name="fragReview_imageAvatar_size">60dp</dimen>
+    <dimen name="fragReview_imageAvatar_size">70dp</dimen>
     <dimen name="itemGredient_image_size">80dp</dimen>
     <dimen name="itemGredient_marginleft">22dp</dimen>
     <dimen name="itemGredient_margintop">12dp</dimen>
@@ -71,4 +71,25 @@
     <dimen name="acyivityRecipe_margin_honizatal">25dp</dimen>
     <dimen name="fragReview_heeight_viewVertical">50dp</dimen>
     <dimen name="activity_search_padding_recyclerview">25dp</dimen>
+    <dimen name="text_size_icon_custom">20sp</dimen>
+    <dimen name="frag_getstart_margin_top">20dp</dimen>
+    <dimen name="frag_getstart_maxwidth">200dp</dimen>
+    <dimen name="frag_getstart_heigh_image">400dp</dimen>
+    <dimen name="heigh_logo_login">250dp</dimen>
+    <dimen name="heigh_container_incaditor">100dp</dimen>
+    <dimen name="small_margin">3dp</dimen>
+    <dimen name="size_incaditor">10dp</dimen>
+    <dimen name="size_iconmesage">30sp</dimen>
+    <dimen name="padding_honiratal_edittext">25dp</dimen>
+    <dimen name="padding_vertiacal_edittext">15dp</dimen>
+    <dimen name="heigh_banner_home">270dp</dimen>
+    <dimen name="textsize_title_home">25sp</dimen>
+    <dimen name="margin_honizator_search">25dp</dimen>
+    <dimen name="heigh_search_home">60dp</dimen>
+    <dimen name="margin_bottom_home">25dp</dimen>
+    <dimen name="home_height_containerSearch">60dp</dimen>
+    <dimen name="home_padding_honizatal_micro">15dp</dimen>
+    <dimen name="item_specialfood_heigh_image">150dp</dimen>
+    <dimen name="item_specialfood_width_image">250dp</dimen>
+    <dimen name="size_title_home">25sp</dimen>
 </resources>

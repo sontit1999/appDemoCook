@@ -15,7 +15,6 @@
         <RelativeLayout
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                android:orientation="vertical"
                 android:background="#e8e8e8"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -37,7 +36,7 @@
                     android:layout_below="@id/tabs"
                     android:scaleType="fitCenter"
                     android:src="@drawable/bg_recipe"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/acyivityRecipe_banner_heigh">
             </ImageView>
             <View

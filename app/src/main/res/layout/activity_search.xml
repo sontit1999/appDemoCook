@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:tools="http://schemas.android.com/tools"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
@@ -7,7 +8,6 @@
                 type="com.duongtung.cookingman.ui.search.SearchViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            xmlns:tools="http://schemas.android.com/tools"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:context=".ui.search.SearchActivity">
@@ -24,22 +24,36 @@
                      app:layout_constraintTop_toBottomOf="@id/actionbar"
                      android:layout_width="match_parent"
                      android:layout_height="wrap_content">
-                 <EditText
+                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                         android:id="@+id/tvSearch"
+                         app:iconLeft="@string/icon_search"
+                         android:layout_alignParentLeft="true"
+                         android:drawablePadding="@dimen/margin_10dp"
+                         android:layout_centerVertical="true"
+                         app:iconTextSize="@dimen/textsize_tvActionbar"
+                         android:textSize="@dimen/textsize_tvActionbar"
+                         android:layout_marginLeft="5dp"
+                         app:iconColor="@color/colorRed"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"/>
+                 <com.duongtung.cookingman.customview.CustomEditText
+                         android:id="@+id/editText"
                          android:layout_width="match_parent"
                          android:layout_height="wrap_content"
-                         android:inputType="textPersonName"
-                         android:ems="10"
                          android:background="@drawable/round_rect_shape"
-                         android:drawableLeft="@drawable/mapsss"
-                         android:drawablePadding="10dp"
-                         android:padding="@dimen/actibity_search_edittext_padding"
-                         android:hint="Search location..."
-                         android:id="@+id/editText" />
+                         android:ems="10"
+                         android:hint="Search recipe..."
+                         android:inputType="text"
+                         android:paddingHorizontal="@dimen/padding_honiratal_edittext"
+                         android:paddingVertical="@dimen/padding_vertiacal_edittext"
+                         />
              </RelativeLayout>
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerSearch"
                 adapter="@{viewmodel.adapter}"
                 android:padding="@dimen/activity_search_padding_recyclerview"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:background="@drawable/round_rect_shape"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintTop_toBottomOf="@id/containerEdittext"
                 app:layout_constraintLeft_toLeftOf="parent"

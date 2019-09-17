@@ -7,7 +7,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
     >
-        <TextView
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tv_lastRecipe"
                 android:textColor="@color/colorBlack"
                 android:layout_marginTop="30dp"
@@ -19,8 +19,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-        </TextView>
-        <TextView
+        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tv_findAll"
                 android:layout_marginTop="@dimen/itemRecipe_marginTop"
                 android:gravity="center"
@@ -32,7 +32,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
-        </TextView>
+        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerviewRecipe"
                 android:layout_marginTop="10dp"

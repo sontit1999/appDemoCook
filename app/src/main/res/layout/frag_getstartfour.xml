@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout  xmlns:app="http://schemas.android.com/apk/res-auto"
+         xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+         <variable
+                 name="viewmodel"
+                 type="com.duongtung.cookingman.fragment.GetStartFourViewModel" />
+     </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/splash_padding"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <ImageView
+                android:id="@+id/ivbanner"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:src="@drawable/dia2"
+                android:background="@color/colorActionbar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/frag_getstart_heigh_image"></ImageView>
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                android:id="@+id/tv_title"
+                app:layout_constraintTop_toBottomOf="@id/ivbanner"
+                android:text="@string/profeshional"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
+                android:textColor="@color/color_tittleGetStart"
+                android:textSize="@dimen/textview_main__tittle_size"
+                android:layout_marginTop="@dimen/frag_getstart_margin_top"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:maxWidth="@dimen/frag_getstart_maxwidth"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                android:id="@+id/tv_describe"
+                android:text="@string/introduc"
+                android:textSize="@dimen/textview_main_size"
+                android:maxWidth="@dimen/frag_getstart_maxwidth"
+                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
+                android:layout_marginTop="@dimen/frag_getstart_margin_top"
+                app:layout_constraintTop_toBottomOf="@id/tv_title"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                >
+        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

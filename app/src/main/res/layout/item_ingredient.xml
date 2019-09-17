@@ -20,7 +20,7 @@
                 android:layout_width="@dimen/itemGredient_image_size"
                 android:layout_height="@dimen/itemGredient_image_size">
         </ImageView>
-        <TextView
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tv_nameIngredient"
                 android:layout_marginTop="5dp"
                 android:layout_marginLeft="@dimen/itemGredient_marginleft"
@@ -31,8 +31,8 @@
                 android:textColor="@color/colorBlack"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
-        </TextView>
-        <TextView
+        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tv_number"
                 android:text="@{foodingredient.number()}"
                 android:layout_marginTop="@dimen/itemGredient_margintop"
@@ -44,6 +44,6 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_nameIngredient"
                 android:layout_height="wrap_content">
 
-        </TextView>
+        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

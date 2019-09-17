@@ -16,19 +16,17 @@ class DetailChatActivity : BaseActivity<ActivityDetailChatBinding, DetailChatVie
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        binding.buttonSend.setOnClickListener{
+        binding.tvSend.setOnClickListener{
             var message = binding.edittextChatbox.text.toString();
             viewModel.adapter.addMessage(Message(message, User(1,"xxx","https://i1.wp.com/1.bp.blogspot.com/-0PYThk9yaSE/XWDJjc5N38I/AAAAAAAC2QU/jRIuBT0aRp0c1wLp8oWyn5vFmiEMmmB3ACLcBGAs/s1600/CANDY-Vol.072-Cris-MrCong.com-002.jpg?w=955&ssl=1"),"15:20"))
             binding.reyclerviewMessageList.scrollToPosition(viewModel.adapter.itemCount-1)
             binding.edittextChatbox.setText("")
         }
-        binding.buttonCamera.setOnClickListener{
+        binding.tvCamera.setOnClickListener{
             viewModel.adapter.addMessage(Message("em cũng yêu anh",User(2,"Pé quỳnh","https://i1.wp.com/1.bp.blogspot.com/-0PYThk9yaSE/XWDJjc5N38I/AAAAAAAC2QU/jRIuBT0aRp0c1wLp8oWyn5vFmiEMmmB3ACLcBGAs/s1600/CANDY-Vol.072-Cris-MrCong.com-002.jpg?w=955&ssl=1"),"15:15"))
             binding.reyclerviewMessageList.scrollToPosition(viewModel.adapter.itemCount-1)
         }
-        binding.actionBar.iv_navigation.setOnClickListener {
-            finish()
-        }
+        binding.actionBar.tvReturn.setOnClickListener { finish() }
     }
 
 }

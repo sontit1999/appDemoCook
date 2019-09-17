@@ -51,7 +51,7 @@
     <dimen name="itemPost_padding">25dp</dimen>
     <dimen name="itemPost_image_smallsize">40dp</dimen>
     <dimen name="itemPost_image_size">90dp</dimen>
-    <dimen name="itemPost_marginTop">20dp</dimen>
+    <dimen name="itemPost_marginTop">5dp</dimen>
     <dimen name="itemPost_marginLeft">15dp</dimen>
     <dimen name="itemPost_marginToptvTime">10dp</dimen>
     <dimen name="itemPost_imageRecipe_heigh">235dp</dimen>
@@ -69,5 +69,19 @@
     <dimen name="acyivityRecipe_margin_honizatal">25dp</dimen>
     <dimen name="fragReview_heeight_viewVertical">50dp</dimen>
     <dimen name="activity_search_padding_recyclerview">25dp</dimen>
-
+    <dimen name="text_size_icon_custom">20sp</dimen>
+    <dimen name="frag_getstart_margin_top">10dp</dimen>
+    <dimen name="frag_getstart_maxwidth">200dp</dimen>
+    <dimen name="frag_getstart_heigh_image">250dp</dimen>
+    <dimen name="heigh_logo_login">150dp</dimen>
+    <dimen name="heigh_container_incaditor">100dp</dimen>
+    <dimen name="small_margin">3dp</dimen>
+    <dimen name="size_incaditor">10dp</dimen>
+    <dimen name="size_iconmesage">30sp</dimen>
+    <dimen name="padding_honiratal_edittext">25dp</dimen>
+    <dimen name="padding_vertiacal_edittext">15dp</dimen>
+    <dimen name="heigh_banner_home">200dp</dimen>
+    <dimen name="textsize_title_home">30sp</dimen>
+    <dimen name="margin_honizator_search">20dp</dimen>
+    <dimen name="heigh_search_home">60dp</dimen>
 </resources>

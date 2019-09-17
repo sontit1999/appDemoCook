@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+         <variable
+                 name="viewmodel"
+                 type="com.duongtung.cookingman.ui.getstart.GetstartViewModel" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewpagerGetStart"
+                android:background="@drawable/splashscreen"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/container_incadior"
+                android:layout_width="match_parent"
+                android:layout_height="0dp">
+        </androidx.viewpager.widget.ViewPager>
+        <RelativeLayout
+                android:id="@+id/container_incadior"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            <com.bikomobile.circleindicatorpager.CircleIndicatorPager
+                    android:id="@+id/circle_indicator_pager"
+                    android:layout_width="0dp"
+                    android:layout_toLeftOf="@id/tv_next"
+                    android:layout_toRightOf="@id/tv_skip"
+                    android:layout_height="@dimen/heigh_container_incaditor"
+                    app:ci_drawable="@drawable/redradius"
+                    app:ci_drawable_unselected="@drawable/greyradius"
+                    app:ci_height="@dimen/size_incaditor"
+                    app:ci_width="@dimen/size_incaditor" />
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_next"
+                    android:text="NEXT"
+                    android:gravity="center_vertical"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:paddingHorizontal="@dimen/splash_tv_margin_30"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/textview_main__content_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/heigh_container_incaditor">
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:id="@+id/tv_skip"
+                    android:text="SKIP"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/margin_10dp"
+                    android:paddingHorizontal="@dimen/splash_tv_margin_30"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:textSize="@dimen/textview_main__content_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/heigh_container_incaditor">
+            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        </RelativeLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

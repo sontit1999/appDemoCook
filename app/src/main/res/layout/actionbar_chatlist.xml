@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:paddingHorizontal="@dimen/actionbar_padding"
-                android:gravity="center_vertical"
-                android:background="@color/colorActionbar"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize">
-        <ImageView
-                android:id="@+id/iv_navigation"
-                android:layout_alignParentLeft="true"
-                android:layout_centerVertical="true"
-                android:layout_width="@dimen/actionbar_width_icon"
-                android:layout_height="@dimen/actionbar_heigh_icon"
-                android:src="@drawable/ic_chevron_left_black_24dp"
-        />
-        <TextView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:paddingHorizontal="@dimen/actionbar_padding"
+        android:gravity="center_vertical"
+        android:background="@color/colorActionbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize">
+
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tvReturn"
+                app:iconLeft="&#xf053;"
+                android:layout_alignParentLeft="true"
+                android:drawablePadding="@dimen/margin_10dp"
+                android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_navigation"
                 android:text="return"
-                android:layout_centerVertical="true"
+                app:iconTextSize="@dimen/textsize_tvActionbar"
                 android:textSize="@dimen/textsize_tvActionbar"
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/white"
@@ -26,27 +24,38 @@
                 android:layout_height="wrap_content"/>
     <ImageView
             android:id="@+id/iv_logo"
-            android:layout_toLeftOf="@id/iv_earth"
+            android:layout_toLeftOf="@id/tvEarth"
             android:layout_toRightOf="@id/tvReturn"
             android:layout_centerHorizontal="true"
             android:layout_width="0dp"
             android:layout_height="64dp"
             android:src="@drawable/logo"
     />
-    <ImageView
-            android:id="@+id/iv_earth"
-            android:layout_marginRight="15dp"
+    <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+            android:id="@+id/tvEarth"
+            app:iconLeft="@string/icon_earth"
+            android:layout_toLeftOf="@id/tvSearch"
+            android:drawablePadding="@dimen/margin_10dp"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/iv_search"
-            android:layout_width="@dimen/actionbar_width_icon"
-            android:layout_height="@dimen/actionbar_heigh_icon"
-            android:src="@drawable/iconearth"
-    />
-    <ImageView
-            android:id="@+id/iv_search"
+            android:layout_toRightOf="@+id/iv_navigation"
+            app:iconTextSize="@dimen/textsize_tvActionbar"
+            android:textSize="@dimen/textsize_tvActionbar"
+            android:layout_marginRight="5dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+            android:id="@+id/tvSearch"
+            app:iconLeft="@string/icon_search"
             android:layout_alignParentRight="true"
-            android:layout_width="@dimen/actionbar_width_icon"
-            android:layout_height="@dimen/actionbar_heigh_icon"
-            android:src="@drawable/iconsearch"
-            android:layout_centerInParent="true"/>
+            android:drawablePadding="@dimen/margin_10dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/iv_navigation"
+            app:iconTextSize="@dimen/textsize_tvActionbar"
+            android:textSize="@dimen/textsize_tvActionbar"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 </RelativeLayout>

@@ -9,9 +9,10 @@ import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityMainBinding
 import com.duongtung.cookingman.fragment.NewFeedsFragment
 import com.duongtung.cookingman.fragment.RecipeFragment
+import com.duongtung.cookingman.ui.login.LoginEmailActivity
 import com.duongtung.cookingman.ui.recipefood.RecipeActivity
+import com.duongtung.cookingman.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
-
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
     private lateinit var  txt: TextView
     override fun getViewMode() = MainViewModel::class.java
@@ -22,14 +23,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(){
         binding.viewModel = viewModel
         loadFragment(NewFeedsFragment())
 
-        binding.containerActionbar.iv_earth.setOnClickListener {
-            goToActivity(MapsActivity::class.java,null,null)
-        }
-        binding.containerBangtin.setOnClickListener{
-            goToActivity(RecipeActivity::class.java,null,null)
-        }
         binding.containerActionbar.iv_logo.setOnClickListener {
-            loadFragment(RecipeFragment())
+            goToActivity(LoginEmailActivity::class.java,null,null)
         }
     }
 
