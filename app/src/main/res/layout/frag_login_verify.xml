@@ -46,7 +46,7 @@
                 app:pvFontFace="font-roboto-medium"
                 app:itemWidth="60dp"
                 app:lineWidth="2dp"
-                app:onComplete="onComplete"
+                app:onComplete="@{(v)->viewmodel.onComplete(v)}"
                 app:viewType="rectangle"
                 android:textColor="@color/colorAccent"
                 />

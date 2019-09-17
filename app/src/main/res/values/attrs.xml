@@ -129,7 +129,6 @@
         <attr name="cursorColor" format="reference|color" />
         <attr name="android:itemBackground" />
         <attr name="hideLineWhenFilled" format="boolean" />
-        <attr name="onComplete" format="string" />
         <attr name="pvFontFace" format="enum">
             <enum name="font-awesome-light" value= "0"/>
             <enum name="font-awesome-brands" value="1"/>

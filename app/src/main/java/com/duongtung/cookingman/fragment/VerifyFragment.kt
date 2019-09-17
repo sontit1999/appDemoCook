@@ -18,9 +18,7 @@ class VerifyFragment : BaseFragment<FragLoginVerifyBinding,VerifyViewModel>(){
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
     }
-    fun onComplete(view : PinView){
-        Log.d("onComplete", "onComplete "+ view.text.toString())
-    }
+
     override fun viewCreated() {
 
     }

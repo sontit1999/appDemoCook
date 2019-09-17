@@ -21,12 +21,6 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.customview.FontCache
 import kotlin.math.abs
 
-import androidx.annotation.NonNull
-import java.lang.reflect.Method
-
-import androidx.annotation.Nullable
-import java.lang.reflect.InvocationTargetException
-
 
 class PinView @JvmOverloads constructor(
     context: Context,
@@ -90,7 +84,6 @@ class PinView @JvmOverloads constructor(
     private var onComplete: OnComplete? = null
 
     fun setOnComplete(onComplete: OnComplete) {
-        Log.d("", "onComplete $onComplete")
         this.onComplete = onComplete
     }
     /**
@@ -292,11 +285,7 @@ class PinView @JvmOverloads constructor(
         )
         mTypeface = a.getInt(R.styleable.PinView_pvFontFace, 9)
         this.typeface = FontCache.getTyface(context, mTypeface)
-        onCompleteFunc = a.getString(R.styleable.PinView_onComplete)
-        if (onCompleteFunc != null) {
-            check(!context.isRestricted) { "The app:onComplete attribute cannot " + "be used within a restricted context" }
-            setOnComplete(DeclaredOnCompleteListener(this, onCompleteFunc!!))
-        }
+
         a.recycle()
 
         if (lineColors != null) {
@@ -397,7 +386,7 @@ class PinView @JvmOverloads constructor(
                 }
             }
         }
-        if (onComplete != null && start == itemCount-1) {
+        if (onComplete != null && text.length == itemCount) {
             onComplete!!.onComplete(this)
         }
     }
@@ -928,54 +917,56 @@ class PinView @JvmOverloads constructor(
                     || variation == EditorInfo.TYPE_CLASS_NUMBER or EditorInfo.TYPE_NUMBER_VARIATION_PASSWORD)
         }
 
-        private class DeclaredOnCompleteListener(@NonNull hostView: View, @NonNull methodName: String) :
-            OnComplete {
-            private var mHostView: View = hostView
-            private var mMethodName: String = methodName
-            private var mResolvedMethod: Method? = null
-            private var mResolvedContext: Context? = null
-
-            override fun onComplete(view: PinView) {
-                Log.d("", "view ")
-                if (mResolvedMethod == null) {
-                    resolveMethod(mHostView.context, mMethodName)
-                }
-                try {
-                    mResolvedMethod!!.invoke(mResolvedContext, view)
-                } catch (e: IllegalAccessException) {
-                    throw IllegalStateException(
-                        "Could not execute non-public method for android:onClick", e
-                    )
-                } catch (e: InvocationTargetException) {
-                    throw IllegalStateException(
-                        "Could not execute method for android:onClick", e
-                    )
-                }
-
-
-            }
-
-            @NonNull
-            private fun resolveMethod(@Nullable  context: Context , @NonNull name: String ) {
-                while (context!=null) {
-                    try {
-                        if (!context.isRestricted) {
-                            val method = context.javaClass.getMethod(name, PinView::class.java)
-                            mResolvedMethod = method
-                            mResolvedContext = context
-                            return
-                        }
-                    } catch (e: NoSuchMethodException) {
-                        // Failed to find method, keep searching up the hierarchy.
-                    }
-                }
-                val id = mHostView.id
-                val idText = if (id == View.NO_ID) "" else " with id '" + mHostView.context.resources.getResourceEntryName(id) + "'"
-                throw IllegalStateException("Could not find method " + mMethodName
-                            + "(View) in a parent or ancestor Context for android:onClick "
-                            + "attribute defined on view " + mHostView.javaClass + idText)
-            }
-        }
+//        private class DeclaredOnCompleteListener(@NonNull hostView: View, @NonNull methodName: String) :
+//            OnComplete {
+//            private var mHostView: View = hostView
+//            private var mMethodName: String = methodName
+//            private var mResolvedMethod: Method? = null
+//            private var mResolvedContext: Context? = null
+//
+//            override fun onComplete(view: PinView) {
+//                Log.d("", "view ")
+//                if (mResolvedMethod == null) {
+//                    resolveMethod(mHostView.context, mMethodName)
+//                }
+//                try {
+//                    mResolvedMethod!!.invoke(mResolvedContext, view)
+//                } catch (e: IllegalAccessException) {
+//                    throw IllegalStateException(
+//                        "Could not execute non-public method for app:onComplete", e
+//                    )
+//                } catch (e: InvocationTargetException) {
+//                    throw IllegalStateException(
+//                        "Could not execute method for app:onComplete", e
+//                    )
+//                }
+//
+//
+//            }
+//
+//            @NonNull
+//            private fun resolveMethod(@Nullable  context: Context , @NonNull name: String ) {
+//                while (context!=null) {
+//                    try {
+//                        if (!context.isRestricted) {
+//                            val method = context.javaClass.getMethod(name, PinView::class.java)
+//                            if (method!=null) {
+//                                mResolvedMethod = method
+//                                mResolvedContext = context
+//                                return
+//                            }
+//                        }
+//                    } catch (e: NoSuchMethodException) {
+//                        // Failed to find method, keep searching up the hierarchy.
+//                    }
+//                }
+//                val id = mHostView.id
+//                val idText = if (id == View.NO_ID) "" else " with id '" + mHostView.context.resources.getResourceEntryName(id) + "'"
+//                throw IllegalStateException("Could not find method " + mMethodName
+//                            + "(View) in a parent or ancestor Context for android:onClick "
+//                            + "attribute defined on view " + mHostView.javaClass + idText)
+//            }
+//        }
     }
 
 

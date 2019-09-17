@@ -31,9 +31,8 @@ object  BindingUtils{
     @JvmStatic fun setTextHtml(view : TextView,text : String){
         view.text = Html.fromHtml("<b>$text</b>")
     }
-//    @BindingAdapter("app:onComplete")
-//    @JvmStatic fun PinView.setOnComplete(onComplete: String){
-//        Log.d("", "DeclaredOnCompleteListener $onComplete")
-//        this.setOnComplete(PinView.DeclaredOnCompleteListener(this,onComplete))
-//    }
+    @BindingAdapter("app:onComplete")
+    @JvmStatic fun PinView.setOnComplete(onComplete: PinView.OnComplete){
+        this.setOnComplete(onComplete)
+    }
 }
