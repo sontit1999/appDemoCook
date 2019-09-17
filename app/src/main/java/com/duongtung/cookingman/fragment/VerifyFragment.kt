@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
+import com.duongtung.cookingman.customview.pinview.PinView
 import com.duongtung.cookingman.databinding.FragLoginVerifyBinding
 
 class VerifyFragment : BaseFragment<FragLoginVerifyBinding,VerifyViewModel>(){
@@ -17,7 +18,9 @@ class VerifyFragment : BaseFragment<FragLoginVerifyBinding,VerifyViewModel>(){
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
     }
-
+    fun onComplete(view : PinView){
+        Log.d("onComplete", "onComplete "+ view.text.toString())
+    }
     override fun viewCreated() {
 
     }
