@@ -1,7 +1,7 @@
 package com.duongtung.cookingman.ui.getstart
 
-import android.content.Intent
-import android.view.View
+import android.util.Log
+import androidx.viewpager.widget.ViewPager
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
 import com.duongtung.cookingman.base.BaseActivity
@@ -10,11 +10,12 @@ import com.duongtung.cookingman.fragment.GetStartFourFragment
 import com.duongtung.cookingman.fragment.GetStartOneFragment
 import com.duongtung.cookingman.fragment.GetStartThreeFragment
 import com.duongtung.cookingman.fragment.GetStartTwoFragment
-import com.duongtung.cookingman.ui.MainActivity
 import com.duongtung.cookingman.ui.home.HomeActivity
 
-class GetstartActivity : BaseActivity<ActivityGetstartBinding,GetstartViewModel>(){
-    override fun getViewMode() =GetstartViewModel::class.java
+class GetstartActivity : BaseActivity<ActivityGetstartBinding, GetstartViewModel>() {
+    var myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
+    var next = false
+    override fun getViewMode() = GetstartViewModel::class.java
 
     override fun getLayout() = R.layout.activity_getstart
 
@@ -22,23 +23,55 @@ class GetstartActivity : BaseActivity<ActivityGetstartBinding,GetstartViewModel>
         binding.viewmodel = viewModel
 
         binding.tvSkip.setOnClickListener {
-            var intent = Intent(baseContext, HomeActivity::class.java)
-            startActivity(intent)
+            goToActivity(HomeActivity::class.java, null, null)
         }
         binding.tvNext.setOnClickListener {
-            next_fragment()
+            nextFragment()
         }
 
-        val myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
-        myViewPageStateAdapter.addFragment(GetStartOneFragment(),"DIRECTION")
-        myViewPageStateAdapter.addFragment(GetStartTwoFragment(),"DIRECTION")
-        myViewPageStateAdapter.addFragment(GetStartThreeFragment(),"DIRECTION")
-        myViewPageStateAdapter.addFragment(GetStartFourFragment(),"DIRECTION")
+        myViewPageStateAdapter.addFragment(GetStartOneFragment(), "DIRECTION")
+        myViewPageStateAdapter.addFragment(GetStartTwoFragment(), "DIRECTION")
+        myViewPageStateAdapter.addFragment(GetStartThreeFragment(), "DIRECTION")
+        myViewPageStateAdapter.addFragment(GetStartFourFragment(), "DIRECTION")
         binding.viewpagerGetStart.adapter = myViewPageStateAdapter
-        binding.viewpagerGetStart.beginFakeDrag()
         binding.circleIndicatorPager.setViewPager(binding.viewpagerGetStart)
+        binding.viewpagerGetStart.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+            }
+
+            override fun onPageSelected(position: Int) {
+
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+                if (binding.viewpagerGetStart.currentItem  == myViewPageStateAdapter.count - 1) {
+                    if (next && state==0)
+                        goToActivity(
+                            HomeActivity::class.java,
+                            null,
+                            null
+                        )
+                    else next = true
+                }
+                else next = false
+            }
+        })
     }
-    fun next_fragment() {
-        binding.viewpagerGetStart.setCurrentItem(binding.viewpagerGetStart.getCurrentItem()+1)
+
+    private fun nextFragment() {
+        binding.viewpagerGetStart.setCurrentItem(binding.viewpagerGetStart.currentItem + 1, true)
+        if (binding.viewpagerGetStart.currentItem == myViewPageStateAdapter.count - 1 && next) {
+            if (next)
+                goToActivity(
+                    HomeActivity::class.java,
+                    null,
+                    null
+                )
+            else next = true
+        } else next = false
     }
 }

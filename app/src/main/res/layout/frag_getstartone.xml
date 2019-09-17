@@ -20,8 +20,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:src="@drawable/logocookingman"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/frag_getstart_heigh_image"></ImageView>
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                android:layout_height="@dimen/frag_getstart_heigh_image"/>
+        <com.duongtung.cookingman.customview.CustomTextView
                 android:id="@+id/tv_title"
                 app:layout_constraintTop_toBottomOf="@id/ivbanner"
                 android:text="@string/welcom"
@@ -36,8 +36,8 @@
                 app:layout_constraintRight_toRightOf="parent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
-        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-       <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+        </com.duongtung.cookingman.customview.CustomTextView>
+       <com.duongtung.cookingman.customview.CustomTextView
                android:id="@+id/tv_describe"
                android:text="@string/introduc"
                android:textSize="@dimen/textview_main_size"
@@ -52,6 +52,6 @@
                android:layout_height="wrap_content"
               >
 
-       </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+       </com.duongtung.cookingman.customview.CustomTextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
