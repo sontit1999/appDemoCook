@@ -1,4 +1,4 @@
-package com.duongtung.cookingman.fragment
+package com.duongtung.cookingman.fragment.verify
 
 import android.util.Log
 import com.duongtung.cookingman.base.ui.base.BaseViewModel

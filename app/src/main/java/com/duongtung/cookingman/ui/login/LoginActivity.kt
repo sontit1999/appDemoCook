@@ -9,7 +9,7 @@ import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.databinding.ActivityLoginBinding
 import com.duongtung.cookingman.fragment.phone.PhoneFragment
 import com.duongtung.cookingman.fragment.PreferanceFragment
-import com.duongtung.cookingman.fragment.VerifyFragment
+import com.duongtung.cookingman.fragment.verify.VerifyFragment
 import com.duongtung.cookingman.fragment.phone.OnButtonClickListener
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
@@ -32,7 +32,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
 
     class ViewPageAdapter(fm: FragmentManager) :
         FragmentStatePagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
-        private val pageLists = arrayListOf(PhoneFragment(), VerifyFragment(), PreferanceFragment())
+        private val pageLists = arrayListOf(PhoneFragment(),
+            VerifyFragment(), PreferanceFragment())
         override fun getItem(position: Int): Fragment {
             return pageLists[position]
 
