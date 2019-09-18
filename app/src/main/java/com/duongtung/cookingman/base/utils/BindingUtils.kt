@@ -36,7 +36,7 @@ object  BindingUtils{
     @JvmStatic fun setHeight(collapsing : CollapsingToolbarLayout,imageCollapsing : Int?){
         val params = collapsing.layoutParams
         val styledAttributes = collapsing.context.theme.obtainStyledAttributes(intArrayOf(android.R.attr.actionBarSize))
-         if (imageCollapsing!=null){
+         if (imageCollapsing==null){
              params.height = styledAttributes.getDimension(0, 0f).toInt()
             styledAttributes.recycle()
         }else {

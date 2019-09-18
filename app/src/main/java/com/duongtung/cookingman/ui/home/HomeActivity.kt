@@ -10,13 +10,12 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
+import com.duongtung.cookingman.base.utils.DataUtilsApplication
 import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.fragment.NewFeedsFragment
 
 class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(){
-    override fun getToolbar(): Toolbar? {
-        return null
-    }
+    override fun getToolbar(): Toolbar? = binding.actionbar.tbBase
 
     override fun getViewMode() = HomeViewModel::class.java
 
@@ -30,6 +29,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(){
         viewModel.getArrPost().observe(this, Observer { list->
             viewModel.adapter.setList(list)
         })
-        binding.recyclerSpecialFood.setNestedScrollingEnabled(false)
+        binding.recyclerSpecialFood.isNestedScrollingEnabled = false
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(title=getString(R.string.home),imageCollapsing= R.drawable.bg_home,context=this)
     }
 }

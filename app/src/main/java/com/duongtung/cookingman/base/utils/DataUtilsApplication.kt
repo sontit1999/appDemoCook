@@ -14,4 +14,10 @@ object DataUtilsApplication{
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = null)
 
     }
+    @JvmStatic
+    fun createActionBarHome(title : String?,imageCollapsing: Int,context : Context): Actionbar{
+        return Actionbar(title = title, leftButtonImage =  context.getString(R.string.icon_arrow_left),
+            rightButtonImage = null , backgroundActionBar = Color.TRANSPARENT,
+            leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
+    }
 }
