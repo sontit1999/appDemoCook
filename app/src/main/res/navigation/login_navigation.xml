@@ -22,6 +22,6 @@
     </fragment>
     <fragment
             android:id="@+id/preferanceFragment"
-            android:name="com.duongtung.cookingman.fragment.PreferanceFragment"
+            android:name="com.duongtung.cookingman.fragment.preferance.PreferanceFragment"
             android:label="PreferanceFragment" />
 </navigation>

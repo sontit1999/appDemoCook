@@ -20,6 +20,9 @@ class SendEmailAtivity : BaseActivity<ActivitySendEmailAtivityBinding,SendEmailV
             goToActivity(LoginEmailActivity::class.java,null,null)
         }
         binding.abSendEmail.data = DataUtilsApplication.createActionBarLeftArrow(null,this)
+        binding.abSendEmail.tvleft.setOnClickListener {
+            onBackPressed()
+        }
     }
 
 }

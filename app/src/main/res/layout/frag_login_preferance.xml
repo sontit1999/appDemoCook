@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="viewmodel" type="com.duongtung.cookingman.fragment.PreferanceViewModel"/>
+        <variable name="viewmodel" type="com.duongtung.cookingman.fragment.preferance.PreferanceViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -43,6 +43,7 @@
                 app:layout_constraintTop_toBottomOf="@id/recyPrefer"
                 android:src="@drawable/doneicon"
                 android:layout_marginTop="10dp"
+                android:onClick="@{(v)->viewmodel.comfirmDone(v)}"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/splash_tv_margin_30"
                 />

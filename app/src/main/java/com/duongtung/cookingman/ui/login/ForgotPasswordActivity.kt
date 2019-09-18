@@ -23,6 +23,9 @@ class ForgotPasswordActivity : BaseActivity<ActivityForgotPasswordBinding,Forgot
             goToActivity(SendEmailAtivity::class.java,null,null)
         }
         binding.actionbar.data = DataUtilsApplication.createActionBarLeftArrow(title = null,context = this)
+        binding.actionbar.tvleft.setOnClickListener {
+            onBackPressed()
+        }
     }
 
 }

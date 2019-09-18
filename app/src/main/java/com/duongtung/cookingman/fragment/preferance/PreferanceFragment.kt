@@ -1,17 +1,19 @@
-package com.duongtung.cookingman.fragment.verify
+package com.duongtung.cookingman.fragment.preferance
+
 
 import android.app.Activity
 import android.content.Context
-import android.util.Log
-import android.view.View
+import android.content.Intent
+import androidx.lifecycle.Observer
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
-import com.duongtung.cookingman.customview.pinview.PinView
-import com.duongtung.cookingman.databinding.FragLoginVerifyBinding
+import com.duongtung.cookingman.databinding.FragLoginPreferanceBinding
 import com.duongtung.cookingman.fragment.phone.OnButtonClickListener
+import com.duongtung.cookingman.ui.MainActivity
 
-class VerifyFragment : BaseFragment<FragLoginVerifyBinding, VerifyViewModel>(){
-    override fun getClassViewMode() = VerifyViewModel::class.java
+
+class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding, PreferanceViewModel>(){
+    override fun getClassViewMode() = PreferanceViewModel::class.java
     private var mOnButtonClickListener: OnButtonClickListener? = null
 
     override fun onAttach(context: Context) {
@@ -23,12 +25,21 @@ class VerifyFragment : BaseFragment<FragLoginVerifyBinding, VerifyViewModel>(){
         }
     }
     override fun setBindingViewModel() {
+
         binding.viewmodel = viewModel
+//        binding.ivBtdone.setOnClickListener {
+//            var intent = Intent(context,MainActivity::class.java)
+//            startActivity(intent)
+//        }
     }
 
     override fun viewCreated() {
         binding.viewmodel!!.onButtonClickListener = mOnButtonClickListener
-    }
+        viewModel.getArrItemTypeFood().observe(this, Observer { list ->
+            viewModel.adapter.setList(list)
+        })
+   }
 
-    override fun getLayoutId() = R.layout.frag_login_verify
+    override fun getLayoutId() = R.layout.frag_login_preferance
+
 }
