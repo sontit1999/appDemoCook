@@ -14,8 +14,8 @@
             android:layout_height="match_parent"
             tools:context=".ui.login.ForgotPasswordActivity">
         <include
-                android:id="@+id/actionbar"
-                layout="@layout/actionbar_detailchat"
+                android:id="@+id/abSendEmail"
+                layout="@layout/actionbar"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -23,21 +23,25 @@
         </include>
         <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tv_title"
-                app:layout_constraintTop_toBottomOf="@id/actionbar"
+                app:layout_constraintTop_toBottomOf="@id/abSendEmail"
                 android:text="@string/sendEmail"
                 android:textStyle="bold"
                 android:gravity="center"
-                android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
+                app:iconTop="@string/icon_send_message"
+                app:fontFaceText="font-roboto-medium"
+                app:iconColor="@color/lighter_gray"
+                app:iconTextSize="60dp"
+                android:drawablePadding="@dimen/actionbar_padding"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/textview_main__tittle_size"
                 android:layout_marginTop="@dimen/itemcomment_margintop"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:maxWidth="@dimen/frag_getstart_maxwidth"
                 app:layout_constraintRight_toRightOf="parent"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
         </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+        <com.duongtung.cookingman.customview.CustomTextView
                 android:id="@+id/tv_describe"
                 android:text="@string/sendEmailwithlink"
                 android:textSize="@dimen/textview_main_size"
@@ -51,7 +55,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 />
-        <Button
+        <com.duongtung.cookingman.customview.ButtonFont
                 android:id="@+id/btn_backlogin"
                 android:layout_marginTop="@dimen/splash_tv_margin_30"
                 android:background="@drawable/bg_follow"
@@ -61,8 +65,8 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_describe"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-        </Button>
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+        </com.duongtung.cookingman.customview.ButtonFont>
+        <com.duongtung.cookingman.customview.CustomTextView
                 android:id="@+id/tv_resendEmail"
                 android:text="@string/resend_email"
                 android:gravity="center"
@@ -73,6 +77,6 @@
                 app:layout_constraintTop_toBottomOf="@id/btn_backlogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        </com.duongtung.cookingman.customview.CustomTextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

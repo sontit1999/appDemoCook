@@ -4,11 +4,12 @@
     <data>
         <variable name="viewModel" type="com.duongtung.cookingman.ui.login.LoginEmailViewModel"/>
     </data>
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:orientation="vertical"
+                android:padding="@dimen/padding_vertiacal_edittext"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
             <ImageView
@@ -20,7 +21,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/heigh_logo_login">
             </ImageView>
-            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+            <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tv_title"
                     android:text="@string/welcom"
                     android:textStyle="bold"
@@ -34,9 +35,8 @@
                     android:maxWidth="@dimen/frag_getstart_maxwidth"
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:layout_height="wrap_content"/>
+            <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tv_describe"
                     android:text="@string/introduce_login"
                     android:textSize="@dimen/textview_main_size"
@@ -49,8 +49,8 @@
                     app:layout_constraintRight_toRightOf="parent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
-            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-            <TextView
+            </com.duongtung.cookingman.customview.CustomTextView>
+            <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tv_email"
                     android:textColor="@color/color_tittleGetStart"
                     app:layout_constraintTop_toBottomOf="@id/tv_describe"
@@ -60,7 +60,7 @@
                     android:textSize="@dimen/textview_main__content_size"
                     android:text="Email"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
+                    android:layout_height="wrap_content"/>
             <com.duongtung.cookingman.customview.CustomEditText
                     android:id="@+id/et_gmail"
                     android:inputType="text"
@@ -69,8 +69,8 @@
                     android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
                     app:layout_constraintTop_toBottomOf="@id/tv_email"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomEditText>
-            <TextView
+                    android:layout_height="wrap_content"/>
+            <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tv_password"
                     android:textColor="@color/color_tittleGetStart"
                     app:layout_constraintTop_toBottomOf="@id/et_gmail"
@@ -80,7 +80,7 @@
                     android:textSize="@dimen/textview_main__content_size"
                     android:text="Password"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"></TextView>
+                    android:layout_height="wrap_content"/>
             <com.duongtung.cookingman.customview.CustomEditText
                     android:id="@+id/et_pass"
                     android:inputType="textPassword"
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content">
 
             </com.duongtung.cookingman.customview.CustomEditText>
-            <TextView
+            <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tv_forgetpass"
                     android:text="@string/forget_pass"
                     android:gravity="end"
@@ -100,8 +100,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-            </TextView>
-            <Button
+            </com.duongtung.cookingman.customview.CustomTextView>
+            <com.duongtung.cookingman.customview.ButtonFont
                     android:id="@+id/btn_login"
                     android:layout_marginTop="@dimen/itemPost_marginTop"
                     android:background="@drawable/bg_follow"
@@ -111,7 +111,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_forgetpass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-            </Button>
+            </com.duongtung.cookingman.customview.ButtonFont>
             <LinearLayout
                     app:layout_constraintTop_toBottomOf="@id/btn_login"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -119,25 +119,27 @@
                     android:layout_marginTop="@dimen/margin_10dp"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:layout_marginHorizontal="@dimen/splash_tv_margin_30"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <TextView
+                <com.duongtung.cookingman.customview.CustomTextView
                         android:text="@string/donthaveacoount"
                         android:layout_width="wrap_content"
+                        android:layout_gravity="center"
                         android:textSize="@dimen/textview_main__content_size"
                         android:layout_height="wrap_content">
-                </TextView>
-                <TextView
+                </com.duongtung.cookingman.customview.CustomTextView>
+                <com.duongtung.cookingman.customview.CustomTextView
+                        android:id="@+id/btnsignUp"
                         android:text="@string/signin"
                         android:textColor="@color/colorBlack"
                         android:layout_marginLeft="@dimen/itemRecipe_marginLeft"
                         android:layout_width="wrap_content"
+                        android:layout_gravity="center"
                         android:textSize="@dimen/textview_main__content_size"
                         android:layout_height="wrap_content">
-                </TextView>
+                </com.duongtung.cookingman.customview.CustomTextView>
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </layout>

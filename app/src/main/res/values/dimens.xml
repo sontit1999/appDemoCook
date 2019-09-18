@@ -32,7 +32,7 @@
     <dimen name="itemChat_tv_padding">10dp</dimen>
     <dimen name="itemChat_tv_margin">7dp</dimen>
     <dimen name="textview_main__tittle_size">20sp</dimen>
-    <dimen name="textview_main__content_size">16sp</dimen>
+    <dimen name="textview_main__content_size">15sp</dimen>
     <dimen name="frag_direction_step_padding">20sp</dimen>
     <dimen name="acyivityMap_image_width">200dp</dimen>
     <dimen name="acyivityMap_image_height">100dp</dimen>

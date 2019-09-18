@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.ui.getstart
 
 import android.util.Log
+import androidx.appcompat.widget.Toolbar
 import androidx.viewpager.widget.ViewPager
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
@@ -13,6 +14,9 @@ import com.duongtung.cookingman.fragment.GetStartTwoFragment
 import com.duongtung.cookingman.ui.home.HomeActivity
 
 class GetstartActivity : BaseActivity<ActivityGetstartBinding, GetstartViewModel>() {
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
     var myViewPageStateAdapter = MyViewPageStateAdapter(supportFragmentManager)
     var next = false
     override fun getViewMode() = GetstartViewModel::class.java
