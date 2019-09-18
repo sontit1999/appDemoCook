@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.ui.login
 
 import android.view.View
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentStatePagerAdapter
@@ -14,6 +15,10 @@ import com.duongtung.cookingman.fragment.phone.OnButtonClickListener
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
     OnButtonClickListener {
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
+
     override fun onButtonClicked(view: View,error : Boolean) {
         if(!error)binding.viewPage.currentItem = 1
     }

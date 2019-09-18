@@ -2,6 +2,7 @@ package com.duongtung.cookingman.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
@@ -13,6 +14,10 @@ import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.fragment.NewFeedsFragment
 
 class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(){
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
+
     override fun getViewMode() = HomeViewModel::class.java
 
     override fun getLayout() = R.layout.activity_home

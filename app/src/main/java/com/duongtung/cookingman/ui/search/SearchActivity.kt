@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Log
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
@@ -14,6 +15,10 @@ import com.duongtung.cookingman.model.FoodIngredient
 import com.duongtung.cookingman.model.RecipeFood
 
 class SearchActivity : BaseActivity<ActivitySearchBinding, SearchViewModel>() {
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
+
     override fun getViewMode() = SearchViewModel::class.java
 
     override fun getLayout() = R.layout.activity_search

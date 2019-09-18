@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
@@ -25,6 +26,10 @@ import com.duongtung.cookingman.ui.recipefood.RecipeActivity
 import com.duongtung.cookingman.ui.setting.SettingActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
+
     override fun getViewMode() = SplashViewModel::class.java
 
     override fun getLayout() = R.layout.activity_splash
@@ -51,7 +56,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
         }
         binding.tvGetStarted.setOnClickListener {
-            var intent = Intent(baseContext, GetstartActivity::class.java)
+            val intent = Intent(baseContext, GetstartActivity::class.java)
             startActivity(intent)
         }
 

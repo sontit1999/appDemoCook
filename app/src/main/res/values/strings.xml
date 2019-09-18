@@ -55,10 +55,12 @@
     <string name="icon_arrowleft">&#xf053;</string>
     <string name="icon_camera">&#xf030;</string>
     <string name="icon_send_message">&#xf1d8;</string>
+    <string name="icon_send_message_solid">&#xf1d9;</string>
     <string name="icon_mesage">&#xf27a;</string>
     <string name="icon_hate">&#xf057;</string>
     <string name="icon_like">&#xf058;</string>
     <string name="icon_cmt">&#xf27a;</string>
+    <string name="icon_arrow_left">&#xf053;</string>
     <string name="add_your_cmt">Add your comment</string>
     <string name="say_hi"> Good afternoon Sơn tít</string>
     <string name="lesttart">Let start with some healthy fresh cooking</string>

@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.ui.profile
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.RecipeCallback
@@ -10,7 +11,11 @@ import com.duongtung.cookingman.ui.chatdetail.DetailChatActivity
 import com.duongtung.cookingman.ui.setting.SettingActivity
 
 class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>() {
-        override fun getViewMode() = ProfileViewModel::class.java
+    override fun getToolbar(): Toolbar? {
+       return null
+    }
+
+    override fun getViewMode() = ProfileViewModel::class.java
 
         override fun getLayout() = R.layout.activity_profile
 

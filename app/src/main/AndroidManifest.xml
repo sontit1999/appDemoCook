@@ -18,7 +18,7 @@
         <activity android:name=".ui.login.ForgotPasswordActivity"/>
         <activity android:name=".ui.login.LoginActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.getstart.GetstartActivity" />
-        <activity android:name=".ui.login.LoginEmailActivity" />
+        <activity android:name=".ui.login.LoginEmailActivity" android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".ui.chatlist.ChatlistActivity" />
         <activity android:name=".ui.search.SearchActivity" />
         <activity android:name=".ui.setting.SettingActivity" />

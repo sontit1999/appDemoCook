@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.ui.chatdetail
 
 import android.util.Log
+import androidx.appcompat.widget.Toolbar
 import com.duongtung.cookingman.R
 import androidx.lifecycle.Observer
 import com.duongtung.cookingman.base.BaseActivity
@@ -10,6 +11,9 @@ import com.duongtung.cookingman.model.User
 import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class DetailChatActivity : BaseActivity<ActivityDetailChatBinding, DetailChatViewModel>(){
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
     override fun getViewMode() = DetailChatViewModel::class.java
 
     override fun getLayout() = R.layout.activity_detail_chat

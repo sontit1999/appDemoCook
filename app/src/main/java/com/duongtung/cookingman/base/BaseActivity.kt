@@ -3,9 +3,8 @@ package com.duongtung.cookingman.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
@@ -19,12 +18,17 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
     abstract fun getViewMode(): Class<VM>
     abstract fun getLayout(): Int
     abstract fun setBindingViewModel()
-
+    abstract fun getToolbar() : Toolbar?
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, getLayout())
         viewModel = ViewModelProviders.of(this).get(getViewMode())
         setBindingViewModel()
+        if (getToolbar()!=null) {
+            setSupportActionBar(getToolbar())
+            supportActionBar!!.setDisplayShowTitleEnabled(false)
+        }
+
     }
 
     protected fun goToActivity(activity:Class<*>,key : String?,bundle: Bundle?){

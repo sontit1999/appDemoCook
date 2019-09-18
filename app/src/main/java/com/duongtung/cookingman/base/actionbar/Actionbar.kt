@@ -1,10 +1,13 @@
 package com.duongtung.cookingman.base.actionbar
 
+import com.duongtung.cookingman.R
+
 data class Actionbar(
-    var title: String,
-    var leftButtonImage: Int,
-    var rightButtonImage: Int,
-    var backgroundActionBar: Int,
-    var leftTitle : Int,
-    var rightTitle : Int
+    var title: String?,
+    var leftButtonImage: String?,
+    var rightButtonImage: String?,
+    var backgroundActionBar: Int? = R.color.colorActionbar,
+    var leftTitle : String?,
+    var rightTitle : String?,
+    var subRightImage : String?
 )

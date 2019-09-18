@@ -2,6 +2,7 @@ package com.duongtung.cookingman.ui.recipefood
 
 
 import android.util.Log
+import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
@@ -16,6 +17,10 @@ import com.duongtung.cookingman.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class RecipeActivity : BaseActivity<ActivityRecipeBinding, RecipeViewModel>(){
+    override fun getToolbar(): Toolbar? {
+        return null
+    }
+
     override fun getViewMode()  = RecipeViewModel::class.java
 
     override fun getLayout() = R.layout.activity_recipe
