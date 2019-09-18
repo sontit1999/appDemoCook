@@ -9,5 +9,6 @@ data class Actionbar(
     var backgroundActionBar: Int? = R.color.colorActionbar,
     var leftTitle : String?,
     var rightTitle : String?,
-    var subRightImage : String?
+    var subRightImage : String?,
+    var imageCollapsing : Int? = R.drawable.gaixinh
 )
