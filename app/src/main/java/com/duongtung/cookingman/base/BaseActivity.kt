@@ -27,6 +27,7 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         if (getToolbar()!=null) {
             setSupportActionBar(getToolbar())
             supportActionBar!!.setDisplayShowTitleEnabled(false)
+            supportActionBar!!.setDisplayShowHomeEnabled(true)
         }
 
     }

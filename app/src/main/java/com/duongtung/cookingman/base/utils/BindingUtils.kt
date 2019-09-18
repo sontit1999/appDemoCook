@@ -1,13 +1,13 @@
 package com.duongtung.cookingman.base.utils
 
 import android.text.Html
-import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.duongtung.cookingman.customview.pinview.PinView
+import com.google.android.material.appbar.CollapsingToolbarLayout
+
 
 object  BindingUtils{
 
@@ -31,8 +31,16 @@ object  BindingUtils{
     @JvmStatic fun setTextHtml(view : TextView,text : String){
         view.text = Html.fromHtml("<b>$text</b>")
     }
-    @BindingAdapter("app:onComplete")
-    @JvmStatic fun PinView.setOnComplete(onComplete: PinView.OnComplete){
-        this.setOnComplete(onComplete)
+
+    @BindingAdapter("app:height")
+    @JvmStatic fun setHeight(collapsing : CollapsingToolbarLayout,imageCollapsing : Int?){
+        val params = collapsing.layoutParams
+        val styledAttributes = collapsing.context.theme.obtainStyledAttributes(intArrayOf(android.R.attr.actionBarSize))
+         if (imageCollapsing!=null){
+             params.height = styledAttributes.getDimension(0, 0f).toInt()
+            styledAttributes.recycle()
+        }else {
+            collapsing.context.resources.getDimension(com.duongtung.cookingman.R.dimen.heigh_banner_home)
+        }
     }
 }

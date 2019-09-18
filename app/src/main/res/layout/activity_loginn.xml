@@ -23,6 +23,7 @@
             </ImageView>
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tv_title"
+                    app:fontFace="font-roboto-regular"
                     android:text="@string/welcom"
                     android:textStyle="bold"
                     android:gravity="center"

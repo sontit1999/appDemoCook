@@ -11,7 +11,7 @@ object DataUtilsApplication{
     fun createActionBarLeftArrow(title : String?,context : Context) : Actionbar{
         return Actionbar(title = title, leftButtonImage =  context.getString(R.string.icon_arrow_left),
             rightButtonImage = null , backgroundActionBar = ContextCompat.getColor(context,R.color.colorAccent),
-            leftTitle = null,rightTitle = null,subRightImage = null)
+            leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = null)
 
     }
 }

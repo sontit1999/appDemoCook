@@ -5,14 +5,13 @@ import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
+import com.duongtung.cookingman.base.utils.DataUtilsApplication
 import com.duongtung.cookingman.customview.CustomEditText
 import com.duongtung.cookingman.databinding.ActivityForgotPasswordBinding
 import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class ForgotPasswordActivity : BaseActivity<ActivityForgotPasswordBinding,ForgotPasswordViewModel>(){
-    override fun getToolbar(): Toolbar? {
-        return null
-    }
+    override fun getToolbar(): Toolbar? = binding.actionbar.tbBase
 
     override fun getViewMode() = ForgotPasswordViewModel::class.java
 
@@ -23,7 +22,7 @@ class ForgotPasswordActivity : BaseActivity<ActivityForgotPasswordBinding,Forgot
             if(!binding.etGmail.text!!.isEmpty())
             goToActivity(SendEmailAtivity::class.java,null,null)
         }
-        binding.actionbar.tvReturn.setText("Return")
+        binding.actionbar.data = DataUtilsApplication.createActionBarLeftArrow(title = null,context = this)
     }
 
 }
