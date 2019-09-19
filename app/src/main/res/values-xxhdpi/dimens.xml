@@ -46,8 +46,8 @@
     <dimen name="itemchat_marginleft">10dp</dimen>
     <dimen name="itemchat_margintop">10dp</dimen>
     <dimen name="itemcomment_marginleft">5dp</dimen>
-    <dimen name="itemcomment_padding">20dp</dimen>
-    <dimen name="itemcomment_margintop">20dp</dimen>
+    <dimen name="itemcomment_padding">10dp</dimen>
+    <dimen name="itemcomment_margintop">10dp</dimen>
     <dimen name="fragReview_padding">15dp</dimen>
     <dimen name="fragReview_paddingStar">15dp</dimen>
     <dimen name="fragReview_imageAvatar_size">70dp</dimen>

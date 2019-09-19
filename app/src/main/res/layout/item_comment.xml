@@ -20,56 +20,44 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:src="@drawable/gaixinh"
                 />
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+        <com.duongtung.cookingman.customview.CustomTextView
                 android:id="@+id/tv_name"
                 android:text="@{comment.user.nickName}"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/itemcomment_margintop"
                 android:textSize="@dimen/textview_main_size"
                 android:layout_marginLeft="@dimen/itemcomment_marginleft"
+                app:layout_constraintRight_toRightOf="parent"
                 android:textColor="@color/colorBlack"
                 app:layout_constraintLeft_toRightOf="@id/iv_Avatar"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-        <androidx.constraintlayout.widget.ConstraintLayout
-                app:layout_constraintTop_toBottomOf="@id/tv_name"
-                app:layout_constraintLeft_toRightOf="@id/iv_Avatar"
                 android:layout_width="0dp"
-                app:layout_constraintRight_toRightOf="parent"
                 android:layout_height="wrap_content">
-            <ImageView
-                    android:id="@+id/iv_star"
-                    android:layout_marginLeft="@dimen/itemcomment_marginleft"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:src="@drawable/ic_star_yellow"
-                    android:layout_width="20dp"
-                    android:layout_height="20dp">
-            </ImageView>
-            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                    android:id="@+id/tv_numberStar"
-                    android:textColor="#d2d2d2"
-                    android:layout_marginLeft="3dp"
-                    android:text="@{comment.numberStar}"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toRightOf="@id/iv_star"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-            </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </com.duongtung.cookingman.customview.CustomTextView>
         <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                android:id="@+id/tv_contentComment"
+                android:id="@+id/tv_time"
                 android:layout_marginTop="@dimen/itemcomment_margintop"
-                android:textSize="@dimen/text_size_recipeActivty"
-                android:text="@{comment.content}"
+                android:textSize="10sp"
+                android:text=" 10 phút trước"
+                android:gravity="right"
+                app:iconLeft="&#xf005;&#xf005;&#xf005;&#xf005;&#xf005;"
+                app:iconTextSize="@dimen/textview_main__content_size"
+                app:iconColor="@color/yellow"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/iv_Avatar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
         </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <com.duongtung.cookingman.customview.CustomTextView
+                android:id="@+id/tv_contentComment"
+                android:layout_marginTop="@dimen/itemcomment_margintop"
+                android:textSize="@dimen/text_size_recipeActivty"
+                android:text="@{comment.content}"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+        </com.duongtung.cookingman.customview.CustomTextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
