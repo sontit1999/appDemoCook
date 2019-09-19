@@ -10,157 +10,208 @@
                 type="com.duongtung.cookingman.ui.home.HomeViewModel" />
     </data>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/drawer"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/color_home"
-            tools:context=".ui.home.HomeActivity">
+            android:fitsSystemWindows="true"
+            tools:context=".ui.activity.main.MainActivity"
+            tools:openDrawer="start">
 
-        <include
-                android:id="@+id/actionbar"
-                layout="@layout/actionbar" />
-
-        <androidx.core.widget.NestedScrollView
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
-                android:translationY="-20dp"
-                app:layout_constraintTop_toBottomOf="@+id/actionbar">
+                android:layout_height="match_parent"
+                android:background="@color/color_home"
+                tools:context=".ui.home.HomeActivity">
 
+            <include
+                    android:id="@+id/actionbar"
+                    layout="@layout/actionbar" />
+
+            <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:translationY="-20dp"
+                    app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+                    app:layout_constraintTop_toBottomOf="@+id/actionbar">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <androidx.cardview.widget.CardView
+                            android:id="@+id/cardview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/margin_10dp"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                        <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/home_height_containerSearch">
+
+                            <ImageView
+                                    android:id="@+id/iv_thia"
+                                    android:layout_width="@dimen/home_height_containerSearch"
+                                    android:layout_height="match_parent"
+                                    android:scaleType="fitXY"
+                                    android:src="@drawable/spoon" />
+
+                            <com.duongtung.cookingman.customview.CustomEditText
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_toLeftOf="@id/tv_micro"
+                                    android:layout_toRightOf="@id/iv_thia"
+                                    android:background="@drawable/round_rect_shape"
+                                    android:hint="Search recipe"
+                                    android:inputType="text"
+                                    android:paddingHorizontal="@dimen/margin_10dp" />
+
+                            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                    android:id="@+id/tv_micro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_alignParentRight="true"
+                                    android:padding="@dimen/home_padding_honizatal_micro"
+                                    app:iconColor="@color/colorRed"
+                                    app:iconLeft="@string/icon_micro"
+                                    app:iconTextSize="30sp" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            app:layout_constraintTop_toBottomOf="@+id/cardview">
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_10dp"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:text="Ramadan Special"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/size_title_home" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerRamadan"
+                                adapter="@{viewModel.adapter}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:paddingVertical="@dimen/margin_10dp"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/cardview" />
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_10dp"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:text="Chief follwing"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/size_title_home" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerfollow"
+                                adapter="@{viewModel.adapter}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:paddingVertical="@dimen/margin_10dp"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/cardview" />
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_10dp"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:text="Food Stories"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/size_title_home" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclerFoodStory"
+                                adapter="@{viewModel.adapter}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:paddingVertical="@dimen/margin_10dp"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/cardview" />
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/margin_10dp"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:text="For vegetarian"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/size_title_home" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recyclervegetarian"
+                                adapter="@{viewModel.adapter}"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:paddingVertical="@dimen/margin_10dp"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/cardview" />
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+        <com.google.android.material.navigation.NavigationView
+                android:id="@+id/nav_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:fitsSystemWindows="true"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-                <androidx.cardview.widget.CardView
-                        android:id="@+id/cardview"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="@dimen/margin_10dp"
+                <LinearLayout
+                        android:id="@+id/navHeaderLayout"
                         app:layout_constraintTop_toTopOf="parent"
-                        >
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <include
+                            android:id="@+id/navHeader"
+                            layout="@layout/nav_header" />
 
-                    <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="@dimen/home_height_containerSearch">
-
-                        <ImageView
-                                android:id="@+id/iv_thia"
-                                android:layout_width="@dimen/home_height_containerSearch"
-                                android:layout_height="match_parent"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/spoon" />
-
-                        <com.duongtung.cookingman.customview.CustomEditText
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_toLeftOf="@id/tv_micro"
-                                android:layout_toRightOf="@id/iv_thia"
-                                android:background="@drawable/round_rect_shape"
-                                android:hint="Search recipe"
-                                android:inputType="text"
-                                android:paddingHorizontal="@dimen/margin_10dp" />
-
-                        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                                android:id="@+id/tv_micro"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_alignParentRight="true"
-                                android:padding="@dimen/home_padding_honizatal_micro"
-                                app:iconColor="@color/colorRed"
-                                app:iconLeft="@string/icon_micro"
-                                app:iconTextSize="30sp" />
-                    </RelativeLayout>
-                </androidx.cardview.widget.CardView>
-
-
+                </LinearLayout>
                 <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        app:layout_constraintTop_toBottomOf="@+id/cardview">
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent">
 
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            android:text="Ramadan Special"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/size_title_home" />
+                    <include
+                            android:id="@+id/navButton"
+                            layout="@layout/nav_button" />
+                </LinearLayout>
 
-                    <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerRamadan"
-                            adapter="@{viewModel.adapter}"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            android:paddingVertical="@dimen/margin_10dp"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/cardview" />
-
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            android:text="Chief follwing"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/size_title_home" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerfollow"
-                            adapter="@{viewModel.adapter}"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/cardview" />
-
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            android:text="Food Stories"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/size_title_home" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclerFoodStory"
-                            adapter="@{viewModel.adapter}"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/cardview" />
-                    <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            android:text="For vegetarian"
-                            android:textColor="@color/colorBlack"
-                            android:textSize="@dimen/size_title_home" />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recyclervegetarian"
-                            adapter="@{viewModel.adapter}"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:paddingVertical="@dimen/margin_10dp"
-                            android:layout_marginTop="@dimen/margin_10dp"
-                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                            app:layout_constraintLeft_toLeftOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/cardview" />
+                <LinearLayout
+                        android:layout_marginTop="@dimen/itemcomment_padding"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/navHeaderLayout">
+                    <include
+                            android:id="@+id/navMenu"
+                            layout="@layout/nav_menu" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
-        </androidx.core.widget.NestedScrollView>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </com.google.android.material.navigation.NavigationView>
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

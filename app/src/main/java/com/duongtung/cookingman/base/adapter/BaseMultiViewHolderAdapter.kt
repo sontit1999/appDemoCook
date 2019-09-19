@@ -1,24 +1,19 @@
 package com.duongtung.cookingman.base.adapter
 
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.Nullable
-import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 
 abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     RecyclerView.Adapter<BaseMultiViewHolderAdapter.BaseViewMultiHolder<D>>() {
-    //key is viewType value is layoutId
-    abstract fun getLayoutId() : HashMap<Int,Int>
-    abstract fun getVariableId() : MutableList<Int>
-    abstract fun getIdVariableOnClick() :  MutableList<Int>
-    @Nullable
-    abstract fun getOnClick() : CBAdapter?
-    private var dataList: MutableList<D> = arrayListOf()
 
+    abstract fun createBinding(parent: ViewGroup, viewType: Int): BaseViewMultiHolder<D>
+    abstract fun getVariableId(): MutableList<Int>
+    abstract fun getIdVariableOnClick(): MutableList<Int?>?
+    abstract fun getOnClick(): CBAdapter?
+    private var dataList: MutableList<D> = mutableListOf()
+    private var dataBinding : MutableList<ViewDataBinding>?=null
     fun setList(list: MutableList<D>) {
         this.dataList = list
         notifyDataSetChanged()
@@ -34,7 +29,7 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
         notifyDataSetChanged()
     }
 
-    fun getElementPossition(i: Int): D {
+    fun getElementPosition(i: Int): D {
         return dataList[i]
     }
 
@@ -46,29 +41,32 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
         return dataList[position].viewType
     }
 
-
-
     override fun getItemCount(): Int {
         return dataList.size
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewMultiHolder<D> {
-        val binding : ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),getLayoutId()[viewType]!!,parent,false)
-        return BaseViewMultiHolder(binding)
+        return createBinding(parent, viewType)
     }
+
     override fun onBindViewHolder(holder: BaseViewMultiHolder<D>, position: Int) {
-        holder.setVariable(getVariableId()[getItemViewType(position)],dataList[position])
-        if (getOnClick()!=null) holder.setClickAdapter(getIdVariableOnClick()[getItemViewType(position)],getOnClick()!!)
+        holder.setVariable(getVariableId()[getItemViewType(position)], dataList[position])
+        if (getOnClick() != null && getIdVariableOnClick()?.get(getItemViewType(position)) != null)
+            holder.setClickAdapter(
+                getIdVariableOnClick()?.get(getItemViewType(position))!!,
+                getOnClick()!!
+            )
     }
 
 
-    class BaseViewMultiHolder<D: DataAdapter>(var binding : ViewDataBinding) : RecyclerView.ViewHolder(binding.root){
-        fun setVariable(id : Int, t: D){
-            binding.setVariable(id,t)
+    class BaseViewMultiHolder<D : DataAdapter>(var binding: ViewDataBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun setVariable(id: Int, t: D) {
+            binding.setVariable(id, t)
         }
 
-        fun setClickAdapter(id : Int, onClick : CBAdapter){
-            binding.setVariable(id,onClick)
+        fun setClickAdapter(id: Int, onClick: CBAdapter) {
+            binding.setVariable(id, onClick)
         }
 
     }

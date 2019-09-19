@@ -61,8 +61,12 @@
     <string name="icon_like">&#xf058;</string>
     <string name="icon_cmt">&#xf27a;</string>
     <string name="icon_arrow_left">&#xf053;</string>
+    <string name="icon_account">&#xf2bb;</string>
+    <string name="icon_news">&#xf1ea;</string>
+    <string name="icon_language">&#xf1ab;</string>
     <string name="add_your_cmt">Add your comment</string>
     <string name="say_hi"> Good afternoon Sơn tít</string>
     <string name="lesttart">Let start with some healthy fresh cooking</string>
     <string name="home">HOME</string>
+    <string name="menu_search">search</string>
 </resources>

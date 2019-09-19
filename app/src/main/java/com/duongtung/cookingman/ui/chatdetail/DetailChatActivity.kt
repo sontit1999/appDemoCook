@@ -11,6 +11,7 @@ import com.duongtung.cookingman.model.User
 import kotlinx.android.synthetic.main.actionbar_chatlist.view.*
 
 class DetailChatActivity : BaseActivity<ActivityDetailChatBinding, DetailChatViewModel>(){
+
     override fun getToolbar(): Toolbar? {
         return null
     }

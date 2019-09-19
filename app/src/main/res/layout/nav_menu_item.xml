@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="item"
+                type="com.duongtung.cookingman.model.MenuItem" />
+        <variable
+                name="callBack"
+                type="com.duongtung.cookingman.adapter.MenuCallBack" />
+    </data>
+    <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+            android:id="@+id/itemMenu"
+            android:layout_width="match_parent"
+            android:padding="@dimen/itemcomment_padding"
+            android:onClick="@{()->callBack.onCliCkMenu(item.id)}"
+            app:fontFaceText="font-roboto-regular"
+            android:text="@{item.title}"
+            app:iconColor="@android:color/darker_gray"
+            app:iconTextSize="@dimen/frag_direction_step_padding"
+            android:textSize="@dimen/text_size_chat"
+            android:textColor="@android:color/darker_gray"
+            app:fontawesome="font-awesome-solid"
+            android:drawablePadding="@dimen/itemcomment_padding"
+            app:iconLeft="@{item.icon}"
+            android:layout_height="wrap_content"/>
+</layout>

@@ -36,7 +36,7 @@
      }
      abstract fun getLayoutId() : Int
      abstract fun getIdVariable() : Int
-     abstract fun getIdVariableOnClick() : Int
+     abstract fun getIdVariableOnClick() : Int?
      @Nullable
      abstract fun getOnClick() : CBAdapter?
      override fun onCreateViewHolder(viewHolder: ViewGroup, i: Int): BaseViewHolder<T, VB> {
@@ -46,7 +46,7 @@
 
      override fun onBindViewHolder(viewHolder : BaseViewHolder<T, VB>, i : Int) {
          viewHolder.setVariable(getIdVariable(), list[i])
-         if (getOnClick()!=null) viewHolder.setClickAdapter(getIdVariableOnClick(),getOnClick()!!)
+         if (getOnClick()!=null) viewHolder.setClickAdapter(getIdVariableOnClick()!!,getOnClick()!!)
      }
 
       class BaseViewHolder<T,VB : ViewDataBinding>(var binding : VB) : RecyclerView.ViewHolder(binding.root) {

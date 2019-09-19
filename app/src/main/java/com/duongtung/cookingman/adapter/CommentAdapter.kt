@@ -7,10 +7,10 @@ import com.duongtung.cookingman.databinding.ItemCommentBinding
 import com.duongtung.cookingman.model.Comment
 
 class CommentAdapter : BaseAdapter<Comment,ItemCommentBinding>(){
-    override fun getOnClick()=null
+    override fun getOnClick(): CBAdapter? = null
 
-    override fun getIdVariableOnClick(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getIdVariableOnClick(): Int? {
+        return null
     }
 
     override fun getLayoutId() = R.layout.item_comment

@@ -10,6 +10,7 @@
     </data>
 
     <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
@@ -38,8 +39,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="?android:attr/actionBarSize"
                     android:background="@{data.backgroundActionBar}"
-                    android:paddingRight="16dp"
                     app:layout_collapseMode="pin"
+                    android:gravity="center_horizontal"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
@@ -54,18 +55,7 @@
                         app:iconLeft="@{data.leftButtonImage}"
                         app:iconTextSize="@dimen/textsize_tvActionbar" />
 
-                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                        android:id="@+id/tvCenter"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical|center_horizontal|center"
-                        android:background="@null"
-                        android:drawablePadding="@dimen/margin_10dp"
-                        android:gravity="center"
-                        android:text="@{data.title}"
-                        android:textColor="@color/white"
-                        android:textSize="@dimen/textsize_tvActionbar"
-                        app:iconTextSize="@dimen/textsize_tvActionbar" />
+
 
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tvSubRight"
@@ -91,6 +81,20 @@
                         android:textSize="@dimen/textsize_tvActionbar"
                         app:iconLeft="@{data.rightButtonImage}"
                         app:iconTextSize="@dimen/textsize_tvActionbar" />
+
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                        android:id="@+id/tvCenter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:background="@null"
+                        android:drawablePadding="@dimen/margin_10dp"
+                        android:gravity="center"
+                        android:text="@{data.title}"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/textsize_tvActionbar"
+                        app:iconTextSize="@dimen/textsize_tvActionbar" />
+
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>

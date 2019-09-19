@@ -1,7 +1,9 @@
 package com.duongtung.cookingman.ui.home
 
 import androidx.lifecycle.MutableLiveData
-import com.duongtung.cookingman.adapter.PostAdapter
+import com.duongtung.cookingman.CookingApplication
+import com.duongtung.cookingman.R
+import com.duongtung.cookingman.adapter.MenuHomeAdapter
 import com.duongtung.cookingman.adapter.PostHomeAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import com.duongtung.cookingman.model.*
@@ -9,11 +11,8 @@ import com.duongtung.cookingman.model.*
 class HomeViewModel : BaseViewModel(){
     var adapter = PostHomeAdapter()
     private var arrPost = MutableLiveData<MutableList<Post>>()
-    // thường thì em viết trên activity là recyvleview.setAdapter(list)
-    // phương thức MutableLiveData thể hiện lăng nghe thay đổi từ data
-    //MutableList  = ListView bên java chỉ khác serial thui
-    // toMutableList kiểu như convert từ list về MutableList
-    // postValue() là kiểu update của MutableList arrPost giống như set giá trị vào arrPost để đẩy lên trên ý
+    var menuAdapter = MenuHomeAdapter()
+    private var arrMenu = MutableLiveData<MutableList<MenuItem>>()
     fun getArrPost(): MutableLiveData<MutableList<Post>> {
         val list = listOf(
             (Post(
@@ -150,5 +149,20 @@ class HomeViewModel : BaseViewModel(){
         arrPost.postValue(list)
 
         return arrPost
+    }
+
+    fun getMenuItem() : MutableLiveData<MutableList<MenuItem>>{
+       val list = listOf(
+           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Account",0),
+           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_account),"Account Setting",1),
+           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_news),"News",1),
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_language),"Language",1),
+           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Account",0),
+           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_account),"Account Setting",2),
+           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_news),"News",2),
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_language),"Language",1)
+       )
+        arrMenu.postValue(list.toMutableList())
+        return arrMenu
     }
 }

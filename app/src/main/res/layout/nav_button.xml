@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.duongtung.cookingman.customview.ButtonFont
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:textColor="@color/white"
+            app:fontFaceButton="font-awesome-light"
+            android:layout_margin="@dimen/splash_margin"
+            android:background="@drawable/bg_follow"
+            />
+</layout>
