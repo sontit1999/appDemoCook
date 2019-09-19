@@ -62,8 +62,15 @@
     <string name="icon_cmt">&#xf27a;</string>
     <string name="icon_arrow_left">&#xf053;</string>
     <string name="icon_account">&#xf2bb;</string>
+    <string name="icon_recipe">&#xf02d;</string>
     <string name="icon_news">&#xf1ea;</string>
     <string name="icon_language">&#xf1ab;</string>
+    <string name="icon_setting">&#xf013;</string>
+    <string name="icon_favorite">&#xf004;</string>
+    <string name="icon_profile">&#xf007;</string>
+    <string name="icon_chathome">&#xf086;</string>
+    <string name="icon_info">&#xf05a;</string>
+    <string name="icon_share">&#xf1e0;</string>
     <string name="add_your_cmt">Add your comment</string>
     <string name="say_hi"> Good afternoon Sơn tít</string>
     <string name="lesttart">Let start with some healthy fresh cooking</string>

@@ -13,16 +13,16 @@
     <com.duongtung.cookingman.customview.TextViewWithFontAwesome
             android:id="@+id/itemMenu"
             android:layout_width="match_parent"
-            android:padding="@dimen/itemcomment_padding"
+            android:padding="@dimen/itemchatlist_padding"
             android:onClick="@{()->callBack.onCliCkMenu(item.id)}"
             app:fontFaceText="font-roboto-regular"
             android:text="@{item.title}"
-            app:iconColor="@android:color/darker_gray"
-            app:iconTextSize="@dimen/frag_direction_step_padding"
-            android:textSize="@dimen/text_size_chat"
+            app:iconColor="@color/colorRed"
+            app:iconTextSize="@dimen/itemGredient_marginleft"
+            android:textSize="@dimen/text_size_titleRecipe"
             android:textColor="@android:color/darker_gray"
             app:fontawesome="font-awesome-solid"
-            android:drawablePadding="@dimen/itemcomment_padding"
+            android:drawablePadding="@dimen/itemPost_marginTop"
             app:iconLeft="@{item.icon}"
             android:layout_height="wrap_content"/>
 </layout>
