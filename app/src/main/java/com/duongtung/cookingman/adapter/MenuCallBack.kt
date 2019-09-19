@@ -1,10 +1,13 @@
 package com.duongtung.cookingman.adapter
 
-import android.view.View
+import android.util.Log
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
+import com.duongtung.cookingman.callback.MenuHomeCallback
 
-class MenuCallBack : CBAdapter {
+class MenuCallBack(var cb:MenuHomeCallback) : CBAdapter {
+
     fun onCliCkMenu(id : Int){
-
+        Log.d("","duongTung $id")
+        cb.onCloseDrawer()
     }
 }

@@ -1,19 +1,20 @@
 package com.duongtung.cookingman.base.adapter
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 
 abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     RecyclerView.Adapter<BaseMultiViewHolderAdapter.BaseViewMultiHolder<D>>() {
-
-    abstract fun createBinding(parent: ViewGroup, viewType: Int): BaseViewMultiHolder<D>
     abstract fun getVariableId(): MutableList<Int>
     abstract fun getIdVariableOnClick(): MutableList<Int?>?
     abstract fun getOnClick(): CBAdapter?
     private var dataList: MutableList<D> = mutableListOf()
-    private var dataBinding : MutableList<ViewDataBinding>?=null
+    abstract fun getLayoutId(): MutableList<Int>
+
     fun setList(list: MutableList<D>) {
         this.dataList = list
         notifyDataSetChanged()
@@ -46,8 +47,10 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewMultiHolder<D> {
-        return createBinding(parent, viewType)
+        val binding : ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),getLayoutId()[viewType]!!,parent,false)
+        return BaseViewMultiHolder(binding)
     }
+
 
     override fun onBindViewHolder(holder: BaseViewMultiHolder<D>, position: Int) {
         holder.setVariable(getVariableId()[getItemViewType(position)], dataList[position])

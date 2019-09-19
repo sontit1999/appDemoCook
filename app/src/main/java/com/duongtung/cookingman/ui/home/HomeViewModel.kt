@@ -160,7 +160,7 @@ class HomeViewModel : BaseViewModel(){
            MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Account",0),
            MenuItem(1,CookingApplication.getResource().getString(R.string.icon_account),"Account Setting",2),
            MenuItem(2,CookingApplication.getResource().getString(R.string.icon_news),"News",2),
-           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_language),"Language",1)
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_language),"Language",2)
        )
         arrMenu.postValue(list.toMutableList())
         return arrMenu
