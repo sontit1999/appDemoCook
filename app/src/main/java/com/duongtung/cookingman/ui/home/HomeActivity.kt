@@ -23,13 +23,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        binding.recyclerSpecialFood.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
-        binding.recyclerFoodFollew.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
-        binding.recyclerFood.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
+        binding.recyclerRamadan.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
+        binding.recyclerfollow.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
+        binding.recyclerFoodStory.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
+        binding.recyclervegetarian.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL ,false)
         viewModel.getArrPost().observe(this, Observer { list->
             viewModel.adapter.setList(list)
         })
-        binding.recyclerSpecialFood.isNestedScrollingEnabled = false
+
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(title=getString(R.string.home),imageCollapsing= R.drawable.bg_home,context=this)
     }
 }
