@@ -1,7 +1,6 @@
-package com.duongtung.cookingman.fragment
+package com.duongtung.cookingman.fragment.recipe
 
 import androidx.lifecycle.MutableLiveData
-import com.duongtung.cookingman.adapter.PostAdapter
 import com.duongtung.cookingman.adapter.RecipeAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import com.duongtung.cookingman.model.*

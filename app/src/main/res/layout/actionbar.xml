@@ -23,7 +23,7 @@
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
                 app:height="@{data.imageCollapsing}"
-                app:layout_scrollFlags="scroll|enterAlways|exitUntilCollapsed">
+                app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <androidx.appcompat.widget.AppCompatImageView
                     imageResource="@{data.imageCollapsing}"
@@ -68,8 +68,46 @@
                         android:textSize="@dimen/textsize_tvActionbar"
                         app:iconLeft="@{data.subRightImage}"
                         app:iconTextSize="@dimen/textsize_tvActionbar" />
+                <LinearLayout
+                        android:id="@+id/searchLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_search"
+                        android:layout_marginLeft="@dimen/splash_margin"
+                        android:visibility="gone"
+                        android:orientation="horizontal">
 
-
+                    <com.duongtung.cookingman.customview.CustomEditText
+                            android:id="@+id/etSearch"
+                            android:hint="@android:string/search_go"
+                            android:layout_weight="1"
+                            android:padding="8dp"
+                            android:layout_width="0dp"
+                            android:textSize="@dimen/text_size_chat"
+                            android:background="@null"
+                            android:textColor="@color/colorAccent"
+                            android:layout_height="wrap_content"/>
+                    <View
+                            android:layout_width="1px"
+                            android:layout_height="match_parent"
+                            android:background="@color/lighter_gray"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_gravity="center"
+                            />
+                    <com.duongtung.cookingman.customview.CustomTextView
+                            android:id="@+id/ivSearch"
+                            android:padding="@dimen/margin_10dp"
+                            android:textColor="@color/colorAccent"
+                            app:fontFace="font-awesome-solid"
+                            android:text="@string/icon_search"
+                            android:layout_marginRight="@dimen/margin_10dp"
+                            android:layout_gravity="center"
+                            android:textSize="@dimen/text_size_chat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            />
+                </LinearLayout>
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tvRight"
                         android:layout_width="wrap_content"

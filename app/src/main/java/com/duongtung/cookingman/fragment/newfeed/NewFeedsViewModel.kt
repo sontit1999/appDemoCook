@@ -1,4 +1,4 @@
-package com.duongtung.cookingman.fragment
+package com.duongtung.cookingman.fragment.newfeed
 
 import androidx.lifecycle.MutableLiveData
 import com.duongtung.cookingman.adapter.PostAdapter
@@ -8,11 +8,6 @@ import com.duongtung.cookingman.model.*
 class NewFeedsViewModel : BaseViewModel() {
     var adapter = PostAdapter()
     private var arrPost = MutableLiveData<MutableList<Post>>()
-    // thường thì em viết trên activity là recyvleview.setAdapter(list)
-    // phương thức MutableLiveData thể hiện lăng nghe thay đổi từ data
-    //MutableList  = ListView bên java chỉ khác serial thui
-    // toMutableList kiểu như convert từ list về MutableList
-    // postValue() là kiểu update của MutableList arrPost giống như set giá trị vào arrPost để đẩy lên trên ý
     fun getArrPost(): MutableLiveData<MutableList<Post>> {
         val list = listOf(
             (Post(

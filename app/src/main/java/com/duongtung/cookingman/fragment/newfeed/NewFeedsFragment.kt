@@ -1,17 +1,10 @@
-package com.duongtung.cookingman.fragment
+package com.duongtung.cookingman.fragment.newfeed
 
-import android.content.Intent
 import android.util.Log
 import androidx.lifecycle.Observer
-import com.bumptech.glide.Glide
 import com.duongtung.cookingman.R
-import com.duongtung.cookingman.adapter.PostAdapter
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentNewfeedsBinding
-import com.duongtung.cookingman.ui.MainActivity
-import com.duongtung.cookingman.ui.MapsActivity
-import com.duongtung.cookingman.ui.recipefood.RecipeActivity
-import kotlinx.android.synthetic.main.item_post.*
 
 class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel>() {
     override fun viewCreated() {

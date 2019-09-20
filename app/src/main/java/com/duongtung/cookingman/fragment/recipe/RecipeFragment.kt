@@ -1,11 +1,10 @@
-package com.duongtung.cookingman.fragment
+package com.duongtung.cookingman.fragment.recipe
 
 import android.content.Intent
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
-import com.duongtung.cookingman.adapter.RecipeAdapter
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 import com.duongtung.cookingman.ui.chatlist.ChatlistActivity

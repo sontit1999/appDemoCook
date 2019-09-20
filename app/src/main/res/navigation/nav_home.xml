@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_home"
+        app:startDestination="@id/homeFragment">
+    <fragment
+            android:id="@+id/homeFragment"
+            android:name="com.duongtung.cookingman.fragment.home.HomeFragment"
+            android:label="HomeFragment" >
+    </fragment>
+    <fragment
+            android:id="@+id/recipeFragment"
+            android:name="com.duongtung.cookingman.fragment.recipe.RecipeFragment"
+            android:label="RecipeFragment" />
+    <fragment
+            android:id="@+id/newFeedsFragment"
+            android:name="com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment"
+            android:label="NewFeedsFragment" />
+    <fragment
+            android:id="@+id/reviewerFragment"
+            android:name="com.duongtung.cookingman.fragment.ReviewerFragment"
+            android:label="ReviewerFragment" />
+</navigation>

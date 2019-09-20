@@ -11,6 +11,7 @@
                 type="com.duongtung.cookingman.adapter.MenuCallBack" />
     </data>
     <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+            android:layout_marginHorizontal="@dimen/splash_margin"
             android:id="@+id/itemMenu"
             android:layout_width="match_parent"
             android:padding="@dimen/itemchatlist_padding"
