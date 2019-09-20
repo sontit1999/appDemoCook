@@ -76,4 +76,6 @@
     <string name="lesttart">Let start with some healthy fresh cooking</string>
     <string name="home">HOME</string>
     <string name="menu_search">search</string>
+    <string name="icon_home">&#xf015;</string>
+    <string name="icon_more_v">&#xf142;</string>
 </resources>

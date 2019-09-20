@@ -145,4 +145,18 @@ class TextViewWithFontAwesome : AppCompatTextView {
             iconDrawableBottom
         )
     }
+    fun setFontIcon(type: Typeface){
+        iconDrawableLeft = getIconDrawable(context, iconLeft, type, iconColor, iconSize)
+        iconDrawableRight = getIconDrawable(context, iconRight, type, iconColor, iconSize)
+        iconDrawableTop = getIconDrawable(context, iconTop, type, iconColor, iconSize)
+        iconDrawableBottom = getIconDrawable(context, iconBottom, type, iconColor, iconSize)
+
+        this.setCompoundDrawablesWithIntrinsicBounds(
+            iconDrawableLeft,
+            iconDrawableTop,
+            iconDrawableRight,
+            iconDrawableBottom
+        )
+
+    }
 }
