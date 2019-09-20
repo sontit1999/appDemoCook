@@ -11,7 +11,7 @@
             android:gravity="center"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
-            android:text="Logout"
+            android:text="Log out"
             android:textColor="@color/white"
             app:fontFaceButton="font-awesome-light"
             android:layout_margin="@dimen/splash_margin"

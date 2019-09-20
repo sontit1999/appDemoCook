@@ -1,11 +1,14 @@
 package com.duongtung.cookingman.ui.home
 
 import android.util.Log
+import android.widget.ImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions.bitmapTransform
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
@@ -15,6 +18,7 @@ import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.databinding.NavMenuBinding
 import com.google.android.gms.common.util.DataUtils
 import com.google.android.material.navigation.NavigationView
+import jp.wasabeef.glide.transformations.BlurTransformation
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding,HomeViewModel>(){

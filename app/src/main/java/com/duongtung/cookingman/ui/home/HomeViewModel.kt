@@ -153,14 +153,16 @@ class HomeViewModel : BaseViewModel(){
 
     fun getMenuItem() : MutableLiveData<MutableList<MenuItem>>{
        val list = listOf(
-           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Account",0),
-           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_account),"Account Setting",1),
-           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_news),"News",1),
-           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_language),"Language",1),
-           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Account",0),
-           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_account),"Account Setting",2),
-           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_news),"News",2),
-           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_language),"Language",2)
+           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Social",0),
+           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_news),"NewsFeed",1),
+           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_recipe),"Recipe",1),
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_chathome),"Chat",1),
+           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_favorite),"Favorite",2),
+           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_profile),"Profile",2),
+           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"App",0),
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_setting),"Setting",2),
+           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_share),"Share",2),
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_info),"Information",2)
        )
         arrMenu.postValue(list.toMutableList())
         return arrMenu
