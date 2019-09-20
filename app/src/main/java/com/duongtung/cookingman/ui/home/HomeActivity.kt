@@ -28,7 +28,7 @@ import com.duongtung.cookingman.ui.setting.SettingActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
-    fun onResumeFragment(fragment: Fragment) {
+    override fun onResumeFragment(fragment: Fragment) {
         when (fragment) {
             is HomeFragment -> {
                 viewModel.menuAdapter.changVisibility(0)

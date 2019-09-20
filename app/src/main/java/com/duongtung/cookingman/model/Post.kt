@@ -81,45 +81,12 @@ data class Post(var user:User, var recipe: RecipeFood, var location: String, var
         }
 
     }
-    fun peoplTwo() : String{
-        if(1 >= arrComment.size){
-            //index not exists
-            return  "http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-18.jpg"
-        }else{
-            // index exists
-            return  arrComment.get(1).user.profileUrl
-        }
-
-    }
-    fun peopleThree() : String{
-        if(2 >= arrComment.size){
-            //index not exists
-            return  "http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-18.jpg"
-        }else{
-            // index exists
-            return  arrComment.get(2).user.profileUrl
-        }
-    }
-    fun peopleFour() : String{
-        if(3 >= arrComment.size){
-            //index not exists
-            return  "http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-18.jpg"
-        }else{
-            // index exists
-            return  arrComment.get(3).user.profileUrl
-        }
-
-    }
-    fun more():String{
-         if(arrComment.size>4) return "${arrComment.size - 4}+"
-         return "69+"
-    }
     fun creatRecipe():SpannableStringBuilder{
         var span = SpannableStringBuilder()
         var start = 0
         span.append(user.nickName)
         span.setSpan(ForegroundColorSpan(Color.RED), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        span.append(" creat this recipe ")
+        span.append(" creat recipe ").append(time)
         return span
     }
 

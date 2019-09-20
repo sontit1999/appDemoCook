@@ -13,8 +13,6 @@ public class PopularAuthorFragment : BaseFragment<FragmentPopularAuthorBinding,P
 
     override fun setBindingViewModel() {
          binding.viewModel = viewModel
-         binding.recyclerviewPopularAuthor.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
     }
 
     override fun viewCreated() {
