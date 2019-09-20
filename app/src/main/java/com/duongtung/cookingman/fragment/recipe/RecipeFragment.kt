@@ -27,10 +27,6 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     override fun setBindingViewModel() {
         actionBarHomeOnClick!!.initFragment(this)
         binding.viewmodel = viewModel
-        binding.recyclerviewRecipe.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-        binding.fabADD.setOnClickListener {
-            startActivity(Intent(context,ChatlistActivity::class.java))
-        }
     }
 
     override fun viewCreated() {
