@@ -71,6 +71,8 @@
     <string name="icon_chathome">&#xf086;</string>
     <string name="icon_info">&#xf05a;</string>
     <string name="icon_share">&#xf1e0;</string>
+    <string name="icon_menupost">&#xf142;</string>
+    <string name="icon_bookmark">&#xf02e;</string>
     <string name="add_your_cmt">Add your comment</string>
     <string name="say_hi"> Good afternoon Sơn tít</string>
     <string name="lesttart">Let start with some healthy fresh cooking</string>

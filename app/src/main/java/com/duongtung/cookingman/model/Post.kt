@@ -10,7 +10,7 @@ import android.text.style.StyleSpan
 import android.util.Log
 import java.io.Serializable
 
-data class Post(var user:User, var recipe: RecipeFood, var location: String, var time: String,var arrComment:List<Comment>){
+data class Post(var user:User, var recipe: RecipeFood, var location: String, var time: String,var arrComment:List<Comment>,var content:String){
     fun infor() : SpannableStringBuilder{
         var start = 0
         var infor  = SpannableStringBuilder()

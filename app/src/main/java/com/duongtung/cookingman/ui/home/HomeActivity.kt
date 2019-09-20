@@ -17,6 +17,9 @@ import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.databinding.NavMenuBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.fragment.home.HomeFragment
+import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
+import com.duongtung.cookingman.ui.profile.ProfileActivity
+import com.duongtung.cookingman.ui.setting.SettingActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
@@ -49,6 +52,15 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                         }
                         2 -> {
                             controller.navigate(R.id.recipeFragment)
+                        }
+                        3 -> {
+                            goToActivity(ChatlistActivity::class.java,null,null)
+                        }
+                        5 -> {
+                            goToActivity(ProfileActivity::class.java,null,null)
+                        }
+                        7 -> {
+                            goToActivity(SettingActivity::class.java,null,null)
                         }
                     }
                 }
