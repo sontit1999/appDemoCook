@@ -1,24 +1,20 @@
-package com.duongtung.cookingman.fragment.recipe
+package com.duongtung.cookingman.fragment.profile
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
-import com.duongtung.cookingman.databinding.FragmentRecipeBinding
+import com.duongtung.cookingman.databinding.FragProfileBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
-import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
 
-class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
-    override fun getClassViewMode() = RecipeViewModel::class.java
+class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
+    override fun getClassViewMode()  = ProfileViewModel::class.java
     private var actionBarHomeOnClick: ActionBarListener? = null
 
     override fun onAttach(context: Context) {
-        Log.d("test","on attack fragment recipe")
+        Log.d("test","on attack fragment profile")
         super.onAttach(context)
         try {
             actionBarHomeOnClick = context as ActionBarListener
@@ -26,20 +22,19 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
             throw ClassCastException((context as Activity).localClassName + " must implement OnButtonClickListener")
         }
     }
-    override fun setBindingViewModel() {
-        actionBarHomeOnClick!!.initFragment(this)
+        override fun setBindingViewModel() {
         binding.viewmodel = viewModel
     }
 
     override fun viewCreated() {
-        viewModel.getArrRecipe().observe(this, Observer { list ->
-            viewModel.adapter.setList(list)
-        })
+       viewModel.getArrRecipe().observe(this, Observer { list->
+           viewModel.adapter.setList(list)
+       })
     }
 
-    override fun getLayoutId() = R.layout.fragment_recipe
+    override fun getLayoutId() = R.layout.frag_profile
     override fun onResume() {
-        Log.d("test","on resume recipe frag")
+        Log.d("test","on resume profile frag")
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
     }

@@ -25,9 +25,7 @@ class ProfileActivity : BaseActivity<ActivityProfileBinding, ProfileViewModel>()
             binding.tvReturn.setOnClickListener {
                 finish()
             }
-            binding.tvNameAuthor.setOnClickListener {  }
             binding.tvFollow.setOnClickListener {
-                goToActivity(SettingActivity::class.java,null,null)
                 Toast.makeText(baseContext, "Đã follow!", Toast.LENGTH_SHORT).show() }
             binding.tvMesage.setOnClickListener {
                 goToActivity(DetailChatActivity::class.java, null, null)

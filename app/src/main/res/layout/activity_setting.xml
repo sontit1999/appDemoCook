@@ -20,206 +20,206 @@
                 layout="@layout/actionbar"
                 app:layout_constraintTop_toTopOf="parent" />
 
-    <com.duongtung.cookingman.customview.CustomTextView
-            android:id="@+id/generalSettings"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:text="GENERAL SETTINGS"
-            android:textColor="#1D1D1A"
-            android:textSize="@dimen/textview_main__content_size"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actionbar" />
+        <com.duongtung.cookingman.customview.CustomTextView
+                android:id="@+id/generalSettings"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:text="GENERAL SETTINGS"
+                android:textColor="#1D1D1A"
+                android:textSize="@dimen/textview_main__content_size"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actionbar" />
 
-    <TableRow
-            android:background="#FFFFFF"
-            android:id="@+id/tbRowChatPre"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/setting_padding_tablerow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/generalSettings">
+        <TableRow
+                android:background="#FFFFFF"
+                android:id="@+id/tbRowChatPre"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/setting_padding_tablerow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/generalSettings">
+
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Chat Preferance"
+                    android:textColor="#F11755"
+                    android:textSize="@dimen/textview_main__content_size" />
+
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    app:iconRight="@string/icon_arrow_right"
+                    android:gravity="center"
+                    app:fontawesome="font-awesome-light"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="0335275330"
+                    app:iconColor="@color/lighter_gray"
+                    android:drawablePadding="@dimen/margin_10dp"
+                    app:iconTextSize="@dimen/textview_main__content_size"
+                    android:textAlignment="textEnd"
+                    android:textColor="#575757"
+                    android:textSize="@dimen/textview_main__content_size"
+                    tools:ignore="RtlCompat" />
+
+        </TableRow>
+
+        <TableRow
+                android:background="#FFFFFF"
+                android:gravity="center"
+                android:id="@+id/tbRowEmail"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:padding="@dimen/setting_padding_tablerow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbRowChatPre">
+
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Email"
+                    android:textColor="#F11755"
+                    android:textSize="@dimen/textview_main__content_size" />
+
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    app:iconRight="@string/icon_arrow_right"
+                    android:gravity="center"
+                    app:fontawesome="font-awesome-light"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:paddingLeft="@dimen/setting_padding_tablerow"
+                    app:iconColor="@color/lighter_gray"
+                    android:drawablePadding="@dimen/margin_10dp"
+                    app:iconTextSize="@dimen/textview_main__content_size"
+                    android:text="Sonkoii1995@gmail.com"
+                    android:textAlignment="textEnd"
+                    android:textColor="#575757"
+                    android:textSize="@dimen/textview_main__content_size"
+                    tools:ignore="RtlCompat" />
+
+        </TableRow>
+
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                android:background="#FFFFFF"
+                android:gravity="center_vertical"
+                android:id="@+id/txtPre"
+                android:layout_height="50dp"
+                android:layout_marginTop="3dp"
+                android:layout_width="match_parent"
+                android:paddingHorizontal="@dimen/setting_padding_tablerow"
+                android:text="Preferance"
+                android:textColor="#F11755"
+                android:textSize="@dimen/textview_main__content_size"
+                app:layout_constraintTop_toBottomOf="@id/tbRowEmail" />
 
         <com.duongtung.cookingman.customview.CustomTextView
+                android:id="@+id/txtAppSettings"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Chat Preferance"
-                android:textColor="#F11755"
-                android:textSize="@dimen/textview_main__content_size" />
-
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                app:iconRight="@string/icon_arrow_right"
-                android:gravity="center"
-                app:fontawesome="font-awesome-light"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
-                android:text="0335275330"
-                app:iconColor="@color/lighter_gray"
-                android:drawablePadding="@dimen/margin_10dp"
-                app:iconTextSize="@dimen/textview_main__content_size"
-                android:textAlignment="textEnd"
-                android:textColor="#575757"
+                android:text="APP SETTINGS"
+                android:textColor="#1D1D1A"
                 android:textSize="@dimen/textview_main__content_size"
-                tools:ignore="RtlCompat" />
+                app:layout_constraintTop_toBottomOf="@id/txtPre" />
 
-    </TableRow>
-
-    <TableRow
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:id="@+id/tbRowEmail"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/setting_padding_tablerow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tbRowChatPre">
-
-        <com.duongtung.cookingman.customview.CustomTextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Email"
-                android:textColor="#F11755"
-                android:textSize="@dimen/textview_main__content_size" />
-
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                app:iconRight="@string/icon_arrow_right"
+        <TableRow
+                android:background="#FFFFFF"
                 android:gravity="center"
-                app:fontawesome="font-awesome-light"
+                android:id="@+id/tbRowAppChatPre"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:paddingLeft="@dimen/setting_padding_tablerow"
-                app:iconColor="@color/lighter_gray"
-                android:drawablePadding="@dimen/margin_10dp"
-                app:iconTextSize="@dimen/textview_main__content_size"
-                android:text="Sonkoii1995@gmail.com"
-                android:textAlignment="textEnd"
-                android:textColor="#575757"
-                android:textSize="@dimen/textview_main__content_size"
-                tools:ignore="RtlCompat" />
+                android:orientation="horizontal"
+                android:padding="@dimen/setting_padding_tablerow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/txtAppSettings">
 
-    </TableRow>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Chat Preferance"
+                    android:textColor="#F11755"
+                    android:textSize="@dimen/textview_main__content_size" />
 
-    <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-            android:background="#FFFFFF"
-            android:gravity="center_vertical"
-            android:id="@+id/txtPre"
-            android:layout_height="50dp"
-            android:layout_marginTop="3dp"
-            android:layout_width="match_parent"
-            android:paddingHorizontal="@dimen/setting_padding_tablerow"
-            android:text="Preferance"
-            android:textColor="#F11755"
-            android:textSize="@dimen/textview_main__content_size"
-            app:layout_constraintTop_toBottomOf="@id/tbRowEmail" />
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    app:iconRight="@string/icon_arrow_right"
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Everyone"
+                    app:iconColor="@color/lighter_gray"
+                    android:drawablePadding="@dimen/margin_10dp"
+                    app:iconTextSize="@dimen/textview_main__content_size"
+                    android:textAlignment="textEnd"
+                    android:textColor="#575757"
+                    android:textSize="@dimen/textview_main__content_size"
+                    tools:ignore="RtlCompat" />
 
-    <com.duongtung.cookingman.customview.CustomTextView
-            android:id="@+id/txtAppSettings"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_width="match_parent"
-            android:text="APP SETTINGS"
-            android:textColor="#1D1D1A"
-            android:textSize="@dimen/textview_main__content_size"
-            app:layout_constraintTop_toBottomOf="@id/txtPre" />
+        </TableRow>
 
-    <TableRow
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:id="@+id/tbRowAppChatPre"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/setting_padding_tablerow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtAppSettings">
-
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Chat Preferance"
-                android:textColor="#F11755"
-                android:textSize="@dimen/textview_main__content_size" />
-
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                app:iconRight="@string/icon_arrow_right"
+        <TableRow
+                android:background="#FFFFFF"
                 android:gravity="center"
+                android:id="@+id/tbRowTxtTone"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:layout_width="match_parent"
-                android:text="Everyone"
-                app:iconColor="@color/lighter_gray"
-                android:drawablePadding="@dimen/margin_10dp"
-                app:iconTextSize="@dimen/textview_main__content_size"
-                android:textAlignment="textEnd"
-                android:textColor="#575757"
-                android:textSize="@dimen/textview_main__content_size"
-                tools:ignore="RtlCompat" />
+                android:orientation="horizontal"
+                android:padding="@dimen/setting_padding_tablerow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbRowAppChatPre">
 
-    </TableRow>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Text Tone"
+                    android:textColor="#F11755"
+                    android:textSize="@dimen/textview_main__content_size" />
 
-    <TableRow
-            android:background="#FFFFFF"
-            android:gravity="center"
-            android:id="@+id/tbRowTxtTone"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/setting_padding_tablerow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tbRowAppChatPre">
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    app:iconRight="@string/icon_arrow_right"
 
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:gravity="center"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:text="Bamboo"
+                    app:iconColor="@color/lighter_gray"
+                    android:drawablePadding="@dimen/margin_10dp"
+                    app:iconTextSize="@dimen/textview_main__content_size"
+                    android:textAlignment="textEnd"
+                    android:textColor="#575757"
+                    android:textSize="@dimen/textview_main__content_size"
+                    tools:ignore="RtlCompat" />
+
+        </TableRow>
+
+        <TableRow
+                android:background="#FFFFFF"
+                android:id="@+id/tbRowAudioChat"
                 android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Text Tone"
-                android:textColor="#F11755"
-                android:textSize="@dimen/textview_main__content_size" />
-
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                app:iconRight="@string/icon_arrow_right"
-
-                android:gravity="center"
-                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
                 android:layout_width="match_parent"
-                android:text="Bamboo"
-                app:iconColor="@color/lighter_gray"
-                android:drawablePadding="@dimen/margin_10dp"
-                app:iconTextSize="@dimen/textview_main__content_size"
-                android:textAlignment="textEnd"
-                android:textColor="#575757"
-                android:textSize="@dimen/textview_main__content_size"
-                tools:ignore="RtlCompat" />
+                android:orientation="horizontal"
+                android:padding="@dimen/setting_padding_tablerow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbRowTxtTone">
 
-    </TableRow>
+            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Audio Chat"
+                    android:textColor="#F11755"
+                    android:textSize="@dimen/textview_main__content_size" />
 
-    <TableRow
-            android:background="#FFFFFF"
-            android:id="@+id/tbRowAudioChat"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="3dp"
-            android:layout_width="match_parent"
-            android:orientation="horizontal"
-            android:padding="@dimen/setting_padding_tablerow"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tbRowTxtTone">
-
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Audio Chat"
-                android:textColor="#F11755"
-                android:textSize="@dimen/textview_main__content_size" />
-
-        <Switch
-                android:id="@+id/switchAudio"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
-    </TableRow>
-</androidx.constraintlayout.widget.ConstraintLayout></layout>
+            <Switch
+                    android:id="@+id/switchAudio"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent" />
+        </TableRow>
+    </androidx.constraintlayout.widget.ConstraintLayout></layout>

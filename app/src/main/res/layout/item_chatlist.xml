@@ -11,8 +11,9 @@
             android:layout_height="wrap_content">
         <com.mikhaellopez.circularimageview.CircularImageView
                 android:id="@+id/ivAvatar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="@dimen/margin_10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -21,7 +22,8 @@
         <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tvName"
                 android:text="@{post.user.nickName}"
-                android:textStyle="italic"
+                android:textSize="@dimen/textview_main__tittle_size"
+                android:textStyle="bold"
                 android:layout_marginLeft="@dimen/itemchat_marginleft"
                 android:layout_marginTop="@dimen/itemchat_margin_top"
                 android:textColor="@color/colorBlack"
@@ -33,6 +35,7 @@
                 android:id="@+id/tvNumberRecipe"
                 android:text="200000 Recipe"
                 android:textStyle="italic"
+                android:textSize="@dimen/textview_main__content_size"
                 android:layout_marginLeft="@dimen/itemchat_marginleft"
                 android:layout_marginTop="@dimen/itemchat_margintop"
                 android:textColor="@color/colorRed"
@@ -40,17 +43,6 @@
                 app:layout_constraintLeft_toRightOf="@id/ivAvatar"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"/>
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                android:id="@+id/tv_chat"
-                app:iconRight="@string/icon_mesage"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:iconColor="@color/colorRed"
-                app:layout_constraintRight_toRightOf="parent"
-                app:iconTextSize="@dimen/size_iconmesage"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

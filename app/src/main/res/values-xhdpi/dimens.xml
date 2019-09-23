@@ -19,6 +19,7 @@
     <dimen name="textview_describe_item_typeFood_size">17sp</dimen>
     <dimen name="width_image_itemtypefood">200dp</dimen>
     <dimen name="height_image_itemtypefood">150dp</dimen>
+    <dimen name="heigh_itemTypeFood">250dp</dimen>
     <dimen name="text_size_chat">16sp</dimen>
     <dimen name="text_size_titleRecipe">18sp</dimen>
     <dimen name="text_size_recipeActivty">17sp</dimen>
