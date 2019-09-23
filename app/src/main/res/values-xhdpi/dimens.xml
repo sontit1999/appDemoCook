@@ -61,7 +61,7 @@
     <dimen name="itemPost_marginLeft">15dp</dimen>
     <dimen name="itemPost_marginToptvTime">10dp</dimen>
     <dimen name="itemPost_imageRecipe_heigh">235dp</dimen>
-    <dimen name="itemRecipe_image_heigh">200dp</dimen>
+    <dimen name="itemRecipe_image_heigh">150dp</dimen>
     <dimen name="itemRecipe_paddingBottom">25dp</dimen>
     <dimen name="itemRecipe_padding_iconlike">20dp</dimen>
     <dimen name="itemRecipe_marginTop">20dp</dimen>
