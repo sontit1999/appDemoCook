@@ -21,9 +21,12 @@ object DataUtilsApplication{
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
     }
 
+<<<<<<< HEAD
     fun createActionBarBackPress(title: String?, imageCollapsing: Int?, rightBtn: String?,backgroundActionBar : Int?=Color.TRANSPARENT,context: Context): Actionbar{
         return Actionbar(title = title, leftButtonImage =  context.getString(R.string.icon_arrow_left),
             rightButtonImage = rightBtn , backgroundActionBar = backgroundActionBar,
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
     }
+=======
+>>>>>>> add fragment chat and profile
 }
