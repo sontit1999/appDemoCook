@@ -78,6 +78,8 @@
     <string name="say_hi"> Good afternoon Sơn tít</string>
     <string name="lesttart">Let start with some healthy fresh cooking</string>
     <string name="home">HOME</string>
+    <string name="recipe">RECIPE</string>
+    <string name="chat">CHATTING</string>
     <string name="profile">PROFILE</string>
     <string name="menu_search">search</string>
     <string name="icon_home">&#xf015;</string>

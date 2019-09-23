@@ -13,6 +13,7 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     private var actionBarHomeOnClick: ActionBarListener? = null
 
     override fun onAttach(context: Context) {
+        Log.d("test","on attack fragment newfeed")
         super.onAttach(context)
         try {
             actionBarHomeOnClick = context as ActionBarListener
@@ -39,6 +40,7 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     override fun getLayoutId() = R.layout.fragment_newfeeds
 
     override fun onResume() {
+        Log.d("test","on resume newfeed frag")
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
     }

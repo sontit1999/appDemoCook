@@ -18,6 +18,7 @@ import com.duongtung.cookingman.base.utils.DataUtilsApplication
 import com.duongtung.cookingman.callback.MenuHomeCallback
 import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.databinding.NavMenuBinding
+import com.duongtung.cookingman.fragment.chat.ChatFragment
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.fragment.home.HomeFragment
 
@@ -31,6 +32,7 @@ import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
     override fun onResumeFragment(fragment: Fragment) {
+        Log.d("test","onreseum Fragment in HomeActivity")
         when (fragment) {
             is HomeFragment -> {
                 viewModel.menuAdapter.changVisibility(0)
@@ -54,12 +56,27 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.VISIBLE
             }
+            is ProfileFragment->{
+                viewModel.menuAdapter.changVisibility(5)
+                action = null
+                ProfileActionBar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.VISIBLE
+            }
+            is ChatFragment ->{
+                viewModel.menuAdapter.changVisibility(3)
+                action = null
+                ChatActionBar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.VISIBLE
+            }
         }
     }
 
     lateinit var controller: NavController
 
     override fun initFragment(fragment: Fragment) {
+        Log.d("test","initFragment in HomeActivity")
         if (fragment is HomeFragment) {
             action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
             homeActionbar()
@@ -73,7 +90,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.tvRight.visibility = View.VISIBLE
         }else if(fragment is ProfileFragment){
             action = null
-            recipeActionBar()
+            ProfileActionBar()
+            binding.actionbar.tvCenter.visibility = View.VISIBLE
+            binding.actionbar.tvRight.visibility = View.VISIBLE
+        }else if(fragment is ChatFragment){
+            action = null
+            ChatActionBar()
             binding.actionbar.tvCenter.visibility = View.VISIBLE
             binding.actionbar.tvRight.visibility = View.VISIBLE
         }
@@ -112,13 +134,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                         controller.navigate(R.id.recipeFragment)
                     }
                     3 -> {
-
-                        goToActivity(ChatlistActivity::class.java, null, null)
+                        controller.navigate(R.id.chatFragment)
                     }
                     5 -> {
-                        goToActivity(ProfileActivity::class.java, null, null)
-
-                        controller.navigate(R.id.chatFragment)
+                        controller.navigate(R.id.profileFragment)
                     }
                     6 -> {
                         goToActivity(SettingActivity::class.java, null, null)
@@ -155,22 +174,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     private fun recipeActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
-            "RECIPE",
+            "RECIPES",
             null,
             getString(R.string.icon_search),
-            ContextCompat.getColor(this, R.color.colorAccent),
-            this
-        )
-        binding.actionbar.tvRight.setOnClickListener {
-
-        }
-    }
-
-    private fun newFeedsActionBar() {
-        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
-            "NEWFEEDS",
-            null,
-            getString(R.string.icon_more_v),
             ContextCompat.getColor(this, R.color.colorAccent),
             this
         )
@@ -182,4 +188,54 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.GONE
         }
     }
+
+    private fun newFeedsActionBar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "NEWFEEDS",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvRight.setOnClickListener {
+
+            binding.actionbar.searchLayout.visibility = View.VISIBLE
+        }
+        binding.actionbar.ivSearch.setOnClickListener {
+            binding.actionbar.searchLayout.visibility = View.GONE
+        }
+    }
+    private fun ChatActionBar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "CHATTING",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvRight.setOnClickListener {
+
+            binding.actionbar.searchLayout.visibility = View.VISIBLE
+        }
+        binding.actionbar.ivSearch.setOnClickListener {
+            binding.actionbar.searchLayout.visibility = View.GONE
+        }
+    }
+    private fun ProfileActionBar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "PROFILE",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvRight.setOnClickListener {
+
+            binding.actionbar.searchLayout.visibility = View.VISIBLE
+        }
+        binding.actionbar.ivSearch.setOnClickListener {
+            binding.actionbar.searchLayout.visibility = View.GONE
+        }
+    }
+
 }

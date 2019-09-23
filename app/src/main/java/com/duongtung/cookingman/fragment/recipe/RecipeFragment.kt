@@ -3,6 +3,7 @@ package com.duongtung.cookingman.fragment.recipe
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -17,6 +18,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     private var actionBarHomeOnClick: ActionBarListener? = null
 
     override fun onAttach(context: Context) {
+        Log.d("test","on attack fragment recipe")
         super.onAttach(context)
         try {
             actionBarHomeOnClick = context as ActionBarListener
@@ -37,6 +39,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
 
     override fun getLayoutId() = R.layout.fragment_recipe
     override fun onResume() {
+        Log.d("test","on resume recipe frag")
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
     }
