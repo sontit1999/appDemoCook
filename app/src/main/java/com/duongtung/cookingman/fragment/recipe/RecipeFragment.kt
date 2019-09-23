@@ -36,5 +36,8 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     }
 
     override fun getLayoutId() = R.layout.fragment_recipe
-
+    override fun onResume() {
+        super.onResume()
+        actionBarHomeOnClick!!.onResumeFragment(this)
+    }
 }

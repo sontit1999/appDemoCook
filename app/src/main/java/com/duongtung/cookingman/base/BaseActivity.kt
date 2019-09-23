@@ -3,7 +3,6 @@ package com.duongtung.cookingman.base
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.databinding.DataBindingUtil
@@ -11,9 +10,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModelProviders
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import androidx.core.view.isVisible
 import com.google.android.material.appbar.AppBarLayout
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {

@@ -1,5 +1,6 @@
 package com.duongtung.cookingman.ui.home
 
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -19,6 +20,7 @@ import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.databinding.NavMenuBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.fragment.home.HomeFragment
+import com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment
 import com.duongtung.cookingman.fragment.recipe.RecipeFragment
 import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
 import com.duongtung.cookingman.ui.profile.ProfileActivity
@@ -26,22 +28,36 @@ import com.duongtung.cookingman.ui.setting.SettingActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
+    override fun onResumeFragment(fragment: Fragment) {
+        when (fragment) {
+            is HomeFragment -> {
+                viewModel.menuAdapter.changVisibility(0)
+                action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
+                homeActionbar()
+                binding.actionbar.collapsingToolbarLayout.layoutParams.height =
+                    CookingApplication.getResource().getResource()
+                        .getDimensionPixelOffset(R.dimen.heigh_banner_home)
+            }
+            is NewFeedsFragment -> {
+                viewModel.menuAdapter.changVisibility(1)
+                action = null
+                newFeedsActionBar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.VISIBLE
+            }
+            is RecipeFragment -> {
+                viewModel.menuAdapter.changVisibility(2)
+                action = null
+                recipeActionBar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.VISIBLE
+            }
+        }
+    }
+
     lateinit var controller: NavController
 
     override fun initFragment(fragment: Fragment) {
-        if (fragment is HomeFragment) {
-            action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
-            homeActionbar()
-            binding.actionbar.collapsingToolbarLayout.layoutParams.height =
-                CookingApplication.getResource().getResource()
-                    .getDimensionPixelOffset(R.dimen.heigh_banner_home)
-        } else if (fragment is RecipeFragment) {
-            action = null
-            recipeActionBar()
-            binding.actionbar.tvCenter.visibility = View.VISIBLE
-            binding.actionbar.tvRight.visibility = View.VISIBLE
-        }
-
     }
 
     override fun getToolbar(): Toolbar? = binding.actionbar.tbBase
@@ -65,7 +81,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         })
         viewModel.menuAdapter.setOnMHCallback(object : MenuHomeCallback {
             override fun onCloseDrawer(id: Int) {
-                viewModel.menuAdapter.changVisibility(id)
                 binding.drawer.closeDrawer(GravityCompat.START)
                 when (id) {
                     0 -> {
@@ -78,13 +93,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                         controller.navigate(R.id.recipeFragment)
                     }
                     3 -> {
-                        goToActivity(ChatlistActivity::class.java,null,null)
+                        goToActivity(ChatlistActivity::class.java, null, null)
                     }
                     5 -> {
-                        goToActivity(ProfileActivity::class.java,null,null)
+                        goToActivity(ProfileActivity::class.java, null, null)
                     }
                     6 -> {
-                        goToActivity(SettingActivity::class.java,null,null)
+                        goToActivity(SettingActivity::class.java, null, null)
                     }
                 }
             }
@@ -124,7 +139,20 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             ContextCompat.getColor(this, R.color.colorAccent),
             this
         )
-        binding.actionbar.tvRight.setOnClickListener{
+        binding.actionbar.tvRight.setOnClickListener {
+
+        }
+    }
+
+    private fun newFeedsActionBar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "NEWFEEDS",
+            null,
+            getString(R.string.icon_more_v),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvRight.setOnClickListener {
 
         }
     }

@@ -32,5 +32,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
     }
 
     override fun getLayoutId()= R.layout.fragment_home
-
+    override fun onResume() {
+        super.onResume()
+        actionBarHomeOnClick!!.onResumeFragment(this)
+    }
 }

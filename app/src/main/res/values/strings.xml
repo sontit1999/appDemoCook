@@ -61,6 +61,7 @@
     <string name="icon_like">&#xf058;</string>
     <string name="icon_cmt">&#xf27a;</string>
     <string name="icon_arrow_left">&#xf053;</string>
+    <string name="icon_arrow_right">&#xf054;</string>
     <string name="icon_account">&#xf2bb;</string>
     <string name="icon_recipe">&#xf02d;</string>
     <string name="icon_news">&#xf1ea;</string>
