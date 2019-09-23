@@ -15,34 +15,18 @@ class HomeViewModel : BaseViewModel(){
 
     fun getMenuItem() : MutableLiveData<MutableList<MenuItem>>{
        val list = listOf(
-           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Social",0),
-           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_news),"NewsFeed",1),
-           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_recipe),"Recipe",1),
-           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_chathome),"Chat",1),
-           MenuItem(4,CookingApplication.getResource().getString(R.string.icon_favorite),"Favorite",2),
-           MenuItem(5,CookingApplication.getResource().getString(R.string.icon_profile),"Profile",2),
-           MenuItem(6,CookingApplication.getResource().getString(R.string.icon_account),"App",0),
-           MenuItem(7,CookingApplication.getResource().getString(R.string.icon_setting),"Setting",2),
-           MenuItem(8,CookingApplication.getResource().getString(R.string.icon_share),"Share",2),
-           MenuItem(9,CookingApplication.getResource().getString(R.string.icon_info),"Information",2)
+           MenuItem(-1,CookingApplication.getResource().getString(R.string.icon_account),"Social",false,0),
+           MenuItem(0,CookingApplication.getResource().getString(R.string.icon_home),"Home",true,1),
+           MenuItem(1,CookingApplication.getResource().getString(R.string.icon_news),"NewsFeed",false,1),
+           MenuItem(2,CookingApplication.getResource().getString(R.string.icon_recipe),"Recipe",false,1),
+           MenuItem(3,CookingApplication.getResource().getString(R.string.icon_chathome),"Chat",false,1),
+           MenuItem(4,CookingApplication.getResource().getString(R.string.icon_favorite),"Favorite",false,1),
+           MenuItem(5,CookingApplication.getResource().getString(R.string.icon_profile),"Profile",false,1),
+           MenuItem(-1,CookingApplication.getResource().getString(R.string.icon_account),"App",false,0),
+           MenuItem(6,CookingApplication.getResource().getString(R.string.icon_setting),"Setting",false,2),
+           MenuItem(7,CookingApplication.getResource().getString(R.string.icon_share),"Share",false,2),
+           MenuItem(8,CookingApplication.getResource().getString(R.string.icon_info),"Information",false,2)
        )
-        arrMenu.postValue(list.toMutableList())
-        return arrMenu
-    }
-
-    fun getMenuItemRecipe() : MutableLiveData<MutableList<MenuItem>>{
-        val list = listOf(
-            MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"Social",0),
-            MenuItem(0,CookingApplication.getResource().getString(R.string.icon_home),"Home",1),
-            MenuItem(1,CookingApplication.getResource().getString(R.string.icon_news),"NewsFeed",1),
-            MenuItem(3,CookingApplication.getResource().getString(R.string.icon_chathome),"Chat",1),
-            MenuItem(4,CookingApplication.getResource().getString(R.string.icon_favorite),"Favorite",2),
-            MenuItem(5,CookingApplication.getResource().getString(R.string.icon_profile),"Profile",2),
-            MenuItem(0,CookingApplication.getResource().getString(R.string.icon_account),"App",0),
-            MenuItem(7,CookingApplication.getResource().getString(R.string.icon_setting),"Setting",2),
-            MenuItem(8,CookingApplication.getResource().getString(R.string.icon_share),"Share",2),
-            MenuItem(9,CookingApplication.getResource().getString(R.string.icon_info),"Information",2)
-        )
         arrMenu.postValue(list.toMutableList())
         return arrMenu
     }

@@ -19,6 +19,7 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
         this.dataList = list
         notifyDataSetChanged()
     }
+    fun getList() = dataList
 
     fun addElement(t: D) {
         dataList.add(t)
@@ -45,7 +46,9 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     override fun getItemCount(): Int {
         return dataList.size
     }
-
+    open fun isVisibility(item : D) : Boolean {
+        return false
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewMultiHolder<D> {
         val binding : ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),getLayoutId()[viewType]!!,parent,false)
         return BaseViewMultiHolder(binding)
@@ -53,12 +56,17 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
 
 
     override fun onBindViewHolder(holder: BaseViewMultiHolder<D>, position: Int) {
-        holder.setVariable(getVariableId()[getItemViewType(position)], dataList[position])
-        if (getOnClick() != null && getIdVariableOnClick()?.get(getItemViewType(position)) != null)
-            holder.setClickAdapter(
-                getIdVariableOnClick()?.get(getItemViewType(position))!!,
-                getOnClick()!!
-            )
+        if (!isVisibility(dataList[position])) {
+            holder.itemView.layoutParams = RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,RecyclerView.LayoutParams.WRAP_CONTENT)
+            holder.setVariable(getVariableId()[getItemViewType(position)], dataList[position])
+            if (getOnClick() != null && getIdVariableOnClick()?.get(getItemViewType(position)) != null)
+                holder.setClickAdapter(
+                    getIdVariableOnClick()?.get(getItemViewType(position))!!,
+                    getOnClick()!!
+                )
+        }else{
+            holder.itemView.layoutParams = RecyclerView.LayoutParams(0,0)
+        }
     }
 
 

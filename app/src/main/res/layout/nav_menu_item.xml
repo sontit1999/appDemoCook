@@ -25,5 +25,6 @@
             app:fontawesome="font-awesome-solid"
             android:drawablePadding="@dimen/itemPost_marginTop"
             app:iconLeft="@{item.icon}"
+            android:visibility="@{item.selected}"
             android:layout_height="wrap_content"/>
 </layout>

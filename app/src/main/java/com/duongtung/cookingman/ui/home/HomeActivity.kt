@@ -15,7 +15,6 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.base.utils.DataUtilsApplication
 import com.duongtung.cookingman.callback.MenuHomeCallback
-import com.duongtung.cookingman.customview.FontCache
 import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.databinding.NavMenuBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
@@ -61,10 +60,17 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         binding.actionbar.tvleft.setOnClickListener {
             binding.drawer.openDrawer(GravityCompat.START)
         }
+        viewModel.getMenuItem().observe(this, Observer {
+            viewModel.menuAdapter.setList(it)
+        })
         viewModel.menuAdapter.setOnMHCallback(object : MenuHomeCallback {
             override fun onCloseDrawer(id: Int) {
+                viewModel.menuAdapter.changVisibility(id)
                 binding.drawer.closeDrawer(GravityCompat.START)
                 when (id) {
+                    0 -> {
+                        controller.navigate(R.id.homeFragment)
+                    }
                     1 -> {
                         controller.navigate(R.id.newFeedsFragment)
                     }
@@ -77,7 +83,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                     5 -> {
                         goToActivity(ProfileActivity::class.java,null,null)
                     }
-                    7 -> {
+                    6 -> {
                         goToActivity(SettingActivity::class.java,null,null)
                     }
                 }
@@ -95,8 +101,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
 
     private fun homeActionbar() {
-        viewModel.getMenuItem()
-            .observe(this, Observer { list -> viewModel.menuAdapter.setList(list = list!!) })
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             title = getString(R.string.home),
             imageCollapsing = R.drawable.bg_home,
@@ -113,8 +117,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     }
 
     private fun recipeActionBar() {
-        viewModel.getMenuItemRecipe()
-            .observe(this, Observer { list -> viewModel.menuAdapter.setList(list = list!!) })
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             "RECIPE",
             null,

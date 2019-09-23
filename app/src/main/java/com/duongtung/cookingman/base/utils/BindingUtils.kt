@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.base.utils
 
 import android.text.Html
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
@@ -42,5 +43,10 @@ object  BindingUtils{
         }else {
             collapsing.context.resources.getDimension(com.duongtung.cookingman.R.dimen.heigh_banner_home)
         }
+    }
+
+    @BindingAdapter("android:visibility")
+    @JvmStatic fun setVisibility(view : View, isVisibility : Boolean){
+        view.visibility = if (isVisibility) View.GONE else View.VISIBLE
     }
 }
