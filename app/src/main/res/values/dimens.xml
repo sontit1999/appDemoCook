@@ -92,5 +92,5 @@
     <dimen name="textsize_title_home">30sp</dimen>
     <dimen name="margin_honizator_search">10dp</dimen>
     <dimen name="heigh_search_home">60dp</dimen>
-    <dimen name="margin_30dp">30dp</dimen>
+    <dimen name="margin_30dp">29dp</dimen>
 </resources>

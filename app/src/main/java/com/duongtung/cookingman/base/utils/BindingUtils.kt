@@ -35,18 +35,25 @@ object  BindingUtils{
 
     @BindingAdapter("app:height")
     @JvmStatic fun setHeight(collapsing : CollapsingToolbarLayout,imageCollapsing : Int?){
+        val resourceId = collapsing.context.resources.getIdentifier("status_bar_height", "dimen", "android")
         val params = collapsing.layoutParams
         val styledAttributes = collapsing.context.theme.obtainStyledAttributes(intArrayOf(android.R.attr.actionBarSize))
+        val statusDimen = collapsing.context.resources.getDimensionPixelSize(resourceId)
          if (imageCollapsing==null){
-             params.height = styledAttributes.getDimension(0, 0f).toInt()
+             params.height = styledAttributes.getDimension(0, 0f).toInt() + statusDimen
             styledAttributes.recycle()
         }else {
-            collapsing.context.resources.getDimension(com.duongtung.cookingman.R.dimen.heigh_banner_home)
+            collapsing.context.resources.getDimension(com.duongtung.cookingman.R.dimen.heigh_banner_home) + statusDimen
         }
     }
 
     @BindingAdapter("android:visibility")
     @JvmStatic fun setVisibility(view : View, isVisibility : Boolean){
         view.visibility = if (isVisibility) View.GONE else View.VISIBLE
+    }
+
+    @BindingAdapter("app:fitSystem")
+    @JvmStatic fun setFitSystem(view: View,imageCollapsing: Int?){
+        view.fitsSystemWindows = imageCollapsing != null
     }
 }

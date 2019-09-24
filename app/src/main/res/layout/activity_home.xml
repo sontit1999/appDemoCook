@@ -13,14 +13,16 @@
     <androidx.drawerlayout.widget.DrawerLayout
             android:id="@+id/drawer"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:fitsSystemWindows="true"
+            android:layout_height="match_parent"
             tools:context=".ui.activity.main.MainActivity"
             tools:openDrawer="start">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                app:statusBarBackground="@android:color/transparent"
+                android:fitsSystemWindows="true"
                 android:background="@color/color_home"
                 tools:context=".ui.home.HomeActivity">
 
