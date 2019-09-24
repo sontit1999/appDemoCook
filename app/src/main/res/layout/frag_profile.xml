@@ -16,7 +16,9 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/containerInfor"
-                android:padding="20dp"
+                android:paddingHorizontal="@dimen/margin_10dp"
+                android:paddingBottom="@dimen/margin_10dp"
+                android:paddingTop="@dimen/itemTypeFood_image_size"
                 app:layout_constraintTop_toTopOf="parent"
                 android:background="@color/colorAccent"
                 android:layout_width="match_parent"
