@@ -37,13 +37,14 @@ class KeepStateNavigator(
             val className = destination.className
             fragment = manager.fragmentFactory.instantiate(context.classLoader, className)
             transaction.add(containerId, fragment, tag)
+            transaction.addToBackStack(tag)
         } else {
             transaction.attach(fragment)
         }
 
         transaction.setPrimaryNavigationFragment(fragment)
         transaction.setReorderingAllowed(true)
-        transaction.commitNow()
+        transaction.commit()
 
         return if (initialNavigate) {
             destination
@@ -51,4 +52,5 @@ class KeepStateNavigator(
             null
         }
     }
+
 }

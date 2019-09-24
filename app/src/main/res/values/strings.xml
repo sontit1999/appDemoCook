@@ -84,4 +84,6 @@
     <string name="menu_search">search</string>
     <string name="icon_home">&#xf015;</string>
     <string name="icon_more_v">&#xf142;</string>
+    <string name="general_settings">GENERAL SETTINGS</string>
+    <string name="chat_preferance">Chat Preferance</string>
 </resources>

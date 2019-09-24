@@ -1,15 +1,16 @@
 package com.duongtung.cookingman.ui.home
 
+import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
-import androidx.navigation.plusAssign
 import androidx.navigation.ui.setupWithNavController
 import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.R
@@ -26,7 +27,7 @@ import com.duongtung.cookingman.fragment.home.HomeFragment
 import com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment
 import com.duongtung.cookingman.fragment.profile.ProfileFragment
 import com.duongtung.cookingman.fragment.recipe.RecipeFragment
-import com.duongtung.cookingman.ui.setting.SettingActivity
+import com.duongtung.cookingman.fragment.setting.SettingFragment
 import com.duongtung.cookingman.ui.splash.SplashActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 
@@ -69,10 +70,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.VISIBLE
             }
+            is SettingFragment -> {
+                viewModel.menuAdapter.changVisibility(6)
+                action = null
+                settingActionbar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
+            }
         }
     }
 
-    lateinit var controller: NavController
+    private lateinit var controller: NavController
+
+    private lateinit var navHostFragment : Fragment
 
     override fun initFragment(fragment: Fragment) {
     }
@@ -91,11 +101,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
 
         controller = findNavController(R.id.frameContent)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.frameContent)!!
+        navHostFragment = supportFragmentManager.findFragmentById(R.id.frameContent)!!
         val navigator = KeepStateNavigator(this, navHostFragment.childFragmentManager, R.id.frameContent)
         controller.navigatorProvider.addNavigator(navigator)
         controller.setGraph(R.navigation.nav_home)
-
         binding.navView.setupWithNavController(controller)
 
 
@@ -128,7 +137,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                         controller.navigate(R.id.profileFragment)
                     }
                     6 -> {
-                        goToActivity(SettingActivity::class.java, null, null)
+                        controller.navigate(R.id.settingFragment)
                     }
                 }
             }
@@ -139,10 +148,32 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
             binding.drawer.closeDrawer(GravityCompat.START)
         } else {
-            super.onBackPressed()
+            Log.d("","onbackpress ${navHostFragment.childFragmentManager.findFragmentById(R.id.frameContent)} ${R.id.homeFragment}")
+            if (navHostFragment.childFragmentManager.findFragmentById(R.id.frameContent) is HomeFragment){
+                finish()
+            }else {
+                super.onBackPressed()
+            }
         }
     }
 
+//    override fun onSupportNavigateUp(): Boolean {
+//        return findNavController(R.id.nav_home).navigateUp()
+//        val hostedFragment = navHost?.childFragmentManager?.primaryNavigationFragment
+//        return when(hostedFragment){
+//            is FragmentB -> {
+//                if(hostedFragment.isInnerFragmentB2Showing()){
+//                    findNavController(R.id.embeddedNavHostFragment).navigateUp()
+//                } else {
+//                    findNavController(R.id.navHost).navigateUp()
+//                }
+//            }
+//            is FragmentA -> {
+//                findNavController(R.id.navHost).navigateUp()
+//            }
+//            else -> false
+//        }
+//    }
 
     private fun homeActionbar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
@@ -223,6 +254,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         }
         binding.actionbar.ivSearch.setOnClickListener {
             binding.actionbar.searchLayout.visibility = View.GONE
+        }
+    }
+    private fun settingActionbar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarBackPress(
+            "Setting",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvleft.setOnClickListener{
+            Log.d("","left click ${navHostFragment.childFragmentManager.backStackEntryCount}")
+            navHostFragment.childFragmentManager.popBackStack()
         }
     }
 

@@ -26,4 +26,8 @@
             android:id="@+id/chatFragment"
             android:name="com.duongtung.cookingman.fragment.chat.ChatFragment"
             android:label="chatFragment" />
+    <keep_state_fragment
+            android:id="@+id/settingFragment"
+            android:name="com.duongtung.cookingman.fragment.setting.SettingFragment"
+            android:label="settingFragment" />
 </navigation>

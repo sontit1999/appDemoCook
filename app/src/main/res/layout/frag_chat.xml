@@ -8,6 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingTop="@dimen/margin_30dp"
             tools:context=".ui.chatlist.ChatlistActivity">
         <LinearLayout
                       android:orientation="vertical"
@@ -18,7 +19,8 @@
                     app:tabMode="fixed"
                     android:background="@color/colorAccent"
                     app:tabSelectedTextColor="#FFFFFF"
-                    app:tabIndicatorColor="@color/yellow"
+                    app:tabTextColor="@color/lighter_gray"
+                    app:tabIndicatorColor="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
             </com.google.android.material.tabs.TabLayout>
