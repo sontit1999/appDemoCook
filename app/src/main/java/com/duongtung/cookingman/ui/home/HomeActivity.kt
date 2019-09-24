@@ -1,6 +1,5 @@
 package com.duongtung.cookingman.ui.home
 
-import android.util.Log
 import android.view.View
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
@@ -9,11 +8,13 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
-import androidx.navigation.Navigation
-import androidx.navigation.ui.NavigationUI
+import androidx.navigation.findNavController
+import androidx.navigation.plusAssign
+import androidx.navigation.ui.setupWithNavController
 import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseActivity
+import com.duongtung.cookingman.base.navigation.KeepStateNavigator
 import com.duongtung.cookingman.base.utils.DataUtilsApplication
 import com.duongtung.cookingman.callback.MenuHomeCallback
 import com.duongtung.cookingman.databinding.ActivityHomeBinding
@@ -25,14 +26,11 @@ import com.duongtung.cookingman.fragment.home.HomeFragment
 import com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment
 import com.duongtung.cookingman.fragment.profile.ProfileFragment
 import com.duongtung.cookingman.fragment.recipe.RecipeFragment
-import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
-import com.duongtung.cookingman.ui.profile.ProfileActivity
 import com.duongtung.cookingman.ui.setting.SettingActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
     override fun onResumeFragment(fragment: Fragment) {
-        Log.d("test","onreseum Fragment in HomeActivity")
         when (fragment) {
             is HomeFragment -> {
                 viewModel.menuAdapter.changVisibility(0)
@@ -59,14 +57,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             is ProfileFragment->{
                 viewModel.menuAdapter.changVisibility(5)
                 action = null
-                ProfileActionBar()
+                profileActionBar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.VISIBLE
             }
             is ChatFragment ->{
                 viewModel.menuAdapter.changVisibility(3)
                 action = null
-                ChatActionBar()
+                chatActionBar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.VISIBLE
             }
@@ -76,29 +74,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     lateinit var controller: NavController
 
     override fun initFragment(fragment: Fragment) {
-        Log.d("test","initFragment in HomeActivity")
-        if (fragment is HomeFragment) {
-            action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
-            homeActionbar()
-            binding.actionbar.collapsingToolbarLayout.layoutParams.height =
-            CookingApplication.getResource().getResource()
-                .getDimensionPixelOffset(R.dimen.heigh_banner_home)
-        } else if (fragment is RecipeFragment) {
-            action = null
-            recipeActionBar()
-            binding.actionbar.tvCenter.visibility = View.VISIBLE
-            binding.actionbar.tvRight.visibility = View.VISIBLE
-        }else if(fragment is ProfileFragment){
-            action = null
-            ProfileActionBar()
-            binding.actionbar.tvCenter.visibility = View.VISIBLE
-            binding.actionbar.tvRight.visibility = View.VISIBLE
-        }else if(fragment is ChatFragment){
-            action = null
-            ChatActionBar()
-            binding.actionbar.tvCenter.visibility = View.VISIBLE
-            binding.actionbar.tvRight.visibility = View.VISIBLE
-        }
     }
 
     override fun getToolbar(): Toolbar? = binding.actionbar.tbBase
@@ -112,8 +87,17 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         binding.actionbar.appBarLayout.addOnOffsetChangedListener(getListener)
         val bindingMenu = DataBindingUtil.findBinding<NavMenuBinding>(binding.navView.navMenu)
         bindingMenu!!.viewModel = viewModel
-        controller = Navigation.findNavController(this, R.id.frameContent)
-        NavigationUI.setupWithNavController(binding.navView, controller)
+
+
+        controller = findNavController(R.id.frameContent)
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.frameContent)!!
+        val navigator = KeepStateNavigator(this, navHostFragment.childFragmentManager, R.id.frameContent)
+        controller.navigatorProvider.addNavigator(navigator)
+        controller.setGraph(R.navigation.nav_home)
+
+        binding.navView.setupWithNavController(controller)
+
+
         binding.actionbar.tvleft.setOnClickListener {
             binding.drawer.openDrawer(GravityCompat.START)
         }
@@ -205,7 +189,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.GONE
         }
     }
-    private fun ChatActionBar() {
+    private fun chatActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             "CHATTING",
             null,
@@ -221,7 +205,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.GONE
         }
     }
-    private fun ProfileActionBar() {
+    private fun profileActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             "PROFILE",
             null,

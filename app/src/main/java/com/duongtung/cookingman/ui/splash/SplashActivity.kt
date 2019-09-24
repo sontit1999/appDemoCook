@@ -22,8 +22,6 @@ import com.duongtung.cookingman.ui.getstart.GetstartActivity
 import com.duongtung.cookingman.ui.home.HomeActivity
 import com.duongtung.cookingman.ui.login.LoginActivity
 import com.duongtung.cookingman.ui.login.LoginEmailActivity
-import com.duongtung.cookingman.ui.recipefood.RecipeActivity
-import com.duongtung.cookingman.ui.setting.SettingActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
     override fun getToolbar(): Toolbar? {
