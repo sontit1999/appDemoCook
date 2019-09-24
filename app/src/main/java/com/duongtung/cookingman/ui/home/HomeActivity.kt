@@ -33,6 +33,9 @@ import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
     override fun onResumeFragment(fragment: Fragment) {
+        binding.actionbar.tvleft.setOnClickListener {
+            binding.drawer.openDrawer(GravityCompat.START)
+        }
         when (fragment) {
             is HomeFragment -> {
                 viewModel.menuAdapter.changVisibility(0)
@@ -148,7 +151,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         if (binding.drawer.isDrawerOpen(GravityCompat.START)) {
             binding.drawer.closeDrawer(GravityCompat.START)
         } else {
-            Log.d("","onbackpress ${navHostFragment.childFragmentManager.findFragmentById(R.id.frameContent)} ${R.id.homeFragment}")
             if (navHostFragment.childFragmentManager.findFragmentById(R.id.frameContent) is HomeFragment){
                 finish()
             }else {
@@ -265,7 +267,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             this
         )
         binding.actionbar.tvleft.setOnClickListener{
-            Log.d("","left click ${navHostFragment.childFragmentManager.backStackEntryCount}")
             navHostFragment.childFragmentManager.popBackStack()
         }
     }
