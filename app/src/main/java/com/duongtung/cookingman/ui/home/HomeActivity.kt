@@ -27,6 +27,7 @@ import com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment
 import com.duongtung.cookingman.fragment.profile.ProfileFragment
 import com.duongtung.cookingman.fragment.recipe.RecipeFragment
 import com.duongtung.cookingman.ui.setting.SettingActivity
+import com.duongtung.cookingman.ui.splash.SplashActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
@@ -104,6 +105,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         viewModel.getMenuItem().observe(this, Observer {
             viewModel.menuAdapter.setList(it)
         })
+        binding.navButton.btnLogout.setOnClickListener{
+            goToActivityAndClearTask(SplashActivity::class.java)
+        }
         viewModel.menuAdapter.setOnMHCallback(object : MenuHomeCallback {
             override fun onCloseDrawer(id: Int) {
                 binding.drawer.closeDrawer(GravityCompat.START)
@@ -175,7 +179,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     private fun newFeedsActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
-            "NEWFEEDS",
+            "NEW FEEDS",
             null,
             getString(R.string.icon_search),
             ContextCompat.getColor(this, R.color.colorAccent),

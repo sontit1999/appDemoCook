@@ -7,6 +7,7 @@
     </data>
 
     <com.duongtung.cookingman.customview.ButtonFont
+            android:id="@+id/btnLogout"
             android:layout_width="match_parent"
             android:gravity="center"
             android:layout_gravity="center"

@@ -15,6 +15,7 @@ import com.duongtung.cookingman.fragment.phone.OnButtonClickListener
 import android.content.Context
 import android.view.inputmethod.InputMethodManager
 import com.duongtung.cookingman.ui.MainActivity
+import com.duongtung.cookingman.ui.home.HomeActivity
 
 
 class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
@@ -25,7 +26,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding, LoginViewModel>(),
 
     override fun onButtonClicked(view: View, boolean : Boolean) {
         if (view.id == R.id.ivBtdone){
-            goToActivity(MainActivity::class.java,null,null)
+            goToActivity(HomeActivity::class.java,null,null)
         }else {
             if (!boolean) {
                 val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager

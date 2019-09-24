@@ -54,8 +54,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
 
         }
         binding.tvGetStarted.setOnClickListener {
-            val intent = Intent(baseContext, GetstartActivity::class.java)
-            startActivity(intent)
+            goToActivity(GetstartActivity::class.java,null,null)
         }
 
         binding.tvCreate.setOnClickListener {

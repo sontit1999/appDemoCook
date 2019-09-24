@@ -25,12 +25,7 @@ class PreferanceFragment : BaseFragment<FragLoginPreferanceBinding, PreferanceVi
         }
     }
     override fun setBindingViewModel() {
-
         binding.viewmodel = viewModel
-//        binding.ivBtdone.setOnClickListener {
-//            var intent = Intent(context,MainActivity::class.java)
-//            startActivity(intent)
-//        }
     }
 
     override fun viewCreated() {

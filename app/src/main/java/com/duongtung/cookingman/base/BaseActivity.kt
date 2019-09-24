@@ -42,6 +42,11 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         if (bundle != null) intent.putExtra(key, bundle)
         startActivity(intent)
     }
+    protected fun goToActivityAndClearTask(activity: Class<*>){
+        val intent = Intent(this, activity)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+    }
 
     private fun hideOption(views : MutableList<View>) {
         for (view in views) {
