@@ -99,4 +99,5 @@
     <dimen name="item_specialfood_heigh_image">150dp</dimen>
     <dimen name="item_specialfood_width_image">250dp</dimen>
     <dimen name="size_title_home">25sp</dimen>
+    <dimen name="height_itemfavorite">200dp</dimen>
 </resources>

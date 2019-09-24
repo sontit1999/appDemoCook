@@ -21,6 +21,7 @@ import com.duongtung.cookingman.callback.MenuHomeCallback
 import com.duongtung.cookingman.databinding.ActivityHomeBinding
 import com.duongtung.cookingman.databinding.NavMenuBinding
 import com.duongtung.cookingman.fragment.chat.ChatFragment
+import com.duongtung.cookingman.fragment.favorite.FavoriteFragment
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.fragment.home.HomeFragment
 
@@ -80,6 +81,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
+            is FavoriteFragment -> {
+                viewModel.menuAdapter.changVisibility(4)
+                action = null
+                favoriteActionBar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
+            }
         }
     }
 
@@ -135,6 +143,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                     }
                     3 -> {
                         controller.navigate(R.id.chatFragment)
+                    }
+                    4 -> {
+                        controller.navigate(R.id.favoriteFragment)
                     }
                     5 -> {
                         controller.navigate(R.id.profileFragment)
@@ -213,6 +224,23 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     private fun newFeedsActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             "NEW FEEDS",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvRight.setOnClickListener {
+
+            binding.actionbar.searchLayout.visibility = View.VISIBLE
+        }
+        binding.actionbar.ivSearch.setOnClickListener {
+            binding.actionbar.searchLayout.visibility = View.GONE
+        }
+    }
+    private fun favoriteActionBar() {
+        Log.d("test","favorite actiobbar")
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "Favorite",
             null,
             getString(R.string.icon_search),
             ContextCompat.getColor(this, R.color.colorAccent),
