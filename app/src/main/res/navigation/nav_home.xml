@@ -30,4 +30,8 @@
             android:id="@+id/settingFragment"
             android:name="com.duongtung.cookingman.fragment.setting.SettingFragment"
             android:label="settingFragment" />
+    <keep_state_fragment
+            android:id="@+id/favoriteFragment"
+            android:name="com.duongtung.cookingman.fragment.favorite.FavoriteFragment"
+            android:label="favoriteFragment" />
 </navigation>

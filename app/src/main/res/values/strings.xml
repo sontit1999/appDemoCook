@@ -50,6 +50,7 @@
     <string name="icon_earth">&#xf0ac;</string>
     <string name="icon_menu">&#xf0c9;</string>
     <string name="icon_message">&#xf0e0;</string>
+    <string name="icon_book">&#xf02d;</string>
     <string name="icon_heart">&#xf004;</string>
     <string name="icon_image">&#xf302;</string>
     <string name="icon_arrowleft">&#xf053;</string>
@@ -72,6 +73,8 @@
     <string name="icon_chathome">&#xf086;</string>
     <string name="icon_info">&#xf05a;</string>
     <string name="icon_share">&#xf1e0;</string>
+    <string name="icon_mess">&#xf7cd;</string>
+    <string name="icon_friend">&#xf007;</string>
     <string name="icon_menupost">&#xf142;</string>
     <string name="icon_bookmark">&#xf02e;</string>
     <string name="add_your_cmt">Add your comment</string>
@@ -84,6 +87,8 @@
     <string name="menu_search">search</string>
     <string name="icon_home">&#xf015;</string>
     <string name="icon_more_v">&#xf142;</string>
+    <string name="icon_address">&#xf3c5;</string>
+    <string name="icon_follow">&#xf2c2;</string>
     <string name="general_settings">GENERAL SETTINGS</string>
     <string name="chat_preferance">Chat Preferance</string>
 </resources>
