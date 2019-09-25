@@ -33,4 +33,5 @@
     <color name="color_describe">#949ea7</color>
     <color name="color_home">#fafafa</color>
     <color name="orange">#fe6d13</color>
+    <color name="black_transparent">#BF000000</color>
 </resources>

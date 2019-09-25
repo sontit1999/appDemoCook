@@ -32,6 +32,7 @@ import com.duongtung.cookingman.fragment.setting.SettingFragment
 import com.duongtung.cookingman.ui.splash.SplashActivity
 import android.view.MotionEvent
 import android.graphics.Rect
+import com.duongtung.cookingman.base.actionbar.Actionbar
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 
@@ -119,10 +120,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
+        binding.actionbar.data = Actionbar()
         binding.actionbar.appBarLayout.addOnOffsetChangedListener(getListener)
         val bindingMenu = DataBindingUtil.findBinding<NavMenuBinding>(binding.navView.navMenu)
         bindingMenu!!.viewModel = viewModel
-
 
         controller = findNavController(R.id.frameContent)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.frameContent)!!
@@ -198,12 +199,17 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     }
 
     private fun homeActionbar() {
-        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
-            title = getString(R.string.home),
-            imageCollapsing = R.drawable.bg_home,
-            rightBtn = getString(R.string.icon_search),
-            context = this
-        )
+        viewModel.getHomeSlider().observe(this, Observer {
+            binding.actionbar.data = DataUtilsApplication.createActionBarHomeWithSlide(
+                title = getString(R.string.home),
+                imageCollapsing = null,
+                rightBtn = getString(R.string.icon_search),
+                context = this,
+                sliders = it
+            )
+            binding.actionbar.imageSlider.startSliding(3000)
+        })
+
         binding.actionbar.tvRight.setOnClickListener {
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }

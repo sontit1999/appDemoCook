@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:binding="http://schemas.android.com/tools">
 
     <data>
 
@@ -23,15 +24,32 @@
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
                 app:height="@{data.imageCollapsing}"
+                app:height_wrapper="@{data.imageSlides}"
                 app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <androidx.appcompat.widget.AppCompatImageView
-                    imageResource="@{data.imageCollapsing}"
+                    setImage="@{data.imageCollapsing}"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
                     android:scaleType="center"
                     app:fitSystem="@{data.imageCollapsing}"
+                    app:layout_collapseMode="parallax"
+                    app:layout_collapseParallaxMultiplier="0.5" />
+
+            <com.duongtung.cookingman.customview.imageslide.ImageSlider
+                    android:id="@+id/imageSlider"
+                    app:auto_cycle="true"
+                    app:period="1000"
+                    app:delay="0"
+                    app:show_dot="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:adjustViewBounds="true"
+                    android:scaleType="center"
+                    android:fitsSystemWindows="true"
+                    app:setViewPagerAdapter="@{data.imageSlides}"
+                    app:imageSliderFitSystem="@{data.imageSlides}"
                     app:layout_collapseMode="parallax"
                     app:layout_collapseParallaxMultiplier="0.5" />
 

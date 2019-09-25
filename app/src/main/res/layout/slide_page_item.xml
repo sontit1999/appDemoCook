@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+                name="item"
+                type="com.duongtung.cookingman.customview.imageslide.ItemImageSlide" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageSlide"
+                android:layout_width="match_parent"
+                setImage="@{item.url}"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                android:layout_height="match_parent" />
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:background="@color/black_transparent"
+                android:paddingBottom="@dimen/margin_30dp"
+                android:layout_height="wrap_content">
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/slideTitle"
+                    android:text="@{item.title}"
+                    android:layout_width="match_parent"
+                    android:textSize="@dimen/textsize_title_home"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:paddingTop="@dimen/margin_10dp"
+                    android:textColor="@color/white"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    app:fontFace="font-roboto-bold"
+                    android:layout_height="wrap_content"/>
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/slideContent"
+                    android:textSize="@dimen/tv_splash_size"
+                    android:text="@{item.description}"
+                    android:maxLines="2"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:textColor="@color/lighter_gray"
+                    android:ellipsize="end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

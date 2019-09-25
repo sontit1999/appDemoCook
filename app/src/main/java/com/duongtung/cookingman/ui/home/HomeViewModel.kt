@@ -1,18 +1,21 @@
 package com.duongtung.cookingman.ui.home
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MenuHomeAdapter
 import com.duongtung.cookingman.adapter.PostHomeAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
+import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
+import com.duongtung.cookingman.customview.imageslide.ViewPagerAdapter
 import com.duongtung.cookingman.model.*
 
 class HomeViewModel : BaseViewModel(){
 
     var menuAdapter = MenuHomeAdapter()
     private var arrMenu = MutableLiveData<MutableList<MenuItem>>()
-
+    private var sliderAdapter = MutableLiveData<MutableList<ItemImageSlide>>()
     fun getMenuItem() : MutableLiveData<MutableList<MenuItem>>{
        val list = listOf(
            MenuItem(-1,CookingApplication.getResource().getString(R.string.icon_account),"Social",false,0),
@@ -29,5 +32,15 @@ class HomeViewModel : BaseViewModel(){
        )
         arrMenu.postValue(list.toMutableList())
         return arrMenu
+    }
+
+    fun getHomeSlider() : MutableLiveData<MutableList<ItemImageSlide>>{
+        val imageList = mutableListOf(
+            ItemImageSlide(R.drawable.bg_home,"Bánh trung thu nhân đậu xanh","Food Republic’s column Ask Your Butcher seeks to answer FAQs in the world of butchery. Ethically minded butcher Bryan Mayer has opened butcher shops and restaurants and has trained butchers in the U.S. and abroad. He helped develop the renowned butcher-training program at Fleishers, where he is currently director of butchery education. In each column, Mayer tackles a pressing issue facing both meat buyers and home cooks. With the Fourth of July weekend approaching, he delves into the world of homemade hot dogs. Now that’s some serious BBQ bragging rights on the line.")
+            ,ItemImageSlide(R.drawable.food,"Bánh trung thu hai trứng","Food Republic’s column Ask Your Butcher seeks to answer FAQs in the world of butchery. Ethically minded butcher Bryan Mayer has opened butcher shops and restaurants and has trained butchers in the U.S. and abroad. He helped develop the renowned butcher-training program at Fleishers, where he is currently director of butchery education. In each column, Mayer tackles a pressing issue facing both meat buyers and home cooks. With the Fourth of July weekend approaching, he delves into the world of homemade hot dogs. Now that’s some serious BBQ bragging rights on the line.")
+            ,ItemImageSlide(R.drawable.bg_home,"Bánh trung thu chay","Food Republic’s column Ask Your Butcher seeks to answer FAQs in the world of butchery. Ethically minded butcher Bryan Mayer has opened butcher shops and restaurants and has trained butchers in the U.S. and abroad. He helped develop the renowned butcher-training program at Fleishers, where he is currently director of butchery education. In each column, Mayer tackles a pressing issue facing both meat buyers and home cooks. With the Fourth of July weekend approaching, he delves into the world of homemade hot dogs. Now that’s some serious BBQ bragging rights on the line.")
+        )
+        sliderAdapter.postValue(imageList)
+        return sliderAdapter
     }
 }
