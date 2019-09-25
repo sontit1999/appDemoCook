@@ -5,6 +5,7 @@ import android.content.Context
 import android.graphics.Color
 import android.util.Log
 import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.Observer
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
 import com.duongtung.cookingman.base.BaseFragment
@@ -29,17 +30,13 @@ class ChatFragment  : BaseFragment<FragChatBinding,ChatViewModel>(){
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
 
-        val myViewPageStateAdapter = MyViewPageStateAdapter(activity!!.supportFragmentManager)
-        myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"Popular Author")
-        myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"Recent People")
-        myViewPageStateAdapter.addFragment(PopularAuthorFragment(),"Other Author")
-        binding.viewPager.adapter = myViewPageStateAdapter
-        binding.tabs.setupWithViewPager(binding.viewPager,true)
 
     }
 
     override fun viewCreated() {
-
+           viewModel.getArrPerson().observe(this, Observer { list->
+               viewModel.adapter.setList(list)
+           })
     }
 
     override fun getLayoutId() = R.layout.frag_chat

@@ -14,7 +14,6 @@
             tools:context=".ui.profile.ProfileActivity">
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recipeFavorite"
-                android:layout_marginTop="50dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 adapter="@{viewmodel.adapter}"
