@@ -10,20 +10,18 @@
                 type="com.duongtung.cookingman.ui.home.HomeViewModel" />
     </data>
 
-    <androidx.drawerlayout.widget.DrawerLayout
+    <com.duongtung.cookingman.customview.FullDrawerLayout
             android:id="@+id/drawer"
             android:layout_width="match_parent"
-            android:fitsSystemWindows="true"
             android:layout_height="match_parent"
-            tools:context=".ui.activity.main.MainActivity"
-            tools:openDrawer="start">
+            tools:context=".ui.activity.main.MainActivity">
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
+                android:id="@+id/content"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:statusBarBackground="@android:color/transparent"
-                android:fitsSystemWindows="true"
                 android:background="@color/color_home"
+                app:statusBarBackground="@android:color/transparent"
                 tools:context=".ui.home.HomeActivity">
 
             <include
@@ -31,8 +29,10 @@
                     layout="@layout/actionbar" />
 
             <FrameLayout
+                    android:id="@+id/frameLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:translationY="-30dp"
                     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
                 <fragment
@@ -41,8 +41,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@null"
-                        app:defaultNavHost="true"/>
+                        app:defaultNavHost="true"
+                        app:layout_anchor="@+id/frameLayout"
+                        app:layout_anchorGravity="center" />
             </FrameLayout>
+
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
         <com.google.android.material.navigation.NavigationView
@@ -50,6 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="start"
+                android:background="@null"
                 android:fitsSystemWindows="true"
                 app:layout_behavior="com.google.android.material.appbar.AppBarLayout$Behavior">
 
@@ -70,6 +74,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                        android:id="@+id/navFooterLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:layout_constraintBottom_toBottomOf="parent">
@@ -80,16 +85,21 @@
                 </LinearLayout>
 
                 <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="@dimen/heigh_logo_login"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_20dp"
                         android:layout_marginTop="@dimen/itemcomment_padding"
+                        android:background="@android:color/transparent"
+                        app:layout_constraintBottom_toTopOf="@+id/navFooterLayout"
+                        app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/navHeaderLayout">
 
                     <include
                             android:id="@+id/navMenu"
-                            layout="@layout/nav_menu" />
+                            layout="@layout/nav_menu"
+                            android:background="@android:color/transparent" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </com.google.android.material.navigation.NavigationView>
-    </androidx.drawerlayout.widget.DrawerLayout>
+    </com.duongtung.cookingman.customview.FullDrawerLayout>
 </layout>

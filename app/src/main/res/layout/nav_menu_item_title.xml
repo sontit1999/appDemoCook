@@ -9,7 +9,7 @@
     </data>
     <com.duongtung.cookingman.customview.TextViewWithFontAwesome
             android:id="@+id/itemMenu"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:padding="@dimen/itemcomment_padding"
             app:fontFaceText="font-roboto-regular"
             android:text="@{item.title.toUpperCase()}"
