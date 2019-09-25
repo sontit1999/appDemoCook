@@ -91,4 +91,6 @@
     <string name="icon_follow">&#xf2c2;</string>
     <string name="general_settings">GENERAL SETTINGS</string>
     <string name="chat_preferance">Chat Preferance</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
 </resources>

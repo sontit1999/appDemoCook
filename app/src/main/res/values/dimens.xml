@@ -93,4 +93,8 @@
     <dimen name="margin_honizator_search">10dp</dimen>
     <dimen name="heigh_search_home">60dp</dimen>
     <dimen name="margin_30dp">29dp</dimen>
+    <dimen name="margin_20dp">20dp</dimen>
+    <dimen name="size_avatar">100dp</dimen>
+    <dimen name="height_itemfavorite">200dp</dimen>
+    <dimen name="height_image_anhbia">200dp</dimen>
 </resources>
