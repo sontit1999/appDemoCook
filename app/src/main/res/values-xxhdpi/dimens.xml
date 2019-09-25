@@ -100,4 +100,6 @@
     <dimen name="item_specialfood_width_image">250dp</dimen>
     <dimen name="size_title_home">25sp</dimen>
     <dimen name="height_itemfavorite">200dp</dimen>
+    <dimen name="height_image_anhbia">200dp</dimen>
+    <dimen name="size_avatar">100dp</dimen>
 </resources>
