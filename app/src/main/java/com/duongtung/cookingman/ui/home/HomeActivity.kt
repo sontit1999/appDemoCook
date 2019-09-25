@@ -32,7 +32,9 @@ import com.duongtung.cookingman.fragment.setting.SettingFragment
 import com.duongtung.cookingman.ui.splash.SplashActivity
 import android.view.MotionEvent
 import android.graphics.Rect
+import android.util.Log
 import com.duongtung.cookingman.base.actionbar.Actionbar
+import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 
@@ -43,6 +45,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     private lateinit var toggle: ActionBarDrawerToggle
 
+    private var imageList: MutableList<ItemImageSlide>? = mutableListOf()
+
     override fun onResumeFragment(fragment: Fragment) {
         binding.actionbar.tvleft.setOnClickListener {
             binding.drawer.openDrawer(GravityCompat.START)
@@ -50,6 +54,8 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         }
         binding.drawer.addDrawerListener(toggle)
         toggle.syncState()
+        binding.actionbar.imageSlider.visibility = View.GONE
+
         val resourceId = resources.getIdentifier("status_bar_height", "dimen", "android")
         val statusDimen = resources.getDimensionPixelSize(resourceId)
         when (fragment) {
@@ -60,6 +66,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.collapsingToolbarLayout.layoutParams.height =
                     CookingApplication.getResource().getResource()
                         .getDimensionPixelOffset(R.dimen.heigh_banner_home) +statusDimen
+                binding.actionbar.imageSlider.visibility = View.VISIBLE
             }
             is NewFeedsFragment -> {
                 viewModel.menuAdapter.changVisibility(1)
@@ -81,7 +88,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 profileActionBar()
                 binding.actionbar.collapsingToolbarLayout.layoutParams.height =
                     CookingApplication.getResource().getResource()
-                        .getDimensionPixelOffset(R.dimen.heigh_banner_home)+statusDimen
+                        .getDimensionPixelOffset(R.dimen.heigh_banner_home) + statusDimen
             }
             is ChatFragment -> {
                 viewModel.menuAdapter.changVisibility(3)
@@ -120,11 +127,14 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        binding.actionbar.data = Actionbar()
         binding.actionbar.appBarLayout.addOnOffsetChangedListener(getListener)
         val bindingMenu = DataBindingUtil.findBinding<NavMenuBinding>(binding.navView.navMenu)
         bindingMenu!!.viewModel = viewModel
 
+        viewModel.getHomeSlider().observe(this, Observer {
+            imageList = it
+            binding.actionbar.imageSlider.setImageList(imageList!!)
+        })
         controller = findNavController(R.id.frameContent)
         navHostFragment = supportFragmentManager.findFragmentById(R.id.frameContent)!!
         val navigator =
@@ -199,24 +209,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     }
 
     private fun homeActionbar() {
-        viewModel.getHomeSlider().observe(this, Observer {
-            binding.actionbar.data = DataUtilsApplication.createActionBarHomeWithSlide(
-                title = getString(R.string.home),
-                imageCollapsing = null,
-                rightBtn = getString(R.string.icon_search),
-                context = this,
-                sliders = it
-            )
-            binding.actionbar.imageSlider.startSliding(3000)
-        })
-
+        binding.actionbar.data = DataUtilsApplication.createActionBarHomeWithSlide(
+            title = getString(R.string.home),
+            imageCollapsing = null,
+            rightBtn = getString(R.string.icon_search),
+            context = this,
+            sliders = imageList
+        )
         binding.actionbar.tvRight.setOnClickListener {
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }
         binding.actionbar.ivSearch.setOnClickListener {
             binding.actionbar.searchLayout.visibility = View.GONE
         }
-
     }
 
     private fun recipeActionBar() {
@@ -252,6 +257,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.GONE
         }
     }
+
     private fun favoriteActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             "Favorite",
@@ -320,9 +326,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         binding.navView.navMenu.getGlobalVisibleRect(viewRectMenu)
         binding.navView.navFooterLayout.getGlobalVisibleRect(viewRectFooter)
         binding.navView.navHeader.getGlobalVisibleRect(viewRectHeader)
-        if (!viewRectMenu.contains(ev.rawX.toInt(), ev.rawY.toInt())&&
-            !viewRectFooter.contains(ev.rawX.toInt(), ev.rawY.toInt())&&
-            !viewRectHeader.contains(ev.rawX.toInt(), ev.rawY.toInt())) {
+        if (!viewRectMenu.contains(ev.rawX.toInt(), ev.rawY.toInt()) &&
+            !viewRectFooter.contains(ev.rawX.toInt(), ev.rawY.toInt()) &&
+            !viewRectHeader.contains(ev.rawX.toInt(), ev.rawY.toInt())
+        ) {
             if (binding.drawer.isDrawerOpen(GravityCompat.START))
                 binding.drawer.closeDrawer(GravityCompat.START)
         }

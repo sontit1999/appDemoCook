@@ -3,6 +3,7 @@ package com.duongtung.cookingman.customview.imageslide
 import android.content.Context
 import android.os.Handler
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.LinearLayout
@@ -20,7 +21,7 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
     private var binding : ImageSliderBinding =
         DataBindingUtil.inflate(LayoutInflater.from(context),R.layout.image_slider,this,true)
 
-    private var viewPagerAdapter: ViewPagerAdapter? = null
+    private var viewPagerAdapter: ViewPagerAdapter? = ViewPagerAdapter(context)
 
     private var dots: Array<ImageView?>? = null
 
@@ -46,7 +47,7 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
         val typedArray = context.theme.obtainStyledAttributes(attrs, R.styleable.ImageSlider, defStyleAttr, defStyleAttr)
 
         cornerRadius = typedArray.getInt(R.styleable.ImageSlider_corner_radius, 0)
-        period = typedArray.getInt(R.styleable.ImageSlider_period, 1000).toLong()
+        period = typedArray.getInt(R.styleable.ImageSlider_period, 10000).toLong()
         delay = typedArray.getInt(R.styleable.ImageSlider_delay, 1000).toLong()
         autoCycle = typedArray.getBoolean(R.styleable.ImageSlider_auto_cycle, false)
         placeholder = typedArray.getResourceId(R.styleable.ImageSlider_placeholder, R.drawable.food)
@@ -56,11 +57,13 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
         isShow = typedArray.getBoolean(R.styleable.ImageSlider_show_dot,false)
 
         typedArray.recycle()
+
+        binding.viewPager.adapter = viewPagerAdapter
+
     }
 
-    fun setImageList(imageList: List<ItemImageSlide>, centerCrop: Boolean = true) {
-        viewPagerAdapter = ViewPagerAdapter(context, imageList)
-        binding.viewPager.adapter = viewPagerAdapter
+    fun setImageList(imageList: MutableList<ItemImageSlide>, centerCrop: Boolean = true) {
+        viewPagerAdapter!!.setListData(imageList)
         imageCount = imageList.size
         if (imageList.size > 1){
             setupDots(imageList.size)
@@ -71,31 +74,33 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
     }
 
     private fun setupDots(size: Int) {
-        if (!isShow) return
-        binding.pagerDots!!.removeAllViews()
-        dots = arrayOfNulls(size)
+        if (isShow) {
+            binding.pagerDots!!.removeAllViews()
+            dots = arrayOfNulls(size)
 
-        for (i in 0 until size) {
-            dots!![i] = ImageView(context)
-            dots!![i]!!.setImageDrawable(ContextCompat.getDrawable(context, unselectedDot))
-            val params = LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT
-            )
-            params.setMargins(8, 0, 8, 0)
-            binding.pagerDots!!.addView(dots!![i], params)
+            for (i in 0 until size) {
+                dots!![i] = ImageView(context)
+                dots!![i]!!.setImageDrawable(ContextCompat.getDrawable(context, unselectedDot))
+                val params = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT
+                )
+                params.setMargins(8, 0, 8, 0)
+                binding.pagerDots!!.addView(dots!![i], params)
+            }
+            dots!![0]!!.setImageDrawable(ContextCompat.getDrawable(context, selectedDot))
         }
-        dots!![0]!!.setImageDrawable(ContextCompat.getDrawable(context, selectedDot))
-
         binding.viewPager!!.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {}
 
             override fun onPageSelected(position: Int) {
                 currentPage = position
-                for (dot in dots!!) {
-                    dot!!.setImageDrawable(ContextCompat.getDrawable(context, unselectedDot))
+                if (isShow){
+                    for (dot in dots!!) {
+                        dot!!.setImageDrawable(ContextCompat.getDrawable(context, unselectedDot))
+                    }
+                    dots!![position]!!.setImageDrawable(ContextCompat.getDrawable(context, selectedDot))
                 }
-                dots!![position]!!.setImageDrawable(ContextCompat.getDrawable(context, selectedDot))
             }
 
             override fun onPageScrollStateChanged(state: Int) {}
@@ -116,8 +121,13 @@ class ImageSlider @JvmOverloads constructor(context: Context, attrs: AttributeSe
         val update = Runnable {
             if (currentPage == imageCount) {
                 currentPage = 0
+                binding.viewPager!!.setCurrentItem(currentPage,false)
+            }else {
+                binding.viewPager!!.setCurrentItem(
+                    currentPage++
+                    , true
+                )
             }
-            binding.viewPager!!.setCurrentItem(currentPage++, true)
         }
         swipeTimer = Timer()
         swipeTimer.schedule(object : TimerTask() {

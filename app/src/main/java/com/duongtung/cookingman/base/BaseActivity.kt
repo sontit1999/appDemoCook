@@ -28,12 +28,13 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, getLayout())
         viewModel = ViewModelProviders.of(this).get(getViewMode())
-        setBindingViewModel()
         if (getToolbar() != null) {
             setSupportActionBar(getToolbar())
             supportActionBar!!.setDisplayShowTitleEnabled(false)
             supportActionBar!!.setDisplayShowHomeEnabled(true)
         }
+        setBindingViewModel()
+
 
     }
 

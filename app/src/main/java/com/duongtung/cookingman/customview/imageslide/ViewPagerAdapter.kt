@@ -10,11 +10,11 @@ import androidx.viewpager.widget.PagerAdapter
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.databinding.SlidePageItemBinding
 
-class ViewPagerAdapter(context: Context?, imageList: List<ItemImageSlide>) : PagerAdapter() {
+class ViewPagerAdapter(context: Context?) : PagerAdapter() {
     interface ItemClickListener {
         fun onItemSelected(position : Int){}
     }
-    private var imageList: List<ItemImageSlide>? = imageList
+    private var imageList: MutableList<ItemImageSlide>? = mutableListOf()
     private var layoutInflater: LayoutInflater? = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
     private lateinit var binding : SlidePageItemBinding
     private var itemClickListener: ItemClickListener? = null
@@ -27,12 +27,18 @@ class ViewPagerAdapter(context: Context?, imageList: List<ItemImageSlide>) : Pag
         return imageList!!.size
     }
 
+    fun setListData(imageList : MutableList<ItemImageSlide>){
+        this.imageList = imageList
+        notifyDataSetChanged()
+    }
+
     override fun instantiateItem(container: ViewGroup, position: Int): View{
         binding = DataBindingUtil.inflate(layoutInflater!!,R.layout.slide_page_item,container,false)
         binding.item = imageList!![position]
         binding.root.setOnClickListener{
             itemClickListener?.onItemSelected(position)
         }
+        container.addView(binding.root)
         return binding.root
     }
 
