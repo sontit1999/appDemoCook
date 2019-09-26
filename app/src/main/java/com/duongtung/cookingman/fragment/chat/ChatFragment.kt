@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.util.Log
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.MyViewPageStateAdapter
 import com.duongtung.cookingman.base.BaseFragment
@@ -29,7 +30,7 @@ class ChatFragment  : BaseFragment<FragChatBinding,ChatViewModel>(){
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-
+        binding.recyclerviewPopularAuthor.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
     }
 

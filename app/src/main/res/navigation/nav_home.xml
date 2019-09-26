@@ -42,4 +42,8 @@
             android:id="@+id/detailCookFragment"
             android:name="com.duongtung.cookingman.fragment.detailcook.DetailCookFragment"
             android:label="DetailCookFragment" />
+    <keep_state_fragment
+            android:id="@+id/SearchResultFragment"
+            android:name="com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment"
+            android:label="SearchResultFragment" />
 </navigation>

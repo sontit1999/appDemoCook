@@ -6,6 +6,7 @@
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:padding="@dimen/itemchatlist_padding"
+            android:layout_marginTop="@dimen/margin_10dp"
             android:background="@color/white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
