@@ -13,8 +13,8 @@
     <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/appBarLayout"
             android:layout_width="match_parent"
-            android:fitsSystemWindows="true"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
                 android:id="@+id/collapsingToolbarLayout"
@@ -27,40 +27,103 @@
                 app:height_wrapper="@{data.imageSlides}"
                 app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/imageCollapsing"
-                    setImage="@{data.imageCollapsing}"
+            <FrameLayout
+                    android:id="@+id/layoutCollapsing"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:adjustViewBounds="true"
-                    android:scaleType="centerCrop"
                     app:fitSystem="@{data.imageCollapsing}"
                     app:layout_collapseMode="parallax"
-                    app:layout_collapseParallaxMultiplier="0.5" />
+                    app:visible="@{data.imageCollapsing}"
+                    app:layout_collapseParallaxMultiplier="0.5">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imageCollapsing"
+                        setImage="@{data.imageCollapsing}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
+                        android:scaleType="centerCrop"
+                        app:fitSystem="@{data.imageCollapsing}"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        app:visible="@{data.imageTitle}"
+                        android:background="@android:color/transparent"
+                        android:padding="@dimen/margin_10dp"
+                        android:layout_height="match_parent">
+
+                    <LinearLayout
+                            android:id="@+id/layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:orientation="horizontal">
+
+                        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                android:id="@+id/tv_time"
+                                app:iconLeft="@string/icon_clock"
+                                app:iconTextSize="@dimen/tv_splash_size"
+                                android:layout_marginLeft="@dimen/margin_10dp"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:iconColor="@color/orange"
+                                android:drawablePadding="@dimen/margin_10dp"
+                                android:text="@{data.time}"
+                                android:textColor="@color/white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+                        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                app:iconLeft="@string/icon_fire"
+                                app:iconTextSize="@dimen/tv_splash_size"
+                                app:iconColor="@color/orange"
+                                android:layout_marginLeft="@dimen/margin_20dp"
+                                android:drawablePadding="@dimen/margin_10dp"
+                                android:text="@{data.cals}"
+                                android:textColor="@color/white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+                    </LinearLayout>
+                    <com.duongtung.cookingman.customview.CustomTextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:maxLines="2"
+                            android:padding="@dimen/margin_10dp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toTopOf="@+id/layout"
+                            android:text="@{data.title}"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/textsize_tvActionbar"
+                            app:fontFace="font-roboto-bold" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </FrameLayout>
 
             <com.duongtung.cookingman.customview.imageslide.ImageSlider
                     android:id="@+id/imageSlider"
-                    app:auto_cycle="true"
-                    app:period="60000"
-                    app:delay="0"
-                    app:show_dot="false"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:scaleType="center"
                     android:fitsSystemWindows="true"
-                    app:setViewPagerAdapter="@{data.imageSlides}"
+                    android:scaleType="center"
+                    app:auto_cycle="true"
+                    app:delay="0"
                     app:imageSliderFitSystem="@{data.imageSlides}"
                     app:layout_collapseMode="parallax"
-                    app:layout_collapseParallaxMultiplier="0.5" />
+                    app:layout_collapseParallaxMultiplier="0.5"
+                    app:period="60000"
+                    app:setViewPagerAdapter="@{data.imageSlides}"
+                    app:show_dot="false" />
 
             <androidx.appcompat.widget.Toolbar
                     android:id="@+id/tbBase"
                     android:layout_width="match_parent"
                     android:layout_height="?android:attr/actionBarSize"
                     android:background="@{data.backgroundActionBar}"
-                    app:layout_collapseMode="pin"
                     android:gravity="center_horizontal"
+                    app:layout_collapseMode="pin"
                     app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
@@ -76,7 +139,6 @@
                         app:iconTextSize="@dimen/textsize_tvActionbar" />
 
 
-
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tvSubRight"
                         android:layout_width="wrap_content"
@@ -88,46 +150,48 @@
                         android:textSize="@dimen/textsize_tvActionbar"
                         app:iconLeft="@{data.subRightImage}"
                         app:iconTextSize="@dimen/textsize_tvActionbar" />
+
                 <LinearLayout
                         android:id="@+id/searchLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/bg_search"
                         android:layout_marginLeft="@dimen/splash_margin"
-                        android:visibility="gone"
-                        android:orientation="horizontal">
+                        android:background="@drawable/bg_search"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
 
                     <com.duongtung.cookingman.customview.CustomEditText
                             android:id="@+id/etSearch"
-                            android:hint="@android:string/search_go"
-                            android:layout_weight="1"
-                            android:padding="8dp"
                             android:layout_width="0dp"
-                            android:textSize="@dimen/text_size_chat"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:background="@null"
+                            android:hint="@android:string/search_go"
+                            android:padding="8dp"
                             android:textColor="@color/colorAccent"
-                            android:layout_height="wrap_content"/>
+                            android:textSize="@dimen/text_size_chat" />
+
                     <View
                             android:layout_width="1px"
                             android:layout_height="match_parent"
-                            android:background="@color/lighter_gray"
+                            android:layout_gravity="center"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
-                            android:layout_gravity="center"
-                            />
+                            android:background="@color/lighter_gray" />
+
                     <com.duongtung.cookingman.customview.CustomTextView
                             android:id="@+id/ivSearch"
-                            android:padding="@dimen/margin_10dp"
-                            android:textColor="@color/colorAccent"
-                            app:fontFace="font-awesome-solid"
-                            android:text="@string/icon_search"
-                            android:layout_marginRight="@dimen/margin_10dp"
-                            android:layout_gravity="center"
-                            android:textSize="@dimen/text_size_chat"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            />
+                            android:layout_gravity="center"
+                            android:layout_marginRight="@dimen/margin_10dp"
+                            android:padding="@dimen/margin_10dp"
+                            android:text="@string/icon_search"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/text_size_chat"
+                            app:fontFace="font-awesome-solid" />
                 </LinearLayout>
+
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tvRight"
                         android:layout_width="wrap_content"

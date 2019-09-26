@@ -6,6 +6,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
+import kotlin.Comparator
+
 
 abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     RecyclerView.Adapter<BaseMultiViewHolderAdapter.BaseViewMultiHolder<D>>() {
@@ -19,16 +21,21 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
         this.dataList = list
         notifyDataSetChanged()
     }
+
+    fun setListSort(list: MutableList<D>) {
+        list.sortWith(Comparator { object1, object2 -> object1.groupType!!.compareTo(object2.groupType!!) })
+        this.dataList = list
+        notifyDataSetChanged()
+    }
     fun getList() = dataList
 
     fun addElement(t: D) {
-        dataList.add(t)
-        notifyDataSetChanged()
+        addElementPosition(t,0)
     }
 
     fun addElementPosition(t: D, i: Int) {
         dataList.add(i, t)
-        notifyDataSetChanged()
+        notifyItemRangeChanged(i,dataList.size-1)
     }
 
     fun getElementPosition(i: Int): D {
@@ -40,7 +47,7 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     }
 
     override fun getItemViewType(position: Int): Int {
-        return dataList[position].viewType
+        return getElementPosition(position).viewType!!
     }
 
     override fun getItemCount(): Int {
@@ -50,15 +57,16 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
         return false
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewMultiHolder<D> {
-        val binding : ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),getLayoutId()[viewType]!!,parent,false)
+        val binding : ViewDataBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
+            getLayoutId()[viewType],parent,false)
         return BaseViewMultiHolder(binding)
     }
-
+    open fun updateViewHolder(holder: BaseViewMultiHolder<D>, objects : D,viewType : Int,position: Int){}
 
     override fun onBindViewHolder(holder: BaseViewMultiHolder<D>, position: Int) {
-        if (!isVisibility(dataList[position])) {
+        if (!isVisibility(getElementPosition(position))) {
             holder.itemView.layoutParams = RecyclerView.LayoutParams(RecyclerView.LayoutParams.MATCH_PARENT,RecyclerView.LayoutParams.WRAP_CONTENT)
-            holder.setVariable(getVariableId()[getItemViewType(position)], dataList[position])
+            holder.setVariable(getVariableId()[getItemViewType(position)], getElementPosition(position))
             if (getOnClick() != null && getIdVariableOnClick()?.get(getItemViewType(position)) != null)
                 holder.setClickAdapter(
                     getIdVariableOnClick()?.get(getItemViewType(position))!!,
@@ -67,6 +75,7 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
         }else{
             holder.itemView.layoutParams = RecyclerView.LayoutParams(0,0)
         }
+        updateViewHolder(holder, getElementPosition(position),getItemViewType(position),position)
     }
 
 
