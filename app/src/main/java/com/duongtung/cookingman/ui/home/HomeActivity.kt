@@ -32,8 +32,6 @@ import com.duongtung.cookingman.fragment.setting.SettingFragment
 import com.duongtung.cookingman.ui.splash.SplashActivity
 import android.view.MotionEvent
 import android.graphics.Rect
-import android.util.Log
-import com.duongtung.cookingman.base.actionbar.Actionbar
 import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
 import kotlinx.android.synthetic.main.activity_home.view.*
 
@@ -162,7 +160,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         }
 
         viewModel.getMenuItem().observe(this, Observer {
-            viewModel.menuAdapter.setList(it)
+            viewModel.menuAdapter.setListSort(it)
         })
         binding.navButton.btnLogout.setOnClickListener {
             goToActivityAndClearTask(SplashActivity::class.java)
@@ -302,9 +300,9 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }
         binding.actionbar.ivSearch.setOnClickListener {
-            binding.actionbar.searchLayout.visibility = View.GONE
-        }
+        binding.actionbar.searchLayout.visibility = View.GONE
     }
+}
 
     private fun settingActionbar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarBackPress(
