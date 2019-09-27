@@ -11,6 +11,8 @@ object FontCache {
 
     const val FA_FONT_SOLID = "fa-solid-900.ttf"
 
+    const val FA_FONT_SOLID_OTF = "fa-solid-900.otf"
+
     const val FA_FONT_BRANDS = "fa-brands-400.ttf"
 
     const val FA_FONT_LIGHT = "fa-light-300.ttf"
@@ -31,7 +33,7 @@ object FontCache {
 
     const val FONT_ROBOTO_THIN = "Roboto-Thin.ttf"
 
-    private val fontCache = Hashtable<String,Typeface>()
+    private val fontCache = Hashtable<String, Typeface>()
     @JvmStatic
     fun get(context: Context, name: String): Typeface? {
         var typeface = fontCache[name]
@@ -46,8 +48,9 @@ object FontCache {
         }
         return typeface
     }
+
     @JvmStatic
-    fun getTyface(context: Context,typeFace : Int) : Typeface?{
+    fun getTyface(context: Context, typeFace: Int): Typeface? {
         when (typeFace) {
             0 -> return get(context, FA_FONT_LIGHT)
             1 -> return get(context, FA_FONT_BRANDS)
@@ -61,6 +64,7 @@ object FontCache {
             9 -> return get(context, FONT_ROBOTO_LIGHT)
             10 -> return get(context, FONT_ROBOTO_ITALIC)
             11 -> return get(context, FONT_ROBOTO_BOLD)
+            12 -> return get(context, FA_FONT_SOLID_OTF)
         }
         return get(context, FA_FONT_LIGHT)
     }

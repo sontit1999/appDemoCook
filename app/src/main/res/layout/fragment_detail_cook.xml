@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+                name="viewModel"
+                type="com.duongtung.cookingman.fragment.detailcook.DetailCookViewModel"/>
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcCal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_20dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/tvIngredients"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:text="@string/ingredients"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textsize_title_home"
+                    app:fontFace="font-roboto-bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rcCal" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcIngredients"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_20dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
+
+            <com.duongtung.cookingman.customview.ButtonFont
+                    android:id="@+id/addToShopList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_20dp"
+                    android:background="@drawable/tvgetcreate"
+                    android:text="@string/add_to_shopping_list"
+                    android:textColor="@color/white"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rcIngredients" />
+
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/tvHowToCook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:text="@string/how_to_cook"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textsize_title_home"
+                    app:fontFace="font-roboto-bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/addToShopList" />
+
+            <com.duongtung.cookingman.customview.ButtonFont
+                    android:id="@+id/btnStartCooking"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:background="@drawable/tvgetcreate"
+                    android:text="@string/start_cooking_now"
+                    android:textColor="@color/white"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvHowToCook" />
+
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/tvReviews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:text="@string/reviews"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/textsize_title_home"
+                    app:fontFace="font-roboto-bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnStartCooking" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcReviews"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_20dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvReviews" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

@@ -33,6 +33,7 @@ import com.duongtung.cookingman.ui.splash.SplashActivity
 import android.view.MotionEvent
 import android.graphics.Rect
 import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
+import com.duongtung.cookingman.fragment.detailcook.DetailCookFragment
 import kotlinx.android.synthetic.main.activity_home.view.*
 
 
@@ -108,6 +109,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 favoriteActionBar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.INVISIBLE
+            }
+            is DetailCookFragment->{
+                action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
+                detailActionBar()
+                binding.actionbar.collapsingToolbarLayout.layoutParams.height =
+                    CookingApplication.getResource().getResource()
+                        .getDimensionPixelOffset(R.dimen.heigh_banner_home) +statusDimen
             }
         }
         binding.drawer.closeDrawer(GravityCompat.START)
@@ -311,6 +319,21 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             getString(R.string.icon_search),
             ContextCompat.getColor(this, R.color.colorAccent),
             this
+        )
+        binding.actionbar.tvleft.setOnClickListener {
+            navHostFragment.childFragmentManager.popBackStack()
+        }
+    }
+
+    private fun detailActionBar(){
+        binding.actionbar.data = DataUtilsApplication.createActionBarDetails(
+            title = "Detail",
+            imageCollapsing = R.drawable.food,
+            time = "2h30",
+            cal = "400 cal",
+            rank = 3.5f,
+            context = this,
+            imageTitle = "Details Cooking Master"
         )
         binding.actionbar.tvleft.setOnClickListener {
             navHostFragment.childFragmentManager.popBackStack()

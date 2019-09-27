@@ -67,7 +67,7 @@
                                 app:iconTextSize="25sp"
                                 app:iconColor="@color/colorRed"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+                                android:layout_height="wrap_content"/>
                         <com.duongtung.cookingman.customview.CustomTextView
                                 android:id="@+id/tvTime"
                                 android:textStyle="italic"
@@ -99,7 +99,7 @@
                     <ImageView
                             android:id="@+id/ivImage"
                             android:scaleType="fitXY"
-                            android:onClick="@{(view)->callback.onImagefoodclick(view,post)}"
+                            android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
                             app:layout_constraintTop_toBottomOf="@id/tvcontent"
                             app:layout_constraintLeft_toLeftOf="parent"
                             app:layout_constraintRight_toRightOf="parent"

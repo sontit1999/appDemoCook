@@ -93,4 +93,11 @@
     <string name="chat_preferance">Chat Preferance</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="icon_star_rating">&#xf005;</string>
+    <string name="icon_star_rating_half">&#xf5c0;</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="add_to_shopping_list">Add To Shopping List</string>
+    <string name="how_to_cook">How to cook?</string>
+    <string name="start_cooking_now">START COOKING NOW</string>
+    <string name="reviews">Reviews</string>
 </resources>

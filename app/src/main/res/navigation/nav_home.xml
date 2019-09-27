@@ -5,7 +5,11 @@
     <keep_state_fragment
             android:id="@+id/homeFragment"
             android:name="com.duongtung.cookingman.fragment.home.HomeFragment"
-            android:label="HomeFragment" />
+            android:label="HomeFragment" >
+        <action
+                android:id="@+id/action_homeFragment_to_detailCookFragment"
+                app:destination="@id/detailCookFragment" />
+    </keep_state_fragment>
     <keep_state_fragment
             android:id="@+id/recipeFragment"
             android:name="com.duongtung.cookingman.fragment.recipe.RecipeFragment"
@@ -34,4 +38,8 @@
             android:id="@+id/favoriteFragment"
             android:name="com.duongtung.cookingman.fragment.favorite.FavoriteFragment"
             android:label="favoriteFragment" />
+    <keep_state_fragment
+            android:id="@+id/detailCookFragment"
+            android:name="com.duongtung.cookingman.fragment.detailcook.DetailCookFragment"
+            android:label="DetailCookFragment" />
 </navigation>

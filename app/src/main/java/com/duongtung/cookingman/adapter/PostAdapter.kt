@@ -16,7 +16,13 @@ import com.duongtung.cookingman.databinding.ItemPostBinding
 import com.duongtung.cookingman.model.Post
 
 class PostAdapter : BaseAdapter<Post,ItemPostBinding>(){
-    override fun getOnClick()= PostCallback()
+    private var callBack : PostCallback?= null
+
+    fun setCallBack( callBack: PostCallback?){
+        this.callBack = callBack
+    }
+
+    override fun getOnClick()= callBack
 
     override fun getIdVariableOnClick() = BR.callback
 

@@ -37,4 +37,13 @@ object DataUtilsApplication{
             rightButtonImage = rightBtn , backgroundActionBar = backgroundActionBar,
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
     }
+
+    @JvmStatic
+    fun createActionBarDetails(title: String?,imageTitle: String?,time: String?,cal: String?,rank: Float?,
+                               imageCollapsing: Int?,backgroundActionBar : Int?=Color.TRANSPARENT,
+                               context: Context): Actionbar{
+        return Actionbar(title = title, leftButtonImage =  context.getString(R.string.icon_arrow_left),
+            backgroundActionBar = backgroundActionBar, imageCollapsing = imageCollapsing,time = time,
+            imageTitle = imageTitle, cals = cal,rank = rank)
+    }
 }

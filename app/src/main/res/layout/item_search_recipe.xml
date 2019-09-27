@@ -15,6 +15,6 @@
                 android:textSize="@dimen/textview_main__content_size"
                 android:text="@{recipe.nameFood}"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+                android:layout_height="match_parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
