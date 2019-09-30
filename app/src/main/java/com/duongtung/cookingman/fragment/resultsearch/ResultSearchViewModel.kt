@@ -1,13 +1,15 @@
-package com.duongtung.cookingman.ui.profile
+package com.duongtung.cookingman.fragment.resultsearch
+
 import androidx.lifecycle.MutableLiveData
-import com.duongtung.cookingman.adapter.RecipeAdapter
+import com.duongtung.cookingman.adapter.PostAdapter
+import com.duongtung.cookingman.adapter.SearchResultAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import com.duongtung.cookingman.model.*
 
-class ProfileViewModel : BaseViewModel() {
-    var adapter = RecipeAdapter()
-    private var arrRecipe = MutableLiveData<MutableList<Post>>()
-    fun getArrRecipe(): MutableLiveData<MutableList<Post>> {
+class ResultSearchViewModel : BaseViewModel(){
+    var adapter = SearchResultAdapter()
+    private var arrPost = MutableLiveData<MutableList<Post>>()
+    fun getArrPost(): MutableLiveData<MutableList<Post>> {
         val list = listOf(
             (Post(
                 User(
@@ -233,9 +235,10 @@ class ProfileViewModel : BaseViewModel() {
                 "1 phút trước",
                 listOf(Comment(1, User(1, "Sơn kute", "https://static1.bestie.vn/Mlog/ImageContent/201906/boc-info-hoi-gai-xinh-moi-noi-sexy-nhat-instagram-47ba8f.jpg"), "Món này rất là ngon", "4")),
                 "Món này ngon tuyệt vời"))
-        ).toMutableList()
-        arrRecipe.postValue(list)
 
-        return arrRecipe
+        ).toMutableList()
+        arrPost.postValue(list)
+
+        return arrPost
     }
 }

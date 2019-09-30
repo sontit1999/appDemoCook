@@ -13,7 +13,6 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
     private var actionBarHomeOnClick: ActionBarListener? = null
 
     override fun onAttach(context: Context) {
-        Log.d("test","on attack fragment newfeed")
         super.onAttach(context)
         try {
             actionBarHomeOnClick = context as ActionBarListener

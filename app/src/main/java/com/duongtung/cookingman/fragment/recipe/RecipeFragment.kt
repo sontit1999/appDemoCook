@@ -11,7 +11,7 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
-import com.duongtung.cookingman.ui.chatlist.ChatlistActivity
+
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     override fun getClassViewMode() = RecipeViewModel::class.java

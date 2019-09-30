@@ -102,4 +102,5 @@
     <dimen name="height_itemfavorite">200dp</dimen>
     <dimen name="height_image_anhbia">200dp</dimen>
     <dimen name="size_avatar">100dp</dimen>
+    <dimen name="size_icon_fearture">25sp</dimen>
 </resources>

@@ -108,7 +108,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 action = null
                 favoriteActionBar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
-                binding.actionbar.tvRight.visibility = View.INVISIBLE
+                binding.actionbar.tvRight.visibility = View.VISIBLE
             }
             is DetailCookFragment->{
                 action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
@@ -272,6 +272,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             ContextCompat.getColor(this, R.color.colorAccent),
             this
         )
+
         binding.actionbar.tvRight.setOnClickListener {
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }
