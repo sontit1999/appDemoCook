@@ -19,17 +19,17 @@
             android:name="com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment"
             android:label="NewFeedsFragment" />
     <keep_state_fragment
-            android:id="@+id/reviewerFragment"
-            android:name="com.duongtung.cookingman.fragment.ReviewerFragment"
-            android:label="ReviewerFragment" />
-    <keep_state_fragment
             android:id="@+id/profileFragment"
             android:name="com.duongtung.cookingman.fragment.profile.ProfileFragment"
             android:label="ProfileFragment" />
     <keep_state_fragment
             android:id="@+id/chatFragment"
             android:name="com.duongtung.cookingman.fragment.chat.ChatFragment"
-            android:label="chatFragment" />
+            android:label="chatFragment" >
+        <action
+                android:id="@+id/action_Chatfragment_to_detailChatFragment"
+                app:destination="@id/DetailChatFragment" />
+    </keep_state_fragment>
     <keep_state_fragment
             android:id="@+id/settingFragment"
             android:name="com.duongtung.cookingman.fragment.setting.SettingFragment"
@@ -46,4 +46,9 @@
             android:id="@+id/SearchResultFragment"
             android:name="com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment"
             android:label="SearchResultFragment" />
+    <keep_state_fragment
+            android:id="@+id/DetailChatFragment"
+            android:name="com.duongtung.cookingman.fragment.detailchat.DetailChatFragment"
+            android:label="DetailFragment" />
+
 </navigation>

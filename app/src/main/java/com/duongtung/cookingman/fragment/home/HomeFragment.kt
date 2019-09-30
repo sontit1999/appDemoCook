@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment.home
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController

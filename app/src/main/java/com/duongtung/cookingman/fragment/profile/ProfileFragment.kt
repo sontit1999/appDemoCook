@@ -8,6 +8,7 @@ import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragProfileBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
+import kotlinx.android.synthetic.main.frag_profile.view.*
 
 class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
     override fun getClassViewMode()  = ProfileViewModel::class.java

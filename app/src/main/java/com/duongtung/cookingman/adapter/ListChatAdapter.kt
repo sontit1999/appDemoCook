@@ -7,16 +7,16 @@ import com.duongtung.cookingman.base.adapter.BaseAdapter
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemChatlistBinding
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.User
 
-public class ListChatAdapter  : BaseAdapter<Post,ItemChatlistBinding>(){
-    override fun getOnClick()=null
+public class ListChatAdapter  : BaseAdapter<User,ItemChatlistBinding>(){
 
-    override fun getIdVariableOnClick(): Int {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun getOnClick()= ListChatCallback()
+
+    override fun getIdVariableOnClick() = BR.callBack
 
     override fun getLayoutId() = R.layout.item_chatlist
 
-    override fun getIdVariable() = BR.post
+    override fun getIdVariable() = BR.user
 
 }

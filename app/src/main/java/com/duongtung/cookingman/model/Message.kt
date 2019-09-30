@@ -1,3 +1,7 @@
 package com.duongtung.cookingman.model
 
-public class Message(var message:String,var sender: User, var sendAt: String)
+import com.duongtung.cookingman.base.adapter.DataAdapter
+
+data class Message(val message : String, val user : User, val  at : String,
+                    override var viewType: Int?, override var groupType: Int? = 0
+) : DataAdapter()
