@@ -7,6 +7,6 @@ import com.duongtung.cookingman.model.Post
 
 interface PostCallback  : CBAdapter{
     fun onImageFoodClick(view: View,post : Post){
-
+        //
     }
 }

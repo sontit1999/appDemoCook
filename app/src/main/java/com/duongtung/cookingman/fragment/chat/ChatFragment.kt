@@ -2,12 +2,16 @@ package com.duongtung.cookingman.fragment.chat
 
 import android.app.Activity
 import android.content.Context
+import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.adapter.ListChatCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragChatBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
+import com.duongtung.cookingman.model.User
 
 class ChatFragment  : BaseFragment<FragChatBinding,ChatViewModel>(){
     private var actionBarHomeOnClick: ActionBarListener? = null
@@ -28,8 +32,14 @@ class ChatFragment  : BaseFragment<FragChatBinding,ChatViewModel>(){
 
     override fun viewCreated() {
            viewModel.getArrPerson().observe(this, Observer { list->
+               viewModel.adapter.setCallBack(object : ListChatCallback{
+                   override fun onItemClick(view: View, user: User) {
+                       view.findNavController().navigate(R.id.action_chatfragment_to_detailChatFragment)
+                   }
+               })
                viewModel.adapter.setList(list)
            })
+
     }
 
     override fun getLayoutId() = R.layout.frag_chat

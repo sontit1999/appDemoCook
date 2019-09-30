@@ -27,8 +27,8 @@
             android:name="com.duongtung.cookingman.fragment.chat.ChatFragment"
             android:label="chatFragment" >
         <action
-                android:id="@+id/action_Chatfragment_to_detailChatFragment"
-                app:destination="@id/DetailChatFragment" />
+                android:id="@+id/action_chatfragment_to_detailChatFragment"
+                app:destination="@+id/detailChatFragment" />
     </keep_state_fragment>
     <keep_state_fragment
             android:id="@+id/settingFragment"
@@ -47,7 +47,7 @@
             android:name="com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment"
             android:label="SearchResultFragment" />
     <keep_state_fragment
-            android:id="@+id/DetailChatFragment"
+            android:id="@+id/detailChatFragment"
             android:name="com.duongtung.cookingman.fragment.detailchat.DetailChatFragment"
             android:label="DetailFragment" />
 

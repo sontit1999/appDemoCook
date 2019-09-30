@@ -9,11 +9,15 @@ import com.duongtung.cookingman.databinding.ItemChatlistBinding
 import com.duongtung.cookingman.model.Post
 import com.duongtung.cookingman.model.User
 
-public class ListChatAdapter  : BaseAdapter<User,ItemChatlistBinding>(){
+class ListChatAdapter  : BaseAdapter<User,ItemChatlistBinding>(){
+    private var callBack : ListChatCallback?= null
 
-    override fun getOnClick()= ListChatCallback()
+    fun setCallBack( callBack: ListChatCallback?){
+        this.callBack = callBack
+    }
+    override fun getOnClick()= callBack
 
-    override fun getIdVariableOnClick() = BR.callBack
+    override fun getIdVariableOnClick() = BR.callback
 
     override fun getLayoutId() = R.layout.item_chatlist
 
