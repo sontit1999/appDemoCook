@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment.chat
 
 import android.app.Activity
 import android.content.Context
+import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -34,7 +35,7 @@ class ChatFragment  : BaseFragment<FragChatBinding,ChatViewModel>(){
            viewModel.getArrPerson().observe(this, Observer { list->
                viewModel.adapter.setCallBack(object : ListChatCallback{
                    override fun onItemClick(view: View, user: User) {
-                       view.findNavController().navigate(R.id.action_chatfragment_to_detailChatFragment)
+                       view.findNavController().navigate(R.id.detailChatFragment)
                    }
                })
                viewModel.adapter.setList(list)
