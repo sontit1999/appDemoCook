@@ -3,6 +3,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+        <variable
+                name="callback"
+                type="com.duongtung.cookingman.adapter.PostCallback" />
     </data>
     <androidx.cardview.widget.CardView
             app:cardUseCompatPadding="true"
@@ -21,6 +24,7 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     imageUrl="@{post.recipe.imageRecipe}"
+                    android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_food"
                     android:layout_width="180dp"
@@ -83,6 +87,7 @@
                     android:layout_height="wrap_content">
                 <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/ivAvatar"
+                        android:onClick="@{(view)->callback.onAvatarClick(view,post.user)}"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="@dimen/margin_10dp"

@@ -35,6 +35,7 @@
                             android:src="@drawable/spoon" />
 
                     <com.duongtung.cookingman.customview.CustomEditText
+                            android:id="@+id/et_search"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_toLeftOf="@id/tv_micro"

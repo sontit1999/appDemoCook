@@ -22,7 +22,7 @@ import java.io.IOException
 
 class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
     private val GALLERY = 1
-    private val CAMERA = 2
+
     override fun getClassViewMode()  = ProfileViewModel::class.java
     private var actionBarHomeOnClick: ActionBarListener? = null
 

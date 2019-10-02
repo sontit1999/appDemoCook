@@ -4,6 +4,9 @@
         android:fitsSystemWindows="true">
     <data>
         <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+        <variable
+                name="callback"
+                type="com.duongtung.cookingman.adapter.PostCallback" />
     </data>
     <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -17,6 +20,7 @@
                 android:layout_height="match_parent">
                 <ImageView
                         android:id="@+id/iv_food"
+                        android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
                         imageUrl="@{post.recipe.imageRecipe}"
                         android:scaleType="fitXY"
                         android:layout_width="match_parent"
@@ -48,6 +52,7 @@
                         android:id="@+id/ivAvatar"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        android:onClick="@{(view)->callback.onAvatarClick(view,post.user)}"
                         android:layout_marginLeft="@dimen/margin_10dp"
                         app:civ_border="false"
                         android:layout_alignParentBottom="true"

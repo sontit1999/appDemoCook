@@ -8,12 +8,17 @@ import com.duongtung.cookingman.databinding.ItemFavoriteBinding
 import com.duongtung.cookingman.model.Post
 
 class FavoriteAdapter : BaseAdapter<Post,ItemFavoriteBinding>(){
+    private var callBack : PostCallback?= null
+
+    fun setCallBack( callBack: PostCallback?){
+        this.callBack = callBack
+    }
     override fun getLayoutId() = R.layout.item_favorite
 
     override fun getIdVariable() = BR.post
 
-    override fun getIdVariableOnClick() = null
+    override fun getIdVariableOnClick() = BR.callback
 
-    override fun getOnClick() = null
+    override fun getOnClick() = callBack
 
 }

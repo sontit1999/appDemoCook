@@ -1,5 +1,7 @@
 package com.duongtung.cookingman.ui.home
 
+import android.app.Activity
+import android.content.Intent
 import android.graphics.Color
 import android.view.View
 import androidx.appcompat.app.ActionBarDrawerToggle
@@ -32,12 +34,20 @@ import com.duongtung.cookingman.fragment.setting.SettingFragment
 import com.duongtung.cookingman.ui.splash.SplashActivity
 import android.view.MotionEvent
 import android.graphics.Rect
+import android.speech.RecognizerIntent
+import android.util.Log
+import android.widget.Toast
+import com.duongtung.cookingman.callback.VoiceCallback
 import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
 import com.duongtung.cookingman.fragment.detailcook.DetailCookFragment
+import com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment
 import kotlinx.android.synthetic.main.activity_home.view.*
+import java.lang.Exception
+import java.util.*
 
 
-class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener {
+class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener,VoiceCallback {
+
     private lateinit var controller: NavController
 
     private lateinit var navHostFragment: Fragment
@@ -46,6 +56,11 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     private var imageList: MutableList<ItemImageSlide>? = mutableListOf()
 
+    private val REQUEST_VOICE = 999
+
+    override fun tvSearchClick() {
+        speak()
+    }
     override fun onResumeFragment(fragment: Fragment) {
         binding.actionbar.tvleft.setOnClickListener {
             binding.drawer.openDrawer(GravityCompat.START)
@@ -116,6 +131,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.collapsingToolbarLayout.layoutParams.height =
                     CookingApplication.getResource().getResource()
                         .getDimensionPixelOffset(R.dimen.heigh_banner_home) +statusDimen
+            }
+            is ResultSearchFragment->{
+                action = null
+                searchActionbar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
         }
         binding.drawer.closeDrawer(GravityCompat.START)
@@ -325,7 +346,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             navHostFragment.childFragmentManager.popBackStack()
         }
     }
-
+    private fun searchActionbar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarBackPress(
+            "Result Searching",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvleft.setOnClickListener {
+            navHostFragment.childFragmentManager.popBackStack()
+        }
+    }
     private fun detailActionBar(){
         binding.actionbar.data = DataUtilsApplication.createActionBarDetails(
             title = "Detail",
@@ -356,5 +388,31 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.drawer.closeDrawer(GravityCompat.START)
         }
         return super.dispatchTouchEvent(ev)
+    }
+    private fun speak() {
+        val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+        intent.putExtra(RecognizerIntent .EXTRA_PROMPT,"Hi, Speak recipe you want to search ?")
+
+        try {
+
+            startActivityForResult(intent,REQUEST_VOICE)
+        }catch (e: Exception){
+            Toast.makeText(this,e.toString(), Toast.LENGTH_LONG).show()
+        }
+
+    }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when(requestCode){
+            REQUEST_VOICE ->{
+                if(data!= null){
+                    // get string
+                    val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
+                    controller.navigate(R.id.SearchResultFragment)
+                }
+            }
+        }
     }
 }
