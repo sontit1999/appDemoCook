@@ -30,7 +30,7 @@ class NewFeedsViewModel : BaseViewModel() {
                 User(
                     1,
                     "Sơn tít dz",
-                    "https://static2.yan.vn/YanNews/2167221/201806/20180610-052145-13.jpg"
+                    "https://4.bp.blogspot.com/-_grLm0r4NXg/XJm3sm1c_vI/AAAAAAAAAwo/L-hQICaPna4uNAOuUbjoJicgJ0fxglycwCLcBGAs/s1600/Emdep4k__anh-girl-xinh-gai-dep-me-hon-chat-luong-full-hd%2B%25285%2529.jpg"
                 ),
                 RecipeFood(
                     "Thịt nướng ozawa",

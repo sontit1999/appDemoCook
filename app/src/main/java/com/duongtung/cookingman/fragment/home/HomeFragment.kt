@@ -11,6 +11,7 @@ import com.duongtung.cookingman.adapter.PostCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentHomeBinding
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.User
 
 class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() {
     private var actionBarHomeOnClick: ActionBarListener? = null
@@ -33,6 +34,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list->
             viewModel.adapter.setCallBack(object  : PostCallback{
+                override fun onAvatarClick(view: View, user: User) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onMoreClick(view: View, post: Post) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
                 override fun onImageFoodClick(view: View, post: Post) {
                     findNavController().navigate(R.id.action_homeFragment_to_detailCookFragment)
                 }

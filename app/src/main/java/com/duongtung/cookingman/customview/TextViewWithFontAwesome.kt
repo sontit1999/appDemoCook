@@ -159,4 +159,8 @@ class TextViewWithFontAwesome : AppCompatTextView {
         )
 
     }
+    fun setcolor(color : Int){
+        this.iconColor = color
+    }
+
 }

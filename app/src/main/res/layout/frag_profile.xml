@@ -30,8 +30,9 @@
             <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tv_camera"
                     android:layout_width="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="@+id/ivAvatar"
-                    app:iconTextSize="35sp"
+                    app:iconTextSize="30sp"
+                    app:iconColor="#65FFFFFF"
+                    android:layout_marginTop="40dp"
                     app:iconLeft="@string/icon_camera"
                     app:layout_constraintRight_toRightOf="parent"
                     app:civ_border_width="2dp"
@@ -42,9 +43,9 @@
             <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                     android:id="@+id/tv_camera_anhbia"
                     android:layout_width="wrap_content"
-                    android:layout_marginTop="30dp"
                     android:layout_marginRight="10dp"
                     app:iconTextSize="30sp"
+                    app:iconColor="#65FFFFFF"
                     app:iconLeft="@string/icon_camera"
                     app:layout_constraintRight_toRightOf="parent"
                     app:civ_border_width="2dp"
@@ -73,7 +74,7 @@
             <LinearLayout
                     android:id="@+id/container_feature"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/itemPost_marginTop"
+                    android:layout_marginTop="@dimen/margin_20dp"
                     android:gravity="center"
                     android:weightSum="4"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -145,15 +146,49 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
             </LinearLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/PostNew"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/container_feature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <com.duongtung.cookingman.customview.CustomEditText
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:padding="10dp"
+                        android:hint="Bạn đang nấu gì ?"
+                        android:inputType="text"
+                        android:layout_marginLeft="@dimen/margin_20dp"
+                        android:layout_marginRight="@dimen/margin_20dp"
+                        android:background="@drawable/bg_edt_post"
+                        app:layout_constraintRight_toLeftOf="@id/tv_image"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomEditText>
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                        android:id="@+id/tv_image"
+                        app:iconRight="@string/icon_image"
+                        app:iconColor="@color/colorRed"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_gravity="center_vertical"
+                        app:iconTextSize="@dimen/size_iconmesage"
+                        android:layout_marginRight="@dimen/splash_padding"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <LinearLayout
                     android:id="@+id/container_infor"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:orientation="vertical"
                     android:padding="@dimen/margin_10dp"
-                    android:layout_marginTop="@dimen/margin_10dp"
-                    app:layout_constraintTop_toBottomOf="@id/container_feature"
+                    android:layout_marginTop="@dimen/margin_20dp"
+                    app:layout_constraintTop_toBottomOf="@id/PostNew"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
+
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tv_location"
                         android:text="Đến từ hà tây"
