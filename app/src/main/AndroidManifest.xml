@@ -13,17 +13,15 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ui.home.HomeActivity"/>
+        <activity android:name=".ui.home.HomeActivity"
+                android:windowSoftInputMode="adjustPan"
+                />
         <activity android:name=".ui.login.SendEmailAtivity" />
         <activity android:name=".ui.login.ForgotPasswordActivity"/>
         <activity android:name=".ui.login.LoginActivity" android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.getstart.GetstartActivity" />
         <activity android:name=".ui.login.LoginEmailActivity" android:windowSoftInputMode="adjustPan"/>
-        <activity android:name=".ui.chatlist.ChatlistActivity" />
         <activity android:name=".ui.search.SearchActivity" />
-        <activity android:name=".ui.profile.ProfileActivity" />
-        <activity android:name=".ui.chatdetail.DetailChatActivity" />
-        <activity android:name=".ui.recipefood.RecipeActivity" />
 
         <activity android:name=".ui.MapsActivity" />
         <activity android:name=".ui.MainActivity" />
@@ -36,7 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <meta-data
                 android:name="com.google.android.geo.API_KEY"
                 android:value="@string/google_maps_key" />

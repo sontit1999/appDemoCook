@@ -9,12 +9,16 @@ import android.graphics.Bitmap
 import android.graphics.Color
 import android.provider.MediaStore
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.adapter.PostCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragProfileBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
+import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.User
 import kotlinx.android.synthetic.main.frag_profile.*
 import kotlinx.android.synthetic.main.frag_profile.view.*
 import kotlinx.android.synthetic.main.frag_profile.view.tv_friend
@@ -46,6 +50,19 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
     override fun viewCreated() {
        viewModel.getArrRecipe().observe(this, Observer { list->
            viewModel.adapter.setList(list)
+           viewModel.adapter.setCallBack(object : PostCallback {
+               override fun onImageFoodClick(view: View, post: Post) {
+                   findNavController().navigate(R.id.detailCookFragment)
+               }
+
+               override fun onAvatarClick(view: View, user: User) {
+
+               }
+
+               override fun onMoreClick(view: View, post: Post) {
+                       Log.d("test","đã lưu food")
+               }
+           })
        })
     }
 
