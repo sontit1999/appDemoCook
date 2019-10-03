@@ -16,6 +16,16 @@ class DetailChatFragment : BaseFragment<FragDetailChatBinding,DetailChatViewMode
     override fun setBindingViewModel() {
           binding.viewmodel = viewModel
 
+            binding.tvSend.setOnClickListener {
+                val string = binding.edittextChatbox.text.toString().trim()
+                if(string.equals("")){
+                    Toast.makeText(activity,"Message not empty!",Toast.LENGTH_LONG).show()
+                }else{
+                    viewModel.addMessage( Message(string, User(1,"sontit","http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-161.jpg"),"9.00",0))
+                    binding.edittextChatbox.setText("")
+                }
+
+            }
     }
 
     override fun viewCreated() {
@@ -23,15 +33,8 @@ class DetailChatFragment : BaseFragment<FragDetailChatBinding,DetailChatViewMode
                   viewModel.adapter.setList(list)
                   binding.reyclerviewMessageList.scrollToPosition(list.size-1)
               })
-               binding.tvSend.setOnClickListener {
-                   val string = binding.edittextChatbox.text.toString().trim()
-                   if(string.equals("")){
-                       Toast.makeText(activity,"Message not empty!",Toast.LENGTH_LONG).show()
-                   }else{
-                       viewModel.addMessage( Message(string, User(1,"sontit","http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-161.jpg"),"9.00",0))
-                   }
 
-               }
+
     }
 
     override fun getLayoutId() = R.layout.frag_detail_chat

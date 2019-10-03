@@ -33,6 +33,9 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     override fun setBindingViewModel() {
         actionBarHomeOnClick!!.initFragment(this)
         binding.viewmodel = viewModel
+        binding.fabADD.setOnClickListener {
+            Log.d("test","chuyển đến màn đăng món ăn")
+        }
     }
 
     override fun viewCreated() {
@@ -48,7 +51,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
                 }
 
                 override fun onMoreClick(view: View, post: Post) {
-
+                        Log.d("test","đã lưu food")
                 }
             })
         })

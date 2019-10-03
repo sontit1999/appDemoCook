@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+                android:id="@+id/SaveLinearLayout"
+                android:padding="@dimen/margin_20dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                        app:iconLeft="@string/icon_favorite"
+                        app:iconColor="@color/colorRed"
+                        app:iconTextSize="30sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+                <com.duongtung.cookingman.customview.CustomTextView
+                        android:text="Add to my favorite food"
+                        android:layout_marginLeft="@dimen/margin_10dp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/textview_main__content_size"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
+        </LinearLayout>
+    <LinearLayout
+            android:id="@+id/DeleteLinearLayout"
+            android:padding="@dimen/margin_20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                app:iconLeft="@string/icon_deletepost"
+                app:iconColor="@color/colorRed"
+                app:iconTextSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <com.duongtung.cookingman.customview.CustomTextView
+                android:text="Hidden on my newfeed"
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textview_main__content_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
+    </LinearLayout>
+    <LinearLayout
+            android:id="@+id/ReportLinearLayout"
+            android:padding="@dimen/margin_20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                app:iconLeft="@string/icon_report"
+                app:iconColor="@color/colorRed"
+                app:iconTextSize="30sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <com.duongtung.cookingman.customview.CustomTextView
+                android:text="Report this Recipe food for admin Sơn Tít "
+                android:layout_marginLeft="@dimen/margin_10dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textview_main__content_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
+    </LinearLayout>
+
+</LinearLayout>
