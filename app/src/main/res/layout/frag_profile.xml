@@ -149,7 +149,7 @@
             </LinearLayout>
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/PostNew"
-                    android:layout_marginTop="@dimen/margin_20dp"
+                    android:layout_marginTop="@dimen/splash_tv_margin_30"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/container_feature"
                     android:layout_width="match_parent"

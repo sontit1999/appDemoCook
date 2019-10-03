@@ -42,7 +42,13 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
 
     override fun viewCreated() {
         viewModel.getArrComment().observe(this, Observer { list->
-            viewModel.adapter.setList(list)
+            viewModel.adapterComment.setList(list)
+        })
+        viewModel.getArrIngredient().observe(this, Observer { list->
+            viewModel.adapterIngredient.setList(list)
+        })
+        viewModel.getArrDirection().observe(this, Observer { list->
+            viewModel.adapterDirection.setList(list)
         })
     }
 

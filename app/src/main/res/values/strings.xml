@@ -78,6 +78,9 @@
     <string name="icon_menupost">&#xf142;</string>
     <string name="icon_deletepost">&#xf273;</string>
     <string name="icon_report">&#xf024;</string>
+    <string name="icon_add">&#xf055;</string>
+    <string name="icon_hand">&#xf0a4;</string>
+    <string name="icon_facebook">&#xf39e;</string>
     <string name="icon_bookmark">&#xf02e;</string>
     <string name="add_your_cmt">Add your comment</string>
     <string name="say_hi"> Good afternoon Sơn tít</string>

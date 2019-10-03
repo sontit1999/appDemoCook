@@ -48,6 +48,7 @@
                     android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
                     android:padding="@dimen/margin_20dp"
+                    adapter="@{viewModel.adapterIngredient}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
@@ -76,7 +77,17 @@
                     app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/addToShopList" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcDirection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_20dp"
+                    adapter="@{viewModel.adapterDirection}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHowToCook" />
             <com.duongtung.cookingman.customview.ButtonFont
                     android:id="@+id/btnStartCooking"
                     android:layout_width="match_parent"
@@ -87,7 +98,7 @@
                     android:text="@string/start_cooking_now"
                     android:textColor="@color/white"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvHowToCook" />
+                    app:layout_constraintTop_toBottomOf="@id/rcDirection" />
 
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvReviews"
@@ -109,7 +120,7 @@
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
-                    adapter="@{viewModel.adapter}"
+                    adapter="@{viewModel.adapterComment}"
                     android:padding="@dimen/margin_20dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"

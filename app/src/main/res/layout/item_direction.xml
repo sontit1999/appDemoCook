@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+                name="direction"
+                type="com.duongtung.cookingman.model.Direction" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="@dimen/margin_20dp"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto">
+        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:iconLeft="@string/icon_hand"
+                app:iconTextSize="20sp"
+                android:drawablePadding="@dimen/margin_20dp"
+                android:text="@{direction.direction}"
+                app:iconColor="@color/colorRed"
+                android:id="@+id/tvDirection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

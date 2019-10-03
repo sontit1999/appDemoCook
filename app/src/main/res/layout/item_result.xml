@@ -68,9 +68,8 @@
                     app:layout_constraintRight_toRightOf="parent"
                     app:iconTextSize="25sp"
                     android:paddingHorizontal="@dimen/margin_10dp"
-                    android:drawablePadding="@dimen/margin_10dp"
                     app:iconColor="@color/colorRed"
-                    app:iconLeft="@string/icon_more_v"
+                    app:iconLeft="@string/icon_bookmark"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
