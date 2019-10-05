@@ -38,4 +38,5 @@ abstract class BaseFragment<VB : ViewDataBinding,VM : BaseViewModel> : Fragment(
             ViewModelProviders.of(this).get(getClassViewMode())
         }?: throw Exception("Invalid Activity")
     }
+
 }

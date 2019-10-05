@@ -3,12 +3,17 @@ package com.duongtung.cookingman.fragment.favorite
 import android.app.Activity
 import android.content.Context
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.duongtung.cookingman.R
+import com.duongtung.cookingman.adapter.PostCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragFavoriteBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
+import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.User
 import java.util.*
 
 class FavoriteFragment : BaseFragment<FragFavoriteBinding,FavoriteViewModel>(){
@@ -34,6 +39,19 @@ class FavoriteFragment : BaseFragment<FragFavoriteBinding,FavoriteViewModel>(){
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list ->
             viewModel.adapter.setList(list)
+            viewModel.adapter.setCallBack(object  : PostCallback{
+                override fun onImageFoodClick(view: View, post: Post) {
+                       findNavController().navigate(R.id.detailCookFragment)
+                }
+
+                override fun onAvatarClick(view: View, user: User) {
+                    findNavController().navigate(R.id.profileFragment)
+                }
+
+                override fun onMoreClick(view: View, post: Post) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+            })
         })
     }
 

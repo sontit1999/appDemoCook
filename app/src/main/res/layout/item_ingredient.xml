@@ -7,43 +7,23 @@
         <variable name="foodingredient" type="com.duongtung.cookingman.model.FoodIngredient"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="@dimen/itemGredient_padding"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-        <ImageView
-                android:id="@+id/iv_nameIngredient"
-                android:src="@drawable/orange"
-                android:scaleType="fitCenter"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:imageUrl="@{foodingredient.imageIngredient}"
-                android:layout_width="@dimen/itemGredient_image_size"
-                android:layout_height="@dimen/itemGredient_image_size">
-        </ImageView>
         <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                 android:id="@+id/tv_nameIngredient"
-                android:layout_marginTop="5dp"
-                android:layout_marginLeft="@dimen/itemGredient_marginleft"
-                android:text="@{foodingredient.nameIngredient}"
+                android:layout_marginTop="15dp"
+                android:text="@{foodingredient.number()}"
+                app:iconLeft="@string/icon_add"
+                app:iconColor="@color/colorRed"
+                app:iconTextSize="20sp"
+                android:drawablePadding="@dimen/margin_20dp"
+                android:paddingRight="@dimen/margin_10dp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintLeft_toRightOf="@id/iv_nameIngredient"
+                app:layout_constraintLeft_toLeftOf="parent"
                 android:textColor="@color/colorBlack"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content">
-        </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
-        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                android:id="@+id/tv_number"
-                android:text="@{foodingredient.number()}"
-                android:layout_marginTop="@dimen/itemGredient_margintop"
-                android:layout_marginLeft="@dimen/itemGredient_marginleft"
-                android:textColor="@color/colorRed"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_width="0dp"
-                app:layout_constraintLeft_toRightOf="@id/iv_nameIngredient"
-                app:layout_constraintTop_toBottomOf="@id/tv_nameIngredient"
-                android:layout_height="wrap_content">
-
         </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

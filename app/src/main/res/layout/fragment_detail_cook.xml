@@ -48,6 +48,7 @@
                     android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
                     android:padding="@dimen/margin_20dp"
+                    adapter="@{viewModel.adapterIngredient}"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
@@ -76,7 +77,17 @@
                     app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/addToShopList" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcDirection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:nestedScrollingEnabled="false"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_20dp"
+                    adapter="@{viewModel.adapterDirection}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvHowToCook" />
             <com.duongtung.cookingman.customview.ButtonFont
                     android:id="@+id/btnStartCooking"
                     android:layout_width="match_parent"
@@ -87,7 +98,7 @@
                     android:text="@string/start_cooking_now"
                     android:textColor="@color/white"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvHowToCook" />
+                    app:layout_constraintTop_toBottomOf="@id/rcDirection" />
 
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvReviews"
@@ -109,10 +120,46 @@
                     android:layout_height="wrap_content"
                     android:nestedScrollingEnabled="false"
                     android:orientation="vertical"
+                    adapter="@{viewModel.adapterComment}"
                     android:padding="@dimen/margin_20dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvReviews" />
+            <LinearLayout
+                    android:id="@+id/layout_container_edtcmt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="@dimen/margin_20dp"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_comment"
+                    app:layout_constraintTop_toBottomOf="@id/rcReviews"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent">
+
+                <com.duongtung.cookingman.customview.CustomEditText
+                        android:id="@+id/edt_commnet"
+                        android:hint="@string/add_your_cmt"
+                        android:inputType="text"
+                        android:padding="15dp"
+                        android:maxLines="6"
+                        android:layout_marginRight="16dp"
+                        android:layout_width="0dp"
+                        android:layout_weight="5"
+                        android:layout_height="wrap_content"
+                        />
+
+                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                        android:id="@+id/tv_send"
+                        app:iconRight="@string/icon_send_message"
+                        app:iconColor="@color/colorRed"
+                        android:layout_marginRight="@dimen/splash_padding"
+                        android:layout_gravity="center_vertical"
+                        app:iconTextSize="@dimen/size_iconmesage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                </com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </layout>

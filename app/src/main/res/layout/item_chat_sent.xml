@@ -32,7 +32,7 @@
                 android:background="@drawable/custom_edittext_chat_send"
                 android:maxWidth="@dimen/itemchat_maxwwidth_content"
                 android:padding="@dimen/itemChat_tv_padding"
-                android:text="I'm fine.Thanks"
+                android:text="@{message.message}"
                 android:textColor="#ffffff"
                 app:layout_constraintBottom_toBottomOf="parent"
                 android:layout_marginRight="@dimen/itemChat_tv_margin"
