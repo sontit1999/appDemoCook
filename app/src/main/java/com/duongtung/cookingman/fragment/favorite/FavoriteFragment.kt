@@ -7,6 +7,8 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.PostCallback
 import com.duongtung.cookingman.base.BaseFragment
@@ -14,6 +16,7 @@ import com.duongtung.cookingman.databinding.FragFavoriteBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.model.Post
 import com.duongtung.cookingman.model.User
+import kotlinx.android.synthetic.main.frag_detail_chat.*
 import java.util.*
 
 class FavoriteFragment : BaseFragment<FragFavoriteBinding,FavoriteViewModel>(){
@@ -34,6 +37,7 @@ class FavoriteFragment : BaseFragment<FragFavoriteBinding,FavoriteViewModel>(){
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
         binding.recipeFavorite.layoutManager = GridLayoutManager(context,2)
+        addSwipeItemRecyclerview(binding.recipeFavorite)
     }
 
     override fun viewCreated() {
@@ -59,5 +63,18 @@ class FavoriteFragment : BaseFragment<FragFavoriteBinding,FavoriteViewModel>(){
     override fun onResume() {
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
+    }
+    fun addSwipeItemRecyclerview(recyclerView: RecyclerView){
+        // sự kiện swipe 1 item trong recyclerview
+        ItemTouchHelper(object:ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView:RecyclerView,viewHolder:RecyclerView.ViewHolder,viewHolder1:RecyclerView.ViewHolder):Boolean {
+                return false
+            }
+            override fun onSwiped(viewHolder:RecyclerView.ViewHolder, i:Int) {
+                viewModel.adapter.removeItem(viewHolder.adapterPosition)
+//                viewModel.RemoveFavorite(viewHolder.adapterPosition)
+//                viewModel.adapter.notifyItemRemoved(viewHolder.adapterPosition)
+            }
+        }).attachToRecyclerView(recyclerView)
     }
 }
