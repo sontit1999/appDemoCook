@@ -26,7 +26,11 @@
 
      fun addElementPosition(t:T,i:Int){
          list.add(i,t)
-         notifyDataSetChanged()
+         notifyItemInserted(list.size-1)
+     }
+     fun removeItem(pos : Int){
+         list.removeAt(pos)
+         notifyItemRemoved(pos)
      }
      fun getElementPossition(i:Int) : T{
          return list.get(i)

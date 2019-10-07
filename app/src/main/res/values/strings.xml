@@ -94,6 +94,8 @@
     <string name="icon_more_v">&#xf142;</string>
     <string name="icon_address">&#xf3c5;</string>
     <string name="icon_follow">&#xf2c2;</string>
+    <string name="icon_increase">&#xf067;</string>
+    <string name="icon_uninscrea">&#xf068;</string>
     <string name="general_settings">GENERAL SETTINGS</string>
     <string name="chat_preferance">Chat Preferance</string>
     <string name="navigation_drawer_open">Open Navigation Drawer</string>
@@ -102,6 +104,7 @@
     <string name="icon_star_rating_half">&#xf5c0;</string>
     <string name="ingredients">Ingredients</string>
     <string name="add_to_shopping_list">Add To Shopping List</string>
+    <string name="add_more_ingredient">Add more ingredient</string>
     <string name="how_to_cook">How to cook?</string>
     <string name="start_cooking_now">START COOKING NOW</string>
     <string name="reviews">Reviews</string>

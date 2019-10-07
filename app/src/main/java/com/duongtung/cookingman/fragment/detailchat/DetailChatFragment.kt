@@ -21,7 +21,8 @@ class DetailChatFragment : BaseFragment<FragDetailChatBinding,DetailChatViewMode
                 if(string.equals("")){
                     Toast.makeText(activity,"Message not empty!",Toast.LENGTH_LONG).show()
                 }else{
-                    viewModel.addMessage( Message(string, User(1,"sontit","http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-161.jpg"),"9.00",0))
+                    viewModel.adapter.addElement(Message(string, User(1,"sontit","http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-161.jpg"),"9.00",0))
+                    //viewModel.addMessage( Message(string, User(1,"sontit","http://vinathis.com/news/uploads/news/2018_09/hinh-anh-gai-xinh-sexy-161.jpg"),"9.00",0))
                     binding.edittextChatbox.setText("")
                 }
 

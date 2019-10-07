@@ -43,10 +43,4 @@ class DetailChatViewModel  : BaseViewModel(){
         arrMessage.postValue(list)
         return arrMessage
     }
-    fun addMessage(message: Message){
-        var mutablelist = arrMessage.value
-        mutablelist?.add(message)
-        arrMessage.postValue(mutablelist)
-    }
-
 }

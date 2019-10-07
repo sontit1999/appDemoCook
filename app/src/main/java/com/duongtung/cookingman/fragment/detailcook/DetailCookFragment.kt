@@ -5,6 +5,7 @@ import android.content.Context
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentDetailCookBinding
@@ -37,6 +38,9 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
                 viewModel.addComment((Comment(1, User(1,"Sơn tít","http://media2.sieuhai.tv:8088/onbox/images/user_lead_image/20190408/84947430634_20190408001343.jpg"),comment,"4")))
                 binding.edtCommnet.setText("")
             }
+        }
+        binding.addToShopList.setOnClickListener {
+            findNavController().navigate(R.id.Shoppingfragment)
         }
     }
 

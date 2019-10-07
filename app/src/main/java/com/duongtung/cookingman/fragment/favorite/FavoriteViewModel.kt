@@ -241,4 +241,9 @@ class FavoriteViewModel  : BaseViewModel(){
 
         return arrPost
     }
+//    fun RemoveFavorite(pos: Int){
+//        var mutablelist = arrPost.value
+//        mutablelist?.remove(mutablelist[pos])
+//        arrPost.postValue(mutablelist)
+//    }
 }

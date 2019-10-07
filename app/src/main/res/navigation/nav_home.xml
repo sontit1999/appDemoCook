@@ -50,5 +50,8 @@
             android:id="@+id/detailChatFragment"
             android:name="com.duongtung.cookingman.fragment.detailchat.DetailChatFragment"
             android:label="DetailFragment" />
-
+    <keep_state_fragment
+            android:id="@+id/Shoppingfragment"
+            android:name="com.duongtung.cookingman.fragment.shopping.ShoppingFragment"
+            android:label="ShoppingFragment" />
 </navigation>

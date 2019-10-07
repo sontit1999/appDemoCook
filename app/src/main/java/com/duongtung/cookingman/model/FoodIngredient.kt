@@ -11,19 +11,18 @@ data class FoodIngredient(var nameIngredient : String,var imageIngredient : Stri
         var span = SpannableStringBuilder()
         var start = 0
 
-        span.append(nameIngredient).append(": ")
+        span.append(number).append("\n").append(measure)
         span.setSpan(ForegroundColorSpan(Color.BLACK), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         span.setSpan(StyleSpan(Typeface.BOLD), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-//        start = span.length
-//        span.append(number)
-//        span.setSpan(ForegroundColorSpan(Color.RED), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-//
-//        start = span.length
-//        span.append(" $measure")
-//        span.setSpan(ForegroundColorSpan(Color.parseColor("#616161")), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-
        return span
+    }
+    fun number1(): SpannableStringBuilder{
+        var span = SpannableStringBuilder()
+        var start = 0
+        span.append(number).append(" ").append(measure)
+        span.setSpan(ForegroundColorSpan(Color.BLACK), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        span.setSpan(StyleSpan(Typeface.BOLD), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+        return span
     }
 }
 
