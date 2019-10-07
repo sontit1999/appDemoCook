@@ -6,7 +6,7 @@
                 type="com.duongtung.cookingman.model.Direction" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_marginTop="@dimen/margin_20dp"
             xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -21,5 +21,14 @@
                 android:id="@+id/tvDirection"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"></com.duongtung.cookingman.customview.TextViewWithFontAwesome>
+        <ImageView
+                android:id="@+id/iv_decribe"
+                android:src="@drawable/hinh1"
+                android:scaleType="centerCrop"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvDirection"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_width="200dp"
+                android:layout_height="200dp"></ImageView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

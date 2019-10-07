@@ -30,7 +30,7 @@ abstract class BaseMultiViewHolderAdapter<D : DataAdapter> :
     fun getList() = dataList
 
     fun addElement(t: D) {
-        addElementPosition(t,0)
+        addElementPosition(t,dataList.size)
     }
 
     fun addElementPosition(t: D, i: Int) {

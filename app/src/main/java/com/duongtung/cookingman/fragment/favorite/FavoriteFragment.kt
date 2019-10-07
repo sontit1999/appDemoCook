@@ -72,8 +72,6 @@ class FavoriteFragment : BaseFragment<FragFavoriteBinding,FavoriteViewModel>(){
             }
             override fun onSwiped(viewHolder:RecyclerView.ViewHolder, i:Int) {
                 viewModel.adapter.removeItem(viewHolder.adapterPosition)
-//                viewModel.RemoveFavorite(viewHolder.adapterPosition)
-//                viewModel.adapter.notifyItemRemoved(viewHolder.adapterPosition)
             }
         }).attachToRecyclerView(recyclerView)
     }

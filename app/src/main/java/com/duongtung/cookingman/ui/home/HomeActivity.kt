@@ -41,6 +41,7 @@ import com.duongtung.cookingman.callback.VoiceCallback
 import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
 import com.duongtung.cookingman.fragment.detailcook.DetailCookFragment
 import com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment
+import com.duongtung.cookingman.fragment.shopping.ShoppingFragment
 import kotlinx.android.synthetic.main.activity_home.view.*
 import java.lang.Exception
 import java.util.*
@@ -135,6 +136,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             is ResultSearchFragment->{
                 action = null
                 searchActionbar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
+            }
+            is ShoppingFragment->{
+                viewModel.menuAdapter.changVisibility(6)
+                action = null
+                shoppingActionbar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
@@ -337,6 +345,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     private fun settingActionbar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarBackPress(
             "Setting",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvleft.setOnClickListener {
+            navHostFragment.childFragmentManager.popBackStack()
+        }
+    }
+    private fun shoppingActionbar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarBackPress(
+            "SHOPPING LIST",
             null,
             getString(R.string.icon_search),
             ContextCompat.getColor(this, R.color.colorAccent),
