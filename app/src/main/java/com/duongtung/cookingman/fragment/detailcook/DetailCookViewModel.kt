@@ -42,14 +42,14 @@ class DetailCookViewModel : BaseViewModel(){
     }
     fun getArrDirection(): MutableLiveData<MutableList<Direction>> {
         val list = listOf(
-            Direction("Thịt ba chỉ mua về cạo sạch lông, rửa sạch rồi ngâm trong nước muối ấm khoảng 5 phút khử mùi hôi. Sau khi làm sạch, thái miếng vuông to."),
-            Direction("Cho thịt lợn thái miếng vào tô sau đó ướp cùng 2 thìa nước mắm, 1 thìa đường, ½ thìa muối, mì chính, thêm tỏi băm, hạt tiêu, 1 thìa dầu ăn sau đó đảo đều để ngấm trong 30 phút."),
-            Direction("Trong lúc chờ thịt ngấm gia vị, cho trứng gà và trứng cút vào nồi luộc chín, sau đó bóc sạch vỏ để ra bát."),
-            Direction("Cho đường vào chảo đun sôi, đảo đều đến khi đường có màu cánh gián, sau đó cho từ từ khoảng 1 bát tô nước đủ để kho thịt. Có thể cho thêm một chút dầu ăn vào khi đun đường để tránh bị cháy."),
-            Direction("Bắc nồi lên bếp, cho một chút dầu ăn vào đun nóng sau đó cho thịt lợn đã ướp vào đảo đều cho săn lại, thêm chút xíu mắm cho món thịt kho đậm đà."),
-            Direction("Tiếp đó bạn cho nước màu và nước dừa xâm xấp mặt thịt đun đến khi sôi vặn lửa nhỏ trong khoảng 1 tiếng rưỡi. Khi kho dùng thìa hớt bọt để món ăn được đẹp mắt."),
-            Direction("Trước khi tắt bếp, thả trứng cút và trứng gà vào đun sôi nhỏ lửa 15 phút là trứng và thịt đã ngấm đều."),
-            Direction("Sau đó bạn đã có món thịt kho tàu siêu ngon rùi :D")
+            Direction("Thịt ba chỉ mua về cạo sạch lông, rửa sạch rồi ngâm trong nước muối ấm khoảng 5 phút khử mùi hôi. Sau khi làm sạch, thái miếng vuông to.","https://cdn.eva.vn/upload/4-2018/images/2018-12-14/thit-kho-tau-cuc-ngon-voi-cach-nau-don-gian-1-1544776014-790-width654height435.jpg"),
+            Direction("Cho thịt lợn thái miếng vào tô sau đó ướp cùng 2 thìa nước mắm, 1 thìa đường, ½ thìa muối, mì chính, thêm tỏi băm, hạt tiêu, 1 thìa dầu ăn sau đó đảo đều để ngấm trong 30 phút.","https://cdn.eva.vn/upload/4-2018/images/2018-12-14/thit-kho-tau-cuc-ngon-voi-cach-nau-don-gian-2-1544776014-264-width663height438.jpg"),
+            Direction("Trong lúc chờ thịt ngấm gia vị, cho trứng gà và trứng cút vào nồi luộc chín, sau đó bóc sạch vỏ để ra bát.","https://baogiadinhso.com/wp-content/uploads/2018/12/suon-non-kho-trung-cut-4.jpg"),
+            Direction("Cho đường vào chảo đun sôi, đảo đều đến khi đường có màu cánh gián, sau đó cho từ từ khoảng 1 bát tô nước đủ để kho thịt. Có thể cho thêm một chút dầu ăn vào khi đun đường để tránh bị cháy.","https://cdn.eva.vn/upload/4-2018/images/2018-12-14/thit-kho-tau-cuc-ngon-voi-cach-nau-don-gian-3-1544776014-32-width639height479.jpg"),
+            Direction("Bắc nồi lên bếp, cho một chút dầu ăn vào đun nóng sau đó cho thịt lợn đã ướp vào đảo đều cho săn lại, thêm chút xíu mắm cho món thịt kho đậm đà.","https://agiadinh.net/wp-content/uploads/2018/11/cach-lam-ruoc-thit-lon6-600x450.jpg"),
+            Direction("Tiếp đó bạn cho nước màu và nước dừa xâm xấp mặt thịt đun đến khi sôi vặn lửa nhỏ trong khoảng 1 tiếng rưỡi. Khi kho dùng thìa hớt bọt để món ăn được đẹp mắt.","https://i.ytimg.com/vi/fbhK5FhY5do/maxresdefault.jpg"),
+            Direction("Trước khi tắt bếp, thả trứng cút và trứng gà vào đun sôi nhỏ lửa 15 phút là trứng và thịt đã ngấm đều.","https://i.ytimg.com/vi/8yxngayVXMc/maxresdefault.jpg"),
+            Direction("Sau đó bạn đã có món thịt kho tàu siêu ngon rùi :D","https://cdn.eva.vn/upload/4-2018/images/2018-12-14/thit-kho-tau-cuc-ngon-voi-cach-nau-don-gian-4-1544776015-988-width625height370.jpg")
         ).toMutableList()
         arrDirection.postValue(list)
 
