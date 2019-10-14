@@ -90,6 +90,7 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
                 {
                     val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)
                     binding.ivAvatar.setImageBitmap(bitmap)
+
                 }
                 catch (e: IOException) {
                     e.printStackTrace()
