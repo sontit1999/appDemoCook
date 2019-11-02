@@ -14,7 +14,6 @@ class MyRecipeAdapter  : BaseAdapter<Recipe,ItemRecipeBinding>(){
     override fun getIdVariable() = BR.recipe
 
     override fun getIdVariableOnClick() = null
-
     override fun getOnClick() = null
 
 }
