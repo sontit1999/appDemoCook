@@ -1,13 +1,22 @@
 package com.duongtung.cookingman.fragment.recipe
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.duongtung.cookingman.adapter.MyRecipeAdapter
 import com.duongtung.cookingman.adapter.RecipeAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
+import com.duongtung.cookingman.callback.RecipeAPIs
 import com.duongtung.cookingman.model.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class RecipeViewModel : BaseViewModel() {
-    var adapter = RecipeAdapter()
+    var adapter = MyRecipeAdapter()
     private var arrRecipe = MutableLiveData<MutableList<Post>>()
+    private var arrmyRecipe = MutableLiveData<MutableList<Recipe>>()
     fun getArrRecipe(): MutableLiveData<MutableList<Post>> {
         val list = listOf(
             (Post(
@@ -239,5 +248,30 @@ class RecipeViewModel : BaseViewModel() {
         arrRecipe.postValue(list)
 
         return arrRecipe
+    }
+    fun getRecipe() : MutableLiveData<MutableList<Recipe>> {
+        var list: MutableList<Recipe>
+        // get list Recipe
+        var retrofit = Retrofit.Builder()
+            .baseUrl("http://sonhaui.000webhostapp.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        var recipeAPIs = retrofit.create(RecipeAPIs::class.java)
+        var call = recipeAPIs.getdataRecipe()
+        call.enqueue(object : Callback<List<Recipe>> {
+            override fun onFailure(call: Call<List<Recipe>>, t: Throwable) {
+                Log.d("test","error")
+            }
+
+            override fun onResponse(call: Call<List<Recipe>>, response: Response<List<Recipe>>) {
+                list = response.body()!!.toMutableList()
+                for(i in list){
+                    Log.d("test",i.name)
+                }
+                arrmyRecipe.postValue(list)
+            }
+        })
+        return arrmyRecipe
     }
 }
