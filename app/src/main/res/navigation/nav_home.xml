@@ -41,7 +41,13 @@
     <keep_state_fragment
             android:id="@+id/detailCookFragment"
             android:name="com.duongtung.cookingman.fragment.detailcook.DetailCookFragment"
-            android:label="DetailCookFragment" />
+            android:label="DetailCookFragment"
+            >
+        <argument
+                android:name="name"
+                app:argType="string"
+                android:defaultValue="Android" />
+    </keep_state_fragment>
     <keep_state_fragment
             android:id="@+id/SearchResultFragment"
             android:name="com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment"

@@ -2,26 +2,19 @@ package com.duongtung.cookingman.fragment.recipe
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
-import com.duongtung.cookingman.adapter.PostCallback
+import com.duongtung.cookingman.adapter.RecipCallback
+import com.duongtung.cookingman.adapter.RecipeCallback
 import com.duongtung.cookingman.base.BaseFragment
-import com.duongtung.cookingman.callback.RecipeAPIs
 import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
-import com.duongtung.cookingman.model.Post
 import com.duongtung.cookingman.model.Recipe
-import com.duongtung.cookingman.model.User
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
@@ -67,6 +60,25 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
 //        })
         viewModel.getRecipe().observe(this, Observer { list->
             viewModel.adapter.setList(list)
+            binding.pgLoading.visibility = View.GONE
+            viewModel.adapter.setCallBack(object : RecipCallback{
+                override fun onAuthorClick(view: View, recipe: Recipe) {
+                   Log.d("test","author click")
+                }
+
+                override fun onLikeClick(view: View, recipe: Recipe) {
+                    Log.d("test","like click")
+                }
+
+                override fun onRecipeClick(view: View, recipe: Recipe) {
+
+                    Log.d("test","link recipe sẽ dc gửi: " + recipe.linkdetail)
+                    val bundle = Bundle()
+                    bundle.putString("name", "Santhosh")
+                    Log.d("test","Dữ liệu trong bundle gửi đi: " + bundle.getString("name"))
+                    findNavController().navigate(R.id.detailCookFragment,bundle)
+                }
+            })
         })
     }
 
