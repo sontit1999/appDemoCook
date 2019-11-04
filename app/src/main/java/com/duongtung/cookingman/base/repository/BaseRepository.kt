@@ -1,4 +1,4 @@
-package com.duongtung.newsapp.base.repository
+package com.duongtung.cookingman.base.repository
 
 import android.content.Context
 import android.text.TextUtils
@@ -23,12 +23,12 @@ import java.util.concurrent.TimeUnit
 class BaseRepository {
     private var mContext: Context? = null
 
-    fun getContext(context: Context): BaseRepository {
+    fun getContext(context: Context): BaseRepository? {
         mContext = context
         return repository
     }
 
-    fun setBaseUrl(baseUrl: String): BaseRepository {
+    fun setBaseUrl(baseUrl: String): BaseRepository? {
         if (retrofit == null) {
             if (okHttpClient == null)
                 initOkHttp(mContext)
@@ -107,7 +107,7 @@ class BaseRepository {
     }
     companion object {
         private var retrofit: Retrofit? = null
-        private lateinit var repository: BaseRepository
+        private var repository: BaseRepository? = null
         private const val REQUEST_TIMEOUT = 60
         private var okHttpClient: OkHttpClient? = null
         private val disposable = CompositeDisposable()

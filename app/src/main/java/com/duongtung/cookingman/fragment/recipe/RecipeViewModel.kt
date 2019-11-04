@@ -1,11 +1,14 @@
 package com.duongtung.cookingman.fragment.recipe
 
+import android.app.Application
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
+import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.adapter.MyRecipeAdapter
-import com.duongtung.cookingman.adapter.RecipeAdapter
+import com.duongtung.cookingman.base.repository.BaseRepository
+import com.duongtung.cookingman.base.repository.listener.IServiceRespond
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
-import com.duongtung.cookingman.callback.RecipeAPIs
+import com.duongtung.cookingman.service.RecipeAPIs
 import com.duongtung.cookingman.model.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -250,27 +253,16 @@ class RecipeViewModel : BaseViewModel() {
         return arrRecipe
     }
     fun getRecipe() : MutableLiveData<MutableList<Recipe>> {
-        var list: MutableList<Recipe>
-        // get list Recipe
-        var retrofit = Retrofit.Builder()
-            .baseUrl("http://sonhaui.000webhostapp.com/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-
-        var recipeAPIs = retrofit.create(RecipeAPIs::class.java)
-        var call = recipeAPIs.getdataRecipe()
-        call.enqueue(object : Callback<List<Recipe>> {
-            override fun onFailure(call: Call<List<Recipe>>, t: Throwable) {
-                Log.d("test","error")
+        BaseRepository.instance.getResponde(CookingApplication.serviceApi.getDataRecipe(),object : IServiceRespond<MutableList<Recipe>>{
+            override fun onSuccess(result: MutableList<Recipe>) {
+                Log.d("test", result.toString())
+                arrmyRecipe.postValue(result)
             }
 
-            override fun onResponse(call: Call<List<Recipe>>, response: Response<List<Recipe>>) {
-                list = response.body()!!.toMutableList()
-                for(i in list){
-                    Log.d("test",i.name)
-                }
-                arrmyRecipe.postValue(list)
+            override fun onError(message: String) {
+                Log.d("test", message)
             }
+
         })
         return arrmyRecipe
     }

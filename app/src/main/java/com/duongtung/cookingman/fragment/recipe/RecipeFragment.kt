@@ -71,7 +71,6 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
                 }
 
                 override fun onRecipeClick(view: View, recipe: Recipe) {
-
                     Log.d("test","link recipe sẽ dc gửi: " + recipe.linkdetail)
                     val bundle = Bundle()
                     bundle.putString("name", "Santhosh")

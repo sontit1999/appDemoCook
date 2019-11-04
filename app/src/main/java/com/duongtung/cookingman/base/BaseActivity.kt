@@ -1,7 +1,9 @@
 package com.duongtung.cookingman.base
 
 
+import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -11,6 +13,8 @@ import androidx.lifecycle.ViewModelProviders
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import android.view.Menu
 import android.view.View
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.google.android.material.appbar.AppBarLayout
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompatActivity() {
@@ -23,8 +27,17 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
     abstract fun setBindingViewModel()
     abstract fun getToolbar(): Toolbar?
     protected var action: MutableList<View>? = null
+    private var PERMISSION_ALL = 1
+    private var PERMISSIONS  = arrayOf(
+        android.Manifest.permission.INTERNET,
+        android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        if(hasPermissions(this, *PERMISSIONS)){
+            ActivityCompat.requestPermissions(this, PERMISSIONS, PERMISSION_ALL)
+        }
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, getLayout())
         viewModel = ViewModelProviders.of(this).get(getViewMode())
@@ -76,4 +89,8 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel> : AppCompa
                 if (action != null) hideOption(action!!)
             }
         }
+
+    fun hasPermissions(context: Context, vararg permissions: String): Boolean = permissions.all {
+        ActivityCompat.checkSelfPermission(context, it) == PackageManager.PERMISSION_GRANTED
+    }
 }

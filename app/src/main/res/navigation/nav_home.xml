@@ -13,7 +13,8 @@
     <keep_state_fragment
             android:id="@+id/recipeFragment"
             android:name="com.duongtung.cookingman.fragment.recipe.RecipeFragment"
-            android:label="RecipeFragment" />
+            android:label="RecipeFragment" >
+    </keep_state_fragment>
     <keep_state_fragment
             android:id="@+id/newFeedsFragment"
             android:name="com.duongtung.cookingman.fragment.newfeed.NewFeedsFragment"
@@ -41,12 +42,11 @@
     <keep_state_fragment
             android:id="@+id/detailCookFragment"
             android:name="com.duongtung.cookingman.fragment.detailcook.DetailCookFragment"
-            android:label="DetailCookFragment"
-            >
+            android:label="DetailCookFragment">
         <argument
                 android:name="name"
                 app:argType="string"
-                android:defaultValue="Android" />
+                app:nullable="true" />
     </keep_state_fragment>
     <keep_state_fragment
             android:id="@+id/SearchResultFragment"

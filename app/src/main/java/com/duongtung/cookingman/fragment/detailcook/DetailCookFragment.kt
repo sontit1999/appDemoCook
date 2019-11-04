@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
@@ -17,6 +18,12 @@ import com.duongtung.cookingman.model.User
 
 class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookViewModel>() {
     private var actionBarHomeOnClick: ActionBarListener? = null
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        val name = arguments?.getString("name")
+        makeText(context, name, Toast.LENGTH_LONG).show()
+    }
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -34,7 +41,7 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
         binding.tvSend.setOnClickListener {
             val comment = binding.edtCommnet.text!!.trim().toString()
             if(comment.equals("")){
-                Toast.makeText(activity,"Comment not empty",Toast.LENGTH_LONG).show()
+                makeText(activity,"Comment not empty",Toast.LENGTH_LONG).show()
             }else{
                 viewModel.addComment((Comment(1, User(1,"Sơn tít","http://media2.sieuhai.tv:8088/onbox/images/user_lead_image/20190408/84947430634_20190408001343.jpg"),comment,"4")))
                 binding.edtCommnet.setText("")
@@ -47,8 +54,8 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
 
     override fun viewCreated() {
         // e get ra ko thấy gì :D
-        var name = arguments?.getString("name")
-        Toast.makeText(context, name, Toast.LENGTH_LONG).show()
+//        var name = arguments?.getString("name")
+//        makeText(context, name, Toast.LENGTH_LONG).show()
 
         viewModel.getArrComment().observe(this, Observer { list->
             viewModel.adapterComment.setList(list)
