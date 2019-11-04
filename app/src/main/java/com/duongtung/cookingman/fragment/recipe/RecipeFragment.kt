@@ -2,19 +2,19 @@ package com.duongtung.cookingman.fragment.recipe
 
 import android.app.Activity
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.duongtung.cookingman.R
-import com.duongtung.cookingman.adapter.PostCallback
+import com.duongtung.cookingman.adapter.RecipCallback
+import com.duongtung.cookingman.adapter.RecipeCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
-import com.duongtung.cookingman.model.Post
-import com.duongtung.cookingman.model.User
+import com.duongtung.cookingman.model.Recipe
 
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
@@ -36,22 +36,47 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
         binding.fabADD.setOnClickListener {
             Log.d("test","chuyển đến màn đăng món ăn")
         }
+
+
+
     }
 
     override fun viewCreated() {
-        viewModel.getArrRecipe().observe(this, Observer { list ->
+//        viewModel.getArrRecipe().observe(this, Observer { list ->
+//            viewModel.adapter.setList(list)
+//            viewModel.adapter.setCallBack(object : PostCallback{
+//                override fun onImageFoodClick(view: View, post: Post) {
+//                    findNavController().navigate(R.id.detailCookFragment)
+//                }
+//
+//                override fun onAvatarClick(view: View, user: User) {
+//
+//                }
+//
+//                override fun onMoreClick(view: View, post: Post) {
+//                        Log.d("test","đã lưu food")
+//                }
+//            })
+//        })
+        viewModel.getRecipe().observe(this, Observer { list->
             viewModel.adapter.setList(list)
-            viewModel.adapter.setCallBack(object : PostCallback{
-                override fun onImageFoodClick(view: View, post: Post) {
-                    findNavController().navigate(R.id.detailCookFragment)
+            binding.pgLoading.visibility = View.GONE
+            viewModel.adapter.setCallBack(object : RecipCallback{
+                override fun onAuthorClick(view: View, recipe: Recipe) {
+                   Log.d("test","author click")
                 }
 
-                override fun onAvatarClick(view: View, user: User) {
-
+                override fun onLikeClick(view: View, recipe: Recipe) {
+                    Log.d("test","like click")
                 }
 
-                override fun onMoreClick(view: View, post: Post) {
-                        Log.d("test","đã lưu food")
+                override fun onRecipeClick(view: View, recipe: Recipe) {
+
+                    Log.d("test","link recipe sẽ dc gửi: " + recipe.linkdetail)
+                    val bundle = Bundle()
+                    bundle.putString("name", "Santhosh")
+                    Log.d("test","Dữ liệu trong bundle gửi đi: " + bundle.getString("name"))
+                    findNavController().navigate(R.id.detailCookFragment,bundle)
                 }
             })
         })

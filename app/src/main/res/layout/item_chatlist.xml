@@ -8,7 +8,9 @@
                 type="com.duongtung.cookingman.adapter.ListChatCallback" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
             android:padding="@dimen/itemchatlist_padding"
+            android:onClick="@{(view)->callback.onItemClick(view,user)}"
             android:layout_marginTop="@dimen/margin_10dp"
             android:background="@color/white"
             android:layout_width="match_parent"

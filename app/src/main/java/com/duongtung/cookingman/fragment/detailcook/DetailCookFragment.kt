@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment.detailcook
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -45,6 +46,10 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
     }
 
     override fun viewCreated() {
+        // e get ra ko thấy gì :D
+        var name = arguments?.getString("name")
+        Toast.makeText(context, name, Toast.LENGTH_LONG).show()
+
         viewModel.getArrComment().observe(this, Observer { list->
             viewModel.adapterComment.setList(list)
         })

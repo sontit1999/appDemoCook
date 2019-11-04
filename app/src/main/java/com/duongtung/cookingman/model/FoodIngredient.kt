@@ -19,7 +19,7 @@ data class FoodIngredient(var nameIngredient : String,var imageIngredient : Stri
     fun number1(): SpannableStringBuilder{
         var span = SpannableStringBuilder()
         var start = 0
-        span.append(number).append(" ").append(measure)
+        span.append(nameIngredient + ": ").append(number).append(" ").append(measure)
         span.setSpan(ForegroundColorSpan(Color.BLACK), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         span.setSpan(StyleSpan(Typeface.BOLD), start,span.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
         return span
