@@ -42,22 +42,6 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     }
 
     override fun viewCreated() {
-//        viewModel.getArrRecipe().observe(this, Observer { list ->
-//            viewModel.adapter.setList(list)
-//            viewModel.adapter.setCallBack(object : PostCallback{
-//                override fun onImageFoodClick(view: View, post: Post) {
-//                    findNavController().navigate(R.id.detailCookFragment)
-//                }
-//
-//                override fun onAvatarClick(view: View, user: User) {
-//
-//                }
-//
-//                override fun onMoreClick(view: View, post: Post) {
-//                        Log.d("test","đã lưu food")
-//                }
-//            })
-//        })
         viewModel.getRecipe().observe(this, Observer { list->
             viewModel.adapter.setList(list)
             binding.pgLoading.visibility = View.GONE
@@ -73,8 +57,8 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
                 override fun onRecipeClick(view: View, recipe: Recipe) {
                     Log.d("test","link recipe sẽ dc gửi: " + recipe.linkdetail)
                     val bundle = Bundle()
-                    bundle.putString("name", "Santhosh")
-                    Log.d("test","Dữ liệu trong bundle gửi đi: " + bundle.getString("name"))
+                    bundle.putString("recipe", recipe.linkdetail)
+                    Log.d("test","Dữ liệu trong bundle gửi đi: " + bundle.getString("recipe"))
                     findNavController().navigate(R.id.detailCookFragment,bundle)
                 }
             })
