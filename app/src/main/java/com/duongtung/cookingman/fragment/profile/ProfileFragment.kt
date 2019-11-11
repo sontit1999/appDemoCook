@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Color
+import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
@@ -14,10 +15,12 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.PostCallback
+import com.duongtung.cookingman.adapter.RecipCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragProfileBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.Recipe
 import com.duongtung.cookingman.model.User
 import kotlinx.android.synthetic.main.frag_profile.*
 import kotlinx.android.synthetic.main.frag_profile.view.*
@@ -48,22 +51,25 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
     }
 
     override fun viewCreated() {
-       viewModel.getArrRecipe().observe(this, Observer { list->
+       viewModel.getRecipe().observe(this, Observer { list->
            viewModel.adapter.setList(list)
-           viewModel.adapter.setCallBack(object : PostCallback {
-               override fun onImageFoodClick(view: View, post: Post) {
-                   findNavController().navigate(R.id.detailCookFragment)
-               }
-
-               override fun onAvatarClick(view: View, user: User) {
+           viewModel.adapter.setCallBack(object : RecipCallback{
+               override fun onAuthorClick(view: View, recipe: Recipe) {
 
                }
 
-               override fun onMoreClick(view: View, post: Post) {
-                       Log.d("test","đã lưu food")
+               override fun onLikeClick(view: View, recipe: Recipe) {
+
+               }
+
+               override fun onRecipeClick(view: View, recipe: Recipe) {
+                   var bundle = Bundle()
+                   bundle.putString("recipe","Sơn dz")
+                   findNavController().navigate(R.id.detailCookFragment,bundle)
                }
            })
        })
+
     }
 
     override fun getLayoutId() = R.layout.frag_profile

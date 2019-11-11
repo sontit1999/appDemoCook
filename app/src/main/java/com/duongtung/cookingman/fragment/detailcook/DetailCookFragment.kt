@@ -17,12 +17,13 @@ import com.duongtung.cookingman.model.User
 
 
 class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookViewModel>() {
+    var link : String = ""
     private var actionBarHomeOnClick: ActionBarListener? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        val name = arguments?.getString("name")
-        makeText(context, name, Toast.LENGTH_LONG).show()
+        link = arguments?.getString("recipe").toString()
+        makeText(context, link, Toast.LENGTH_LONG).show()
     }
 
     override fun onAttach(context: Context) {
