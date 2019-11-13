@@ -1,0 +1,27 @@
+package com.duongtung.cookingman.ui.login
+
+import android.util.Log
+import com.duongtung.cookingman.CookingApplication
+import com.duongtung.cookingman.base.repository.BaseRepository
+import com.duongtung.cookingman.base.repository.listener.IServiceRespond
+import com.duongtung.cookingman.base.ui.base.BaseViewModel
+import com.duongtung.cookingman.model.login.Login
+import com.duongtung.cookingman.model.login.LoginRes
+
+class LoginPhoneViewModel : BaseViewModel(){
+
+    fun login(phoneNumber : String,password : String){
+        BaseRepository.instance.getResponde(CookingApplication.localApi.login(Login(phoneNumber,password,true)),object :
+            IServiceRespond<LoginRes> {
+            override fun onSuccess(result: LoginRes) {
+                Log.d("test", result.access_token)
+            }
+
+            override fun onError(message: String) {
+                Log.d("test", message)
+            }
+
+        })
+
+    }
+}

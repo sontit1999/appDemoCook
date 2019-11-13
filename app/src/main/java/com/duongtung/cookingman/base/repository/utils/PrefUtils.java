@@ -7,7 +7,7 @@ public class PrefUtils {
     public PrefUtils() {
     }
 
-    private static SharedPreferences getSharedPreferences(Context context) {
+    protected static SharedPreferences getSharedPreferences(Context context) {
         return context.getSharedPreferences("APP_PREF", Context.MODE_PRIVATE);
     }
 

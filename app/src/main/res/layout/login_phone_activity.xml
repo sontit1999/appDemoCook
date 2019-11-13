@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+                name="viewmodel"
+                type="com.duongtung.cookingman.ui.login.LoginPhoneViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/actionbar_padding"
+            android:background="@drawable/background">
+        <LinearLayout
+                android:id="@+id/editLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent">
+
+            <Spinner
+                    android:id="@+id/spincountry"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="15dp"
+                    android:background="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:orientation="horizontal"
+                    android:weightSum="5">
+
+                <com.duongtung.cookingman.customview.CustomTextView
+                        android:id="@+id/txtCode"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="4"
+                        android:background="#FFFFFF"
+                        android:gravity="center"
+                        android:text="+84"
+                        android:textColor="#000000"
+                        android:textSize="20sp" />
+
+                <com.duongtung.cookingman.customview.CustomEditText
+                        android:id="@+id/edtPhone"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="@dimen/small_margin"
+                        android:layout_weight="1"
+                        android:background="#FFFFFF"
+                        android:paddingRight="@dimen/itemcomment_marginleft"
+                        android:hint="@string/phone_number"
+                        android:inputType="phone"
+                        app:validate="phone"
+                        android:text="0786783555"
+                        android:textAlignment="center"
+                        app:layout_constraintTop_toBottomOf="@id/spincountry" />
+
+            </LinearLayout>
+            <com.duongtung.cookingman.customview.CustomEditText
+                    android:id="@+id/edtPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:background="#FFFFFF"
+                    android:text="duongtung"
+                    android:layout_marginTop="@dimen/small_margin"
+                    android:paddingRight="@dimen/itemcomment_marginleft"
+                    android:hint="@string/pass"
+                    android:inputType="textPassword"
+                    android:textAlignment="center"
+                    />
+        </LinearLayout>
+
+        <com.duongtung.cookingman.customview.CustomTextView
+                android:id="@+id/txtAnnounce"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="@string/enter_your_phone_number"
+                android:textColor="#2C2B2B"
+                android:textSize="@dimen/textview_main_size"
+                app:layout_constraintBottom_toTopOf="@id/editLayout"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        <com.duongtung.cookingman.customview.ButtonFont
+                android:id="@+id/btnNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/next"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_margin="@dimen/actionbar_padding"
+                android:padding="@dimen/margin_10dp"
+                android:background="@color/colorAccent"
+                android:textColor="@color/white"
+                android:textSize="@dimen/tv_splash_size"
+                />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

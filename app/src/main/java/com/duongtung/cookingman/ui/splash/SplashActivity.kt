@@ -18,10 +18,13 @@ import com.duongtung.cookingman.base.BaseActivity
 import com.duongtung.cookingman.customview.CustomSpanTypeFace
 import com.duongtung.cookingman.customview.FontCache
 import com.duongtung.cookingman.databinding.ActivitySplashBinding
+import com.duongtung.cookingman.pref.PrefCookingMan
+import com.duongtung.cookingman.ui.MainActivity
 import com.duongtung.cookingman.ui.getstart.GetstartActivity
 import com.duongtung.cookingman.ui.home.HomeActivity
 import com.duongtung.cookingman.ui.login.LoginActivity
 import com.duongtung.cookingman.ui.login.LoginEmailActivity
+import com.duongtung.cookingman.ui.login.LoginPhoneActivity
 
 class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
     override fun getToolbar(): Toolbar? {
@@ -47,21 +50,28 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
             26,
             0
         )
-        viewModel.text.setSpan(CustomSpanTypeFace("", FontCache.get(this, FontCache.FONT_ROBOTO_REGULAR)!!), 15, 26, 0)
+        viewModel.text.setSpan(
+            CustomSpanTypeFace(
+                "",
+                FontCache.get(this, FontCache.FONT_ROBOTO_REGULAR)!!
+            ), 15, 26, 0
+        )
 
         binding.tvSignIn.setOnClickListener {
-            goToActivity(LoginActivity::class.java, null, null)
-
+//            if (PrefCookingMan.getAccessToken(this@SplashActivity) == null)
+//                goToActivity(LoginActivity::class.java, null, null)
+//            else
+                goToActivity(LoginPhoneActivity::class.java, null, null)
         }
         binding.tvGetStarted.setOnClickListener {
-            goToActivity(GetstartActivity::class.java,null,null)
+            goToActivity(GetstartActivity::class.java, null, null)
         }
 
         binding.tvCreate.setOnClickListener {
             goToActivity(LoginEmailActivity::class.java, null, null)
         }
         binding.imgLogo.setOnClickListener {
-            goToActivity(HomeActivity::class.java,null,null)
+            goToActivity(HomeActivity::class.java, null, null)
         }
     }
 }
