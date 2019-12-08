@@ -14,7 +14,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="wrap_content">
 
             <androidx.cardview.widget.CardView
                     android:id="@+id/cardview"
@@ -59,7 +59,7 @@
 
             <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     app:layout_constraintTop_toBottomOf="@+id/cardview">
 
@@ -68,7 +68,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_10dp"
                         android:layout_marginTop="@dimen/margin_10dp"
-                        android:text="Ramadan Special"
+                        android:text="Food Special"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/size_title_home" />
 
@@ -84,18 +84,17 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cardview" />
-
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_10dp"
                         android:layout_marginTop="@dimen/margin_10dp"
-                        android:text="Chief follwing"
+                        android:text="Drink delecious"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/size_title_home" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerfollow"
+                        android:id="@+id/recyclerMonxao"
                         adapter="@{viewModel.adapter}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -106,40 +105,17 @@
                         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintTop_toBottomOf="@id/cardview" />
-
                 <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/margin_10dp"
                         android:layout_marginTop="@dimen/margin_10dp"
-                        android:text="Food Stories"
+                        android:text="Following"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/size_title_home" />
 
                 <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclerFoodStory"
-                        adapter="@{viewModel.adapter}"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/margin_10dp"
-                        android:orientation="horizontal"
-                        android:nestedScrollingEnabled="false"
-                        android:paddingVertical="@dimen/margin_10dp"
-                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/cardview" />
-
-                <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="@dimen/margin_10dp"
-                        android:layout_marginTop="@dimen/margin_10dp"
-                        android:text="For vegetarian"
-                        android:textColor="@color/colorBlack"
-                        android:textSize="@dimen/size_title_home" />
-
-                <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/recyclervegetarian"
+                        android:id="@+id/recyclernuocuong"
                         adapter="@{viewModel.adapter}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"

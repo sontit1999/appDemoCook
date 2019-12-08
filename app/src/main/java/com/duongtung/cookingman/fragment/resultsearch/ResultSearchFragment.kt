@@ -36,20 +36,6 @@ class ResultSearchFragment : BaseFragment<FragResultSearchBinding,ResultSearchVi
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list->
             viewModel.adapter.setList(list)
-            viewModel.adapter.setCallback(object : PostCallback{
-                override fun onImageFoodClick(view: View, post: Post) {
-                    findNavController().navigate(R.id.detailCookFragment)
-                }
-
-                override fun onAvatarClick(view: View, user: User) {
-                    findNavController().navigate(R.id.profileFragment)
-                }
-
-                override fun onMoreClick(view: View, post: Post) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-            })
         })
     }
 

@@ -20,8 +20,6 @@
                 android:layout_height="match_parent">
                 <ImageView
                         android:id="@+id/iv_food"
-                        android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
-                        imageUrl="@{post.recipe.imageRecipe}"
                         android:scaleType="fitXY"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">

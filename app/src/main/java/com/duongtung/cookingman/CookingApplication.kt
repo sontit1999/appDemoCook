@@ -19,12 +19,13 @@ class CookingApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
         resource = BaseResource(context = applicationContext)
-//        serviceApi = BaseRepository.instance.getContext(this)!!
-//            .setBaseUrl("http://sonhaui.000webhostapp.com/")!!
-//            .createService(RecipeAPIs::class.java)
+        serviceApi = BaseRepository.instance.getContext(this)!!
+            .setBaseUrl("http://sonhaui.000webhostapp.com/")!!
+            .createService(RecipeAPIs::class.java)
 
         localApi = BaseRepository.instance.getContext(this)!!
-            .setBaseUrl("http://192.168.0.108:8000/api/v1/")!!
+            .setBaseUrl("http://192.168.28.105/cookingman/public/api/")!!
             .createService(FoodService::class.java)
+
     }
 }

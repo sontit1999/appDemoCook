@@ -5,6 +5,9 @@
         >
     <data>
         <variable
+                name="user"
+                type="com.duongtung.cookingman.model.login.LoginRes" />
+        <variable
                 name="viewmodel"
                 type="com.duongtung.cookingman.fragment.profile.ProfileViewModel" />
     </data>
@@ -16,142 +19,135 @@
                 android:layout_height="match_parent"
                 android:focusableInTouchMode="true"
                 tools:context=".ui.profile.ProfileActivity">
-
-            <com.mikhaellopez.circularimageview.CircularImageView
-                    android:id="@+id/ivAvatar"
-                    android:layout_width="@dimen/size_avatar"
-                    app:civ_border="true"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:civ_border_width="2dp"
-                    android:layout_height="@dimen/size_avatar"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    android:src="@drawable/gaixinh"
-                    />
-            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                    android:id="@+id/tv_camera"
-                    android:layout_width="wrap_content"
-                    app:iconTextSize="30sp"
-                    app:iconColor="#65FFFFFF"
-                    android:layout_marginTop="40dp"
-                    app:iconLeft="@string/icon_camera"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:civ_border_width="2dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    />
-            <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                    android:id="@+id/tv_camera_anhbia"
-                    android:layout_width="wrap_content"
-                    android:layout_marginRight="10dp"
-                    app:iconTextSize="30sp"
-                    app:iconColor="#65FFFFFF"
-                    app:iconLeft="@string/icon_camera"
-                    app:layout_constraintRight_toRightOf="parent"
-                    app:civ_border_width="2dp"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent"
-                    />
-            <com.duongtung.cookingman.customview.CustomTextView
-                    android:id="@+id/tv_name"
-                    android:text="Sơn Tít"
-                    android:textSize="@dimen/textview_main__tittle_size"
-                    android:textColor="@color/colorBlack"
-                    app:layout_constraintTop_toBottomOf="@id/ivAvatar"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
-            <com.duongtung.cookingman.customview.CustomTextView
-                    android:id="@+id/tv_describeyourself"
-                    android:layout_marginTop="@dimen/margin_10dp"
-                    android:text="Gét những người nói dc nhưng không làm dc"
-                    android:textSize="@dimen/textview_main__content_size"
-                    android:textColor="@color/colorBlack"
-                    app:layout_constraintTop_toBottomOf="@id/tv_name"
-                    android:gravity="center"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
-            <LinearLayout
+            <RelativeLayout
                     android:id="@+id/container_feature"
                     android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/margin_20dp"
-                    android:gravity="center"
-                    android:weightSum="4"
+                    android:layout_marginTop="@dimen/itemTypeFood_image_size"
+                    android:paddingHorizontal="@dimen/margin_20dp"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tv_describeyourself"
+                    app:layout_constraintTop_toTopOf="parent"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                        android:id="@+id/tv_friend"
-                        android:text="Follow"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:drawablePadding="@dimen/margin_10dp"
-                        app:iconColor="@color/colorGrey"
-                        app:iconTop="@string/icon_friend"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:iconTextSize="@dimen/size_icon_fearture"
-                        android:textSize="@dimen/textview_main__content_size"
-                        android:textColor="@color/colorBlack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                        android:id="@+id/tv_mesage"
-                        android:text="Message"
-                        android:gravity="center"
-                        android:drawablePadding="@dimen/margin_10dp"
-                        android:layout_weight="1"
-                        app:iconColor="@color/colorGrey"
-                        app:iconTop="@string/icon_message"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:iconTextSize="@dimen/size_icon_fearture"
-                        android:textSize="@dimen/textview_main__content_size"
-                        android:textColor="@color/colorBlack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                        android:id="@+id/tv_recipe"
-                        android:text="69 Recpie"
-                        android:layout_weight="1"
-                        app:iconColor="@color/colorGrey"
-                        app:iconTop="@string/icon_book"
-                        android:gravity="center"
-                        android:drawablePadding="@dimen/margin_10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:iconTextSize="@dimen/size_icon_fearture"
-                        android:textSize="@dimen/textview_main__content_size"
-                        android:textColor="@color/colorBlack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                        android:id="@+id/tv_more"
-                        android:text="More"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        app:iconColor="@color/colorGrey"
-                        android:drawablePadding="@dimen/margin_10dp"
-                        app:iconTop="@string/icon_more_v"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:iconTextSize="@dimen/size_icon_fearture"
-                        android:textSize="@dimen/textview_main__content_size"
-                        android:textColor="@color/colorBlack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-            </LinearLayout>
+                <LinearLayout
+                        android:id="@+id/containersumary"
+                        android:orientation="horizontal"
+                        android:padding="@dimen/margin_10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <LinearLayout
+                            android:gravity="center"
+                            android:layout_weight="0.3"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                                android:id="@+id/ivAvatar"
+                                imageUrl="@{user.linkavatar}"
+                                android:layout_alignParentLeft="true"
+                                android:layout_width="@dimen/size_avatar"
+                                android:layout_height="@dimen/size_avatar"
+                                android:src="@drawable/gaixinh"
+                                app:civ_border="true"
+                                app:civ_border_width="2dp" />
+
+                        <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                android:id="@+id/tv_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_10dp"
+                                android:gravity="center"
+                                android:text="@{user.nickname}"
+                                android:textColor="@color/colorBlack"
+                                android:textSize="@dimen/textview_main__tittle_size" />
+                    </LinearLayout>
+                    <LinearLayout
+                            android:layout_weight="0.7"
+                            xmlns:android="http://schemas.android.com/apk/res/android"
+                            android:orientation="vertical"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                        <LinearLayout
+                                android:id="@+id/top"
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <LinearLayout
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content">
+                                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                        android:id="@+id/tv_numberfollow"
+                                        android:text="250"
+                                        android:textColor="@color/colorRed"
+                                        android:textSize="@dimen/textview_main__content_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                        android:id="@+id/tv_folow"
+                                        android:text="recipes"
+                                        android:textColor="@color/colorRed"
+                                        android:textSize="@dimen/textview_main__content_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                            <LinearLayout
+                                    android:layout_weight="1"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content">
+                                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                        android:id="@+id/tv_numberLike"
+                                        android:text="500"
+                                        android:textColor="@color/colorRed"
+                                        android:textSize="@dimen/textview_main__content_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
+                                        android:id="@+id/tv_like"
+                                        android:text="follows"
+                                        android:textColor="@color/colorRed"
+                                        android:textSize="@dimen/textview_main__content_size"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"/>
+                            </LinearLayout>
+                        </LinearLayout>
+                        <LinearLayout
+                                android:orientation="horizontal"
+                                android:padding="@dimen/margin_10dp"
+                                android:gravity="center_horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <TextView
+                                    android:id="@+id/tv_edit_profile"
+                                    android:text="@{user.description}"
+                                    android:layout_weight="0.8"
+                                    android:gravity="center"
+                                    android:layout_marginHorizontal="@dimen/margin_20dp"
+                                    android:textColor="@color/colorGrey"
+                                    android:layout_marginTop="@dimen/margin_10dp"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textSize="@dimen/textview_main__content_size"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
+            <View
+                    android:id="@+id/viewtemp"
+                    app:layout_constraintTop_toBottomOf="@id/container_feature"
+                    android:background="@color/colorGrey1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"/>
             <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/PostNew"
                     android:layout_marginTop="@dimen/splash_tv_margin_30"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/container_feature"
+                    app:layout_constraintTop_toBottomOf="@id/viewtemp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                 <com.duongtung.cookingman.customview.CustomEditText

@@ -18,13 +18,13 @@ object DataUtilsApplication{
 
     }
     @JvmStatic
-    fun createActionBarHome(title: String?, imageCollapsing: Int?, rightBtn: String?,backgroundActionBar : Int?=Color.TRANSPARENT,context: Context): Actionbar{
+    fun createActionBarHome(title: String?, imageCollapsing:Int?, rightBtn: String?,backgroundActionBar : Int?=Color.TRANSPARENT,context: Context): Actionbar{
         return Actionbar(imageSlides = null,title = title, leftButtonImage =  context.getString(R.string.icon_menu),
             rightButtonImage = rightBtn , backgroundActionBar = backgroundActionBar,
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
     }
 
-    fun createActionBarHomeWithSlide(title: String?, imageCollapsing: Int?, rightBtn: String?,
+    fun createActionBarHomeWithSlide(title: String?, imageCollapsing:Int?, rightBtn: String?,
                                      backgroundActionBar : Int?=Color.TRANSPARENT,
                                      sliders : MutableList<ItemImageSlide>? = null,context: Context): Actionbar{
         return Actionbar(imageSlides = sliders,title = title, leftButtonImage =  context.getString(R.string.icon_menu),
@@ -32,7 +32,7 @@ object DataUtilsApplication{
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
     }
 
-    fun createActionBarBackPress(title: String?, imageCollapsing: Int?, rightBtn: String?,backgroundActionBar : Int?=Color.TRANSPARENT,context: Context): Actionbar{
+    fun createActionBarBackPress(title: String?, imageCollapsing:Int?, rightBtn: String?,backgroundActionBar : Int?=Color.TRANSPARENT,context: Context): Actionbar{
         return Actionbar(imageSlides = null,title = title, leftButtonImage =  context.getString(R.string.icon_arrow_left),
             rightButtonImage = rightBtn , backgroundActionBar = backgroundActionBar,
             leftTitle = null,rightTitle = null,subRightImage = null,imageCollapsing = imageCollapsing)
@@ -40,7 +40,7 @@ object DataUtilsApplication{
 
     @JvmStatic
     fun createActionBarDetails(title: String?,imageTitle: String?,time: String?,cal: String?,rank: Float?,
-                               imageCollapsing: Int?,backgroundActionBar : Int?=Color.TRANSPARENT,
+                               imageCollapsing:Int?,backgroundActionBar : Int?=Color.TRANSPARENT,
                                context: Context): Actionbar{
         return Actionbar(title = title, leftButtonImage =  context.getString(R.string.icon_arrow_left),
             backgroundActionBar = backgroundActionBar, imageCollapsing = imageCollapsing,time = time,

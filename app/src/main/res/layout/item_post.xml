@@ -3,7 +3,10 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:fitsSystemWindows="true">
     <data>
-        <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+        <variable
+                name="curentuser"
+                type="com.duongtung.cookingman.model.CurentUser" />
+        <variable name="post" type="com.duongtung.cookingman.model.Postres"/>
         <variable
                 name="callback"
                 type="com.duongtung.cookingman.adapter.PostCallback" />
@@ -39,9 +42,8 @@
                                 android:layout_width="65dp"
                                 android:layout_height="65dp"
                                 android:id="@+id/ivAvatar"
-                                android:onClick="@{(view)->callback.onAvatarClick(view,post.user)}"
                                 android:layout_marginTop="@dimen/margin_10dp"
-                                imageUrl="@{post.user.profileUrl}"
+                                imageUrl="@{post.linkavatar}"
                                 app:layout_constraintLeft_toLeftOf="parent"
                                 app:layout_constraintTop_toTopOf="parent"
                                 android:src="@drawable/gaixinh"
@@ -53,8 +55,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="@dimen/itemPost_marginLeft"
                                 android:layout_marginTop="28dp"
-                                android:onClick="@{(view)->callback.onAvatarClick(view,post.user)}"
-                                android:text="@{post.user.nickName}"
+                                android:text="@{post.nickname}"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/textview_main__content_size"
                                 android:textStyle="bold"
@@ -69,7 +70,6 @@
                                 app:layout_constraintTop_toTopOf="parent"
                                 app:layout_constraintRight_toRightOf="parent"
                                 app:iconLeft="@string/icon_menupost"
-                                android:onClick="@{(view)->callback.onMoreClick(view,post)}"
                                 android:padding="@dimen/itemchatlist_padding"
                                 app:iconTextSize="25sp"
                                 app:iconColor="@color/colorRed"
@@ -80,7 +80,7 @@
                                 android:textStyle="italic"
                                 android:textSize="@dimen/margin_10dp"
                                 android:layout_marginLeft="@dimen/itemPost_marginLeft"
-                                android:text="@{post.time}"
+                                android:text="10 phút trước"
                                 android:gravity="left"
                                 app:layout_constraintRight_toLeftOf="@id/tvMenuMore"
                                 android:layout_width="0dp"
@@ -94,7 +94,7 @@
                     <com.duongtung.cookingman.customview.CustomTextView
                             android:id="@+id/tvcontent"
                             android:layout_marginHorizontal="@dimen/margin_10dp"
-                            android:text="@{post.content}"
+                            android:text="@{post.caption}"
                             android:textColor="@color/colorBlack"
                             android:textSize="@dimen/textview_main__content_size"
                             app:layout_constraintRight_toRightOf="parent"
@@ -113,7 +113,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tvcontent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                imageUrl="@{post.recipe.imageRecipe}"
+                imageUrl="@{post.image}"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/itemPost_imageRecipe_heigh">
         </ImageView>
@@ -124,12 +124,6 @@
                 android:paddingVertical="15dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
-                <com.mikhaellopez.circularimageview.CircularImageView
-                        android:src="@drawable/gaixinh"
-                        android:layout_gravity="center_vertical"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp">
-                </com.mikhaellopez.circularimageview.CircularImageView>
                 <com.duongtung.cookingman.customview.CustomEditText
                         android:layout_weight="5"
                         android:textSize="15sp"
@@ -138,7 +132,7 @@
                         android:hint="Viết đánh giá"
                         android:background="@drawable/bg_edtcomment"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomEditText>
+                        android:layout_height="wrap_content"/>
         </LinearLayout>
     </LinearLayout>
 

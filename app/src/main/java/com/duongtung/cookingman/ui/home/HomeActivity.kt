@@ -34,6 +34,7 @@ import com.duongtung.cookingman.fragment.setting.SettingFragment
 import com.duongtung.cookingman.ui.splash.SplashActivity
 import android.view.MotionEvent
 import android.graphics.Rect
+import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Log
 import android.widget.Toast
@@ -42,13 +43,16 @@ import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
 import com.duongtung.cookingman.fragment.detailcook.DetailCookFragment
 import com.duongtung.cookingman.fragment.resultsearch.ResultSearchFragment
 import com.duongtung.cookingman.fragment.shopping.ShoppingFragment
+import com.duongtung.cookingman.model.CurentUser
+import com.duongtung.cookingman.model.Postres
+import com.duongtung.cookingman.model.login.LoginRes
 import kotlinx.android.synthetic.main.activity_home.view.*
 import java.lang.Exception
 import java.util.*
 
 
 class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener,VoiceCallback {
-
+    private lateinit var loginres : LoginRes
     private lateinit var controller: NavController
 
     private lateinit var navHostFragment: Fragment
@@ -76,7 +80,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         when (fragment) {
             is HomeFragment -> {
                 viewModel.menuAdapter.changVisibility(0)
-                action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
+                action = mutableListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
                 homeActionbar()
                 binding.actionbar.collapsingToolbarLayout.layoutParams.height =
                     CookingApplication.getResource().getResource()
@@ -98,12 +102,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.tvRight.visibility = View.VISIBLE
             }
             is ProfileFragment -> {
-                viewModel.menuAdapter.changVisibility(5)
-                action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
+                action = null
                 profileActionBar()
-                binding.actionbar.collapsingToolbarLayout.layoutParams.height =
-                    CookingApplication.getResource().getResource()
-                        .getDimensionPixelOffset(R.dimen.heigh_banner_home) + statusDimen
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
             is ChatFragment -> {
                 viewModel.menuAdapter.changVisibility(3)
@@ -127,11 +129,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.tvRight.visibility = View.VISIBLE
             }
             is DetailCookFragment->{
-                action = arrayListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
-                detailActionBar()
-                binding.actionbar.collapsingToolbarLayout.layoutParams.height =
-                    CookingApplication.getResource().getResource()
-                        .getDimensionPixelOffset(R.dimen.heigh_banner_home) +statusDimen
+                action = null
+                detailcookActionBar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
             is ResultSearchFragment->{
                 action = null
@@ -161,6 +162,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     override fun getLayout() = R.layout.activity_home
 
     override fun setBindingViewModel() {
+        binding.navHeader.user = CurentUser.user
         binding.viewModel = viewModel
         binding.actionbar.appBarLayout.addOnOffsetChangedListener(getListener)
         val bindingMenu = DataBindingUtil.findBinding<NavMenuBinding>(binding.navView.navMenu)
@@ -292,7 +294,22 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.GONE
         }
     }
+    private fun detailcookActionBar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "Detail Cook",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvRight.setOnClickListener {
 
+            binding.actionbar.searchLayout.visibility = View.VISIBLE
+        }
+        binding.actionbar.ivSearch.setOnClickListener {
+            binding.actionbar.searchLayout.visibility = View.GONE
+        }
+    }
     private fun favoriteActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
             "Favorite",
@@ -329,17 +346,19 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
 
     private fun profileActionBar() {
         binding.actionbar.data = DataUtilsApplication.createActionBarHome(
-            title = "PROFILE",
-            imageCollapsing = R.drawable.food,
-            rightBtn = getString(R.string.icon_search),
-            context = this
+            "Profile",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
         )
         binding.actionbar.tvRight.setOnClickListener {
+
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }
         binding.actionbar.ivSearch.setOnClickListener {
-        binding.actionbar.searchLayout.visibility = View.GONE
-    }
+            binding.actionbar.searchLayout.visibility = View.GONE
+        }
 }
 
     private fun settingActionbar() {
@@ -378,20 +397,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             navHostFragment.childFragmentManager.popBackStack()
         }
     }
-    private fun detailActionBar(){
-        binding.actionbar.data = DataUtilsApplication.createActionBarDetails(
-            title = "Detail",
-            imageCollapsing = R.drawable.food,
-            time = "2h30",
-            cal = "400 cal",
-            rank = 3.5f,
-            context = this,
-            imageTitle = "Details Cooking Master"
-        )
-        binding.actionbar.tvleft.setOnClickListener {
-            navHostFragment.childFragmentManager.popBackStack()
-        }
-    }
+
 
     override fun dispatchTouchEvent(ev: MotionEvent): Boolean {
         val viewRectMenu = Rect()

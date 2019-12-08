@@ -10,18 +10,4 @@ import com.duongtung.cookingman.model.login.LoginRes
 
 class LoginPhoneViewModel : BaseViewModel(){
 
-    fun login(phoneNumber : String,password : String){
-        BaseRepository.instance.getResponde(CookingApplication.localApi.login(Login(phoneNumber,password,true)),object :
-            IServiceRespond<LoginRes> {
-            override fun onSuccess(result: LoginRes) {
-                Log.d("test", result.access_token)
-            }
-
-            override fun onError(message: String) {
-                Log.d("test", message)
-            }
-
-        })
-
-    }
 }

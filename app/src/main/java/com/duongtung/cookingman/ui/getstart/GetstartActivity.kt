@@ -12,6 +12,7 @@ import com.duongtung.cookingman.fragment.GetStartOneFragment
 import com.duongtung.cookingman.fragment.GetStartThreeFragment
 import com.duongtung.cookingman.fragment.GetStartTwoFragment
 import com.duongtung.cookingman.ui.home.HomeActivity
+import com.duongtung.cookingman.ui.login.LoginEmailActivity
 
 class GetstartActivity : BaseActivity<ActivityGetstartBinding, GetstartViewModel>() {
     override fun getToolbar(): Toolbar? {
@@ -27,7 +28,7 @@ class GetstartActivity : BaseActivity<ActivityGetstartBinding, GetstartViewModel
         binding.viewmodel = viewModel
 
         binding.tvSkip.setOnClickListener {
-            goToActivity(HomeActivity::class.java, null, null)
+            goToActivity(LoginEmailActivity::class.java, null, null)
         }
         binding.tvNext.setOnClickListener {
             nextFragment()
@@ -52,30 +53,21 @@ class GetstartActivity : BaseActivity<ActivityGetstartBinding, GetstartViewModel
             }
 
             override fun onPageScrollStateChanged(state: Int) {
-                if (binding.viewpagerGetStart.currentItem  == myViewPageStateAdapter.count - 1) {
-                    if (next && state==0)
-                        goToActivity(
-                            HomeActivity::class.java,
-                            null,
-                            null
-                        )
-                    else next = true
-                }
-                else next = false
+//                if (binding.viewpagerGetStart.currentItem  == myViewPageStateAdapter.count - 1) {
+//                    if (next && state==0)
+//                        goToActivity(
+//                            HomeActivity::class.java,
+//                            null,
+//                            null
+//                        )
+//                    else next = true
+//                }
+//                else next = false
             }
         })
     }
 
     private fun nextFragment() {
         binding.viewpagerGetStart.setCurrentItem(binding.viewpagerGetStart.currentItem + 1, true)
-        if (binding.viewpagerGetStart.currentItem == myViewPageStateAdapter.count - 1 && next) {
-            if (next)
-                goToActivity(
-                    HomeActivity::class.java,
-                    null,
-                    null
-                )
-            else next = true
-        } else next = false
     }
 }

@@ -13,17 +13,17 @@ import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentDetailCookBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.model.Comment
+import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.User
 
 
 class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookViewModel>() {
-    var link : String = ""
+    var post : Postres? = null
     private var actionBarHomeOnClick: ActionBarListener? = null
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        link = arguments?.getString("recipe").toString()
-        makeText(context, link, Toast.LENGTH_LONG).show()
+
     }
 
     override fun onAttach(context: Context) {
@@ -48,16 +48,12 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
                 binding.edtCommnet.setText("")
             }
         }
-        binding.addToShopList.setOnClickListener {
-            findNavController().navigate(R.id.Shoppingfragment)
-        }
+
     }
 
     override fun viewCreated() {
-        // e get ra ko thấy gì :D
-//        var name = arguments?.getString("name")
-//        makeText(context, name, Toast.LENGTH_LONG).show()
-
+        post = arguments!!.getSerializable("post") as Postres
+        binding.post = post
         viewModel.getArrComment().observe(this, Observer { list->
             viewModel.adapterComment.setList(list)
         })

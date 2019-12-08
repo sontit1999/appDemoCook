@@ -5,6 +5,9 @@
 
     <data>
         <variable
+                name="post"
+                type="com.duongtung.cookingman.model.Postres" />
+        <variable
                 name="viewModel"
                 type="com.duongtung.cookingman.fragment.detailcook.DetailCookViewModel"/>
     </data>
@@ -16,22 +19,19 @@
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcCal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:orientation="horizontal"
-                    android:padding="@dimen/margin_20dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            <ImageView
+                    android:id="@+id/iv_food"
+                    imageUrl="@{post.image}"
+                    android:layout_marginTop="@dimen/itemTypeFood_image_size"
+                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"/>
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvIngredients"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_30dp"
                     android:layout_marginStart="@dimen/margin_20dp"
                     android:layout_marginLeft="@dimen/margin_20dp"
                     android:text="@string/ingredients"
@@ -39,66 +39,50 @@
                     android:textSize="@dimen/textsize_title_home"
                     app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/rcCal" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcIngredients"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:orientation="vertical"
-                    android:padding="@dimen/margin_20dp"
-                    adapter="@{viewModel.adapterIngredient}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
-
-            <com.duongtung.cookingman.customview.ButtonFont
-                    android:id="@+id/addToShopList"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="@dimen/margin_20dp"
-                    android:background="@drawable/tvgetcreate"
-                    android:text="@string/add_to_shopping_list"
-                    android:textColor="@color/white"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rcIngredients" />
+                    app:layout_constraintTop_toBottomOf="@id/iv_food" />
 
             <com.duongtung.cookingman.customview.CustomTextView
-                    android:id="@+id/tvHowToCook"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvGredient"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_20dp"
                     android:layout_marginLeft="@dimen/margin_20dp"
                     android:layout_marginTop="@dimen/margin_20dp"
-                    android:text="@string/how_to_cook"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="@dimen/textsize_title_home"
+                    android:text="@{post.ingredient}"
+                    android:textColor="@color/lighter_gray"
+                    android:textSize="@dimen/textview_main__content_size"
                     app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/addToShopList" />
-            <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rcDirection"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:nestedScrollingEnabled="false"
-                    android:orientation="vertical"
-                    android:padding="@dimen/margin_20dp"
-                    adapter="@{viewModel.adapterDirection}"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvHowToCook" />
-            <com.duongtung.cookingman.customview.ButtonFont
-                    android:id="@+id/btnStartCooking"
+                    app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
+
+
+            <com.duongtung.cookingman.customview.CustomTextView
+                android:id="@+id/tvHowToCook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_20dp"
+                android:layout_marginLeft="@dimen/margin_20dp"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:text="@string/how_to_cook"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/textsize_title_home"
+                app:fontFace="font-roboto-bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvGredient" />
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/tvintroduce"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_20dp"
+                    android:layout_marginLeft="@dimen/margin_20dp"
                     android:layout_marginTop="@dimen/margin_20dp"
-                    android:background="@drawable/tvgetcreate"
-                    android:text="@string/start_cooking_now"
-                    android:textColor="@color/white"
+                    android:text="@{post.howtocook}"
+                    android:textColor="@color/lighter_gray"
+                    android:textSize="@dimen/textview_main__content_size"
+                    app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/rcDirection" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvHowToCook" />
+
 
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvReviews"
@@ -112,7 +96,7 @@
                     android:textSize="@dimen/textsize_title_home"
                     app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btnStartCooking" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvintroduce" />
 
             <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rcReviews"

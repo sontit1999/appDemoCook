@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment.newfeed
 
 import android.app.Activity
 import android.content.Context
+import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +14,9 @@ import com.duongtung.cookingman.adapter.PostCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentNewfeedsBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
+import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.User
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -30,22 +33,24 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     }
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list ->
-            viewModel.adapter.setCallBack(object  : PostCallback {
-                override fun onMoreClick(view: View, post: Post) {
-                    Log.d("test","display dialog")
-                    showBottomsheetDialog(post)
-                }
+            viewModel.adapter.setList(list)
+            viewModel.adapter.setCallBack(object : PostCallback{
+                override fun onImageFoodClick(view: View, post: Postres) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("post", post)
+                    CurentUser.post = post
+                    findNavController().navigate(R.id.detailCookFragment,bundle)
 
-                override fun onImageFoodClick(view: View, post: Post) {
-                    findNavController().navigate(R.id.action_homeFragment_to_detailCookFragment)
                 }
 
                 override fun onAvatarClick(view: View, user: User) {
-                    Log.d("user",user.profileUrl)
-                    findNavController().navigate(R.id.profileFragment)
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                }
+
+                override fun onMoreClick(view: View, post: Post) {
+                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
             })
-            viewModel.adapter.setList(list)
         })
 
     }

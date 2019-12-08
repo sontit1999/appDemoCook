@@ -24,7 +24,6 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     imageUrl="@{post.recipe.imageRecipe}"
-                    android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_food"
                     android:layout_width="180dp"

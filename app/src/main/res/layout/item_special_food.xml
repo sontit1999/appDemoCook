@@ -21,8 +21,6 @@
             <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/iv_food"
                     android:src="@drawable/hinh1"
-                    android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
-                    imageUrl="@{post.recipe.imageRecipe}"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     android:scaleType="fitXY"

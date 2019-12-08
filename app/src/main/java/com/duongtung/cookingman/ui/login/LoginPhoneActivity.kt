@@ -11,11 +11,6 @@ class LoginPhoneActivity : BaseActivity<LoginPhoneActivityBinding, LoginPhoneVie
 
     override fun setBindingViewModel() {
        binding.viewmodel = viewModel
-        binding.btnNext.setOnClickListener {
-            viewModel.login(
-                    binding.edtPhone.text.toString(),
-                binding.edtPassword.text.toString())
-        }
     }
 
     override fun getToolbar(): Toolbar? {

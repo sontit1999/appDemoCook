@@ -1,30 +1,17 @@
 package com.duongtung.cookingman.fragment.profile
 
-import android.Manifest.permission.CAMERA
+
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.Color
-import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.view.View
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
-import com.duongtung.cookingman.adapter.PostCallback
-import com.duongtung.cookingman.adapter.RecipCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragProfileBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
-import com.duongtung.cookingman.model.Post
-import com.duongtung.cookingman.model.Recipe
-import com.duongtung.cookingman.model.User
-import kotlinx.android.synthetic.main.frag_profile.*
-import kotlinx.android.synthetic.main.frag_profile.view.*
-import kotlinx.android.synthetic.main.frag_profile.view.tv_friend
+import com.duongtung.cookingman.model.CurentUser
 import java.io.IOException
 
 class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
@@ -43,7 +30,8 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
         }
     }
         override fun setBindingViewModel() {
-        binding.viewmodel = viewModel
+            binding.user = CurentUser.user
+            binding.viewmodel = viewModel
             binding.ivAvatar.setOnClickListener{
                     choosePhotoFromGallary()
             }
@@ -53,21 +41,6 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
     override fun viewCreated() {
        viewModel.getRecipe().observe(this, Observer { list->
            viewModel.adapter.setList(list)
-           viewModel.adapter.setCallBack(object : RecipCallback{
-               override fun onAuthorClick(view: View, recipe: Recipe) {
-
-               }
-
-               override fun onLikeClick(view: View, recipe: Recipe) {
-
-               }
-
-               override fun onRecipeClick(view: View, recipe: Recipe) {
-                   var bundle = Bundle()
-                   bundle.putString("recipe","Sơn dz")
-                   findNavController().navigate(R.id.detailCookFragment,bundle)
-               }
-           })
        })
 
     }
@@ -91,7 +64,7 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
         {
             if (data != null)
             {
-                val contentURI = data!!.data
+                val contentURI = data.data
                 try
                 {
                     val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)

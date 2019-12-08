@@ -58,20 +58,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         )
 
         binding.tvSignIn.setOnClickListener {
-//            if (PrefCookingMan.getAccessToken(this@SplashActivity) == null)
-//                goToActivity(LoginActivity::class.java, null, null)
-//            else
-                goToActivity(LoginPhoneActivity::class.java, null, null)
+                goToActivity(LoginEmailActivity::class.java, null, null)
         }
         binding.tvGetStarted.setOnClickListener {
             goToActivity(GetstartActivity::class.java, null, null)
-        }
-
-        binding.tvCreate.setOnClickListener {
-            goToActivity(LoginEmailActivity::class.java, null, null)
-        }
-        binding.imgLogo.setOnClickListener {
-            goToActivity(HomeActivity::class.java, null, null)
         }
     }
 }
