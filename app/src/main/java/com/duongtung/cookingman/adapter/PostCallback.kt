@@ -9,6 +9,6 @@ import com.duongtung.cookingman.model.User
 
 interface PostCallback  : CBAdapter{
     fun onImageFoodClick(view: View,post : Postres)
-    fun onAvatarClick(view : View,user : User)
-    fun onMoreClick(view:View,post:Post)
+    fun onAvatarClick(view : View,post:Postres)
+    fun onMoreClick(view:View,post:Postres)
 }

@@ -15,7 +15,7 @@ class MyRecipeAdapter  : BaseAdapter<Recipe,ItemRecipeBinding>(){
     }
     override fun getLayoutId() = R.layout.item_recipe
 
-    override fun getIdVariable() = BR.recipe
+    override fun getIdVariable() = BR.post
 
     override fun getIdVariableOnClick() = BR.callback
     override fun getOnClick() = callBack

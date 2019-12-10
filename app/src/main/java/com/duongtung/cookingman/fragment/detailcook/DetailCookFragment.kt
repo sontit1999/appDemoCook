@@ -39,29 +39,15 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
-        binding.tvSend.setOnClickListener {
-            val comment = binding.edtCommnet.text!!.trim().toString()
-            if(comment.equals("")){
-                makeText(activity,"Comment not empty",Toast.LENGTH_LONG).show()
-            }else{
-                viewModel.addComment((Comment(1, User(1,"Sơn tít","http://media2.sieuhai.tv:8088/onbox/images/user_lead_image/20190408/84947430634_20190408001343.jpg"),comment,"4")))
-                binding.edtCommnet.setText("")
-            }
-        }
 
     }
 
     override fun viewCreated() {
         post = arguments!!.getSerializable("post") as Postres
         binding.post = post
-        viewModel.getArrComment().observe(this, Observer { list->
+        val idpost = post!!.idphoto
+        viewModel.getArrComment(idpost).observe(this, Observer { list->
             viewModel.adapterComment.setList(list)
-        })
-        viewModel.getArrIngredient().observe(this, Observer { list->
-            viewModel.adapterIngredient.setList(list)
-        })
-        viewModel.getArrDirection().observe(this, Observer { list->
-            viewModel.adapterDirection.setList(list)
         })
     }
 

@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
-        <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+        <variable name="post" type="com.duongtung.cookingman.model.Postres"/>
         <variable
                 name="callback"
                 type="com.duongtung.cookingman.adapter.PostCallback" />
@@ -23,7 +23,7 @@
             <ImageView
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    imageUrl="@{post.recipe.imageRecipe}"
+                    imageUrl="@{post.image}"
                     android:scaleType="fitXY"
                     android:id="@+id/iv_food"
                     android:layout_width="180dp"
@@ -32,7 +32,7 @@
                     android:id="@+id/tv_nameFood"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textview_main__tittle_size"
-                    android:text="@{post.recipe.nameFood}"
+                    android:text="@{post.namereipe}"
                     android:paddingHorizontal="@dimen/margin_10dp"
                     app:layout_constraintRight_toLeftOf="@id/tv_more"
                     app:layout_constraintTop_toTopOf="parent"
@@ -85,7 +85,7 @@
                     android:layout_height="wrap_content">
                 <com.mikhaellopez.circularimageview.CircularImageView
                         android:id="@+id/ivAvatar"
-                        android:onClick="@{(view)->callback.onAvatarClick(view,post.user)}"
+                        android:onClick="@{(view)->callback.onAvatarClick(view,post)}"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="@dimen/margin_10dp"

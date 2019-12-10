@@ -42,7 +42,6 @@
                             android:layout_height="wrap_content">
                         <com.mikhaellopez.circularimageview.CircularImageView
                                 android:id="@+id/ivAvatar"
-                                imageUrl="@{user.linkavatar}"
                                 android:layout_alignParentLeft="true"
                                 android:layout_width="@dimen/size_avatar"
                                 android:layout_height="@dimen/size_avatar"
@@ -54,15 +53,14 @@
                                 android:id="@+id/tv_name"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:text="@{user.nickname}"
                                 android:layout_marginTop="@dimen/margin_10dp"
                                 android:gravity="center"
-                                android:text="@{user.nickname}"
                                 android:textColor="@color/colorBlack"
                                 android:textSize="@dimen/textview_main__tittle_size" />
                     </LinearLayout>
                     <LinearLayout
                             android:layout_weight="0.7"
-                            xmlns:android="http://schemas.android.com/apk/res/android"
                             android:orientation="vertical"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content">
@@ -150,7 +148,7 @@
                     app:layout_constraintTop_toBottomOf="@id/viewtemp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <com.duongtung.cookingman.customview.CustomEditText
+                <com.duongtung.cookingman.customview.CustomTextView
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:padding="10dp"
@@ -161,7 +159,7 @@
                         android:background="@drawable/bg_edt_post"
                         app:layout_constraintRight_toLeftOf="@id/tv_image"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomEditText>
+                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tv_image"
                         app:iconRight="@string/icon_image"
@@ -202,25 +200,9 @@
                         android:textColor="@color/colorBlack"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"/>
-                <com.duongtung.cookingman.customview.TextViewWithFontAwesome
-                        android:id="@+id/tv_numberFollow"
-                        android:layout_marginTop="@dimen/margin_10dp"
-                        android:text="Có 180 người theo dõi"
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        app:iconColor="@color/colorRed"
-                        app:iconLeft="@string/icon_follow"
-                        android:drawablePadding="@dimen/margin_10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:iconTextSize="@dimen/textview_main__content_size"
-                        android:textSize="@dimen/textview_main__content_size"
-                        android:textColor="@color/colorBlack"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
                 <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recyclerviewProfile"
+                        android:layout_marginTop="@dimen/margin_20dp"
                         android:layout_width="match_parent"
                         android:nestedScrollingEnabled="true"
                         adapter="@{viewmodel.adapter}"

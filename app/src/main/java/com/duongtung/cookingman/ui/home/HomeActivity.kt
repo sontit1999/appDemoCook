@@ -223,7 +223,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                         controller.navigate(R.id.favoriteFragment)
                     }
                     5 -> {
-                        controller.navigate(R.id.profileFragment)
+                       // controller.navigate(R.id.profileFragment)
                     }
                     6 -> {
                         controller.navigate(R.id.settingFragment)

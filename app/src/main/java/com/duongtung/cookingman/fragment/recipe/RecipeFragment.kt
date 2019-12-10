@@ -14,6 +14,7 @@ import com.duongtung.cookingman.adapter.RecipeCallback
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
+import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.Recipe
 
 
@@ -42,25 +43,25 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
     }
 
     override fun viewCreated() {
-        viewModel.getRecipe().observe(this, Observer { list->
+        viewModel.getpost().observe(this, Observer { list->
             viewModel.adapter.setList(list)
             binding.pgLoading.visibility = View.GONE
             viewModel.adapter.setCallBack(object : RecipCallback{
                 override fun onAuthorClick(view: View, recipe: Recipe) {
-                   Log.d("test","author click")
+
                 }
 
                 override fun onLikeClick(view: View, recipe: Recipe) {
-                    Log.d("test","like click")
+
                 }
 
-                override fun onRecipeClick(view: View, recipe: Recipe) {
-                    Log.d("test","link recipe sẽ dc gửi: " + recipe.linkdetail)
+                override fun onRecipeClick(view: View, post: Postres) {
                     val bundle = Bundle()
-                    bundle.putString("recipe", recipe.linkdetail)
-                    Log.d("test","Dữ liệu trong bundle gửi đi: " + bundle.getString("recipe"))
+                    bundle.putSerializable("post", post)
+                    // CurentUser.post = post
                     findNavController().navigate(R.id.detailCookFragment,bundle)
                 }
+
             })
         })
     }

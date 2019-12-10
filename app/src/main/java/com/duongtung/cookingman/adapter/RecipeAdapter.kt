@@ -8,10 +8,11 @@ import com.duongtung.cookingman.base.adapter.BaseAdapter
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemRecipeBinding
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.Recipe
 import com.duongtung.cookingman.model.User
 
-class RecipeAdapter : BaseAdapter<Recipe,ItemRecipeBinding>(){
+class RecipeAdapter : BaseAdapter<Postres,ItemRecipeBinding>(){
     private var callBack : RecipCallback?= null
 
     fun setCallBack( callBack: RecipCallback?){
@@ -21,7 +22,7 @@ class RecipeAdapter : BaseAdapter<Recipe,ItemRecipeBinding>(){
 
     override fun getLayoutId() = R.layout.item_recipe
 
-    override fun getIdVariable() = BR.recipe
+    override fun getIdVariable() = BR.post
     override fun getOnClick() = callBack
 
     }

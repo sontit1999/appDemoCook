@@ -3,7 +3,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:fitsSystemWindows="true">
     <data>
-        <variable name="post" type="com.duongtung.cookingman.model.Post"/>
+        <variable name="post" type="com.duongtung.cookingman.model.Postres"/>
         <variable
                 name="callback"
                 type="com.duongtung.cookingman.adapter.PostCallback" />
@@ -39,7 +39,7 @@
                         android:layout_above="@id/tv_nameauthor"
                         android:layout_marginBottom="9dp"
                         android:paddingLeft="@dimen/margin_10dp"
-                        android:text="@{post.recipe.nameFood}"
+                        android:text="@{post.namereipe}"
                         android:textColor="@color/yellow"
                         android:textSize="@dimen/textview_main__tittle_size"
                         android:textStyle="bold">
@@ -50,7 +50,7 @@
                         android:id="@+id/ivAvatar"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
-                        android:onClick="@{(view)->callback.onAvatarClick(view,post.user)}"
+                        android:onClick="@{(view)->callback.onAvatarClick(view,post)}"
                         android:layout_marginLeft="@dimen/margin_10dp"
                         app:civ_border="false"
                         android:layout_alignParentBottom="true"
@@ -60,7 +60,7 @@
                         />
                 <com.duongtung.cookingman.customview.CustomTextView
                         android:id="@+id/tv_nameauthor"
-                        android:text="@{post.user.nickName}"
+                        android:text="@{post.nickname}"
                         android:textSize="15sp"
                         android:layout_toLeftOf="@id/tv_time"
                         android:textColor="@color/white"

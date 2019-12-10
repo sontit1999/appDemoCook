@@ -38,17 +38,19 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
                 override fun onImageFoodClick(view: View, post: Postres) {
                     val bundle = Bundle()
                     bundle.putSerializable("post", post)
-                    CurentUser.post = post
+                   // CurentUser.post = post
                     findNavController().navigate(R.id.detailCookFragment,bundle)
 
                 }
 
-                override fun onAvatarClick(view: View, user: User) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                override fun onAvatarClick(view: View, post: Postres) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("post", post)
+                    findNavController().navigate(R.id.profileFragment,bundle)
                 }
 
-                override fun onMoreClick(view: View, post: Post) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                override fun onMoreClick(view: View, post: Postres) {
+                    showBottomsheetDialog(post)
                 }
             })
         })
@@ -72,24 +74,24 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
     }
-    fun showBottomsheetDialog(post: Post){
+    fun showBottomsheetDialog(post: Postres){
             var view = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_layout,null)
-            var like : LinearLayout = view.findViewById(R.id.SaveLinearLayout)
-            var delete : LinearLayout = view.findViewById(R.id.DeleteLinearLayout)
-            var report : LinearLayout = view.findViewById(R.id.ReportLinearLayout)
+//            var like : LinearLayout = view.findViewById(R.id.SaveLinearLayout)
+//            var delete : LinearLayout = view.findViewById(R.id.DeleteLinearLayout)
+//            var report : LinearLayout = view.findViewById(R.id.ReportLinearLayout)
             var bottomsheet = BottomSheetDialog(this.requireContext())
             bottomsheet.setContentView(view)
             bottomsheet.show()
-            like.setOnClickListener {
-                Log.d("test","like ${post.recipe.nameFood} ")
-                bottomsheet.dismiss()
-            }
-            delete.setOnClickListener { Log.d("test","delete ${post.recipe.nameFood}")
-                bottomsheet.dismiss()
-            }
-            report.setOnClickListener {
-                Log.d("test","report ${post.recipe.nameFood}")
-                bottomsheet.dismiss()
-            }
+//            like.setOnClickListener {
+//                Log.d("test","like ${post.recipe.nameFood} ")
+//                bottomsheet.dismiss()
+//            }
+//            delete.setOnClickListener { Log.d("test","delete ${post.recipe.nameFood}")
+//                bottomsheet.dismiss()
+//            }
+//            report.setOnClickListener {
+//                Log.d("test","report ${post.recipe.nameFood}")
+//                bottomsheet.dismiss()
+//            }
     }
 }
