@@ -60,4 +60,8 @@
             android:id="@+id/Shoppingfragment"
             android:name="com.duongtung.cookingman.fragment.shopping.ShoppingFragment"
             android:label="ShoppingFragment" />
+    <keep_state_fragment
+            android:id="@+id/SelfProfileFragmenet"
+            android:name="com.duongtung.cookingman.ui.profile.ProfileActivity"
+            android:label="SelfProfile" />
 </navigation>

@@ -2,19 +2,19 @@ package com.duongtung.cookingman.fragment.detailcook
 
 import android.app.Activity
 import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
-import android.util.Log
+import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
-import android.widget.Toast.makeText
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.databinding.FragmentDetailCookBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
-import com.duongtung.cookingman.model.Comment
+import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Postres
-import com.duongtung.cookingman.model.User
 
 
 class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookViewModel>() {
@@ -27,6 +27,7 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
     }
 
     override fun onAttach(context: Context) {
+        post = arguments!!.getSerializable("post") as Postres
         super.onAttach(context)
         try {
             actionBarHomeOnClick = context as ActionBarListener
@@ -39,11 +40,22 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
 
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
+        binding.tvSend.setOnClickListener {
+            var content = binding.edtCommnet.text.toString()
+            if(content.equals("")){
+                Toast.makeText(context,"Comment not empty!", Toast.LENGTH_LONG).show()
+            }else{
+                viewModel.addComment(content,post!!.idphoto,CurentUser.user.id)
+                binding.edtCommnet.setText("")
+                binding.edtCommnet.hideKeyboard()
+                binding.nestedScroll.fullScroll(View.FOCUS_UP)
+                binding.nestedScroll.smoothScrollTo(0,0)
+            }
 
+        }
     }
 
     override fun viewCreated() {
-        post = arguments!!.getSerializable("post") as Postres
         binding.post = post
         val idpost = post!!.idphoto
         viewModel.getArrComment(idpost).observe(this, Observer { list->
@@ -51,9 +63,13 @@ class DetailCookFragment : BaseFragment<FragmentDetailCookBinding, DetailCookVie
         })
     }
 
-    override fun getLayoutId()=R.layout.fragment_detail_cook
+    override fun getLayoutId()= R.layout.fragment_detail_cook
     override fun onResume() {
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
+    }
+    fun View.hideKeyboard() {
+        val inputManager = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        inputManager.hideSoftInputFromWindow(windowToken, 0)
     }
 }

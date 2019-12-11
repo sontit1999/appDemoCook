@@ -41,7 +41,7 @@ class LoginEmailActivity : BaseActivity<ActivityLoginnBinding,LoginEmailViewMode
                CurentUser.user = loginres
                goToActivity(HomeActivity::class.java,null,null)
            }else if(loginres.status.equals("fail")){
-               Toast.makeText(baseContext,"Login ko thành công",Toast.LENGTH_LONG).show()
+               Toast.makeText(baseContext,"Tài khoản hoặc mật khẩu không chính xác!",Toast.LENGTH_LONG).show()
            }
         })
     }

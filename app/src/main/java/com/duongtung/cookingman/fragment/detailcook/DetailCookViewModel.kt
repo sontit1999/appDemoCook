@@ -15,14 +15,12 @@ import retrofit2.Response
 class DetailCookViewModel : BaseViewModel(){
     var adapterComment = CommentAdapter()
     private var arrComment = MutableLiveData<MutableList<Comment>>()
-
     fun getArrComment(idpost:String): MutableLiveData<MutableList<Comment>> {
         val retrofit = APIClient.getClient()
         val callapi = retrofit.create(DemoApi::class.java)
         val call = callapi.getComment(idpost)
         call.enqueue(object : Callback<List<Comment>>{
             override fun onFailure(call: Call<List<Comment>>, t: Throwable) {
-                Log.d("ccccc",t.message.toString())
             }
 
             override fun onResponse(call: Call<List<Comment>>, response: Response<List<Comment>>) {
@@ -30,6 +28,23 @@ class DetailCookViewModel : BaseViewModel(){
             }
         })
         return arrComment
+    }
+    fun addComment(content:String,postid :String,userid:String) {
+        val retrofit = APIClient.getClient()
+        val callapi = retrofit.create(DemoApi::class.java)
+        val call = callapi.addComment(content,postid,userid)
+        call.enqueue(object : Callback<Comment>{
+            override fun onFailure(call: Call<Comment>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<Comment>, response: Response<Comment>) {
+                Log.d("cmt",response.body().toString())
+                var listcommnet = arrComment.value
+                listcommnet!!.add(response.body()!!)
+                arrComment.postValue(listcommnet)
+            }
+        })
     }
 
 }

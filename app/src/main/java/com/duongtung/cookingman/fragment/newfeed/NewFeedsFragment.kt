@@ -33,7 +33,9 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     }
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list ->
+            Log.d("count","1")
             viewModel.adapter.setList(list)
+            binding.progressCircular.visibility = View.INVISIBLE
             viewModel.adapter.setCallBack(object : PostCallback{
                 override fun onImageFoodClick(view: View, post: Postres) {
                     val bundle = Bundle()

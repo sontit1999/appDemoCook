@@ -46,6 +46,7 @@ import com.duongtung.cookingman.fragment.shopping.ShoppingFragment
 import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.login.LoginRes
+import com.duongtung.cookingman.ui.profile.ProfileActivity
 import kotlinx.android.synthetic.main.activity_home.view.*
 import java.lang.Exception
 import java.util.*
@@ -147,6 +148,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
                 binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
+            is ProfileActivity->{
+                viewModel.menuAdapter.changVisibility(5)
+                action = null
+                selfPrfofileActionbar()
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
+            }
         }
         binding.drawer.closeDrawer(GravityCompat.START)
     }
@@ -223,7 +231,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                         controller.navigate(R.id.favoriteFragment)
                     }
                     5 -> {
-                       // controller.navigate(R.id.profileFragment)
+                        controller.navigate(R.id.SelfProfileFragmenet)
                     }
                     6 -> {
                         controller.navigate(R.id.settingFragment)
@@ -379,6 +387,18 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             null,
             getString(R.string.icon_search),
             ContextCompat.getColor(this, R.color.colorAccent),
+            this
+        )
+        binding.actionbar.tvleft.setOnClickListener {
+            navHostFragment.childFragmentManager.popBackStack()
+        }
+    }
+    private fun selfPrfofileActionbar() {
+        binding.actionbar.data = DataUtilsApplication.createActionBarBackPress(
+            "Profile",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.white1),
             this
         )
         binding.actionbar.tvleft.setOnClickListener {

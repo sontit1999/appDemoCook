@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+                name="user"
+                type="com.duongtung.cookingman.model.login.LoginRes" />
+        <variable
+                name="viewmodel"
+                type="com.duongtung.cookingman.ui.profile.ProfileActivityViewmodel" />
+    </data>
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/layout">
+            <ImageView
+                    android:id="@+id/header_cover_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/hinh1"
+                    />
+            <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/ivAvatar"
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:src="@drawable/gaixinh"
+                    android:layout_below="@+id/header_cover_image"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="-80dp"
+                    android:elevation="5dp"
+                    imageUrl="@{user.linkavatar}"
+                    android:scaleType="centerCrop"
+                    app:civ_border="true"
+                    app:civ_border_width="2dp" />
+
+            <RelativeLayout
+                    android:id="@+id/profile_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/header_cover_image"
+                    android:background="#2196F3"
+                    android:elevation="4dp"
+                    android:paddingBottom="24dp">
+
+
+                <ImageView
+                        android:id="@+id/edit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginTop="16dp"
+                        android:clickable="true"
+                        android:src="@android:drawable/ic_menu_edit" />
+
+                <TextView
+                        android:id="@+id/name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="70dp"
+                        android:text="@{user.nickname}"
+                        android:textColor="#fff"
+                        android:textSize="24sp"
+                        android:textStyle="bold" />
+                <TextView
+                        android:id="@+id/designation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/name"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@{user.description}"
+                        android:textColor="#fff"
+                        android:textSize="18sp" />
+            </RelativeLayout>
+            <LinearLayout
+                    android:id="@+id/container_infor"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_10dp"
+                    android:layout_below="@id/profile_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/PostNew"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/viewtemp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <com.duongtung.cookingman.customview.CustomTextView
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            android:padding="10dp"
+                            android:hint="Bạn đang nấu gì ?"
+                            android:inputType="text"
+                            android:background="@drawable/bg_edt_post"
+                            app:layout_constraintRight_toRightOf="parent"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerviewProfile"
+                        android:layout_width="match_parent"
+                        android:nestedScrollingEnabled="true"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        adapter="@{viewmodel.adapter}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintTop_toBottomOf="@id/container_infor"
+                        android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+</layout>

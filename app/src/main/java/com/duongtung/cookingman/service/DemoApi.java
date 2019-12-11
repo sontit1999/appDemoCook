@@ -26,4 +26,7 @@ public interface DemoApi {
     @FormUrlEncoded
     @POST("login.php")
     Call<LoginRes> login(@Field("email") String email, @Field("pass") String pass);
+    @FormUrlEncoded
+    @POST("addcomment.php")
+    Call<Comment> addComment(@Field("content") String content, @Field("postid") String postid,@Field("userid") String userid);
 }

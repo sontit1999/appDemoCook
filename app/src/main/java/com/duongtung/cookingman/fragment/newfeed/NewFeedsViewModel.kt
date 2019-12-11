@@ -30,7 +30,7 @@ class NewFeedsViewModel : BaseViewModel() {
 
             override fun onResponse(call: Call<List<Postres>>, response: Response<List<Postres>>) {
                Log.d("test",response.body()!!.size.toString())
-                arrPost.postValue(response.body()!!.toMutableList())
+                arrPost.postValue(response.body()!!.reversed().toMutableList())
             }
         })
         return arrPost
