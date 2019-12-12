@@ -21,11 +21,19 @@ public interface DemoApi {
     Call<List<Comment>> getComment(@Query("postid") String postid);
     @GET("getpost.php")
     Call<List<Postres>> getPostUser(@Query("id") String userid);
+    @GET("getFavorite.php")
+    Call<List<Postres>> getFavoritepost(@Query("id") String userid);
     @GET("getUser.php")
     Call<LoginRes> getUser(@Query("id") String userid);
     @FormUrlEncoded
     @POST("login.php")
     Call<LoginRes> login(@Field("email") String email, @Field("pass") String pass);
+    @FormUrlEncoded
+    @POST("addFavorite.php")
+    Call<String> addFavorite(@Field("iduser") String iduser, @Field("idpost") String idpost);
+    @FormUrlEncoded
+    @POST("deleteFavorite.php")
+    Call<String> deleteFavorite(@Field("iduser") String iduser, @Field("idpost") String idpost);
     @FormUrlEncoded
     @POST("addcomment.php")
     Call<Comment> addComment(@Field("content") String content, @Field("postid") String postid,@Field("userid") String userid);

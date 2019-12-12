@@ -34,12 +34,12 @@ class ProfileActivity : BaseFragment<ActivityProfileBinding,ProfileActivityViewm
         viewModel.getRecipe(CurentUser.user.id).observe(this, Observer { list->
             viewModel.adapter.setList(list)
             viewModel.adapter.setCallBack(object : RecipCallback {
-                override fun onAuthorClick(view: View, recipe: Recipe) {
+                override fun onAuthorClick(view: View, postres: Postres) {
                     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
                 }
 
-                override fun onLikeClick(view: View, recipe: Recipe) {
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+                override fun onLikeClick(view: View, postres: Postres) {
+                    viewModel.addFavorite(postres.idphoto,context!!)
                 }
 
                 override fun onRecipeClick(view: View, post: Postres) {

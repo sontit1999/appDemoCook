@@ -1,7 +1,9 @@
 package com.duongtung.cookingman.fragment.recipe
 
 import android.app.Application
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.duongtung.cookingman.CookingApplication
 import com.duongtung.cookingman.adapter.MyRecipeAdapter
@@ -39,5 +41,18 @@ class RecipeViewModel : BaseViewModel() {
             })
         return arrmyPost
         }
+    fun addFavorite(idpost:String,context: Context){
+        val retrofit = APIClient.getClient()
+        val callapi = retrofit.create(DemoApi::class.java)
+        val call = callapi.addFavorite(CurentUser.user.id,idpost)
+        call.enqueue(object : Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
 
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Toast.makeText(context,"Đã thích!", Toast.LENGTH_LONG).show()
+            }
+        })
     }
+}

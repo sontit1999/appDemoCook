@@ -44,15 +44,15 @@
 
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvGredient"
+                    android:textStyle="italic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_20dp"
                     android:layout_marginLeft="@dimen/margin_20dp"
                     android:layout_marginTop="@dimen/margin_20dp"
                     android:text="@{post.ingredient}"
-                    android:textColor="@color/lighter_gray"
+                    android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textview_main__content_size"
-                    app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvIngredients" />
 
@@ -72,15 +72,15 @@
                 app:layout_constraintTop_toBottomOf="@+id/tvGredient" />
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvintroduce"
+                    android:textStyle="italic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/margin_20dp"
                     android:layout_marginLeft="@dimen/margin_20dp"
                     android:layout_marginTop="@dimen/margin_20dp"
                     android:text="@{post.howtocook}"
-                    android:textColor="@color/lighter_gray"
+                    android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textview_main__content_size"
-                    app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvHowToCook" />
 
@@ -95,7 +95,6 @@
                     android:text="@string/reviews"
                     android:textColor="@color/colorBlack"
                     android:textSize="@dimen/textsize_title_home"
-                    app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/tvintroduce" />
 

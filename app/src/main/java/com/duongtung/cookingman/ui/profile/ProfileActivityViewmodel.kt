@@ -1,10 +1,13 @@
 package com.duongtung.cookingman.ui.profile
 
+import android.content.Context
 import android.util.Log
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.duongtung.cookingman.adapter.RecipeAdapter
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
 import com.duongtung.cookingman.model.APIClient
+import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.login.LoginRes
 import com.duongtung.cookingman.service.DemoApi
@@ -30,5 +33,19 @@ class ProfileActivityViewmodel :BaseViewModel(){
             }
         })
         return arrmyRecipe
+    }
+    fun addFavorite(idpost:String,context: Context){
+        val retrofit = APIClient.getClient()
+        val callapi = retrofit.create(DemoApi::class.java)
+        val call = callapi.addFavorite(CurentUser.user.id,idpost)
+        call.enqueue(object : Callback<String>{
+            override fun onFailure(call: Call<String>, t: Throwable) {
+
+            }
+
+            override fun onResponse(call: Call<String>, response: Response<String>) {
+                Toast.makeText(context,"Đã thích!", Toast.LENGTH_LONG).show()
+            }
+        })
     }
 }

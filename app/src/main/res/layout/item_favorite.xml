@@ -13,20 +13,20 @@
                 app:cardUseCompatPadding="true"
                 app:cardElevation="4dp"
                 app:cardCornerRadius="5dp"
-                android:layout_marginTop="@dimen/margin_30dp"
+                android:layout_marginTop="@dimen/margin_10dp"
                 android:layout_height="@dimen/height_itemfavorite">
         <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <ImageView
                         android:id="@+id/iv_food"
-                        android:scaleType="fitXY"
+                        android:scaleType="centerCrop"
+                        imageUrl="@{post.image}"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                 </ImageView>
             <RelativeLayout
                     app:layout_constraintLeft_toLeftOf="parent"
-                    android:background="#700C0C0C"
                     android:padding="@dimen/margin_10dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     android:layout_width="match_parent"
@@ -34,6 +34,7 @@
 
                 <com.duongtung.cookingman.customview.CustomTextView
                         android:id="@+id/nameFood"
+                        android:onClick="@{(view)->callback.onImageFoodClick(view,post)}"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_above="@id/tv_nameauthor"
@@ -50,6 +51,7 @@
                         android:id="@+id/ivAvatar"
                         android:layout_width="20dp"
                         android:layout_height="20dp"
+                        imageUrl="@{post.linkavatar}"
                         android:onClick="@{(view)->callback.onAvatarClick(view,post)}"
                         android:layout_marginLeft="@dimen/margin_10dp"
                         app:civ_border="false"
@@ -62,13 +64,14 @@
                         android:id="@+id/tv_nameauthor"
                         android:text="@{post.nickname}"
                         android:textSize="15sp"
+                        android:onClick="@{(view)->callback.onAvatarClick(view,post)}"
                         android:layout_toLeftOf="@id/tv_time"
                         android:textColor="@color/white"
                         android:paddingLeft="@dimen/margin_10dp"
                         android:layout_toRightOf="@id/ivAvatar"
                         android:layout_width="wrap_content"
                         android:layout_alignParentBottom="true"
-                        android:layout_height="wrap_content"></com.duongtung.cookingman.customview.CustomTextView>
+                        android:layout_height="wrap_content"/>
                 <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                         android:id="@+id/tv_time"
                         app:iconLeft="@string/icon_clock"
@@ -78,7 +81,7 @@
                         android:layout_alignParentBottom="true"
                         app:iconColor="@color/orange"
                         android:drawablePadding="@dimen/margin_10dp"
-                        android:text="2h 30p"
+                        android:text="@{post.timecomplete}"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                 </com.duongtung.cookingman.customview.TextViewWithFontAwesome>

@@ -6,8 +6,9 @@ import com.duongtung.cookingman.base.adapter.BaseAdapter
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemFavoriteBinding
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.Postres
 
-class FavoriteAdapter : BaseAdapter<Post,ItemFavoriteBinding>(){
+class FavoriteAdapter : BaseAdapter<Postres,ItemFavoriteBinding>(){
     private var callBack : PostCallback?= null
 
     fun setCallBack( callBack: PostCallback?){

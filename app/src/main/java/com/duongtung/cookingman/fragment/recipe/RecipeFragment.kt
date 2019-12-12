@@ -5,6 +5,7 @@ import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -47,12 +48,12 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
             viewModel.adapter.setList(list)
             binding.pgLoading.visibility = View.GONE
             viewModel.adapter.setCallBack(object : RecipCallback{
-                override fun onAuthorClick(view: View, recipe: Recipe) {
+                override fun onAuthorClick(view: View,post: Postres ) {
 
                 }
 
-                override fun onLikeClick(view: View, recipe: Recipe) {
-
+                override fun onLikeClick(view: View, post: Postres) {
+                         viewModel.addFavorite(post.idphoto,context!!)
                 }
 
                 override fun onRecipeClick(view: View, post: Postres) {
