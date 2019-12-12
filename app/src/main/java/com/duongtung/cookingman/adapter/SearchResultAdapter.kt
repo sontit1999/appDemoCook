@@ -7,8 +7,9 @@ import com.duongtung.cookingman.base.adapter.BaseAdapter
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemResultBinding
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.Postres
 
-class SearchResultAdapter  : BaseAdapter<Post,ItemResultBinding>(){
+class SearchResultAdapter  : BaseAdapter<Postres,ItemResultBinding>(){
     private var callback : PostCallback? = null
     fun setCallback(callback: PostCallback){
         this.callback = callback

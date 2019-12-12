@@ -81,12 +81,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
         when (fragment) {
             is HomeFragment -> {
                 viewModel.menuAdapter.changVisibility(0)
-                action = mutableListOf(binding.actionbar.tvRight, binding.actionbar.tvCenter)
+                action = null
                 homeActionbar()
-                binding.actionbar.collapsingToolbarLayout.layoutParams.height =
-                    CookingApplication.getResource().getResource()
-                        .getDimensionPixelOffset(R.dimen.heigh_banner_home) +statusDimen
-                binding.actionbar.imageSlider.visibility = View.VISIBLE
+                binding.actionbar.tvCenter.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
             is NewFeedsFragment -> {
                 viewModel.menuAdapter.changVisibility(1)
@@ -113,7 +111,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 action = null
                 chatActionBar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
-                binding.actionbar.tvRight.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
             is SettingFragment -> {
                 viewModel.menuAdapter.changVisibility(6)
@@ -254,19 +252,13 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     }
 
     private fun homeActionbar() {
-        binding.actionbar.data = DataUtilsApplication.createActionBarHomeWithSlide(
-            title = getString(R.string.home),
-            imageCollapsing = null,
-            rightBtn = getString(R.string.icon_search),
-            context = this,
-            sliders = imageList
+        binding.actionbar.data = DataUtilsApplication.createActionBarHome(
+            "HOME",
+            null,
+            getString(R.string.icon_search),
+            ContextCompat.getColor(this, R.color.colorAccent),
+            this
         )
-        binding.actionbar.tvRight.setOnClickListener {
-            binding.actionbar.searchLayout.visibility = View.VISIBLE
-        }
-        binding.actionbar.ivSearch.setOnClickListener {
-            binding.actionbar.searchLayout.visibility = View.GONE
-        }
     }
 
     private fun recipeActionBar() {
@@ -343,13 +335,6 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             ContextCompat.getColor(this, R.color.colorAccent),
             this
         )
-        binding.actionbar.tvRight.setOnClickListener {
-
-            binding.actionbar.searchLayout.visibility = View.VISIBLE
-        }
-        binding.actionbar.ivSearch.setOnClickListener {
-            binding.actionbar.searchLayout.visibility = View.GONE
-        }
     }
 
     private fun profileActionBar() {
@@ -456,7 +441,10 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 if(data!= null){
                     // get string
                     val result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
-                    controller.navigate(R.id.SearchResultFragment)
+                   // Toast.makeText(baseContext,result.get(0),Toast.LENGTH_LONG).show()
+                    var bunde = Bundle()
+                    bunde.putString("keyword",result.get(0))
+                    controller.navigate(R.id.SearchResultFragment,bunde)
                 }
             }
         }

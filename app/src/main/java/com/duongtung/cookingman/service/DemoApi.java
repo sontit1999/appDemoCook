@@ -23,6 +23,8 @@ public interface DemoApi {
     Call<List<Postres>> getPostUser(@Query("id") String userid);
     @GET("getFavorite.php")
     Call<List<Postres>> getFavoritepost(@Query("id") String userid);
+    @GET("search.php")
+    Call<List<Postres>> searchPost(@Query("keyword") String keyword);
     @GET("getUser.php")
     Call<LoginRes> getUser(@Query("id") String userid);
     @FormUrlEncoded
