@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment.newfeed
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -18,6 +19,8 @@ import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Post
 import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.User
+import com.duongtung.cookingman.ui.home.HomeActivity
+import com.duongtung.cookingman.ui.postnew.PostNewActivity
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel>() {
@@ -62,9 +65,8 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     override fun setBindingViewModel() {
         binding.viewModel = viewModel
         binding.fabADD.setOnClickListener {
-            Log.d("test","Đăng tin")
+           activity!!.startActivity(Intent(context,PostNewActivity::class.java))
         }
-
     }
 
     override fun getClassViewMode() = NewFeedsViewModel::class.java

@@ -39,4 +39,7 @@ public interface DemoApi {
     @FormUrlEncoded
     @POST("addcomment.php")
     Call<Comment> addComment(@Field("content") String content, @Field("postid") String postid,@Field("userid") String userid);
+    @FormUrlEncoded
+    @POST("addpost.php")
+    Call<String> addpost(@Field("namereipe") String namereipe, @Field("caption") String caption,@Field("image") String image,@Field("ingredient") String ingredient,@Field("howtocook") String howtocook,@Field("userid") String userid,@Field("menuid") String menuid,@Field("timecomplete") String timecomplete);
 }
