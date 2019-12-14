@@ -38,9 +38,7 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
     }
         override fun setBindingViewModel() {
             binding.viewmodel = viewModel
-            binding.ivAvatar.setOnClickListener{
-                    choosePhotoFromGallary()
-            }
+
 
     }
 
@@ -79,33 +77,5 @@ class ProfileFragment  : BaseFragment<FragProfileBinding,ProfileViewModel>(){
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
     }
-    fun choosePhotoFromGallary() {
-        val galleryIntent = Intent(Intent.ACTION_PICK,
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
 
-        startActivityForResult(galleryIntent, GALLERY)
-
-    }
-    override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == GALLERY)
-        {
-            if (data != null)
-            {
-                val contentURI = data.data
-                try
-                {
-                    val bitmap = MediaStore.Images.Media.getBitmap(context?.contentResolver, contentURI)
-                    binding.ivAvatar.setImageBitmap(bitmap)
-
-                }
-                catch (e: IOException) {
-                    e.printStackTrace()
-                }
-
-            }
-
-        }
-
-    }
 }

@@ -17,7 +17,7 @@ class PostNewViewmodel : BaseViewModel(){
     fun addPost(namereipe:String,caption:String, image:String, ingredient:String, howtocook:String, userid:String, menuid:String, timecomplete:String,context: Context){
         val retrofit = APIClient.getClient()
         val callapi = retrofit.create(DemoApi::class.java)
-        val call = callapi.addpost(namereipe,caption,"https://phonelumi.com/wp-content/uploads/2017/01/Hinh-anh-girl-xinh-lam-hinh-nen-cho-iphone-7-25.jpg",ingredient,howtocook,CurentUser.user.id,menuid,timecomplete)
+        val call = callapi.addpost(namereipe,caption,image,ingredient,howtocook,CurentUser.user.id,menuid,timecomplete)
         call.enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
 

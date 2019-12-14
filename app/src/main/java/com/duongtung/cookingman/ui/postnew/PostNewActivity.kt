@@ -1,5 +1,9 @@
 package com.duongtung.cookingman.ui.postnew
 
+import android.content.Intent
+import android.graphics.Bitmap
+import android.provider.MediaStore
+import android.util.Base64
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
@@ -14,9 +18,13 @@ import com.duongtung.cookingman.customview.CustomEditText
 import com.duongtung.cookingman.databinding.ActivityPostNewfeedBinding
 import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Postres
+import java.io.ByteArrayOutputStream
+import java.io.IOException
 
 
 class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel>() {
+    private val GALLERY = 1
+    var imageString : String = ""
     override fun getViewMode() = PostNewViewmodel::class.java
 
     override fun getLayout() = R.layout.activity_post_newfeed
@@ -32,11 +40,13 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         binding.tvReturn.setOnClickListener { finish() }
 
         binding.tvPost.setOnClickListener {
-            Toast.makeText(this,"đăng",Toast.LENGTH_LONG).show()
             addPost()
         }
         binding.tvAddStep.setOnClickListener { Add_Line() }
 
+        binding.ivFood.setOnClickListener {
+            choosePhotoFromGallary()
+        }
 
         viewModel.getStatus().observe(this, Observer { status->
             finish()
@@ -75,7 +85,7 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         var make: String = ""
         var caption: String = ""
         var namerecipe: String = binding.edtNamerecipe.text.toString()
-        var linkimage: String = "link image"
+        var linkimage: String = binding.edtLinkimage.text.toString()
         var timecomplete: String = binding.edtTimecomplete.text.toString()
         var ingredient: String = binding.edtIngre.text.toString()
         var menuid: String = "0"
@@ -107,7 +117,37 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         if(namerecipe.equals("") || caption.equals("") || linkimage.equals("") || timecomplete.equals("") || ingredient.equals("") || make.equals("") || menuid.equals("")){
             Toast.makeText(this,"ko dc bỏ trống trường nào",Toast.LENGTH_LONG).show()
         }else{
-            viewModel.addPost(namerecipe,caption,"image",ingredient,make,CurentUser.user.id,menuid,timecomplete,baseContext)
+            viewModel.addPost(namerecipe,caption,linkimage,ingredient,make,CurentUser.user.id,menuid,timecomplete,baseContext)
         }
+    }
+    fun choosePhotoFromGallary() {
+        val galleryIntent = Intent(
+            Intent.ACTION_PICK,
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+
+        startActivityForResult(galleryIntent, GALLERY)
+
+    }
+    override fun onActivityResult(requestCode:Int, resultCode:Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == GALLERY)
+        {
+            if (data != null)
+            {
+                val contentURI = data.data
+                try
+                {
+                    val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, contentURI)
+                    binding.ivFood.setImageBitmap(bitmap)
+
+                }
+                catch (e: IOException) {
+                    e.printStackTrace()
+                }
+
+            }
+
+        }
+
     }
 }

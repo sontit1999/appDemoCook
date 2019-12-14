@@ -6,8 +6,9 @@ import com.duongtung.cookingman.base.adapter.BaseAdapter
 import com.duongtung.cookingman.base.adapter.callback.CBAdapter
 import com.duongtung.cookingman.databinding.ItemSpecialFoodBinding
 import com.duongtung.cookingman.model.Post
+import com.duongtung.cookingman.model.Postres
 
-class PostHomeAdapter  : BaseAdapter<Post,ItemSpecialFoodBinding>(){
+class PostHomeAdapter  : BaseAdapter<Postres,ItemSpecialFoodBinding>(){
     private var callBack : PostCallback?= null
 
     fun setCallBack( callBack: PostCallback?){

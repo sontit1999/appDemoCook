@@ -87,6 +87,7 @@
 
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvReviews"
+                    app:fontFace="font-roboto-bold"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_20dp"

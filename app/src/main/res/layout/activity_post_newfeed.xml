@@ -74,7 +74,7 @@
                             android:id="@+id/iv_food"
                             android:layout_width="match_parent"
                             android:src="@drawable/gaixinh"
-                            android:layout_height="@dimen/height_image_itemtypefoodgit s"></ImageView>
+                            android:layout_height="@dimen/height_image_itemtypefood"></ImageView>
                     <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
@@ -89,6 +89,26 @@
                                 android:layout_height="match_parent"/>
                         <com.duongtung.cookingman.customview.CustomEditText
                                 android:id="@+id/edt_namerecipe"
+                                android:inputType="text"
+                                android:lines="1"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
+                    </LinearLayout>
+                    <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                        <com.duongtung.cookingman.customview.CustomTextView
+                                android:id="@+id/tv_linkimage"
+                                android:text="Link image:"
+                                android:layout_gravity="center"
+                                android:gravity="center"
+                                android:paddingHorizontal="@dimen/margin_10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"/>
+                        <com.duongtung.cookingman.customview.CustomEditText
+                                android:id="@+id/edt_linkimage"
                                 android:inputType="text"
                                 android:lines="1"
                                 android:layout_weight="1"

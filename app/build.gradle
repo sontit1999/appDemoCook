@@ -90,4 +90,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
     implementation 'com.bikomobile:circleindicatorpager:1.0.0'
     implementation 'jp.wasabeef:glide-transformations:4.0.0'
+    implementation 'com.github.denzcoskun:ImageSlideshow:0.0.6'
 }

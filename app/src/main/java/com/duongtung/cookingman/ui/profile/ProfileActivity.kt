@@ -2,6 +2,7 @@ package com.duongtung.cookingman.ui.profile
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -16,6 +17,7 @@ import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.Recipe
+import com.duongtung.cookingman.ui.postnew.PostNewActivity
 
 class ProfileActivity : BaseFragment<ActivityProfileBinding,ProfileActivityViewmodel>() {
     private var actionBarHomeOnClick: ActionBarListener? = null
@@ -56,6 +58,11 @@ class ProfileActivity : BaseFragment<ActivityProfileBinding,ProfileActivityViewm
     override fun setBindingViewModel() {
         binding.viewmodel = viewModel
         binding.user = CurentUser.user
+
+        binding.fabADD.setOnClickListener { startActivity(
+            Intent(context,
+                PostNewActivity::class.java)
+        ) }
     }
 
     override fun onResume() {
