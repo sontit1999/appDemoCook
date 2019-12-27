@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.duongtung.cookingman.R
@@ -37,7 +38,7 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list ->
             Log.d("count","1")
-            viewModel.adapter.setList(list)
+            viewModel.adapter.setList(list as MutableList<Postres>)
             binding.progressCircular.visibility = View.INVISIBLE
             viewModel.adapter.setCallBack(object : PostCallback{
                 override fun onImageFoodClick(view: View, post: Postres) {
@@ -80,22 +81,23 @@ class NewFeedsFragment : BaseFragment<FragmentNewfeedsBinding, NewFeedsViewModel
     }
     fun showBottomsheetDialog(post: Postres){
             var view = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_layout,null)
-//            var like : LinearLayout = view.findViewById(R.id.SaveLinearLayout)
-//            var delete : LinearLayout = view.findViewById(R.id.DeleteLinearLayout)
-//            var report : LinearLayout = view.findViewById(R.id.ReportLinearLayout)
+            var like : LinearLayout = view.findViewById(R.id.SaveLinearLayout)
+            var delete : LinearLayout = view.findViewById(R.id.DeleteLinearLayout)
+            var report : LinearLayout = view.findViewById(R.id.ReportLinearLayout)
             var bottomsheet = BottomSheetDialog(this.requireContext())
             bottomsheet.setContentView(view)
             bottomsheet.show()
-//            like.setOnClickListener {
-//                Log.d("test","like ${post.recipe.nameFood} ")
-//                bottomsheet.dismiss()
-//            }
-//            delete.setOnClickListener { Log.d("test","delete ${post.recipe.nameFood}")
-//                bottomsheet.dismiss()
-//            }
-//            report.setOnClickListener {
-//                Log.d("test","report ${post.recipe.nameFood}")
-//                bottomsheet.dismiss()
-//            }
+            like.setOnClickListener {
+                viewModel.addFavorite(post.idphoto,context!!)
+                bottomsheet.dismiss()
+            }
+            delete.setOnClickListener {
+                Toast.makeText(context,"You cannot delete ^^",Toast.LENGTH_LONG).show()
+                bottomsheet.dismiss()
+            }
+            report.setOnClickListener {
+                Toast.makeText(context,"Đã report cho ad sơn tít",Toast.LENGTH_LONG).show()
+                bottomsheet.dismiss()
+            }
     }
 }

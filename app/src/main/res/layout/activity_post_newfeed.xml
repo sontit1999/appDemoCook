@@ -17,7 +17,6 @@
                 android:paddingTop="30dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                android:paddingHorizontal="@dimen/actionbar_padding"
                 android:background="@color/colorActionbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -28,7 +27,6 @@
                     android:padding="@dimen/margin_20dp"
                     android:layout_alignParentLeft="true"
                     android:drawablePadding="@dimen/margin_10dp"
-                    android:layout_centerVertical="true"
                     android:layout_toRightOf="@+id/iv_navigation"
                     app:iconTextSize="@dimen/textsize_tvActionbar"
                     android:textSize="@dimen/textsize_tvActionbar"
@@ -38,6 +36,7 @@
                     android:layout_height="wrap_content"/>
             <ImageView
                     android:id="@+id/iv_logo"
+                    android:layout_marginTop="@dimen/margin_20dp"
                     android:layout_centerHorizontal="true"
                     android:layout_width="107dp"
                     android:layout_height="64dp"
@@ -51,7 +50,6 @@
                     android:layout_marginRight="5dp"
                     android:layout_alignParentRight="true"
                     android:drawablePadding="@dimen/margin_10dp"
-                    android:layout_centerVertical="true"
                     android:textSize="@dimen/textsize_tvActionbar"
                     android:layout_marginLeft="5dp"
                     android:textColor="@color/white"
@@ -72,9 +70,10 @@
                         android:layout_height="wrap_content">
                     <ImageView
                             android:id="@+id/iv_food"
+                            android:scaleType="center"
                             android:layout_width="match_parent"
                             android:src="@drawable/gaixinh"
-                            android:layout_height="@dimen/height_image_itemtypefood"></ImageView>
+                            android:layout_height="300dp"></ImageView>
                     <LinearLayout
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
@@ -99,26 +98,6 @@
                             android:orientation="horizontal"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                        <com.duongtung.cookingman.customview.CustomTextView
-                                android:id="@+id/tv_linkimage"
-                                android:text="Link image:"
-                                android:layout_gravity="center"
-                                android:gravity="center"
-                                android:paddingHorizontal="@dimen/margin_10dp"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"/>
-                        <com.duongtung.cookingman.customview.CustomEditText
-                                android:id="@+id/edt_linkimage"
-                                android:inputType="text"
-                                android:lines="1"
-                                android:layout_weight="1"
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"/>
-                    </LinearLayout>
-                    <LinearLayout
-                            android:orientation="horizontal"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
                         <com.duongtung.cookingman.customview.TextViewWithFontAwesome
                                 android:id="@+id/tv_time"
                                 app:iconLeft="@string/icon_clock"
@@ -130,7 +109,7 @@
                                 android:layout_height="wrap_content"/>
                         <com.duongtung.cookingman.customview.CustomEditText
                                 android:id="@+id/edt_timecomplete"
-                                android:inputType="number"
+                                android:inputType="text"
                                 android:lines="1"
                                 android:layout_marginLeft="@dimen/margin_10dp"
                                 android:layout_width="50dp"
@@ -157,6 +136,13 @@
                                 android:paddingHorizontal="@dimen/margin_10dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"/>
+                        <com.duongtung.cookingman.customview.CustomEditText
+                                android:id="@+id/edt_caption"
+                                android:inputType="textCapSentences|textMultiLine"
+                                android:height="150dp"
+                                android:layout_weight="1"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"/>
                     </LinearLayout>
                     <LinearLayout
                             android:orientation="horizontal"
@@ -172,11 +158,10 @@
                                 android:layout_height="match_parent"/>
                         <com.duongtung.cookingman.customview.CustomEditText
                                 android:id="@+id/edt_ingre"
-                                android:inputType="text"
-                                android:lines="1"
+                                android:inputType="textMultiLine|textCapSentences"
                                 android:layout_weight="1"
                                 android:layout_width="0dp"
-                                android:layout_height="wrap_content"/>
+                                android:layout_height="100dp"/>
                     </LinearLayout>
                     <LinearLayout
                             android:id="@+id/contaimer_make"
@@ -214,5 +199,14 @@
                 </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
+        <ProgressBar
+                android:id="@+id/pb_loadding"
+                android:visibility="invisible"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

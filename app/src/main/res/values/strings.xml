@@ -22,6 +22,7 @@
     </string-array>
     <string name="fa_icon_comment">&#xf086;</string>
     <string name="welcom">Welcome to Cooking Man</string>
+    <string name="signup">Sign up to Cooking Man</string>
     <string name="sendEmail">We have send you an email</string>
     <string name="sendEmailwithlink">We have send you an email with a link to change your account password</string>
     <string name="avalible">Availible Ingredients</string>

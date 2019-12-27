@@ -38,6 +38,9 @@ import android.os.Bundle
 import android.speech.RecognizerIntent
 import android.util.Log
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
+import com.duongtung.cookingman.adapter.SlideCallback
+import com.duongtung.cookingman.callback.CallbackHomeActivity
 import com.duongtung.cookingman.callback.VoiceCallback
 import com.duongtung.cookingman.customview.imageslide.ItemImageSlide
 import com.duongtung.cookingman.fragment.detailcook.DetailCookFragment
@@ -52,8 +55,7 @@ import java.lang.Exception
 import java.util.*
 
 
-class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener,VoiceCallback {
-    private lateinit var loginres : LoginRes
+class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionBarListener,VoiceCallback{
     private lateinit var controller: NavController
 
     private lateinit var navHostFragment: Fragment
@@ -125,7 +127,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
                 action = null
                 favoriteActionBar()
                 binding.actionbar.tvCenter.visibility = View.VISIBLE
-                binding.actionbar.tvRight.visibility = View.VISIBLE
+                binding.actionbar.tvRight.visibility = View.INVISIBLE
             }
             is DetailCookFragment->{
                 action = null
@@ -168,6 +170,7 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
     override fun getLayout() = R.layout.activity_home
 
     override fun setBindingViewModel() {
+
         binding.navHeader.user = CurentUser.user
         binding.viewModel = viewModel
         binding.actionbar.appBarLayout.addOnOffsetChangedListener(getListener)
@@ -274,7 +277,12 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }
         binding.actionbar.ivSearch.setOnClickListener {
+            var keyword = binding.actionbar.etSearch.text.toString()
             binding.actionbar.searchLayout.visibility = View.GONE
+            Log.d("log",keyword)
+            var bunde = Bundle()
+            bunde.putString("keyword",keyword)
+            controller.navigate(R.id.SearchResultFragment,bunde)
         }
     }
 
@@ -287,11 +295,16 @@ class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>(), ActionB
             this
         )
         binding.actionbar.tvRight.setOnClickListener {
-
             binding.actionbar.searchLayout.visibility = View.VISIBLE
         }
         binding.actionbar.ivSearch.setOnClickListener {
+            var keyword = binding.actionbar.etSearch.text.toString()
             binding.actionbar.searchLayout.visibility = View.GONE
+            Log.d("log",keyword)
+            var bunde = Bundle()
+            bunde.putString("keyword",keyword)
+            controller.navigate(R.id.SearchResultFragment,bunde)
+
         }
     }
     private fun detailcookActionBar() {

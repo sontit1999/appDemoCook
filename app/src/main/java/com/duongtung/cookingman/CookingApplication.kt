@@ -24,7 +24,7 @@ class CookingApplication : BaseApplication() {
             .createService(RecipeAPIs::class.java)
 
         localApi = BaseRepository.instance.getContext(this)!!
-            .setBaseUrl("http://192.168.28.105/cookingman/public/api/")!!
+            .setBaseUrl("http://192.168.35.106/api/")!!
             .createService(FoodService::class.java)
 
     }

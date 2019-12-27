@@ -14,6 +14,8 @@ import com.denzcoskun.imageslider.interfaces.ItemClickListener
 import com.denzcoskun.imageslider.models.SlideModel
 import com.duongtung.cookingman.R
 import com.duongtung.cookingman.adapter.PostCallback
+import com.duongtung.cookingman.adapter.SlideCallback
+import com.duongtung.cookingman.adapter.SliderAdapterExample
 import com.duongtung.cookingman.base.BaseFragment
 import com.duongtung.cookingman.callback.VoiceCallback
 import com.duongtung.cookingman.customview.imageslide.ViewPagerAdapter
@@ -21,9 +23,11 @@ import com.duongtung.cookingman.databinding.FragmentHomeBinding
 import com.duongtung.cookingman.model.Post
 import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.User
+import java.util.ArrayList
 
 
-class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() {
+class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>(){
+    var adapter  = SliderAdapterExample(context)
     private var actionBarHomeOnClick: ActionBarListener? = null
     private var listener : VoiceCallback? = null
     override fun onAttach(context: Context) {
@@ -44,15 +48,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
             Log.d("test","click micro")
             listener?.tvSearchClick()
         }
-
+        binding.imageSlider.sliderAdapter = adapter
+        binding.imageSlider.scrollTimeInSec = 3
     }
 
 
 
     override fun viewCreated() {
         viewModel.getArrPost().observe(this, Observer { list->
-            viewModel.adapter.setList(list)
-            viewModel.adapter.setCallBack(object : PostCallback{
+            adapter.setlist( list.shuffled().take(6) as ArrayList<Postres>?)
+        })
+        viewModel.getSpecial().observe(this, Observer { list->
+            viewModel.adapterSpecial.setList(list.shuffled().take(10) as MutableList<Postres>)
+            viewModel.adapterSpecial.setCallBack(object : PostCallback{
                 override fun onImageFoodClick(view: View, post: Postres) {
                     val bundle = Bundle()
                     bundle.putSerializable("post", post)
@@ -71,9 +79,26 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
                 }
             })
         })
+        viewModel.getDrink().observe(this, Observer { list->
+            viewModel.adapterDrink.setList(list.shuffled().take(10) as MutableList<Postres>)
+            viewModel.adapterDrink.setCallBack(object : PostCallback{
+                override fun onImageFoodClick(view: View, post: Postres) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("post", post)
+                    // CurentUser.post = post
+                    findNavController().navigate(R.id.detailCookFragment,bundle)
 
-        viewModel.getImagelist().observe(this, Observer { list->
-            binding.imageSlider.setImageList(list)
+                }
+
+                override fun onAvatarClick(view: View, post: Postres) {
+                    val bundle = Bundle()
+                    bundle.putSerializable("post", post)
+                    findNavController().navigate(R.id.profileFragment,bundle)
+                }
+
+                override fun onMoreClick(view: View, post: Postres) {
+                }
+            })
         })
     }
 
@@ -82,6 +107,4 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomeFragmentViewModel>() 
         super.onResume()
         actionBarHomeOnClick!!.onResumeFragment(this)
     }
-
-
 }

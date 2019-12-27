@@ -17,6 +17,10 @@ import retrofit2.http.Query;
 public interface DemoApi {
     @GET("newfeed.php")
     Call<List<Postres>> getPost();
+    @GET("drink.php")
+    Call<List<Postres>> getDrink();
+    @GET("foodspecial.php")
+    Call<List<Postres>> getSpecialFood();
     @GET("getcomment.php")
     Call<List<Comment>> getComment(@Query("postid") String postid);
     @GET("getpost.php")
@@ -42,4 +46,13 @@ public interface DemoApi {
     @FormUrlEncoded
     @POST("addpost.php")
     Call<String> addpost(@Field("namereipe") String namereipe, @Field("caption") String caption,@Field("image") String image,@Field("ingredient") String ingredient,@Field("howtocook") String howtocook,@Field("userid") String userid,@Field("menuid") String menuid,@Field("timecomplete") String timecomplete);
+    @FormUrlEncoded
+    @POST("register.php")
+    Call<String> Register(@Field("emails") String emails, @Field("passwords") String passwords,@Field("nickname") String nickname,@Field("description") String description,@Field("linkavatar") String linkavatar);
+    @FormUrlEncoded
+    @POST("upload.php")
+    Call<String> upload(@Field("image") String stringImage);
+    @FormUrlEncoded
+    @POST("updateImage.php")
+    Call<String> updateProfile(@Field("id") String id,@Field("type") String type,@Field("image") String image);
 }

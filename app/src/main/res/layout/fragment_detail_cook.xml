@@ -24,10 +24,25 @@
                     android:id="@+id/iv_food"
                     imageUrl="@{post.image}"
                     android:layout_marginTop="@dimen/itemTypeFood_image_size"
+                    android:scaleType="center"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp"/>
+                    android:layout_height="300dp"/>
+            <com.duongtung.cookingman.customview.CustomTextView
+                    android:id="@+id/tvname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_30dp"
+                    android:layout_marginStart="@dimen/margin_20dp"
+                    android:layout_marginLeft="@dimen/margin_20dp"
+                    android:text="@{post.namereipe}"
+                    android:textColor="@color/colorRed"
+                    android:textSize="@dimen/textsize_title_home"
+                    app:fontFace="font-roboto-bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iv_food" />
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvIngredients"
                     android:layout_width="wrap_content"
@@ -40,7 +55,7 @@
                     android:textSize="@dimen/textsize_title_home"
                     app:fontFace="font-roboto-bold"
                     app:layout_constraintLeft_toLeftOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/iv_food" />
+                    app:layout_constraintTop_toBottomOf="@id/tvname" />
 
             <com.duongtung.cookingman.customview.CustomTextView
                     android:id="@+id/tvGredient"

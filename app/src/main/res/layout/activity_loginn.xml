@@ -130,7 +130,7 @@
                         android:layout_height="wrap_content">
                 </com.duongtung.cookingman.customview.CustomTextView>
                 <com.duongtung.cookingman.customview.CustomTextView
-                        android:id="@+id/btnsignUp"
+                        android:id="@+id/tvsignUp"
                         android:text="@string/signin"
                         android:textColor="@color/colorBlack"
                         android:layout_marginLeft="@dimen/itemRecipe_marginLeft"

@@ -1,6 +1,7 @@
 package com.duongtung.cookingman.ui.postnew
 
 import android.content.Context
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.duongtung.cookingman.base.ui.base.BaseViewModel
@@ -20,7 +21,7 @@ class PostNewViewmodel : BaseViewModel(){
         val call = callapi.addpost(namereipe,caption,image,ingredient,howtocook,CurentUser.user.id,menuid,timecomplete)
         call.enqueue(object : Callback<String> {
             override fun onFailure(call: Call<String>, t: Throwable) {
-
+                statuspost.postValue("fail")
             }
 
             override fun onResponse(call: Call<String>, response: Response<String>) {
@@ -28,7 +29,7 @@ class PostNewViewmodel : BaseViewModel(){
                     Toast.makeText(context,"Đã đăng",Toast.LENGTH_LONG).show()
                     statuspost.postValue("succes")
                 }else{
-                    Toast.makeText(context,"Lỗi. chưa đăng đc",Toast.LENGTH_LONG).show()
+                    Toast.makeText(context,response.message().toString(),Toast.LENGTH_LONG).show()
                 }
             }
         })
@@ -36,4 +37,5 @@ class PostNewViewmodel : BaseViewModel(){
     fun getStatus(): MutableLiveData<String> {
         return statuspost
     }
+
 }

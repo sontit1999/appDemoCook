@@ -13,7 +13,11 @@ import retrofit2.Response
 
 class HomeFragmentViewModel : BaseViewModel(){
     var adapter = PostHomeAdapter()
+    var adapterDrink = PostHomeAdapter()
+    var adapterSpecial = PostHomeAdapter()
     private var arrPost = MutableLiveData<MutableList<Postres>>()
+    private var arrDink = MutableLiveData<MutableList<Postres>>()
+    private var arrSpecial = MutableLiveData<MutableList<Postres>>()
     private var imageList = MutableLiveData<MutableList<SlideModel>>()
     fun getArrPost(): MutableLiveData<MutableList<Postres>> {
         val retrofit = APIClient.getClient()
@@ -27,17 +31,49 @@ class HomeFragmentViewModel : BaseViewModel(){
             override fun onResponse(call: Call<List<Postres>>, response: Response<List<Postres>>) {
                 Log.d("test",response.body()!!.size.toString())
                 arrPost.postValue(response.body()!!.reversed().toMutableList())
+                var list : MutableList<SlideModel>  = mutableListOf()
+                for( i in response.body()!!){
+                    if(!i.image.equals("") && !i.namereipe.equals(""))
+                    list.add(SlideModel(i.image,i.namereipe,true))
+                }
+                imageList.postValue(list)
             }
         })
         return arrPost
     }
     fun getImagelist(): MutableLiveData<MutableList<SlideModel>> {
-        var list = listOf<SlideModel>(
-            SlideModel("https://1.bp.blogspot.com/-GUZsgr8my50/XJUWOhyHyaI/AAAAAAAABUo/bljp3LCS3SUtj-judzlntiETt7G294WcgCLcBGAs/s1600/fox.jpg", "Foxes live wild in the city.", true),
-            SlideModel("https://2.bp.blogspot.com/-CyLH9NnPoAo/XJUWK2UHiMI/AAAAAAAABUk/D8XMUIGhDbwEhC29dQb-7gfYb16GysaQgCLcBGAs/s1600/tiger.jpg","Sơn dz"),
-            SlideModel("https://3.bp.blogspot.com/-uJtCbNrBzEc/XJUWQPOSrfI/AAAAAAAABUs/ZlReSwpfI3Ack60629Rv0N8hSrPFHb3TACLcBGAs/s1600/elephant.jpg", "The population of elephants is decreasing in the world.")
-        ).toMutableList()
-        imageList.postValue(list)
         return imageList
+    }
+    fun getDrink(): MutableLiveData<MutableList<Postres>> {
+        val retrofit = APIClient.getClient()
+        val callapi = retrofit.create(DemoApi::class.java)
+        val call = callapi.drink
+        call.enqueue(object : Callback<List<Postres>> {
+            override fun onFailure(call: Call<List<Postres>>, t: Throwable) {
+                Log.d("test",t.message.toString())
+            }
+
+            override fun onResponse(call: Call<List<Postres>>, response: Response<List<Postres>>) {
+                Log.d("test",response.body()!!.size.toString())
+                arrDink.postValue(response.body() as MutableList<Postres>?)
+            }
+        })
+        return arrDink
+    }
+    fun getSpecial(): MutableLiveData<MutableList<Postres>> {
+        val retrofit = APIClient.getClient()
+        val callapi = retrofit.create(DemoApi::class.java)
+        val call = callapi.specialFood
+        call.enqueue(object : Callback<List<Postres>> {
+            override fun onFailure(call: Call<List<Postres>>, t: Throwable) {
+                Log.d("test",t.message.toString())
+            }
+
+            override fun onResponse(call: Call<List<Postres>>, response: Response<List<Postres>>) {
+                Log.d("test",response.body()!!.size.toString())
+                arrSpecial.postValue(response.body() as MutableList<Postres>?)
+            }
+        })
+        return arrSpecial
     }
 }

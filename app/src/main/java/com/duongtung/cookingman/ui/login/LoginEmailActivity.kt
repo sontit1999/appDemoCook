@@ -13,6 +13,7 @@ import com.duongtung.cookingman.databinding.ActivityLoginnBinding
 import com.duongtung.cookingman.databinding.ActivityLoginnBindingImpl
 import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.ui.home.HomeActivity
+import com.duongtung.cookingman.ui.register.RegisterAcitvity
 import kotlinx.android.synthetic.main.activity_loginn.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 
@@ -44,6 +45,9 @@ class LoginEmailActivity : BaseActivity<ActivityLoginnBinding,LoginEmailViewMode
                Toast.makeText(baseContext,"Tài khoản hoặc mật khẩu không chính xác!",Toast.LENGTH_LONG).show()
            }
         })
+        binding.tvsignUp.setOnClickListener {
+            goToActivity(RegisterAcitvity::class.java, null,  null )
+        }
     }
 
 }

@@ -9,6 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class APIClient {
     private static final String BASE_URL = "http://192.168.28.105/api/";
+    private static final String BASE_URL_home = "http://192.168.35.106/api/";
 
     private static Retrofit retrofit = null;
 
@@ -19,7 +20,7 @@ public class APIClient {
                 .setLenient()
                 .create();
         retrofit = new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(BASE_URL_home)
                 .client(httpClient)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();

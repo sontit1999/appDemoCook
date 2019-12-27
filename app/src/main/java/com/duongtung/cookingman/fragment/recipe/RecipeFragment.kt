@@ -2,6 +2,7 @@ package com.duongtung.cookingman.fragment.recipe
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -17,6 +18,7 @@ import com.duongtung.cookingman.databinding.FragmentRecipeBinding
 import com.duongtung.cookingman.fragment.home.ActionBarListener
 import com.duongtung.cookingman.model.Postres
 import com.duongtung.cookingman.model.Recipe
+import com.duongtung.cookingman.ui.postnew.PostNewActivity
 
 
 class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
@@ -36,7 +38,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
         actionBarHomeOnClick!!.initFragment(this)
         binding.viewmodel = viewModel
         binding.fabADD.setOnClickListener {
-            Log.d("test","chuyển đến màn đăng món ăn")
+            activity!!.startActivity(Intent(context,PostNewActivity::class.java))
         }
 
 
@@ -45,7 +47,7 @@ class RecipeFragment : BaseFragment<FragmentRecipeBinding, RecipeViewModel> (){
 
     override fun viewCreated() {
         viewModel.getpost().observe(this, Observer { list->
-            viewModel.adapter.setList(list)
+            viewModel.adapter.setList(list.shuffled().take(20) as MutableList<Postres>)
             binding.pgLoading.visibility = View.GONE
             viewModel.adapter.setCallBack(object : RecipCallback{
                 override fun onAuthorClick(view: View,post: Postres ) {
