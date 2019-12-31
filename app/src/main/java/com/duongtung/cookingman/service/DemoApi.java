@@ -2,15 +2,20 @@ package com.duongtung.cookingman.service;
 
 import com.duongtung.cookingman.model.Comment;
 import com.duongtung.cookingman.model.Postres;
+import com.duongtung.cookingman.model.Response;
 import com.duongtung.cookingman.model.login.LoginRes;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -45,7 +50,7 @@ public interface DemoApi {
     Call<Comment> addComment(@Field("content") String content, @Field("postid") String postid,@Field("userid") String userid);
     @FormUrlEncoded
     @POST("addpost.php")
-    Call<String> addpost(@Field("namereipe") String namereipe, @Field("caption") String caption,@Field("image") String image,@Field("ingredient") String ingredient,@Field("howtocook") String howtocook,@Field("userid") String userid,@Field("menuid") String menuid,@Field("timecomplete") String timecomplete);
+    Call<Response> addpost(@Field("namereipe") String namereipe, @Field("caption") String caption,@Field("image") String image,@Field("ingredient") String ingredient,@Field("howtocook") String howtocook,@Field("userid") String userid,@Field("menuid") String menuid,@Field("timecomplete") String timecomplete);
     @FormUrlEncoded
     @POST("register.php")
     Call<String> Register(@Field("emails") String emails, @Field("passwords") String passwords,@Field("nickname") String nickname,@Field("description") String description,@Field("linkavatar") String linkavatar);
@@ -55,4 +60,7 @@ public interface DemoApi {
     @FormUrlEncoded
     @POST("updateImage.php")
     Call<String> updateProfile(@Field("id") String id,@Field("type") String type,@Field("image") String image);
+    @Multipart
+    @POST("upload.php")
+    Call<Response> uploadAttachment(@Part MultipartBody.Part filePart);
 }

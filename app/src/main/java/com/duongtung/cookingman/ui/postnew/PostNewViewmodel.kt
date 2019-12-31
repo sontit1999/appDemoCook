@@ -19,19 +19,22 @@ class PostNewViewmodel : BaseViewModel(){
         val retrofit = APIClient.getClient()
         val callapi = retrofit.create(DemoApi::class.java)
         val call = callapi.addpost(namereipe,caption,image,ingredient,howtocook,CurentUser.user.id,menuid,timecomplete)
-        call.enqueue(object : Callback<String> {
-            override fun onFailure(call: Call<String>, t: Throwable) {
-                statuspost.postValue("fail")
+        call.enqueue(object : Callback<com.duongtung.cookingman.model.Response> {
+            override fun onFailure(
+                call: Call<com.duongtung.cookingman.model.Response>,
+                t: Throwable
+            ) {
+                Log.d("ahihi","fail")
             }
 
-            override fun onResponse(call: Call<String>, response: Response<String>) {
-                if(response.body().toString().equals("succes")){
-                    Toast.makeText(context,"Đã đăng",Toast.LENGTH_LONG).show()
-                    statuspost.postValue("succes")
-                }else{
-                    Toast.makeText(context,response.message().toString(),Toast.LENGTH_LONG).show()
-                }
+            override fun onResponse(
+                call: Call<com.duongtung.cookingman.model.Response>,
+                response: Response<com.duongtung.cookingman.model.Response>
+            ) {
+                Log.d("ahihi","succes")
+                statuspost.postValue("succes")
             }
+
         })
     }
     fun getStatus(): MutableLiveData<String> {

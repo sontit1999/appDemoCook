@@ -1,8 +1,14 @@
 package com.duongtung.cookingman.ui.postnew
 
+import android.Manifest
+import android.Manifest.permission.READ_EXTERNAL_STORAGE
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Bitmap
+import android.net.Uri
+import android.os.Build
 import android.provider.MediaStore
+import android.provider.Settings
 import android.util.Base64
 import android.util.Log
 import android.view.View
@@ -11,6 +17,8 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
 import com.duongtung.cookingman.R
@@ -20,30 +28,34 @@ import com.duongtung.cookingman.databinding.ActivityPostNewfeedBinding
 import com.duongtung.cookingman.model.APIClient
 import com.duongtung.cookingman.model.CurentUser
 import com.duongtung.cookingman.service.DemoApi
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.io.ByteArrayOutputStream
+import java.io.File
 import java.io.IOException
+import java.net.URI
 
 
 class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel>() {
     private val GALLERY = 1
+    private val RECORD_REQUEST_CODE = 101
     var imageString : String = ""
     override fun getViewMode() = PostNewViewmodel::class.java
 
     override fun getLayout() = R.layout.activity_post_newfeed
 
     override fun setBindingViewModel() {
+        setupPermissions()
       //  prepareView()
         binding.viewmodel = viewModel
 
-       Glide.with(this).load("https://www.simplyrecipes.com/wp-content/uploads/2010/05/chili-dog-horiz-a-1600.jpg").into(binding.ivFood)
 
-        val listItem: ArrayList<String> = arrayListOf("Nước uống", "Món chính", "Món tráng miệng")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listItem)
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        binding.spincountry.adapter = adapter
+        setupSpinner()
 
         binding.tvReturn.setOnClickListener { finish() }
 
@@ -66,6 +78,13 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         })
     }
 
+    private fun setupSpinner() {
+        val listItem: ArrayList<String> = arrayListOf("Nước uống", "Món chính", "Món tráng miệng")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, listItem)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spincountry.adapter = adapter
+    }
+
     override fun getToolbar(): Toolbar? {
        return null
     }
@@ -82,19 +101,7 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         editText.setLayoutParams(layoutParams)
         binding.contaimerMake.addView(editText)
     }
-    fun prepareView(){
-        // add edittext
-        val editText = CustomEditText(this)
-        val layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.WRAP_CONTENT,
-            LinearLayout.LayoutParams.WRAP_CONTENT
-        )
-        layoutParams.setMargins(0, 0, 0, 0)
-        editText.setLayoutParams(layoutParams)
 
-        binding.containerCaption.addView(editText)
-        Add_Line()
-    }
     fun addPost(){
         var make: String = ""
         var caption: String = binding.edtCaption.text.toString()
@@ -115,14 +122,7 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
                 }
             }
         }
-        // get caption
-//        for (i in 1..binding.containerCaption.childCount-1) {
-//            val view: View = binding.containerCaption.getChildAt(i)
-//            if(view is EditText){
-//                val edt = view as EditText
-//                caption = caption.plus(edt.text.toString())
-//            }
-//        }
+
         // get type food
         when(binding.spincountry.selectedItem.toString()){
             "Món tráng miệng" -> menuid = "2"
@@ -143,7 +143,6 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         val galleryIntent = Intent(
             Intent.ACTION_PICK,
             MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-
         startActivityForResult(galleryIntent, GALLERY)
 
     }
@@ -154,6 +153,11 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
             if (data != null)
             {
                 val contentURI = data.data
+
+//                Log.d("data",data.data.toString())
+//                Log.d("data",getRealPathFromURI(data.data!!))
+                  imageString = getRealPathFromURI(data.data!!)
+                  uploadFile(imageString)
                 try
                 {
                     val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, contentURI)
@@ -176,5 +180,71 @@ class PostNewActivity : BaseActivity<ActivityPostNewfeedBinding,PostNewViewmodel
         val imageBytes = baos.toByteArray()
         return Base64.encodeToString(imageBytes, Base64.NO_WRAP)
     }
+    fun uploadFile(filepath:String){
+        var file = File(filepath)
+        var filePart:MultipartBody.Part = MultipartBody.Part.createFormData("file",
+            file.name, RequestBody.create(MediaType.parse("image/*"), file))
+        val retrofit = APIClient.getClient()
+        val callapi = retrofit.create(DemoApi::class.java)
+        val call = callapi.uploadAttachment(filePart)
+        call.enqueue(object : Callback<com.duongtung.cookingman.model.Response>{
+            override fun onFailure(
+                call: Call<com.duongtung.cookingman.model.Response>,
+                t: Throwable
+            ) {
+                Log.d("ahihi","ko thành công do " + t.message.toString())
+            }
 
+            override fun onResponse(
+                call: Call<com.duongtung.cookingman.model.Response>,
+                response: Response<com.duongtung.cookingman.model.Response>
+            ) {
+                Log.d("ahihi","thành công:" + response.body()!!.link)
+            }
+        })
+    }
+
+     fun getRealPathFromURI(contentURI:Uri) : String {
+        var filePath:String = ""
+        var cursor = contentResolver.query(contentURI, null, null, null, null);
+        if (cursor == null) {
+            filePath = contentURI.path.toString()
+        } else {
+            cursor.moveToFirst()
+            var idx : Int = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+            filePath = cursor.getString(idx)
+            cursor.close()
+        }
+        return filePath
+    }
+    private fun setupPermissions() {
+        val permission = ContextCompat.checkSelfPermission(this,
+            READ_EXTERNAL_STORAGE)
+
+        if (permission != PackageManager.PERMISSION_GRANTED) {
+            Toast.makeText(this,"chưa cấp quyền",Toast.LENGTH_LONG).show()
+            makeRequest()
+        }else{
+            Toast.makeText(this,"Đã cấp quyền",Toast.LENGTH_LONG).show()
+        }
+    }
+    private fun makeRequest() {
+        ActivityCompat.requestPermissions(this,
+            arrayOf(READ_EXTERNAL_STORAGE),
+            RECORD_REQUEST_CODE)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int,
+                                            permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            RECORD_REQUEST_CODE -> {
+
+                if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+                    Log.i("ahihi", "Permission has been denied by user")
+                } else {
+                    Log.i("ahihi", "Permission has been granted by user")
+                }
+            }
+        }
+    }
 }

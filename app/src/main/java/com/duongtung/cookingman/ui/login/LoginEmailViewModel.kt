@@ -13,7 +13,6 @@ import retrofit2.Response
 class LoginEmailViewModel  : BaseViewModel(){
     private var statusLogin = MutableLiveData<LoginRes>()
     fun login(email:String,password:String){
-        Log.d("respon","on login")
         val retrofit = APIClient.getClient()
         val callapi = retrofit.create(DemoApi::class.java)
         val call = callapi.login(email,password)
